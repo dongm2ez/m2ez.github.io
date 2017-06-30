@@ -1,6 +1,5 @@
 ---
-layout: default
-title: 我的Blog
+title: 麦索的麦田
 ---
 
 
