@@ -1,6 +1,8 @@
 
 ---
-title: PHP 实现 Enum 限定参数类型
+
+title: PHP 用 Enum 限定参数类型
+
 ---
 
 ### 痛点
