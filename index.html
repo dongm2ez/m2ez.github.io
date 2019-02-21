@@ -7,7 +7,7 @@ title: 麦索的麦田
   <h1>Blog Posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
-      <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+      <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <span>{% for tag in post.tags %} #{{ tag }} {% endfor %}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
 </div>

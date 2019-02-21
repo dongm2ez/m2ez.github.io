@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 你好，世界
+categories: essays
+tags: 随笔
 ---
 
 你好世界，这是我的第一篇静态博客文章，之前用过免费空间，也自己写过博客程序，现在我用 github page 。
