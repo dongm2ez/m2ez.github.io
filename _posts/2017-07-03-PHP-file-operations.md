@@ -1,6 +1,8 @@
 ---
 layout: post
 title: PHP 文件操作的各种姿势
+categories: development
+tags: [PHP, File, IO]
 ---
 
 ## 使用 SPL 库
