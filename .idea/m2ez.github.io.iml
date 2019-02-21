@@ -220,6 +220,19 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="jekyll-archives (vbundled(2.1.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="3" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/jekyll-archives-2.1.1/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.3.0/gems/jekyll-archives-2.1.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="jekyll-paginate (vbundled(1.1.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="3" />
@@ -651,6 +664,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.0.1, ruby-2.3.7-p456) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rake (v10.4.2, ruby-2.3.7-p456) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v12.3.2, ruby-2.3.7-p456) [gem]" level="application" />
   </component>
 </module>
