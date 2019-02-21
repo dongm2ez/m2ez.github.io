@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> 使用 Docker 完成 MySQL 数据库主从配置 </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> 麦索的麦田 </h1>
+        <h2>Nothing is impossible</h2>
+        <a href="/" class="button"><small>go back</small>Index</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <h2>使用 Docker 完成 MySQL 数据库主从配置</h2>
+<p class="meta">2017-11-04</p>
+
+<p>使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行部署的时候我还踩了许多坑。</p>
+
+<p>因此根据我自己部署成功的经验，我写了这个文档。</p>
+
+<p>使用 docker 自然就需要有 docker 环境，当然 docker 的镜像在国内访问比较慢，建议使用国内的源。</p>
+
+<h2 id="构建-dockerfile">构建 DockerFile</h2>
+
+<p>我们的工作是在 Mysql 镜像基础上进行的。</p>
+
+<p><code class="highlighter-rouge">docker pull mysql:5.7.20</code> 这条命令会下载最新的 mysql 镜像，当然也可以指定版本。</p>
+
+<p>新建一个 DockerFile 文件：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM mysql:5.7.20
+
+EXPOSE 3306
+
+COPY my.cnf /etc/mysql/
+
+CMD ["mysqld"]
+</code></pre></div></div>
+
+<p>在构建镜像前，我们需要 mysql 的配置文件 my.cnf ，可以先启动一个 mysql 的容器，然后进入容器复制它下来，并对其进行修改：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>!includedir /etc/mysql/conf.d/
+[mysqld]
+pid-file=/var/run/mysqld/mysqld.pid
+socket=/var/run/mysqld/mysqld.sock
+datadir=/var/lib/mysql
+#log-error=/var/log/mysql/error.log
+# By default we only accept connections from localhost
+#bind-address	= 127.0.0.1
+log-bin=/var/log/mysql/mysql-bin.index
+server-id=1
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+</code></pre></div></div>
+
+<p>以上是我修改好的一个 my.conf 文件，我们主要修改的是以下这些选项：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#bind-address	= 127.0.0.1 # 注释这个选项可以让远程机器访问，或者可以修改为 0.0.0.0
+log-bin=/var/log/mysql/mysql-bin.index # 开启 log-bin 日志，日志路径
+server-id=1 # 服务器唯一ID，默认是1，一般取IP最后一段，这里看情况分配
+</code></pre></div></div>
+
+<p>这是我的主库的 <code class="highlighter-rouge">my.cnf</code>，从库的基本一样，只是 <code class="highlighter-rouge">servier-id</code> 不一样，从库为 2，将这个文件也放在文件夹里。</p>
+
+<p>构建需要的文件结构就是以下这样：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>master
+├── Dockerfile
+└── my.cnf
+slave
+├── Dockerfile
+└── my.cnf
+</code></pre></div></div>
+
+<p>然后在master目录中使用 <code class="highlighter-rouge">docker build -t master/mysql:5.7.20 .</code> 命令构建镜像主库，从库构建命令 <code class="highlighter-rouge">docker build -t slave/mysql:5.7.20 .</code>。命令最后有个<code class="highlighter-rouge">.</code>，不要忘记，代表当前目录。-t 的意思是tag，是 –tag 的缩写，也就是命名这个镜像，如果不加docker会随机给这个镜像一个名字，建议格式为<code class="highlighter-rouge">name:tag</code></p>
+
+<p>构建完成后我们使用以下命令启动主库和从库：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -p 3306 --name mysql-master -e MYSQL_ROOT_PASSWORD=root -d master/mysql:5.7.20
+
+docker run -p 3306 --name mysql-slave --link mysql-master:master -e MYSQL_ROOT_PASSWORD=root -d slave/mysql:5.7.20
+</code></pre></div></div>
+
+<p>然后分别执行<code class="highlighter-rouge">docker exec -it mysql-master bash</code>和<code class="highlighter-rouge">docker exec -it slave-master bash</code>命令进入到容器内部。执行<code class="highlighter-rouge">mysql -uroot -proot</code>进入mysql环境，这时我们的环境搭建就已经完成了，下面正式配置主从连接。</p>
+
+<p>当然此时docker会分配一个唯一的端口给容器，我们也可以用mysql客户端连接进行配置。使用<code class="highlighter-rouge">docker ps</code>查看端口号，就可以用客户端连接进行管理。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>☁  mysql-master-slave  docker ps
+CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES
+6c7648e829e0        slave/mysql:5.7.20    <span class="s2">"docker-entrypoint..."</span>   4 minutes ago       Up 4 minutes        0.0.0.0:32769-&gt;3306/tcp   mysql-slave
+483842c63235        master/mysql:5.7.20   <span class="s2">"docker-entrypoint..."</span>   5 minutes ago       Up 5 minutes        0.0.0.0:32768-&gt;3306/tcp   mysql-master
+</code></pre></div></div>
+
+<p>使用<code class="highlighter-rouge">GRANT REPLICATION SLAVE ON *.* to 'user'@'%' identified by 'mysql';</code> 或者 <code class="highlighter-rouge">GRANT REPLICATION SLAVE ON *.* TO 'user'@'192.168.1.200' IDENTIFIED BY 'mysql';</code>创建一个用户，上一个是所有ip都可以访问，下一个是指定ip才可以访问。</p>
+
+<p>然后使用<code class="highlighter-rouge">GRANT SELECT,REPLICATION SLAVE ON *.* TO 'user'@'%';</code>给这个用户读取权限。</p>
+
+<p>使用<code class="highlighter-rouge">show master status</code>查看mysql主容器的状态，打印如下信息：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+------------------+----------+--------------+------------------+-------------------+
+| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++------------------+----------+--------------+------------------+-------------------+
+| mysql-bin.000003 |      154 |              |                  |                   |
++------------------+----------+--------------+------------------+-------------------+
+</code></pre></div></div>
+
+<p>使用<code class="highlighter-rouge">hostname</code>查看主容器的hostname，如我的主容器是<code class="highlighter-rouge">483842c63235</code>。</p>
+
+<p>接下来配置从库mysql：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>change master to
+master_host='master',#要连接的主服务器的ip
+master_user='user',#指定的用户名，最好不要用root
+master_log_file='mysql-bin.000003',#主库记录的值
+master_log_pos=154,#主库的pos值
+master_port=3306,#主库3306映射的端口
+master_password='mysql';#主库要连接的用户的密码了
+</code></pre></div></div>
+
+<p>使用<code class="highlighter-rouge">start slave</code>启动主从同步</p>
+
+<p>使用命令查看<code class="highlighter-rouge">show slave status\G</code></p>
+
+<p>打印如下信息：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*************************** 1. row ***************************
+               Slave_IO_State: Connecting to master
+                  Master_Host: master //主服务器地址
+                  Master_User: user //授权帐户名，尽量避免使用root
+                  Master_Port: 3306 //数据库端口，部分版本没有此行
+                Connect_Retry: 60
+              Master_Log_File: mysql-bin.000003 //同步主库的日志文件名
+          Read_Master_Log_Pos: 154 //同步读取二进制日志的位置，大于等于
+               Relay_Log_File: 6c7648e829e0-relay-bin.000001
+                Relay_Log_Pos: 4
+        Relay_Master_Log_File: mysql-bin.000003
+             Slave_IO_Running: Yes //此状态必须YES
+            Slave_SQL_Running: Yes //此状态必须YES
+              Replicate_Do_DB:
+          Replicate_Ignore_DB:
+           Replicate_Do_Table:
+       Replicate_Ignore_Table:
+      Replicate_Wild_Do_Table:
+  Replicate_Wild_Ignore_Table:
+                   Last_Errno: 0
+                   Last_Error:
+                 Skip_Counter: 0
+          Exec_Master_Log_Pos: 154
+              Relay_Log_Space: 154
+              Until_Condition: None
+               Until_Log_File:
+                Until_Log_Pos: 0
+           Master_SSL_Allowed: No
+           Master_SSL_CA_File:
+           Master_SSL_CA_Path:
+              Master_SSL_Cert:
+            Master_SSL_Cipher:
+               Master_SSL_Key:
+        Seconds_Behind_Master: NULL
+Master_SSL_Verify_Server_Cert: No
+                Last_IO_Errno: 0
+                Last_IO_Error:
+               Last_SQL_Errno: 0
+               Last_SQL_Error:
+  Replicate_Ignore_Server_Ids:
+             Master_Server_Id: 0
+                  Master_UUID:
+             Master_Info_File: /var/lib/mysql/master.info
+                    SQL_Delay: 0
+          SQL_Remaining_Delay: NULL
+      Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates
+           Master_Retry_Count: 86400
+                  Master_Bind:
+      Last_IO_Error_Timestamp:
+     Last_SQL_Error_Timestamp:
+               Master_SSL_Crl:
+           Master_SSL_Crlpath:
+           Retrieved_Gtid_Set:
+            Executed_Gtid_Set:
+                Auto_Position: 0
+         Replicate_Rewrite_DB:
+                 Channel_Name:
+           Master_TLS_Version:
+1 row in set (0.00 sec)
+</code></pre></div></div>
+
+<p>这样就是完成了一组主从mysql的配置。</p>
+
+<h3 id="shell脚本">shell脚本</h3>
+
+<p>一下一个相应的shell脚本，可以在1分钟能启动一组mysql主从容器，运行这个脚本需要稍作修改，主要是mysql配置文件。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">MASTER_DIR</span><span class="o">=</span>/var/lib/mysql/mysql-master
+<span class="nv">SLAVE_DIR</span><span class="o">=</span>/var/lib/mysql/mysql-slave
+
+<span class="c">## First we could rm the existed container</span>
+docker <span class="nb">rm</span> <span class="nt">-f</span> mysql-master
+docker <span class="nb">rm</span> <span class="nt">-f</span> mysql-slave
+
+<span class="c">## Rm the existed directory</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> <span class="nv">$MASTER_DIR</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> <span class="nv">$SLAVE_DIR</span>
+
+<span class="c">## Start instance</span>
+docker run <span class="nt">-p</span> 3306 <span class="nt">--name</span> mysql-master  <span class="nt">-v</span> /etc/master.cnf:/etc/mysql/my.cnf <span class="nt">-v</span> <span class="nv">$MASTER_DIR</span>:/var/lib/mysql <span class="nt">-e</span> <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root <span class="nt">-d</span> master/mysql:5.7.20
+docker run <span class="nt">-p</span> 3306 <span class="nt">--name</span> mysql-slave  <span class="nt">-v</span> /etc/slave.cnf:/etc/mysql/my.cnf <span class="nt">-v</span> <span class="nv">$MASTER_DIR</span>:/var/lib/mysql <span class="nt">--link</span> mysql-master:master <span class="nt">-e</span> <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root <span class="nt">-d</span> slave/mysql:5.7.20
+
+<span class="c">## Creating a User for Replication</span>
+docker stop mysql-master mysql-slave
+docker start mysql-master mysql-slave
+
+<span class="nb">sleep </span>3
+
+docker <span class="nb">exec</span> <span class="nt">-it</span> mysql-master mysql <span class="nt">-S</span> /var/lib/mysql/mysql.sock <span class="nt">-e</span> <span class="s2">"CREATE USER 'users'@'127.0.0.1' IDENTIFIED BY 'mysql';GRANT REPLICATION SLAVE ON *.* TO 'users'@'127.0.0.1';"</span>
+
+<span class="c">## Obtaining the Replication Master Binary Log Coordinates</span>
+<span class="nv">master_status</span><span class="o">=</span><span class="sb">`</span>docker <span class="nb">exec</span> <span class="nt">-it</span> master mysql <span class="nt">-S</span> /var/lib/mysql/mysql.sock <span class="nt">-e</span> <span class="s2">"show master status</span><span class="se">\G</span><span class="s2">"</span><span class="sb">`</span>
+<span class="nv">master_log_file</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$master_status</span><span class="s2">"</span> | <span class="nb">awk</span>  <span class="s1">'NR==2{print substr($2,1,length($2)-1)}'</span><span class="sb">`</span>
+<span class="nv">master_log_pos</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$master_status</span><span class="s2">"</span> | <span class="nb">awk</span> <span class="s1">'NR==3{print $2}'</span><span class="sb">`</span>
+<span class="nv">master_log_file</span><span class="o">=</span><span class="s2">"'""</span><span class="nv">$master_log_file</span><span class="s2">""'"</span>
+
+<span class="c">## Setting Up Replication Slaves </span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> mysql-slave mysql <span class="nt">-S</span> /var/lib/mysql/mysql.sock <span class="nt">-e</span> <span class="s2">"CHANGE MASTER TO MASTER_HOST='master',MASTER_PORT=3306,MASTER_USER='users',MASTER_PASSWORD='mysql',MASTER_LOG_FILE=</span><span class="nv">$master_log_file</span><span class="s2">,MASTER_LOG_POS=</span><span class="nv">$master_log_pos</span><span class="s2">;"</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> mysql-slave mysql <span class="nt">-S</span> /var/lib/mysql/mysql.sock <span class="nt">-e</span> <span class="s2">"start slave;"</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> mysql-slave mysql <span class="nt">-S</span> /var/lib/mysql/mysql.sock <span class="nt">-e</span> <span class="s2">"show slave status</span><span class="se">\G</span><span class="s2">"</span>
+
+<span class="c">## Creates shortcuts</span>
+<span class="nb">grep</span> <span class="s2">"alias mysql-master"</span> /etc/profile
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="nt">-eq</span> 1 <span class="o">]</span><span class="p">;</span><span class="k">then
+    </span><span class="nb">echo</span> <span class="s1">'alias mysql="docker exec -it mysql-master mysql"'</span> <span class="o">&gt;&gt;</span> /etc/profile
+    <span class="nb">echo</span> <span class="s1">'alias master="docker exec -it mysql-master mysql -h 127.0.0.1 -P3306"'</span> <span class="o">&gt;&gt;</span> /etc/profile
+    <span class="nb">echo</span> <span class="s1">'alias slave="docker exec -it mysql-master mysql -h 127.0.0.1 -P3307"'</span> <span class="o">&gt;&gt;</span> /etc/profile
+    <span class="nb">source</span> /etc/profile
+<span class="k">fi</span>
+</code></pre></div></div>
+
+
+
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="使用 Docker 完成 MySQL 数据库主从配置" ></div>
+<script type="text/javascript">
+(function(){
+var appid = 'cyt8K3bay';
+var conf = 'prod_4cce8456a31ddba41cd9cd6ae71a8ee7';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </section>
+
+        <aside id="sidebar">
+          <!--<a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.zip" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.tar.gz" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>-->
+
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

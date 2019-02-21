@@ -1,4 +1,5 @@
 ---
+layout: post
 title: MySQL 常用数据存储引擎区别
 ---
 

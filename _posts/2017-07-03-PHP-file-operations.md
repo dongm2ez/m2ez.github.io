@@ -1,4 +1,5 @@
 ---
+layout: post
 title: PHP 文件操作的各种姿势
 ---
 

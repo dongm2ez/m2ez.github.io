@@ -1,7 +1,11 @@
 # Setup
 name: 麦索的麦田
+ocale: "en"
 
-theme: jekyll-theme-architect
-
+# Plugins
 plugins:
+  - jekyll-paginate
   - jekyll-toc
+
+#Others
+markdown: kramdown

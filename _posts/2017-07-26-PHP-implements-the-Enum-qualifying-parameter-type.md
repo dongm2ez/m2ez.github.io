@@ -1,4 +1,5 @@
 ---
+layout: post
 title: PHP 用 Enum 限定参数类型
 ---
 

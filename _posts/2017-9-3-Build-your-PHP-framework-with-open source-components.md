@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 用开源组件构建属于你的 PHP 框架
 ---
 

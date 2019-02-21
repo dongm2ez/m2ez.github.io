@@ -1,4 +1,5 @@
 ---
+layout: post
 title: PHP trait 特性在 Laravel 中的使用个人心得
 ---
 

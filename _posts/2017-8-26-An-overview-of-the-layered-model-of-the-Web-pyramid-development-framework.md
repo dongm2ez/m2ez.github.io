@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Web 金字塔式开发框架分层模型概述
 ---
 

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Laravel 的 Eloquent模型 中的属性访问控制意义及实践
 ---
 

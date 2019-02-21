@@ -1,4 +1,5 @@
 ---
+layout: post
 title: HTTP 协议 Request 和 Response 参数笔记
 ---
 

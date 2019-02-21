@@ -1,4 +1,38 @@
-<h2 id="jenkins">安装 Jenkins</h2>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> Jenkins 部署 PHP 应用 </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> 麦索的麦田 </h1>
+        <h2>Nothing is impossible</h2>
+        <a href="/" class="button"><small>go back</small>Index</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <h2>Jenkins 部署 PHP 应用</h2>
+<p class="meta">2017-07-02</p>
+
+<h2 id="安装-jenkins">安装 Jenkins</h2>
 
 <p>方式一：docker方式安装</p>
 
@@ -25,12 +59,11 @@ Jenkins: https://jenkins.io/</p>
 
 <p>配置 Java 环境变量 <code class="highlighter-rouge">vim /etc/profile</code>，在其中加入:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>#java
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#java
 JAVA_HOME=/usr/local/src/jdk1.8.0_121 #这行根据实际情况修改
 PATH=$JAVA_HOME/bin:$PATH
 CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>修改完成后使用 <code class="highlighter-rouge">source /etc/profile</code> 让新配置生效。</p>
 
@@ -52,7 +85,7 @@ CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 <p>然后按照页面指引完成最后的安装</p>
 
-<h2 id="jenkins-">Jenkins 插件</h2>
+<h2 id="jenkins-插件">Jenkins 插件</h2>
 
 <ul>
   <li><strong>Subversion/Git</strong>：用于集成项目版本控制软件，根据需要选择（在上篇博文已安装使用）</li>
@@ -68,7 +101,7 @@ CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
   <li><strong>xUnit</strong>：使用JUnit的格式来输出phpunit的日志文件</li>
 </ul>
 
-<h2 id="jenkins--php-">Jenkins 部署 PHP 步骤</h2>
+<h2 id="jenkins-部署-php-步骤">Jenkins 部署 PHP 步骤</h2>
 
 <p>代码拉取 - 执行检查（非必须）- 打包 - 远程或本地部署</p>
 
@@ -124,16 +157,51 @@ Private key 选择 From the Jenkins master ~/.ssh (已经使用 ssh-keygen 生�
 
 <p>简单点可以直接执行 shell 指令，到想要部署的项目目录用 git 直接拉取远程代码，但这样用 Jenkins 意义真的不是特别大，可以在本机将代码打包，然后传输到远程机器，再解压开到项目目录。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> /var/www/web
-tar -czf project_<span class="sb">`</span>date +%F-%H-%M-%S<span class="sb">`</span>.bak.tar.gz --exclude<span class="o">=</span><span class="s1">'project/runtime'</span> --exclude<span class="o">=</span><span class="s1">'project/.git'</span> /home/www/web/project
-tar xzf /var/www/web/project-tar/project.<span class="k">${</span><span class="nv">BUILD_NUMBER</span><span class="k">}</span>.<span class="k">${</span><span class="nv">BUILD_ID</span><span class="k">}</span>.tar.gz -C /home/www/web/project
-chmod -R 755 /home/www/web/project/
-chmod 777 /home/www/web/project/web/assets/
-tail -n100 /home/www/web/project/runtime/logs/error.log
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/web
+<span class="nb">tar</span> <span class="nt">-czf</span> project_<span class="sb">`</span><span class="nb">date</span> +%F-%H-%M-%S<span class="sb">`</span>.bak.tar.gz <span class="nt">--exclude</span><span class="o">=</span><span class="s1">'project/runtime'</span> <span class="nt">--exclude</span><span class="o">=</span><span class="s1">'project/.git'</span> /home/www/web/project
+<span class="nb">tar </span>xzf /var/www/web/project-tar/project.<span class="k">${</span><span class="nv">BUILD_NUMBER</span><span class="k">}</span>.<span class="k">${</span><span class="nv">BUILD_ID</span><span class="k">}</span>.tar.gz <span class="nt">-C</span> /home/www/web/project
+<span class="nb">chmod</span> <span class="nt">-R</span> 755 /home/www/web/project/
+<span class="nb">chmod </span>777 /home/www/web/project/web/assets/
+<span class="nb">tail</span> <span class="nt">-n100</span> /home/www/web/project/runtime/logs/error.log
+</code></pre></div></div>
 
 <p>以上是一个示例，进行了线上代码备份打包、解包新部署包，修改权限、打印错误日志一系列操作。</p>
 
 <p>构建打包操作是使用的 Phing 这个工具，有兴趣可以去了解一下这个工具。</p>
 
+
+
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="Jenkins 部署 PHP 应用" ></div>
+<script type="text/javascript">
+(function(){
+var appid = 'cyt8K3bay';
+var conf = 'prod_4cce8456a31ddba41cd9cd6ae71a8ee7';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </section>
+
+        <aside id="sidebar">
+          <!--<a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.zip" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.tar.gz" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>-->
+
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>
