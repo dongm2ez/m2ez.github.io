@@ -1,14 +1,48 @@
-<h2 id="spl-">使用 SPL 库</h2>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> PHP 文件操作的各种姿势 </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> 麦索的麦田 </h1>
+        <h2>Nothing is impossible</h2>
+        <a href="/" class="button"><small>go back</small>Index</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <h2>PHP 文件操作的各种姿势</h2>
+<p class="meta">2017-07-03</p>
+
+<h2 id="使用-spl-库">使用 SPL 库</h2>
 
 <p>SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。</p>
 
-<h3 id="filesystemiterator">迭代器 FilesystemIterator</h3>
+<h3 id="迭代器-filesystemiterator">迭代器 FilesystemIterator</h3>
 
 <p>官方文档：http://php.net/manual/zh/class.filesystemiterator.php</p>
 
 <p>类摘要：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>FilesystemIterator extends DirectoryIterator implements SeekableIterator {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FilesystemIterator extends DirectoryIterator implements SeekableIterator {
 
 /* 常量 */
 const integer CURRENT_AS_PATHNAME = 32 ;
@@ -62,12 +96,11 @@ public void DirectoryIterator::seek ( int $position )
 public string DirectoryIterator::__toString ( void )
 public bool DirectoryIterator::valid ( void )
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>使用这个迭代器的方法很简单，实例化的时候传入的是目录路径，这个迭代器继承自 DirectoryIterator 迭代器，而 DirectoryIterator 迭代器又继承自 SplFileInfo 类，这个类我们后面介绍。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$fSI = new FileSystemIterator('.');
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$fSI = new FileSystemIterator('.');
 /** @var FileSystemIterator $fInfo */
 // 模拟 windows dir
 foreach ($fSI as $fInfo) {
@@ -84,12 +117,11 @@ foreach ($fSI as $fInfo) {
         $fInfo-&gt;getFileName()
     );
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>以上代码模拟了 windows 的 dir 和 linux 的 ls 功能。还有许多功能可以使用，看一下官方文档里的方法列表就知道了，都是比较语义化的方法命名，比如 isFile 就是判断一个文件是不是文件， getMTime 是获取文件的修改时间。</p>
 
-<h3 id="splfileinfo">文件处理类 SplFileInfo</h3>
+<h3 id="文件处理类-splfileinfo">文件处理类 SplFileInfo</h3>
 
 <p>官方文档：http://php.net/manual/zh/class.splfileinfo.php</p>
 
@@ -99,7 +131,7 @@ foreach ($fSI as $fInfo) {
 
 <p>类摘要</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>SplFileInfo {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SplFileInfo {
 
 /* 方法 */
 public __construct ( string $file_name )
@@ -132,10 +164,9 @@ public void setFileClass ([ string $class_name = "SplFileObject" ] )
 public void setInfoClass ([ string $class_name = "SplFileInfo" ] )
 public void __toString ( void )
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$file = new SplFileInfo('README.md');
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$file = new SplFileInfo('README.md');
 echo 'File is created at ' . date('Y-m-d H:i:s', $file-&gt;getCTime()) . PHP_EOL;
 echo 'File is modified at ' . date('Y-m-d H:i:s', $file-&gt;getMTime()) . PHP_EOL;
 echo 'File size is ' . $file-&gt;getSize() . ' bytes' . PHP_EOL;
@@ -150,13 +181,48 @@ while($fileObj-&gt;valid()){
 // 关闭打开的文件
 $fileObj = null;
 $file = null;
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="section">函数</h3>
+<h3 id="函数">函数</h3>
 
 <p>目录相关函数：http://php.net/manual/zh/ref.dir.php
 文件系统函数：http://php.net/manual/zh/ref.filesystem.php</p>
 
 <p>以上官方文档都比较完善，并且翻译完整使用自行学习。同时也有助于理解 SPL 的文件操作，因为 SPL 里的方法与这里的函数命名是一致的。</p>
 
+
+
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="PHP 文件操作的各种姿势" ></div>
+<script type="text/javascript">
+(function(){
+var appid = 'cyt8K3bay';
+var conf = 'prod_4cce8456a31ddba41cd9cd6ae71a8ee7';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </section>
+
+        <aside id="sidebar">
+          <!--<a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.zip" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.tar.gz" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>-->
+
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

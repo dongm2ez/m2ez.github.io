@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> 求钟表时针和分钟夹角问题 </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> 麦索的麦田 </h1>
+        <h2>Nothing is impossible</h2>
+        <a href="/" class="button"><small>go back</small>Index</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <h2>求钟表时针和分钟夹角问题</h2>
+<p class="meta">2017-08-21</p>
+
+<p>这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。</p>
+
+<h3 id="问题">问题</h3>
+
+<p>给定一个时间值，需要计算出表盘上时针与分针的之间的夹角度数。</p>
+
+<h3 id="思路">思路</h3>
+
+<p>虽然题目中只有一个条件，但其实已经有许多隐含条件包括在内。</p>
+
+<p>我们要得出的是时针和分针之间的角度，在一个钟表上因为钟表是圆形，所以我们得出第二个已知条件，表盘360°；第三个已知条件，表盘上有 12 个小时刻度；第三个已知条件，分针走一圈时针走一个刻度。</p>
+
+<p>虽然题目里没有给出以上条件，但常识告诉我们这些条件。</p>
+
+<p>拿到这些条件我们的计算就简单了：</p>
+
+<p>首先计算得出一些我们需要的数值，如每增加一小时时针走多少度，分针增加一分钟走多少度，分针每走一分钟带动时针走多少度。</p>
+
+<p>得到这些值后我们与给定的时间进行计算：</p>
+
+<p>小时 * 每增加一小时时针走多少度 = 整点时间时时针度数</p>
+
+<p>分钟 * 分针每走一分钟带动时针走多少度 = 分针带动时针度数</p>
+
+<p>整点时间时时针度数 + 分针带动时针度数 = 此时时针度数</p>
+
+<p>分钟 * 分针增加一分钟走多少度  = 分针度数</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>此时时针度数 - 分针度数 =</td>
+      <td>夹角度数</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>取绝对值就得出了它们之间的夹角度数</p>
+
+<h3 id="实现代码">实现代码</h3>
+
+<p>Python 版</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+给定一个时间值算出时针与分针直接的夹角度数
+"""</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+
+    <span class="n">hour</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">tm_hour</span> <span class="o">-</span> <span class="mi">12</span> <span class="k">if</span> <span class="n">times</span><span class="o">.</span><span class="n">tm_hour</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="k">else</span> <span class="n">times</span><span class="o">.</span><span class="n">tm_hour</span>
+    <span class="n">minute</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">tm_min</span>
+
+    <span class="c1"># 钟表总度数
+</span>    <span class="n">timekeeper_angle</span> <span class="o">=</span> <span class="mi">360</span>
+    <span class="c1"># 时间刻度份数
+</span>    <span class="n">scale</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="c1"># 每份时间刻度占用的度数
+</span>    <span class="n">one_scale</span> <span class="o">=</span> <span class="n">timekeeper_angle</span> <span class="o">/</span> <span class="n">scale</span>
+    <span class="c1"># 分针每走1分钟时针转动的度数
+</span>    <span class="n">one_relate_scale</span> <span class="o">=</span> <span class="n">one_scale</span> <span class="o">/</span> <span class="mi">60</span>
+    <span class="c1"># 分针每走1分钟转动的度数
+</span>    <span class="n">one_minute_scale</span> <span class="o">=</span> <span class="n">timekeeper_angle</span> <span class="o">/</span> <span class="mi">60</span>
+
+    <span class="c1"># 小时*每份度数 得 整点时间的时针度数
+</span>    <span class="n">integral_scale</span> <span class="o">=</span> <span class="n">hour</span> <span class="o">*</span> <span class="n">one_scale</span>
+    <span class="c1"># 分针带动时针走的度数
+</span>    <span class="n">relate_scale</span> <span class="o">=</span> <span class="n">minute</span> <span class="o">*</span> <span class="n">one_relate_scale</span>
+
+    <span class="c1"># 时针真正的起始点度数
+</span>    <span class="n">relay_hour_scale</span> <span class="o">=</span> <span class="n">integral_scale</span> <span class="o">+</span> <span class="n">relate_scale</span>
+
+    <span class="c1"># 分钟的现在度数
+</span>    <span class="n">relay_minute_scale</span> <span class="o">=</span> <span class="n">minute</span> <span class="o">*</span> <span class="n">one_minute_scale</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">relay_hour_scale</span> <span class="o">-</span> <span class="n">relay_minute_scale</span><span class="p">))</span>
+
+
+<span class="n">calculate</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+</code></pre></div></div>
+
+<p>PHP 版</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">calculate</span><span class="p">(</span><span class="nv">$time</span><span class="p">){</span>
+
+    <span class="nv">$hour</span> <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span> <span class="nb">date</span><span class="p">(</span><span class="s1">'H'</span><span class="p">,</span> <span class="nv">$time</span><span class="p">);</span>
+    <span class="nv">$hour</span> <span class="o">=</span>  <span class="nv">$hour</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="o">?</span> <span class="nv">$hour</span> <span class="o">-</span> <span class="mi">12</span> <span class="o">:</span> <span class="nv">$hour</span><span class="p">;</span>
+    <span class="nv">$minute</span> <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span> <span class="nb">date</span><span class="p">(</span><span class="s1">'m'</span><span class="p">,</span> <span class="nv">$time</span><span class="p">);</span>
+
+    <span class="c1">// 钟表总度数</span>
+    <span class="nv">$timekeeperAngle</span> <span class="o">=</span> <span class="mi">360</span><span class="p">;</span>
+    <span class="c1">// 时间刻度份数</span>
+    <span class="nv">$scale</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="c1">// 每份时间刻度占用的度数</span>
+    <span class="nv">$oneScale</span> <span class="o">=</span> <span class="nv">$timekeeperAngle</span> <span class="o">/</span> <span class="nv">$scale</span><span class="p">;</span>
+    <span class="c1">// 分针每走1分钟时针转动的度数</span>
+    <span class="nv">$oneRelateScale</span> <span class="o">=</span> <span class="nv">$oneScale</span> <span class="o">/</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="c1">// 分针每走1分钟转动的度数</span>
+    <span class="nv">$oneMinuteScale</span> <span class="o">=</span> <span class="nv">$timekeeperAngle</span> <span class="o">/</span> <span class="mi">60</span><span class="p">;</span>
+
+    <span class="c1">// 小时*每份度数 得 整点时间的时针度数</span>
+    <span class="nv">$integralScale</span> <span class="o">=</span> <span class="nv">$hour</span> <span class="o">*</span> <span class="nv">$oneScale</span><span class="p">;</span>
+    <span class="c1">// 分针带动时针走的度数</span>
+    <span class="nv">$relateScale</span> <span class="o">=</span> <span class="nv">$minute</span> <span class="o">*</span> <span class="nv">$oneRelateScale</span><span class="p">;</span>
+
+    <span class="c1">// 时针真正的起始点度数</span>
+    <span class="nv">$relayHourScale</span> <span class="o">=</span> <span class="nv">$integralScale</span> <span class="o">+</span> <span class="nv">$relateScale</span><span class="p">;</span>
+
+    <span class="c1">// 分钟的现在度数</span>
+    <span class="nv">$relayMinuteScale</span> <span class="o">=</span> <span class="nv">$minute</span> <span class="o">*</span> <span class="nv">$oneMinuteScale</span><span class="p">;</span>
+
+    <span class="k">echo</span> <span class="nb">abs</span><span class="p">(</span><span class="nv">$relayHourScale</span> <span class="o">-</span> <span class="nv">$relayMinuteScale</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">calculate</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span>
+</code></pre></div></div>
+
+
+
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="求钟表时针和分钟夹角问题" ></div>
+<script type="text/javascript">
+(function(){
+var appid = 'cyt8K3bay';
+var conf = 'prod_4cce8456a31ddba41cd9cd6ae71a8ee7';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </section>
+
+        <aside id="sidebar">
+          <!--<a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.zip" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.tar.gz" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>-->
+
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

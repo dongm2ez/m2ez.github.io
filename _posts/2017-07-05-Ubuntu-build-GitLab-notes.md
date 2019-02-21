@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Ubuntu 搭建 GitLab 笔记
 ---
 

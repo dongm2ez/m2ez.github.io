@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 互联网的基础协议 HTTP
 ---
 

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> Laravel 的 Eloquent模型 中的属性访问控制意义及实践 </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> 麦索的麦田 </h1>
+        <h2>Nothing is impossible</h2>
+        <a href="/" class="button"><small>go back</small>Index</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <h2>Laravel 的 Eloquent模型 中的属性访问控制意义及实践</h2>
+<p class="meta">2017-07-31</p>
+
+<p>我们在定义一个自己的 Laravel 模型时都需要继承 Illuminate\Database\Eloquent\Model 这个类，在这个类中定义了很多模型相关的操作和行为。今天我们来重点说说 Model 中包含的属性。</p>
+
+<p>在框架定义属性中访问权限一般有 <code class="highlighter-rouge">protected</code> 和 <code class="highlighter-rouge">public</code> 两种，这两种属性是在我们继承基础模型后可以重写的，那为什么不统一都是<code class="highlighter-rouge">protected</code>，是因为有一些属性我们需要去动态改变。</p>
+
+<p><code class="highlighter-rouge">protected</code> 的属性我们一般只重写一次或者使用基类提供的默认值，例如：</p>
+
+<pre><code class="language-PHP">protected $table
+protected $primaryKey = 'id';
+protected $keyType = 'int';
+</code></pre>
+
+<p>以上这些都是只需要在继承基类的时候重写就可以了，分别表示模型的对应的表名、主键字段名、主键类型。</p>
+
+<p>在软件的生命周期内这些属性都不需要再出改变。</p>
+
+<p>而有几个特殊的属性使用的 <code class="highlighter-rouge">public</code> 权限：</p>
+
+<pre><code class="language-PHP">public $incrementing = true;
+public $exists = false;
+public $wasRecentlyCreated = false;
+public static $snakeAttributes = true;
+public static $manyMethods = [
+        'belongsToMany', 'morphToMany', 'morphedByMany',
+        'guessBelongsToManyRelation', 'findFirstMethodThatIsntRelation',
+    ];
+public $timestamps = true;
+</code></pre>
+
+<p>这些属性有些在 <code class="highlighter-rouge">Illuminate\Database\Eloquent\Model</code> 有些在 <code class="highlighter-rouge">Model</code> 使用的 <code class="highlighter-rouge">trait</code> 中。</p>
+
+<p>现在我们就拿 <code class="highlighter-rouge">$exists</code>、<code class="highlighter-rouge">$timestamps</code> 这两个来举例说明为什么框架会将他们的访问属性定义为 <code class="highlighter-rouge">public</code>。</p>
+
+<h3 id="exists">$exists</h3>
+
+<p>这个属性用来指示模型中数据是否存在，典型的判断在 model 的 save() 方法中，如果 <code class="highlighter-rouge">$exists = true</code> 那么 save() 执行的就是数据库的 update 操作，如果是 false 执行的就是 instert 操作。</p>
+
+<p>比如你有一个这样的场景，这个模型在做正常的存储的时候都是执行正常的 save 逻辑，而在特殊的时候需要全部操作都是 inster 操作就可以在调用 save 前将此属性手动赋值为 true。</p>
+
+<p>这样的场景有典型应用就是用户。</p>
+
+<pre><code class="language-PHP">
+public function register(Request $rquest)
+{
+
+    $model = new User();
+    
+    $model-&gt;exists = false;
+    
+    $model-&gt;create($request-&gt;only('email', 'name', 'password'))
+    
+    $model-&gt;save()
+
+}
+
+public function updateName(Request $rquest)
+{
+
+    $model = User::find($id, $request-&gt;get('id'));
+    
+    $model-&gt;exists = true;
+    
+    $model-&gt;name = $request-&gt;get('name')
+    
+    $model-&gt;save()
+
+}
+
+</code></pre>
+
+<p>以上是一个伪代码的用户注册和用户更新字段方法，我们手动去将$exists属性修改为我们操作想要其达到效果以保证其每次执行都是我们想要的效果而非产生我们不想要的副作用。</p>
+
+<p>当然这个例子可能不是一个最佳实践，因为这些判断框架内部都帮我们坐在，这个属性最大作用还是用于判断，比如你调用了一些模型操作，想要查看一看一下这个属性的bool值，以帮助你做下一步的判断，以执行不同的逻辑时更有作用。</p>
+
+<h3 id="timestamps">$timestamps</h3>
+
+<p>这个属性是我将要着重说的属性，因为我认为它在我的代码中目前找到了最佳实践。</p>
+
+<p>我现在有一个表，是文章表，我在文章表里冗余了需要文章的属性，比如阅读数，关注数，评论数，收藏数，就是为了减少获取这篇文章的时候那些关联查询，以使得文章的首次加载速度更快。对我来说此时获取一个关注的数去查询一次文章关注表是不划算的。</p>
+
+<p>但是我在获取文章的是又要将阅读数自增，以反映有人点开并阅读了此文章一次。但是鉴于Laravel默认会自动管理我的文章模型 <code class="highlighter-rouge">created_at</code> 和 <code class="highlighter-rouge">updated_at</code> 这个两个字段，我每次更改阅读数，模型同时会更新记录的 <code class="highlighter-rouge">updated_at</code> 到最新时间，这并不是我想要的结果。</p>
+
+<p>于是我将 <code class="highlighter-rouge">$timestamps</code> 在模型定义为 false ， 这样我的时间就不会被框架自动管理。</p>
+
+<p>但是这样做又产生一个问题，虽然我不想我在更改阅读数，关注数这些冗余数据是让框架自动管理我的记录时间，但是我却想在创建和文章编辑提交时更新时间。</p>
+
+<p>当然方法有，我可以手动传递当前时间给模型，也是可以实现的。但是毕竟这样不够优雅，且本来框架提供的功能我却要自己再去实现它，让我觉得这是一种资源浪费，而且手动维护这些时间是繁琐易出错的。</p>
+
+<p>当我看到这个访问控制的 <code class="highlighter-rouge">public</code> 的时候，我觉得我可以同时实现我的这两个需求，而且不需要自己手动传递时间。</p>
+
+<pre><code class="language-PHP">
+/**
+* 查看文章
+*/
+public function showArticle($id)
+{
+    $article = Article::find($id);
+    
+    $article-&gt;timestamps = false; // 模型已经定义，可省略
+    
+    $article-&gt;increment('views');
+    
+    $article-&gt;save();
+
+    return $article;
+}
+
+/**
+* 创建文章
+*/
+public function createArticle(Request $request)
+{
+    $article = Article::crete($request-&gt;all());
+    
+    $article-&gt;timestamps = true;
+    
+    $article-&gt;save();
+
+    return $article;
+}
+
+/**
+* 更新文章
+*/
+public function updateArticle($id, Request $request)
+{
+    $article = Article::find(id);
+    
+    $article-&gt;timestamps = true;
+    
+    $article-&gt;update($request-&gt;all());
+
+    return $article;
+}
+</code></pre>
+
+<p>这样我就不用手动传递时间给模型了，模型会用自身的功能帮我维护记录的时间。</p>
+
+<h3 id="总结">总结</h3>
+
+<p>这些 <code class="highlighter-rouge">public</code> 的属性就是方便外部可以访问它们或者可以根据自己场景来动态的改变它们，以符合你的期望，这些属性我并没有完全研究</p>
+
+
+
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="Laravel 的 Eloquent模型 中的属性访问控制意义及实践" ></div>
+<script type="text/javascript">
+(function(){
+var appid = 'cyt8K3bay';
+var conf = 'prod_4cce8456a31ddba41cd9cd6ae71a8ee7';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </section>
+
+        <aside id="sidebar">
+          <!--<a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.zip" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.tar.gz" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>-->
+
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

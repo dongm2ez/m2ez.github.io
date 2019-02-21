@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 求钟表时针和分钟夹角问题
 ---
 

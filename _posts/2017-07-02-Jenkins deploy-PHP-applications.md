@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Jenkins 部署 PHP 应用
 ---
 

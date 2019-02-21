@@ -1,4 +1,5 @@
 ---
+layout: post
 title: PHP是什么-PHP的架构及原理概述
 ---
 

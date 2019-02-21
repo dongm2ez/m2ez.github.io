@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Laravel 5.5 以下版本中自定义日志行为
 ---
 

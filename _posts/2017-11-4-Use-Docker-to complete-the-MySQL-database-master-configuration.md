@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 使用 Docker 完成 MySQL 数据库主从配置
 ---
 
