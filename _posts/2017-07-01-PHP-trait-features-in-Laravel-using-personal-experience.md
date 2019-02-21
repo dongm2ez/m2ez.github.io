@@ -1,6 +1,8 @@
 ---
 layout: post
 title: PHP trait 特性在 Laravel 中的使用个人心得
+categories: development
+tags: PHP
 ---
 
 trait 是在PHP5.4中为了方便代码复用的一种实现方式，但目前我在看的的PHP项目中较少看的有程序员去主动使用这个实现方式，在laravel中有很多 trait 的使用，关于trait 在 laravel 的使用请参看 Laravel 在哪些地方用了 trait?

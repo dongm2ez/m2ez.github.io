@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Jenkins 部署 PHP 应用
+categories: development
+tags: [PHP, JAVA, Jenkins]
 ---
 
 
