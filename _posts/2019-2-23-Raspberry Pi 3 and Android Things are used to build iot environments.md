@@ -2,7 +2,7 @@
 layout: post
 title: 用 Raspberry Pi 3（树莓派）和 Android Things 搭建物联网开发环境
 categories: development
-tags: PHP
+tags: [Raspberry,物联网]
 ---
 
 简介树莓派是一个极小的单块电路板，但是却有着计算机的所有基本功能，而 Android Things 是 Google 在 Android 的基础上去掉了一些物联网不需要的库，又加入了一些物联网需要的库而开发的物联网专用操作系统。
