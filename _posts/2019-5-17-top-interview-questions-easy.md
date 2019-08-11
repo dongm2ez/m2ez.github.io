@@ -25,17 +25,18 @@ class Solution {
      * @return Integer
      */
     function removeDuplicates(&$nums) {
+        $size = sizeof($nums);// 防止数组越界
         foreach($nums as $key => $item){
-            if($nums[$key] === $nums[$key + 1]){
-                unset($nums[$key]);
+            if($key + 1 <= $size) {
+                if($nums[$key] === $nums[$key + 1]){
+                    unset($nums[$key]);
+                }
             }
         }
-        
         return count($nums);
     }
 }
 ```
-
 
 语言坑点：
 
