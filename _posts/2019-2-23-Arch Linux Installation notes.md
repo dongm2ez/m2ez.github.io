@@ -189,15 +189,3 @@ passwd admin
 [官方安装教程](https://wiki.archlinux.org/index.php/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29)
 
 最后官方的wiki是相当好的教程，你遇到的arch的基础问题基本都可以在里面找到解决方法，学会使用它。
-
-
-
-
-
-
-
-
-
-
-
-
