@@ -7,7 +7,7 @@ title: Laravel 5.5 以下版本中自定义日志行为
 
 Laravel 的日志行为大部分是在 `Illuminate\Log\LogServiceProvider` 中，我们可以看一下其中的代码片段：
 
-```PHP
+```php
 /**
  * Configure the Monolog handlers for the application.
  *
@@ -42,7 +42,7 @@ protected function registerBaseServiceProviders()
 
 既然我们知道了它们是如何生效的，那么我们将这两个类继承并修改其中我们需要改变的行为进行改造，我的改造方式如下。在`app\Providers`中新建`LogServiceProvider`类继承`Illuminate\Log\LogServiceProvider`，代码如下：
 
-```PHP
+```php
 <?php
 
 
@@ -72,13 +72,13 @@ class LogServiceProvider extends BaseLogServiceProvider
 
 在`config/app.php`目录中添加配置：
 
-```
+```php
 'log_path' => env('APP_LOG_PATH', storage_path('/logs/laravel.log')),
 ```
 
 `app`目录中新建`Foundation`目录，新建`Application`类继承`Illuminate\Foundation\Application`类，重写`registerBaseServiceProviders`方法。
 
-```PHP
+```php
 <?php
 /**
  * Created by PhpStorm.
@@ -119,7 +119,7 @@ class Application extends BaseApplication
 
 然后在`bootstrap\app.php`中将变量`$app`的`new`对象换成我们继承重写后的。
 
-```
+```php
 $app = new App\Foundation\Application(
     realpath(__DIR__.'/../')
 );
