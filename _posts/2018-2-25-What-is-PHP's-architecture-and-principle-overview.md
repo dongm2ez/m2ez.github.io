@@ -1,6 +1,8 @@
 ---
 layout: post
 title: PHP是什么-PHP的架构及原理概述
+categories: development
+tags: [PHP]
 ---
 
 记得我刚开始学习PHP的时候，许多面试官会经常问我PHP是什么，那时的标准回答是PHP是一种弱类型动态脚本编程语言，开源，免费，是超文本预处理器的缩写。

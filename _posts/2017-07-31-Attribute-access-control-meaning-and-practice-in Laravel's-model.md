@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Laravel 的 Eloquent模型 中的属性访问控制意义及实践
+categories: development
+tags: [laravel]
 ---
 
 我们在定义一个自己的 Laravel 模型时都需要继承 Illuminate\Database\Eloquent\Model 这个类，在这个类中定义了很多模型相关的操作和行为。今天我们来重点说说 Model 中包含的属性。

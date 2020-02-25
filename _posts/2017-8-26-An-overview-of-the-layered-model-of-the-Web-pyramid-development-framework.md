@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Web 金字塔式开发框架分层模型概述
+categories: development
+tags: [设计模式,WEB]
 ---
 
 现在的大部分 Web 框架都是使用金字塔式的分层架构，一般这种应用都是阻塞同步 IO 模型的编程实现，理解这种分层架构模型的实质有助于理解框架。

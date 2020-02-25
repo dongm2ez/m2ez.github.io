@@ -1,6 +1,8 @@
 ---
 layout: post
 title: PHP 用 Enum 限定参数类型
+categories: development
+tags: [PHP]
 ---
 
 ### 痛点

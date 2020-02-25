@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 开发者的简单服务器集群管理
+categories: development
+tags: [运维]
 ---
 
 ## 概述
