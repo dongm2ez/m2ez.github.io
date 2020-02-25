@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 求钟表时针和分钟夹角问题
+categories: development
+tags: [算法,python]
 ---
 
 这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。

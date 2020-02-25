@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 使用 Docker 完成 MySQL 数据库主从配置
+categories: development
+tags: [docker,mysql]
 ---
 
 使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行部署的时候我还踩了许多坑。
@@ -17,7 +19,7 @@ title: 使用 Docker 完成 MySQL 数据库主从配置
 
 新建一个 DockerFile 文件：
 
-```
+```dockerfile
 FROM mysql:5.7.20
 
 EXPOSE 3306
@@ -29,7 +31,7 @@ CMD ["mysqld"]
 
 在构建镜像前，我们需要 mysql 的配置文件 my.cnf ，可以先启动一个 mysql 的容器，然后进入容器复制它下来，并对其进行修改：
 
-```
+```ini
 !includedir /etc/mysql/conf.d/
 [mysqld]
 pid-file=/var/run/mysqld/mysqld.pid
@@ -37,7 +39,7 @@ socket=/var/run/mysqld/mysqld.sock
 datadir=/var/lib/mysql
 #log-error=/var/log/mysql/error.log
 # By default we only accept connections from localhost
-#bind-address	= 127.0.0.1
+#bind-address=127.0.0.1
 log-bin=/var/log/mysql/mysql-bin.index
 server-id=1
 # Disabling symbolic-links is recommended to prevent assorted security risks
@@ -46,8 +48,8 @@ symbolic-links=0
 
 以上是我修改好的一个 my.conf 文件，我们主要修改的是以下这些选项：
 
-```
-#bind-address	= 127.0.0.1 # 注释这个选项可以让远程机器访问，或者可以修改为 0.0.0.0
+```ini
+# bind-address=127.0.0.1 # 注释这个选项可以让远程机器访问，或者可以修改为 0.0.0.0
 log-bin=/var/log/mysql/mysql-bin.index # 开启 log-bin 日志，日志路径
 server-id=1 # 服务器唯一ID，默认是1，一般取IP最后一段，这里看情况分配
 ```
@@ -69,7 +71,7 @@ slave
 
 构建完成后我们使用以下命令启动主库和从库：
 
-```
+```shell
 docker run -p 3306 --name mysql-master -e MYSQL_ROOT_PASSWORD=root -d master/mysql:5.7.20
 
 docker run -p 3306 --name mysql-slave --link mysql-master:master -e MYSQL_ROOT_PASSWORD=root -d slave/mysql:5.7.20
@@ -105,7 +107,7 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
 
 接下来配置从库mysql：
 
-```
+```ini
 change master to
 master_host='master',#要连接的主服务器的ip
 master_user='user',#指定的用户名，最好不要用root
@@ -222,7 +224,7 @@ master_log_file=`echo "$master_status" | awk  'NR==2{print substr($2,1,length($2
 master_log_pos=`echo "$master_status" | awk 'NR==3{print $2}'`
 master_log_file="'""$master_log_file""'"
 
-## Setting Up Replication Slaves 
+## Setting Up Replication Slaves
 docker exec -it mysql-slave mysql -S /var/lib/mysql/mysql.sock -e "CHANGE MASTER TO MASTER_HOST='master',MASTER_PORT=3306,MASTER_USER='users',MASTER_PASSWORD='mysql',MASTER_LOG_FILE=$master_log_file,MASTER_LOG_POS=$master_log_pos;"
 docker exec -it mysql-slave mysql -S /var/lib/mysql/mysql.sock -e "start slave;"
 docker exec -it mysql-slave mysql -S /var/lib/mysql/mysql.sock -e "show slave status\G"
@@ -236,5 +238,3 @@ if [ $? -eq 1 ];then
     source /etc/profile
 fi
 ```
-
-

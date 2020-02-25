@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 互联网的基础协议 HTTP
+categories: development
+tags: [HTTP,WEB]
 ---
 
 HTTP 协议中文全称 「超文本传输协议」，是互联网的基础协议，目前最新版本为 HTTP 2.0。
