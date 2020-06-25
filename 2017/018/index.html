@@ -326,7 +326,7 @@ $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
 <span style="color:#66d9ef">require</span> <span style="color:#66d9ef">__DIR__</span><span style="color:#f92672">.</span><span style="color:#e6db74">&#39;/../vendor/autoload.php&#39;</span>;
 </code></pre></div><p>然后运行 <code>composer install</code> 安装框架的依赖包，安装完成后我们的目录中就会多出一个 <code>vendor</code> 的目录和 <code>composer.lock</code> 的文件，此时运行 <code>php -S 0.0.0.0:8080 -t public public/index.php</code> 利用 PHP 自带的 web 服务器进行测试，为了这个命令更简单使用，我们可以将这个命令加到 <code>composer.json</code> 的 <code>script</code> 中。</p>
 <p>此时访问 <code>127.0.0.1:8080</code> 或 <code>localhost:8080</code> 就可以看到如下的页面：</p>
-<p><img src="http://img.m2ez.com/15043663356684.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/15043663356684.jpg" alt=""></p>
 <p>这说明框架正确启动了，那么我们怎么确定框架工作正常呢，这里有个简单方法：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
 
@@ -346,7 +346,7 @@ $app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</spa
 
 $app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">run</span>();
 </code></pre></div><p>对 <code>public/index.php</code> 的代码进行修改，此时访问 <code>http://localhost:8080/hello/dongm2ez</code>，那么我们就会看到：</p>
-<p><img src="http://img.m2ez.com/15043666561898.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/15043666561898.jpg" alt=""></p>
 <p>测试是成功了，但是我们不能把路由和逻辑都写到 <code>index.php</code> 文件里，因此我们需要代码更好的组织。要让我们的目录规划发挥正在的作用。</p>
 <p>为了单独管理路由，我将路由单独写在 <code>routers</code> 文件夹中，在文件夹中我们新建两个 PHP 脚本文件，然后在 <code>public/index.php</code> 中加入两行代码：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>

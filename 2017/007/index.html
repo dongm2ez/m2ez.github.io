@@ -207,7 +207,7 @@ sudo apt-get install gitlab-ce
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo curl -LJO https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/xenial/gitlab-ce-XXX.deb/download
 sudo dpkg -i gitlab-ce-XXX.deb
 </code></pre></div><p>以上是示例，具体版本需要进行替换，在 <a href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a> 中找到适合自己的 GitLab 版本，从 Download 获取到下载地址。</p>
-<p><img src="http://img.m2ez.com/14902391408842.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/14902391408842.jpg" alt=""></p>
 <p>我选择的是目前最新的 GitLab 9.0 版本</p>
 <p>使用 wget 或 curl 将这个包下载到服务器上。服务器下载慢的话可在本地用工具下载然后通过 SCP 或 ftp 传到服务器上去。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i gitlab-ce_9.0.0-ce.0_amd64.deb
@@ -234,7 +234,7 @@ sudo dpkg -i gitlab-ce-XXX.deb
 </code></pre></div><p>汉化完成</p>
 <h3 id="一些界面设置">一些界面设置</h3>
 <p>进入界面后关掉一些我们可能用不到的设置，在 「管理区域」的设置中进行更改</p>
-<p><img src="http://img.m2ez.com/14902593794119.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/14902593794119.jpg" alt=""></p>
 <p>「开启 Gravatar 头像」关闭，国内访问不了，要想访问得翻墙
 「开启注册」关闭，我们自己的仓库系统不需要公开注册，账号分配就好</p>
 
