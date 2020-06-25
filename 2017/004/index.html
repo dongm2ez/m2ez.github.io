@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="麦索">
+    <meta name="description" content="麦索的个人博客">
+    
+    
+    <link rel="prev" href="https://blog.m2ez.com/2017/003/" />
+    <link rel="next" href="https://blog.m2ez.com/2017/006/" />
+    <link rel="canonical" href="https://blog.m2ez.com/2017/004/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            PHP 文件操作的各种姿势 | 麦索的麦田
+        
+    </title>
+    <meta name="title" content="PHP 文件操作的各种姿势 | 麦索的麦田">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/blog.m2ez.com\/"
+    },
+    "articleSection" : "posts",
+    "name" : "PHP 文件操作的各种姿势",
+    "headline" : "PHP 文件操作的各种姿势",
+    "description" : "使用 SPL 库 SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。 迭代器 FilesystemIterator 官方文档：http:\/\/php.net\/manual\/zh\/class.",
+    "inLanguage" : "zh",
+    "author" : "麦索",
+    "creator" : "麦索",
+    "publisher": "麦索",
+    "accountablePerson" : "麦索",
+    "copyrightHolder" : "麦索",
+    "copyrightYear" : "2017",
+    "datePublished": "2017-07-03 20:59:37 \u002b0800 CST",
+    "dateModified" : "2017-07-03 20:59:37 \u002b0800 CST",
+    "url" : "https:\/\/blog.m2ez.com\/2017\/004\/",
+    "wordCount" : "1171",
+    "keywords" : [ "PHP","IO", "麦索的麦田"]
+}
+</script>
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://blog.m2ez.com/">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://blog.m2ez.com/">麦索的麦田</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="">
+                            <h3>Blog</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/categories/" title="">
+                            <h3>Categories</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/tags/" title="">
+                            <h3>Tags</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/about/" title="">
+                            <h3>About</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/about/" title="Dongm2ez">
+                            <h3>Dongm2ez</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">PHP 文件操作的各种姿势</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://blog.m2ez.com/" rel="author">麦索</a> with ♥
+                <span class="post-time">
+                on <time datetime=2017-07-03 itemprop="datePublished">July 3, 2017</time>
+                </span>
+                in
+                
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"> 计算机技术, </a>
+                        
+                        
+                </span>
+                <span class="post-word-count">1171 words</span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        
+
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="使用-spl-库">使用 SPL 库</h2>
+<p>SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。</p>
+<h3 id="迭代器-filesystemiterator">迭代器 FilesystemIterator</h3>
+<p>官方文档：<a href="http://php.net/manual/zh/class.filesystemiterator.php">http://php.net/manual/zh/class.filesystemiterator.php</a></p>
+<p>类摘要：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">FilesystemIterator extends DirectoryIterator implements SeekableIterator {
+
+/* 常量 */
+const integer CURRENT_AS_PATHNAME = 32 ;
+const integer CURRENT_AS_FILEINFO = 0 ;
+const integer CURRENT_AS_SELF = 16 ;
+const integer CURRENT_MODE_MASK = 240 ;
+const integer KEY_AS_PATHNAME = 0 ;
+const integer KEY_AS_FILENAME = 256 ;
+const integer FOLLOW_SYMLINKS = 512 ;
+const integer KEY_MODE_MASK = 3840 ;
+const integer NEW_CURRENT_AND_KEY = 256 ;
+const integer SKIP_DOTS = 4096 ;
+const integer UNIX_PATHS = 8192 ;
+
+/* 方法 */
+public __construct ( string $path [, int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS ] )
+public mixed current ( void )
+public int getFlags ( void )
+public string key ( void )
+public void next ( void )
+public void rewind ( void )
+public void setFlags ([ int $flags ] )
+
+/* 继承的方法 */
+public DirectoryIterator DirectoryIterator::current ( void )
+public int DirectoryIterator::getATime ( void )
+public string DirectoryIterator::getBasename ([ string $suffix ] )
+public int DirectoryIterator::getCTime ( void )
+public string DirectoryIterator::getExtension ( void )
+public string DirectoryIterator::getFilename ( void )
+public int DirectoryIterator::getGroup ( void )
+public int DirectoryIterator::getInode ( void )
+public int DirectoryIterator::getMTime ( void )
+public int DirectoryIterator::getOwner ( void )
+public string DirectoryIterator::getPath ( void )
+public string DirectoryIterator::getPathname ( void )
+public int DirectoryIterator::getPerms ( void )
+public int DirectoryIterator::getSize ( void )
+public string DirectoryIterator::getType ( void )
+public bool DirectoryIterator::isDir ( void )
+public bool DirectoryIterator::isDot ( void )
+public bool DirectoryIterator::isExecutable ( void )
+public bool DirectoryIterator::isFile ( void )
+public bool DirectoryIterator::isLink ( void )
+public bool DirectoryIterator::isReadable ( void )
+public bool DirectoryIterator::isWritable ( void )
+public string DirectoryIterator::key ( void )
+public void DirectoryIterator::next ( void )
+public void DirectoryIterator::rewind ( void )
+public void DirectoryIterator::seek ( int $position )
+public string DirectoryIterator::__toString ( void )
+public bool DirectoryIterator::valid ( void )
+}
+</code></pre></div><p>使用这个迭代器的方法很简单，实例化的时候传入的是目录路径，这个迭代器继承自 DirectoryIterator 迭代器，而 DirectoryIterator 迭代器又继承自 SplFileInfo 类，这个类我们后面介绍。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$fSI = new FileSystemIterator(&#39;.&#39;);
+/** @var FileSystemIterator $fInfo */
+// 模拟 windows dir
+foreach ($fSI as $fInfo) {
+    printf(&#34;%8s%8s%8s %8s\n&#34;,
+        date(&#34;Y-m-d H:i:s&#34;, $fInfo-&gt;getMtime()),
+        $fInfo-&gt;isDir() ? &#39;&lt;<span style="color:#f92672">DIR</span>&gt;&#39; : &#39;&#39;,
+        number_format($fInfo-&gt;getSize()),
+        $fInfo-&gt;getFileName()
+    );
+}
+// 模拟 linux ls
+foreach ($fSI as $fInfo) {
+    printf(&#34;%8s  &#34;,
+        $fInfo-&gt;getFileName()
+    );
+}
+</code></pre></div><p>以上代码模拟了 windows 的 dir 和 linux 的 ls 功能。还有许多功能可以使用，看一下官方文档里的方法列表就知道了，都是比较语义化的方法命名，比如 isFile 就是判断一个文件是不是文件， getMTime 是获取文件的修改时间。</p>
+<h3 id="文件处理类-splfileinfo">文件处理类 SplFileInfo</h3>
+<p>官方文档：<a href="http://php.net/manual/zh/class.splfileinfo.php">http://php.net/manual/zh/class.splfileinfo.php</a></p>
+<p>SplFileInfo 这个类可以用来获取文件的基本信息，如修改时间，大小。</p>
+<p>SplFileObject 这个类操作文件的内容，如读取、写入。</p>
+<p>类摘要</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">SplFileInfo {
+
+/* 方法 */
+public __construct ( string $file_name )
+public int getATime ( void )
+public string getBasename ([ string $suffix ] )
+public int getCTime ( void )
+public string getExtension ( void )
+public SplFileInfo getFileInfo ([ string $class_name ] )
+public string getFilename ( void )
+public int getGroup ( void )
+public int getInode ( void )
+public string getLinkTarget ( void )
+public int getMTime ( void )
+public int getOwner ( void )
+public string getPath ( void )
+public SplFileInfo getPathInfo ([ string $class_name ] )
+public string getPathname ( void )
+public int getPerms ( void )
+public string getRealPath ( void )
+public int getSize ( void )
+public string getType ( void )
+public bool isDir ( void )
+public bool isExecutable ( void )
+public bool isFile ( void )
+public bool isLink ( void )
+public bool isReadable ( void )
+public bool isWritable ( void )
+public SplFileObject openFile ([ string $open_mode = &#34;r&#34; [, bool $use_include_path = false [, resource $context = NULL ]]] )
+public void setFileClass ([ string $class_name = &#34;SplFileObject&#34; ] )
+public void setInfoClass ([ string $class_name = &#34;SplFileInfo&#34; ] )
+public void __toString ( void )
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$file = new SplFileInfo(&#39;README.md&#39;);
+echo &#39;File is created at &#39; . date(&#39;Y-m-d H:i:s&#39;, $file-&gt;getCTime()) . PHP_EOL;
+echo &#39;File is modified at &#39; . date(&#39;Y-m-d H:i:s&#39;, $file-&gt;getMTime()) . PHP_EOL;
+echo &#39;File size is &#39; . $file-&gt;getSize() . &#39; bytes&#39; . PHP_EOL;
+
+// openFile 方法返回的 SplFileObject 对象
+// 读取文件里面的内容
+$fileObj = $file-&gt;openFile(&#39;r&#39;);
+while($fileObj-&gt;valid()){
+    echo $fileObj-&gt;fgets(); // 读取文件里的一行数据
+}
+
+// 关闭打开的文件
+$fileObj = null;
+$file = null;
+</code></pre></div><h3 id="函数">函数</h3>
+<p>目录相关函数：<a href="http://php.net/manual/zh/ref.dir.php">http://php.net/manual/zh/ref.dir.php</a>
+文件系统函数：<a href="http://php.net/manual/zh/ref.filesystem.php">http://php.net/manual/zh/ref.filesystem.php</a></p>
+<p>以上官方文档都比较完善，并且翻译完整使用自行学习。同时也有助于理解 SPL 的文件操作，因为 SPL 里的方法与这里的函数命名是一致的。</p>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>麦索 </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://blog.m2ez.com/2017/004/>https://blog.m2ez.com/2017/004/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://blog.m2ez.com/tags/php/">
+                    #PHP</a></span>
+            
+            <span class="tag"><a href="https://blog.m2ez.com/tags/io/">
+                    #IO</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://blog.m2ez.com/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://blog.m2ez.com/2017/003/" class="prev" rel="prev" title="Jenkins 部署 PHP 应用"><i class="iconfont icon-left"></i>&nbsp;Jenkins 部署 PHP 应用</a>
+        
+        
+        <a href="https://blog.m2ez.com/2017/006/" class="next" rel="next" title="S.O.L.I.D 面向对象设计和编程（OOD&amp;OOP）笔记">S.O.L.I.D 面向对象设计和编程（OOD&amp;OOP）笔记&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+            
+                <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.css">
+<script src="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function () {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i>
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://blog.m2ez.com/">麦索</a> | </span>
+         
+
+         
+            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+
+        </div>
+    </body>
+</html>

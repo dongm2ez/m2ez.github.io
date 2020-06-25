@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="麦索">
+    <meta name="description" content="麦索的个人博客">
+    
+    
+    <link rel="prev" href="https://blog.m2ez.com/2017/014/" />
+    <link rel="next" href="https://blog.m2ez.com/2017/016/" />
+    <link rel="canonical" href="https://blog.m2ez.com/2017/015/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            求钟表时针和分钟夹角问题 | 麦索的麦田
+        
+    </title>
+    <meta name="title" content="求钟表时针和分钟夹角问题 | 麦索的麦田">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/blog.m2ez.com\/"
+    },
+    "articleSection" : "posts",
+    "name" : "求钟表时针和分钟夹角问题",
+    "headline" : "求钟表时针和分钟夹角问题",
+    "description" : "这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。 问题 给定一个时间值，需要计算出表盘上时针与分针的之间的夹角度数。 思路",
+    "inLanguage" : "zh",
+    "author" : "麦索",
+    "creator" : "麦索",
+    "publisher": "麦索",
+    "accountablePerson" : "麦索",
+    "copyrightHolder" : "麦索",
+    "copyrightYear" : "2017",
+    "datePublished": "2017-08-21 16:59:37 \u002b0800 CST",
+    "dateModified" : "2017-08-21 16:59:37 \u002b0800 CST",
+    "url" : "https:\/\/blog.m2ez.com\/2017\/015\/",
+    "wordCount" : "809",
+    "keywords" : [ "算法","python", "麦索的麦田"]
+}
+</script>
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://blog.m2ez.com/">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://blog.m2ez.com/">麦索的麦田</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="">
+                            <h3>Blog</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/categories/" title="">
+                            <h3>Categories</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/tags/" title="">
+                            <h3>Tags</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/about/" title="">
+                            <h3>About</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/about/" title="Dongm2ez">
+                            <h3>Dongm2ez</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">求钟表时针和分钟夹角问题</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://blog.m2ez.com/" rel="author">麦索</a> with ♥
+                <span class="post-time">
+                on <time datetime=2017-08-21 itemprop="datePublished">August 21, 2017</time>
+                </span>
+                in
+                
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"> 计算机技术, </a>
+                        
+                        
+                </span>
+                <span class="post-word-count">809 words</span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        
+
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        <p>这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。</p>
+<h3 id="问题">问题</h3>
+<p>给定一个时间值，需要计算出表盘上时针与分针的之间的夹角度数。</p>
+<h3 id="思路">思路</h3>
+<p>虽然题目中只有一个条件，但其实已经有许多隐含条件包括在内。</p>
+<p>我们要得出的是时针和分针之间的角度，在一个钟表上因为钟表是圆形，所以我们得出第二个已知条件，表盘360°；第三个已知条件，表盘上有 12 个小时刻度；第三个已知条件，分针走一圈时针走一个刻度。</p>
+<p>虽然题目里没有给出以上条件，但常识告诉我们这些条件。</p>
+<p>拿到这些条件我们的计算就简单了：</p>
+<p>首先计算得出一些我们需要的数值，如每增加一小时时针走多少度，分针增加一分钟走多少度，分针每走一分钟带动时针走多少度。</p>
+<p>得到这些值后我们与给定的时间进行计算：</p>
+<p>小时 * 每增加一小时时针走多少度 = 整点时间时时针度数</p>
+<p>分钟 * 分针每走一分钟带动时针走多少度 = 分针带动时针度数</p>
+<p>整点时间时时针度数 + 分针带动时针度数 = 此时时针度数</p>
+<p>分钟 * 分针增加一分钟走多少度  = 分针度数</p>
+<p>此时时针度数 - 分针度数 = |夹角度数|</p>
+<p>取绝对值就得出了它们之间的夹角度数</p>
+<h3 id="实现代码">实现代码</h3>
+<p>Python 版</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">给定一个时间值算出时针与分针直接的夹角度数
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> time
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calculate</span>(times):
+
+    hour <span style="color:#f92672">=</span> times<span style="color:#f92672">.</span>tm_hour <span style="color:#f92672">-</span> <span style="color:#ae81ff">12</span> <span style="color:#66d9ef">if</span> times<span style="color:#f92672">.</span>tm_hour <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">12</span> <span style="color:#66d9ef">else</span> times<span style="color:#f92672">.</span>tm_hour
+    minute <span style="color:#f92672">=</span> times<span style="color:#f92672">.</span>tm_min
+
+    <span style="color:#75715e"># 钟表总度数</span>
+    timekeeper_angle <span style="color:#f92672">=</span> <span style="color:#ae81ff">360</span>
+    <span style="color:#75715e"># 时间刻度份数</span>
+    scale <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>
+    <span style="color:#75715e"># 每份时间刻度占用的度数</span>
+    one_scale <span style="color:#f92672">=</span> timekeeper_angle <span style="color:#f92672">/</span> scale
+    <span style="color:#75715e"># 分针每走1分钟时针转动的度数</span>
+    one_relate_scale <span style="color:#f92672">=</span> one_scale <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span>
+    <span style="color:#75715e"># 分针每走1分钟转动的度数</span>
+    one_minute_scale <span style="color:#f92672">=</span> timekeeper_angle <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span>
+
+    <span style="color:#75715e"># 小时*每份度数 得 整点时间的时针度数</span>
+    integral_scale <span style="color:#f92672">=</span> hour <span style="color:#f92672">*</span> one_scale
+    <span style="color:#75715e"># 分针带动时针走的度数</span>
+    relate_scale <span style="color:#f92672">=</span> minute <span style="color:#f92672">*</span> one_relate_scale
+
+    <span style="color:#75715e"># 时针真正的起始点度数</span>
+    relay_hour_scale <span style="color:#f92672">=</span> integral_scale <span style="color:#f92672">+</span> relate_scale
+
+    <span style="color:#75715e"># 分钟的现在度数</span>
+    relay_minute_scale <span style="color:#f92672">=</span> minute <span style="color:#f92672">*</span> one_minute_scale
+
+    <span style="color:#66d9ef">print</span>(abs(relay_hour_scale <span style="color:#f92672">-</span> relay_minute_scale))
+
+
+calculate(time<span style="color:#f92672">.</span>localtime(time<span style="color:#f92672">.</span>time()))
+</code></pre></div><p>PHP 版</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">calculate</span>($time){
+
+    $hour <span style="color:#f92672">=</span> (<span style="color:#a6e22e">int</span>) <span style="color:#a6e22e">date</span>(<span style="color:#e6db74">&#39;H&#39;</span>, $time);
+    $hour <span style="color:#f92672">=</span>  $hour <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">12</span> <span style="color:#f92672">?</span> $hour <span style="color:#f92672">-</span> <span style="color:#ae81ff">12</span> <span style="color:#f92672">:</span> $hour;
+    $minute <span style="color:#f92672">=</span> (<span style="color:#a6e22e">int</span>) <span style="color:#a6e22e">date</span>(<span style="color:#e6db74">&#39;m&#39;</span>, $time);
+
+    <span style="color:#75715e">// 钟表总度数
+</span><span style="color:#75715e"></span>    $timekeeperAngle <span style="color:#f92672">=</span> <span style="color:#ae81ff">360</span>;
+    <span style="color:#75715e">// 时间刻度份数
+</span><span style="color:#75715e"></span>    $scale <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>;
+    <span style="color:#75715e">// 每份时间刻度占用的度数
+</span><span style="color:#75715e"></span>    $oneScale <span style="color:#f92672">=</span> $timekeeperAngle <span style="color:#f92672">/</span> $scale;
+    <span style="color:#75715e">// 分针每走1分钟时针转动的度数
+</span><span style="color:#75715e"></span>    $oneRelateScale <span style="color:#f92672">=</span> $oneScale <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span>;
+    <span style="color:#75715e">// 分针每走1分钟转动的度数
+</span><span style="color:#75715e"></span>    $oneMinuteScale <span style="color:#f92672">=</span> $timekeeperAngle <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span>;
+
+    <span style="color:#75715e">// 小时*每份度数 得 整点时间的时针度数
+</span><span style="color:#75715e"></span>    $integralScale <span style="color:#f92672">=</span> $hour <span style="color:#f92672">*</span> $oneScale;
+    <span style="color:#75715e">// 分针带动时针走的度数
+</span><span style="color:#75715e"></span>    $relateScale <span style="color:#f92672">=</span> $minute <span style="color:#f92672">*</span> $oneRelateScale;
+
+    <span style="color:#75715e">// 时针真正的起始点度数
+</span><span style="color:#75715e"></span>    $relayHourScale <span style="color:#f92672">=</span> $integralScale <span style="color:#f92672">+</span> $relateScale;
+
+    <span style="color:#75715e">// 分钟的现在度数
+</span><span style="color:#75715e"></span>    $relayMinuteScale <span style="color:#f92672">=</span> $minute <span style="color:#f92672">*</span> $oneMinuteScale;
+
+    <span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">abs</span>($relayHourScale <span style="color:#f92672">-</span> $relayMinuteScale);
+}
+
+<span style="color:#a6e22e">calculate</span>(<span style="color:#a6e22e">time</span>());
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>麦索 </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://blog.m2ez.com/2017/015/>https://blog.m2ez.com/2017/015/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://blog.m2ez.com/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            <span class="tag"><a href="https://blog.m2ez.com/tags/python/">
+                    #python</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://blog.m2ez.com/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://blog.m2ez.com/2017/014/" class="prev" rel="prev" title="Laravel 的 Eloquent模型 中的属性访问控制意义及实践"><i class="iconfont icon-left"></i>&nbsp;Laravel 的 Eloquent模型 中的属性访问控制意义及实践</a>
+        
+        
+        <a href="https://blog.m2ez.com/2017/016/" class="next" rel="next" title="网络七层模型与四层模型区别">网络七层模型与四层模型区别&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+            
+                <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.css">
+<script src="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function () {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i>
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://blog.m2ez.com/">麦索</a> | </span>
+         
+
+         
+            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+
+        </div>
+    </body>
+</html>

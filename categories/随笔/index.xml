@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>随笔 on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/</link>
+    <description>Recent content in 随笔 on 麦索的麦田</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 30 Jun 2017 16:59:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>你好，世界</title>
+      <link>https://blog.m2ez.com/2017/001/</link>
+      <pubDate>Fri, 30 Jun 2017 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2017/001/</guid>
+      <description>你好世界，这是我的第一篇静态博客文章，之前用过免费空间，也自己写过博客程序，现在我用 github page 。 用 github page 是因为独立博客的管理太麻烦，最好在保留控制权</description>
+    </item>
+    
+  </channel>
+</rss>

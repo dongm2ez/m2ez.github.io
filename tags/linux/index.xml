@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/linux/</link>
+    <description>Recent content in Linux on 麦索的麦田</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 23 Feb 2019 16:59:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.m2ez.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Arch Linux 傻瓜安装笔记</title>
+      <link>https://blog.m2ez.com/2019/001/</link>
+      <pubDate>Sat, 23 Feb 2019 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2019/001/</guid>
+      <description>因为没有傻瓜的安装引导程序，安装Arch的工作是一个对linux菜鸟很艰难的工作，但是当你能安装的时候，你就会对linux有更好的理解，我把</description>
+    </item>
+    
+  </channel>
+</rss>

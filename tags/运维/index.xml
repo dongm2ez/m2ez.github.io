@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>运维 on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/%E8%BF%90%E7%BB%B4/</link>
+    <description>Recent content in 运维 on 麦索的麦田</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 10 Sep 2017 16:59:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.m2ez.com/tags/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>开发者的简单服务器集群管理</title>
+      <link>https://blog.m2ez.com/2017/019/</link>
+      <pubDate>Sun, 10 Sep 2017 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2017/019/</guid>
+      <description>概述 本篇是以开发者的视角进行，非专业运维视角，开发管理服务器集群，也许仅仅是自己的项目，或者是在创业公司而没有专业的运维。 开发管理服务器集群</description>
+    </item>
+    
+  </channel>
+</rss>

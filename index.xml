@@ -1,0 +1,37 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>麦索的麦田 on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/</link>
+    <description>Recent content in 麦索的麦田 on 麦索的麦田</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 10 Mar 2020 16:59:37 +0800</lastBuildDate>
+    <atom:link href="https://blog.m2ez.com/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dongm2ez</title>
+      <link>https://blog.m2ez.com/about/</link>
+      <pubDate>Tue, 23 Jun 2020 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/about/</guid>
+      <description>&lt;p&gt;Contact me:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:dongm2ez@163.com&#34;&gt;dongm2ez@163.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Github: &lt;a href=&#34;https://github.com/dongm2ez&#34;&gt;https://github.com/dongm2ez&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My Github chart:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ghchart.rshah.org/dongm2ez&#34; alt=&#34;dongm2ez&amp;rsquo;s Github chart&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Posts</title>
+      <link>https://blog.m2ez.com/posts/</link>
+      <pubDate>Tue, 10 Mar 2020 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/posts/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
