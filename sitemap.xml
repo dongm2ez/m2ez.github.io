@@ -2,9 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://blog.m2ez.com/about/</loc>
+      <loc>https://blog.m2ez.com/categories/</loc>
       
-      <lastmod>2020-06-23T16:59:37+08:00</lastmod>
+      <lastmod>2020-06-25T19:23:42+08:00</lastmod>
       
       
       
@@ -12,9 +12,69 @@
     </url>
   
     <url>
-      <loc>https://blog.m2ez.com/categories/</loc>
+      <loc>https://blog.m2ez.com/posts/</loc>
       
-      <lastmod>2020-02-25T16:59:37+08:00</lastmod>
+      <lastmod>2020-06-25T19:23:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://blog.m2ez.com/tags/</loc>
+      
+      <lastmod>2020-06-25T19:23:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://blog.m2ez.com/tags/%E5%91%A8%E8%AE%B0/</loc>
+      
+      <lastmod>2020-06-25T19:23:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://blog.m2ez.com/2020/004/</loc>
+      
+      <lastmod>2020-06-25T19:23:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/</loc>
+      
+      <lastmod>2020-06-25T19:23:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://blog.m2ez.com/</loc>
+      
+      <lastmod>2020-06-25T19:23:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://blog.m2ez.com/about/</loc>
+      
+      <lastmod>2020-06-23T16:59:37+08:00</lastmod>
       
       
       
@@ -42,37 +102,7 @@
     </url>
   
     <url>
-      <loc>https://blog.m2ez.com/posts/</loc>
-      
-      <lastmod>2020-02-25T16:59:37+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://blog.m2ez.com/tags/</loc>
-      
-      <lastmod>2020-02-25T16:59:37+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/</loc>
-      
-      <lastmod>2020-02-25T16:59:37+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://blog.m2ez.com/</loc>
       
       <lastmod>2020-02-25T16:59:37+08:00</lastmod>
       
@@ -663,16 +693,6 @@
   
     <url>
       <loc>https://blog.m2ez.com/tags/%E9%9A%8F%E7%AC%94/</loc>
-      
-      <lastmod>2017-06-30T16:59:37+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/</loc>
       
       <lastmod>2017-06-30T16:59:37+08:00</lastmod>
       
