@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="麦索">
+    <meta name="description" content="麦索的个人博客">
+    
+    
+    <link rel="prev" href="https://blog.m2ez.com/2020/002/" />
+    <link rel="next" href="https://blog.m2ez.com/2020/003/" />
+    <link rel="canonical" href="https://blog.m2ez.com/2020/001/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            Laravel/Lumen项目接入Sentry异常监控 | 麦索的麦田
+        
+    </title>
+    <meta name="title" content="Laravel/Lumen项目接入Sentry异常监控 | 麦索的麦田">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/blog.m2ez.com\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Laravel\/Lumen项目接入Sentry异常监控",
+    "headline" : "Laravel\/Lumen项目接入Sentry异常监控",
+    "description" : "首先安装sentry SDK包： $ composer require sentry\/sentry-laravel:1.5.0 如果使用的5.5以上的框架会自动发现包并加载（Lumen需手动注册），我们目前项目都是5.5以上所以无",
+    "inLanguage" : "zh",
+    "author" : "麦索",
+    "creator" : "麦索",
+    "publisher": "麦索",
+    "accountablePerson" : "麦索",
+    "copyrightHolder" : "麦索",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-25 16:59:37 \u002b0800 CST",
+    "dateModified" : "2020-02-25 16:59:37 \u002b0800 CST",
+    "url" : "https:\/\/blog.m2ez.com\/2020\/001\/",
+    "wordCount" : "381",
+    "keywords" : [ "laravel", "麦索的麦田"]
+}
+</script>
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://blog.m2ez.com/">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://blog.m2ez.com/">麦索的麦田</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="">
+                            <h3>Blog</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/categories/" title="">
+                            <h3>Categories</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/tags/" title="">
+                            <h3>Tags</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/about/" title="">
+                            <h3>About</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/about/" title="Dongm2ez">
+                            <h3>Dongm2ez</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Laravel/Lumen项目接入Sentry异常监控</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://blog.m2ez.com/" rel="author">麦索</a> with ♥
+                <span class="post-time">
+                on <time datetime=2020-02-25 itemprop="datePublished">February 25, 2020</time>
+                </span>
+                in
+                
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"> 计算机技术, </a>
+                        
+                        
+                </span>
+                <span class="post-word-count">381 words</span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        
+
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        <ol>
+<li>首先安装sentry SDK包：</li>
+</ol>
+<p><code>$ composer require sentry/sentry-laravel:1.5.0</code></p>
+<p>如果使用的5.5以上的框架会自动发现包并加载（Lumen需手动注册），我们目前项目都是5.5以上所以无需单独配置。</p>
+<p>Lumen注册方法是在bootstrap/app.php中添加：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">
+$app-&gt;register(&#39;Sentry\Laravel\ServiceProvider&#39;);
+
+# Sentry must be registered before routes are included
+
+# 必须在路由加载前注册
+
+require __DIR__ . &#39;/../app/Http/routes.php&#39;;
+
+</code></pre></div><ol start="2">
+<li>然后将报告方法加入 App/Exceptions/Handler.php ​中：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">
+public function report(Exception $exception){
+    if (app()-&gt;bound(&#39;sentry&#39;) <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span> $this-&gt;shouldReport($exception)) {
+        app(&#39;sentry&#39;)-&gt;captureException($exception);
+    }
+
+    parent::report($exception);
+
+}
+
+</code></pre></div><p>​3. 执行 <code>php artisan vendor:publish --provider=&quot;Sentry\Laravel\ServiceProvider&quot;​</code> 将配置文件加入config文件夹中（Lumen需要手动复制或创建），将sentry中获得的DSN链接配置进文件：</p>
+<p><code>'dsn' =&gt; env('SENTRY_LARAVEL_DSN', null)，</code></p>
+<p>如果是null，sentry SDK将不触发上报。</p>
+<p>需在<code>.env</code>中添加 <code>SENTRY_LARAVEL_DSN=https://&lt;key&gt;@sentry.io/&lt;project&gt;</code> 配置，具体地址是Sentry中项目分配。</p>
+<ol start="4">
+<li>测试是否接入成功可以使用在路由文件中新建一个路由主动抛出异常</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">Route::get(&#39;/debug-sentry&#39;, function () {
+    throw new Exception(&#39;My first Sentry error!&#39;);
+
+});
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>麦索 </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://blog.m2ez.com/2020/001/>https://blog.m2ez.com/2020/001/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://blog.m2ez.com/tags/laravel/">
+                    #laravel</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://blog.m2ez.com/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://blog.m2ez.com/2020/002/" class="prev" rel="prev" title="为什么应该学习自动化测试？"><i class="iconfont icon-left"></i>&nbsp;为什么应该学习自动化测试？</a>
+        
+        
+        <a href="https://blog.m2ez.com/2020/003/" class="next" rel="next" title="RPC学习笔记">RPC学习笔记&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+            
+                <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.css">
+<script src="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function () {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i>
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://blog.m2ez.com/">麦索</a> | </span>
+         
+
+         
+            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+
+        </div>
+    </body>
+</html>

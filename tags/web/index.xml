@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WEB on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/web/</link>
+    <description>Recent content in WEB on 麦索的麦田</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 26 Aug 2017 16:59:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.m2ez.com/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web 金字塔式开发框架分层模型概述</title>
+      <link>https://blog.m2ez.com/2017/017/</link>
+      <pubDate>Sat, 26 Aug 2017 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2017/017/</guid>
+      <description>现在的大部分 Web 框架都是使用金字塔式的分层架构，一般这种应用都是阻塞同步 IO 模型的编程实现，理解这种分层架构模型的实质有助于理解框架。 因为万变不</description>
+    </item>
+    
+    <item>
+      <title>HTTP 协议 Request 和 Response 参数笔记</title>
+      <link>https://blog.m2ez.com/2017/010/</link>
+      <pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2017/010/</guid>
+      <description>Request 请求方法 一般的网页应用中只会用到 GET 和 POST 方法，而 RESTful 接口中会用到其他方法。 GET : 请求获取 Request-URI 所标识的资源。 POST : 在 Request-URI 所标识的资源后附加新的数据。 HEAD :</description>
+    </item>
+    
+    <item>
+      <title>互联网的基础协议 HTTP</title>
+      <link>https://blog.m2ez.com/2017/011/</link>
+      <pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2017/011/</guid>
+      <description>HTTP 协议中文全称 「超文本传输协议」，是互联网的基础协议，目前最新版本为 HTTP 2.0。 HTTP 是基于 TCP/IP 协议的 应用层协议，主要规定了客户端与服务器端之间通信</description>
+    </item>
+    
+  </channel>
+</rss>

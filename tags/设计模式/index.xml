@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>设计模式 on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 设计模式 on 麦索的麦田</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 26 Aug 2017 16:59:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.m2ez.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web 金字塔式开发框架分层模型概述</title>
+      <link>https://blog.m2ez.com/2017/017/</link>
+      <pubDate>Sat, 26 Aug 2017 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2017/017/</guid>
+      <description>现在的大部分 Web 框架都是使用金字塔式的分层架构，一般这种应用都是阻塞同步 IO 模型的编程实现，理解这种分层架构模型的实质有助于理解框架。 因为万变不</description>
+    </item>
+    
+    <item>
+      <title>简单解释什么是 依赖注入 和 控制反转</title>
+      <link>https://blog.m2ez.com/2017/012/</link>
+      <pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2017/012/</guid>
+      <description>关于 依赖注入 与 控制反转 的概念有些人觉得很难理解，最近在给别人讲这个概念的时候梳理了一个比较好理解的解释，而且我认为非技术人员也应该能听的懂，</description>
+    </item>
+    
+    <item>
+      <title>S.O.L.I.D 面向对象设计和编程（OOD&amp;OOP）笔记</title>
+      <link>https://blog.m2ez.com/2017/006/</link>
+      <pubDate>Tue, 04 Jul 2017 20:59:37 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2017/006/</guid>
+      <description>SOLID是 面向对象编程 和 面试对象设计 的五个基本原则，应用这五个原则能创建一个易于维护和扩展的软件系统。SOLID可以指导代码重构和在迭代的</description>
+    </item>
+    
+  </channel>
+</rss>
