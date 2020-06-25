@@ -244,25 +244,25 @@ CLASSPATH<span style="color:#f92672">=</span>.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/
 <p>git 仓库上每个项目都有一个部署公钥，将生成的公钥添加到 git 仓库。</p>
 <p>然后创建一个自由风格的 jenkins 部署项目，进入配置。</p>
 <h3 id="拉取代码">拉取代码</h3>
-<p><img src="http://img.m2ez.com/14877524448478.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/14877524448478.jpg" alt=""></p>
 <p>选择 git ，默认会拉取仓库的 master 分支，点击 add 添加一个拉取代码的凭证。</p>
-<p><img src="http://img.m2ez.com/14877525840602.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/14877525840602.jpg" alt=""></p>
 <p>Kind 选 SSH Username with private key
 Private key 选择 From the Jenkins master ~/.ssh (已经使用 ssh-keygen 生成公私钥)</p>
 <p>创建完成后选择凭证，输入 git 仓库的地址，然后就可以保存后点击立即构建，测试代码能不能正确拉取，拉取正确后点击工作空间就可以看见你的代码库中的代码了。</p>
 <h3 id="构建">构建</h3>
-<p><img src="http://img.m2ez.com/14877531720409.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/14877531720409.jpg" alt=""></p>
 <p>默认有这些构建选项，本地构建简单使用 Execute shell 执行 shell 指令。</p>
 <p>远程构建需要新安装一个插件，在 系统管理-管理插件-可选插件 中搜索 Publish Over SSH 插件并安装，重启 Jenkins 以启用插件。</p>
 <p>将本机的公钥复制到远程服务器root用户的 /root/.ssh/authorized_keys 文件中。</p>
 <p>然后在 系统管理-系统设置-Publish over SSH
-<img src="http://img.m2ez.com/14877587669714.jpg" alt=""></p>
+<img src="//img.m2ez.com/14877587669714.jpg" alt=""></p>
 <p>填入私钥文件地址</p>
-<p><img src="http://img.m2ez.com/14877589010557.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/14877589010557.jpg" alt=""></p>
 <p>增加一个 ssh 服务器配置</p>
-<p><img src="http://img.m2ez.com/14877589436549.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/14877589436549.jpg" alt=""></p>
 <p>构建中选择 Send files or execute commands over SSH</p>
-<p><img src="http://img.m2ez.com/14877591104113.jpg" alt=""></p>
+<p><img src="//img.m2ez.com/14877591104113.jpg" alt=""></p>
 <p>简单点可以直接执行 shell 指令，到想要部署的项目目录用 git 直接拉取远程代码，但这样用 Jenkins 意义真的不是特别大，可以在本机将代码打包，然后传输到远程机器，再解压开到项目目录。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /var/www/web
 tar -czf project_<span style="color:#e6db74">`</span>date +%F-%H-%M-%S<span style="color:#e6db74">`</span>.bak.tar.gz --exclude<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;project/runtime&#39;</span> --exclude<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;project/.git&#39;</span> /home/www/web/project

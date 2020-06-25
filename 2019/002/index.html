@@ -209,7 +209,7 @@
 <h2 id="安装-android-things">安装 Android Things</h2>
 <p>安装 Android Things 需要先下载最新的 Android Things 镜像，可以去<a href="https://partner.android.com/things/console/">https://partner.android.com/things/console/</a>用你的 google 账号登录，新建一个项目，并且构建一个镜像进行下载。 最新的镜像必须有一个项目才可以下载。</p>
 <p>下载完成后我们可以用两种方式进行安装镜像，一种是用官方提供的控制台程序另一种是自己烧录。</p>
-<p><img src="http://img.m2ez.com/image/1.jpg" alt="">
+<p><img src="//img.m2ez.com/image/1.jpg" alt="">
 ￼
 工具在这里下载，下载工具后选择自己相应的系统的工具根据提示做就行了。
 自己烧录的话以下是教程：</p>
@@ -220,7 +220,7 @@
 </ul>
 <p>烧录完成后，我们就可以把 sd 卡插入树莓派，连接电源和显示器，如果你烧录的正确，你就会看到显示器上出现 Android Things 的启动画面。
 ￼
-<img src="http://img.m2ez.com/image/2.jpg" alt=""></p>
+<img src="//img.m2ez.com/image/2.jpg" alt=""></p>
 <p>通过无线和网线都可以将你的电脑和树莓派进行通信，和电脑连通的树莓派被视为一个安卓设备，因此可以使用android开发工具包中的adb进行远程调试。adb 工具可以通过 ip:5555 端口与 android thins开发板进行通讯，如果有鼠标显示器可以直接连接到树莓派上进行网络连接。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 先通过有线连接，获取IP</span>
 $ ./adb connect &lt;ip-address&gt;

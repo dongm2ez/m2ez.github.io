@@ -10,7 +10,7 @@
     
     
     <link rel="prev" href="https://blog.m2ez.com/2019/001/" />
-    <link rel="next" href="https://blog.m2ez.com/2019/004/" />
+    <link rel="next" href="https://blog.m2ez.com/2019/003/" />
     <link rel="canonical" href="https://blog.m2ez.com/2019/003/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -22,10 +22,10 @@
     <title>
         
         
-            从排序数组中删除重复项 | 麦索的麦田
+            RPC学习笔记 | 麦索的麦田
         
     </title>
-    <meta name="title" content="从排序数组中删除重复项 | 麦索的麦田">
+    <meta name="title" content="RPC学习笔记 | 麦索的麦田">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -43,9 +43,9 @@
          "@id": "https:\/\/blog.m2ez.com\/"
     },
     "articleSection" : "posts",
-    "name" : "从排序数组中删除重复项",
-    "headline" : "从排序数组中删除重复项",
-    "description" : "题目链接 从排序数组中删除重复项 解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。 代码 PHP版本 class Solution { \/** * @param Integer[] $nums * @return",
+    "name" : "RPC学习笔记",
+    "headline" : "RPC学习笔记",
+    "description" : "RPC框架 Dubbo：国内最早开源的 RPC 框架，由阿里巴巴公司开发并于 2011 年末对外开源，仅支持 Java 语言。 Motan：微博内部使用的 RPC 框架，于 2016 年对外",
     "inLanguage" : "zh",
     "author" : "麦索",
     "creator" : "麦索",
@@ -53,11 +53,11 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-17 16:59:37 \u002b0800 CST",
-    "dateModified" : "2019-05-17 16:59:37 \u002b0800 CST",
+    "datePublished": "2019-03-10 16:59:37 \u002b0800 CST",
+    "dateModified" : "2019-03-10 16:59:37 \u002b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2019\/003\/",
-    "wordCount" : "190",
-    "keywords" : [ "leetcode","算法", "麦索的麦田"]
+    "wordCount" : "980",
+    "keywords" : [ "RPC", "麦索的麦田"]
 }
 </script>
 
@@ -153,11 +153,11 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">从排序数组中删除重复项</h1>
+        <h1 class="post-title" itemprop="name headline">RPC学习笔记</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://blog.m2ez.com/" rel="author">麦索</a> with ♥
                 <span class="post-time">
-                on <time datetime=2019-05-17 itemprop="datePublished">May 17, 2019</time>
+                on <time datetime=2019-03-10 itemprop="datePublished">March 10, 2019</time>
                 </span>
                 in
                 
@@ -170,7 +170,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">190 words</span>
+                <span class="post-word-count">980 words</span>
         </div>
     </header>
 
@@ -179,46 +179,60 @@
 
         
         
-
-        
-        
-        
-        
+            
         
 
         
         
         
+        
+        
 
-        <h2 id="题目链接">题目链接</h2>
-<p><a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/21/">从排序数组中删除重复项</a></p>
-<h2 id="解题思路">解题思路</h2>
-<p>迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。</p>
-<h2 id="代码">代码</h2>
-<h3 id="php版本">PHP版本</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">class Solution {
+        
+        
+        
 
-    /**
-     * @param Integer[] $nums
-     * @return Integer
-     */
-    function removeDuplicates(<span style="color:#960050;background-color:#1e0010">&amp;</span>$nums) {
-        $size = sizeof($nums);// 防止数组越界
-        foreach($nums as $key =&gt; $item){
-            if($key + 1 <span style="color:#960050;background-color:#1e0010">&lt;</span>= $size) {
-                if($nums[$key] === $nums[$key + 1]){
-                    unset($nums[$key]);
-                }
-            }
-        }
-        return count($nums);
-    }
-}
-</code></pre></div><p>语言坑点：</p>
-<ol>
-<li>PHP使用for循环时<code>unset</code>掉元素不重置下标，数组下标保持原状，所以有可能漏掉判断元素。</li>
-<li>PHP判断是否相等时会将NULL 与 0相等，必须连类型一起判断。</li>
-</ol>
+        <h2 id="rpc框架">RPC框架</h2>
+<ul>
+<li><strong>Dubbo</strong>：国内最早开源的 RPC 框架，由阿里巴巴公司开发并于 2011 年末对外开源，仅支持 Java 语言。</li>
+<li><strong>Motan</strong>：微博内部使用的 RPC 框架，于 2016 年对外开源，仅支持 Java 语言。</li>
+<li><strong>Tars</strong>：腾讯内部使用的 RPC 框架，于 2017 年对外开源，仅支持 C++ 语言。</li>
+<li><strong>Spring Cloud</strong>：国外 Pivotal 公司 2014 年对外开源的 RPC 框架，仅支持 Java 语言</li>
+<li><strong>Yar</strong>：PHP轻量的RPC框架，鸟哥开源，仅支持 PHP 语言</li>
+</ul>
+<p>跨语言平台RPC</p>
+<ul>
+<li>gRPC：Google 于 2015 年对外开源的跨语言 RPC 框架，支持多种语言。</li>
+<li>Thrift：最初是由 Facebook 开发的内部系统跨语言的 RPC 框架，2007 年贡献给了 Apache 基金，成为 Apache 开源项目之一，支持多种语言。</li>
+</ul>
+<h2 id="grpc">gRPC</h2>
+<p>gRPC是一个高性能开源的通用的RPC框架，可以跨语言使用。</p>
+<p>所谓RPC是 <code>remote procedure call</code> 的简写，中文翻译为远程过程调用。</p>
+<p>RPC框架提供了一套机制，使得应用程序之间可以高效通信，调用远程的接口就像调用本地的函数一样。</p>
+<p><img src="//img.m2ez.com/15834709173813.jpg" alt="RPC结构图" loading="lazy" ></p>
+<p>RPC是一种CS架构的，RPC也是底层也是基于HTTP协议的，gRPC严格的说是基于HTTP2.0的，2.0的HTTP可以提高接口效率</p>
+<h3 id="grpc的优势">gRPC的优势</h3>
+<ul>
+<li>gRPC可以通过protobuf来定义接口，从而可以有更加严格的接口约束条件。</li>
+<li>通过protobuf可以将数据序列化为二进制编码，这会大幅减少需要传输的数据量，从而大幅提高性能。</li>
+<li>gRPC可以方便地支持流式通信</li>
+</ul>
+<h3 id="使用场景">使用场景</h3>
+<p>需要对接口进行严格约束的情况</p>
+<p>如我们提供一个公共服务，很多人希望访问这个服务，这时我们希望有更加严格的约束，不希望客户端任意传递数据，尤其是安全性考虑</p>
+<p>提高性能</p>
+<p>服务之间需要大量的进行数据传递和调用，gRPC将数据压缩编码成二进制的格式，传递的数据要小的很多，而且HTTP2可以实现异步请求，从而提高了通信效率</p>
+<h2 id="thrift">Thrift</h2>
+<p><img src="//img.m2ez.com/15834974830545.jpg" alt="Thrift架构图" loading="lazy" ></p>
+<p>Thrift 是一种轻量级的跨语言 RPC 通信方案，支持多达 25 种编程语言。</p>
+<p>跟 gRPC 一样，Thrift 也有一套自己的接口定义语言 IDL，可以通过代码生成器，生成各种编程语言的 Client 端和 Server 端的 SDK 代码，这样就保证了不同语言之间可以相互通信。</p>
+<ul>
+<li>支持多种序列化格式：如 Binary、Compact、JSON、Multiplexed 等。</li>
+<li>支持多种通信方式：如 Socket、Framed、File、Memory、zlib 等。</li>
+<li>服务端支持多种处理方式：如 Simple 、Thread Pool、Non-Blocking 等。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>RPC可以在服务调用的时候调用远程方法像调用本地方法一样，同时相比普通的API调用更加高效。</p>
 
     </div>
 
@@ -249,11 +263,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://blog.m2ez.com/tags/leetcode/">
-                    #leetcode</a></span>
-            
-            <span class="tag"><a href="https://blog.m2ez.com/tags/%E7%AE%97%E6%B3%95/">
-                    #算法</a></span>
+            <span class="tag"><a href="https://blog.m2ez.com/tags/rpc/">
+                    #RPC</a></span>
             
             </section>
         
@@ -268,7 +279,7 @@
         <a href="https://blog.m2ez.com/2019/001/" class="prev" rel="prev" title="Arch Linux 傻瓜安装笔记"><i class="iconfont icon-left"></i>&nbsp;Arch Linux 傻瓜安装笔记</a>
         
         
-        <a href="https://blog.m2ez.com/2019/004/" class="next" rel="next" title="编程中的自顶向下设计思想">编程中的自顶向下设计思想&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://blog.m2ez.com/2019/003/" class="next" rel="next" title="从排序数组中删除重复项">从排序数组中删除重复项&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
