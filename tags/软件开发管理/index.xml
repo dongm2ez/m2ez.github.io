@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件开发管理 on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86/</link>
+    <description>Recent content in 软件开发管理 on 麦索的麦田</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 25 Jun 2020 19:31:25 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.m2ez.com/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>迭代与需求的关系</title>
+      <link>https://blog.m2ez.com/2020/007/</link>
+      <pubDate>Thu, 25 Jun 2020 19:31:25 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2020/007/</guid>
+      <description>迭代和需求应该是整体与特殊的关系，而不是整体和部分的关系。 迭代是关于用户，场景，需求的一般性描述，一个迭代中的需求都是带有共性存在的，因此每</description>
+    </item>
+    
+  </channel>
+</rss>
