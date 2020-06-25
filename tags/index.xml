@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 25 Feb 2020 16:59:37 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2020 19:23:42 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.m2ez.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>周记</title>
+      <link>https://blog.m2ez.com/tags/%E5%91%A8%E8%AE%B0/</link>
+      <pubDate>Thu, 25 Jun 2020 19:23:42 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/tags/%E5%91%A8%E8%AE%B0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>laravel</title>
