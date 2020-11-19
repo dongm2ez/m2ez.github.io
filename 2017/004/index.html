@@ -195,76 +195,76 @@
 <h3 id="迭代器-filesystemiterator">迭代器 FilesystemIterator</h3>
 <p>官方文档：<a href="http://php.net/manual/zh/class.filesystemiterator.php">http://php.net/manual/zh/class.filesystemiterator.php</a></p>
 <p>类摘要：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">FilesystemIterator extends DirectoryIterator implements SeekableIterator {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">FilesystemIterator</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">DirectoryIterator</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">SeekableIterator</span> {
 
-/* 常量 */
-const integer CURRENT_AS_PATHNAME = 32 ;
-const integer CURRENT_AS_FILEINFO = 0 ;
-const integer CURRENT_AS_SELF = 16 ;
-const integer CURRENT_MODE_MASK = 240 ;
-const integer KEY_AS_PATHNAME = 0 ;
-const integer KEY_AS_FILENAME = 256 ;
-const integer FOLLOW_SYMLINKS = 512 ;
-const integer KEY_MODE_MASK = 3840 ;
-const integer NEW_CURRENT_AND_KEY = 256 ;
-const integer SKIP_DOTS = 4096 ;
-const integer UNIX_PATHS = 8192 ;
+<span style="color:#75715e">/* 常量 */</span>
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">CURRENT_AS_PATHNAME</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">CURRENT_AS_FILEINFO</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">CURRENT_AS_SELF</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">CURRENT_MODE_MASK</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">240</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">KEY_AS_PATHNAME</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">KEY_AS_FILENAME</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">FOLLOW_SYMLINKS</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">512</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">KEY_MODE_MASK</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3840</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">NEW_CURRENT_AND_KEY</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">SKIP_DOTS</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4096</span> ;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">integer</span> <span style="color:#a6e22e">UNIX_PATHS</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">8192</span> ;
 
-/* 方法 */
-public __construct ( string $path [, int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS ] )
-public mixed current ( void )
-public int getFlags ( void )
-public string key ( void )
-public void next ( void )
-public void rewind ( void )
-public void setFlags ([ int $flags ] )
+<span style="color:#75715e">/* 方法 */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">__construct</span> ( <span style="color:#a6e22e">string</span> $path [, <span style="color:#a6e22e">int</span> $flags <span style="color:#f92672">=</span> <span style="color:#a6e22e">FilesystemIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">KEY_AS_PATHNAME</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">FilesystemIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">CURRENT_AS_FILEINFO</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">FilesystemIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">SKIP_DOTS</span> ] )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">mixed</span> <span style="color:#a6e22e">current</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">getFlags</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">key</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">void</span> <span style="color:#a6e22e">next</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">void</span> <span style="color:#a6e22e">rewind</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">void</span> <span style="color:#a6e22e">setFlags</span> ([ <span style="color:#a6e22e">int</span> $flags ] )
 
-/* 继承的方法 */
-public DirectoryIterator DirectoryIterator::current ( void )
-public int DirectoryIterator::getATime ( void )
-public string DirectoryIterator::getBasename ([ string $suffix ] )
-public int DirectoryIterator::getCTime ( void )
-public string DirectoryIterator::getExtension ( void )
-public string DirectoryIterator::getFilename ( void )
-public int DirectoryIterator::getGroup ( void )
-public int DirectoryIterator::getInode ( void )
-public int DirectoryIterator::getMTime ( void )
-public int DirectoryIterator::getOwner ( void )
-public string DirectoryIterator::getPath ( void )
-public string DirectoryIterator::getPathname ( void )
-public int DirectoryIterator::getPerms ( void )
-public int DirectoryIterator::getSize ( void )
-public string DirectoryIterator::getType ( void )
-public bool DirectoryIterator::isDir ( void )
-public bool DirectoryIterator::isDot ( void )
-public bool DirectoryIterator::isExecutable ( void )
-public bool DirectoryIterator::isFile ( void )
-public bool DirectoryIterator::isLink ( void )
-public bool DirectoryIterator::isReadable ( void )
-public bool DirectoryIterator::isWritable ( void )
-public string DirectoryIterator::key ( void )
-public void DirectoryIterator::next ( void )
-public void DirectoryIterator::rewind ( void )
-public void DirectoryIterator::seek ( int $position )
-public string DirectoryIterator::__toString ( void )
-public bool DirectoryIterator::valid ( void )
+<span style="color:#75715e">/* 继承的方法 */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">DirectoryIterator</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">current</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getATime</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getBasename</span> ([ <span style="color:#a6e22e">string</span> $suffix ] )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getCTime</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getExtension</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getFilename</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getGroup</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getInode</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getMTime</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getOwner</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getPath</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getPathname</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getPerms</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getSize</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">getType</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">isDir</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">isDot</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">isExecutable</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">isFile</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">isLink</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">isReadable</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">isWritable</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">key</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">void</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">next</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">void</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">rewind</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">void</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">seek</span> ( <span style="color:#a6e22e">int</span> $position )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">__toString</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">DirectoryIterator</span><span style="color:#f92672">::</span><span style="color:#a6e22e">valid</span> ( <span style="color:#a6e22e">void</span> )
 }
 </code></pre></div><p>使用这个迭代器的方法很简单，实例化的时候传入的是目录路径，这个迭代器继承自 DirectoryIterator 迭代器，而 DirectoryIterator 迭代器又继承自 SplFileInfo 类，这个类我们后面介绍。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$fSI = new FileSystemIterator(&#39;.&#39;);
-/** @var FileSystemIterator $fInfo */
-// 模拟 windows dir
-foreach ($fSI as $fInfo) {
-    printf(&#34;%8s%8s%8s %8s\n&#34;,
-        date(&#34;Y-m-d H:i:s&#34;, $fInfo-&gt;getMtime()),
-        $fInfo-&gt;isDir() ? &#39;&lt;<span style="color:#f92672">DIR</span>&gt;&#39; : &#39;&#39;,
-        number_format($fInfo-&gt;getSize()),
-        $fInfo-&gt;getFileName()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$fSI <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FileSystemIterator</span>(<span style="color:#e6db74">&#39;.&#39;</span>);
+<span style="color:#e6db74">/** @var FileSystemIterator $fInfo */</span>
+<span style="color:#75715e">// 模拟 windows dir
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">foreach</span> ($fSI <span style="color:#66d9ef">as</span> $fInfo) {
+    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%8s%8s%8s %8s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,
+        <span style="color:#a6e22e">date</span>(<span style="color:#e6db74">&#34;Y-m-d H:i:s&#34;</span>, $fInfo<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getMtime</span>()),
+        $fInfo<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isDir</span>() <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;&lt;DIR&gt;&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+        <span style="color:#a6e22e">number_format</span>($fInfo<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getSize</span>()),
+        $fInfo<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getFileName</span>()
     );
 }
-// 模拟 linux ls
-foreach ($fSI as $fInfo) {
-    printf(&#34;%8s  &#34;,
-        $fInfo-&gt;getFileName()
+<span style="color:#75715e">// 模拟 linux ls
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">foreach</span> ($fSI <span style="color:#66d9ef">as</span> $fInfo) {
+    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%8s  &#34;</span>,
+        $fInfo<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getFileName</span>()
     );
 }
 </code></pre></div><p>以上代码模拟了 windows 的 dir 和 linux 的 ls 功能。还有许多功能可以使用，看一下官方文档里的方法列表就知道了，都是比较语义化的方法命名，比如 isFile 就是判断一个文件是不是文件， getMTime 是获取文件的修改时间。</p>
@@ -273,54 +273,54 @@ foreach ($fSI as $fInfo) {
 <p>SplFileInfo 这个类可以用来获取文件的基本信息，如修改时间，大小。</p>
 <p>SplFileObject 这个类操作文件的内容，如读取、写入。</p>
 <p>类摘要</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">SplFileInfo {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">SplFileInfo</span> {
 
-/* 方法 */
-public __construct ( string $file_name )
-public int getATime ( void )
-public string getBasename ([ string $suffix ] )
-public int getCTime ( void )
-public string getExtension ( void )
-public SplFileInfo getFileInfo ([ string $class_name ] )
-public string getFilename ( void )
-public int getGroup ( void )
-public int getInode ( void )
-public string getLinkTarget ( void )
-public int getMTime ( void )
-public int getOwner ( void )
-public string getPath ( void )
-public SplFileInfo getPathInfo ([ string $class_name ] )
-public string getPathname ( void )
-public int getPerms ( void )
-public string getRealPath ( void )
-public int getSize ( void )
-public string getType ( void )
-public bool isDir ( void )
-public bool isExecutable ( void )
-public bool isFile ( void )
-public bool isLink ( void )
-public bool isReadable ( void )
-public bool isWritable ( void )
-public SplFileObject openFile ([ string $open_mode = &#34;r&#34; [, bool $use_include_path = false [, resource $context = NULL ]]] )
-public void setFileClass ([ string $class_name = &#34;SplFileObject&#34; ] )
-public void setInfoClass ([ string $class_name = &#34;SplFileInfo&#34; ] )
-public void __toString ( void )
+<span style="color:#75715e">/* 方法 */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">__construct</span> ( <span style="color:#a6e22e">string</span> $file_name )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">getATime</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">getBasename</span> ([ <span style="color:#a6e22e">string</span> $suffix ] )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">getCTime</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">getExtension</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SplFileInfo</span> <span style="color:#a6e22e">getFileInfo</span> ([ <span style="color:#a6e22e">string</span> $class_name ] )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">getFilename</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">getGroup</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">getInode</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">getLinkTarget</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">getMTime</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">getOwner</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">getPath</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SplFileInfo</span> <span style="color:#a6e22e">getPathInfo</span> ([ <span style="color:#a6e22e">string</span> $class_name ] )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">getPathname</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">getPerms</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">getRealPath</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">int</span> <span style="color:#a6e22e">getSize</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">string</span> <span style="color:#a6e22e">getType</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">isDir</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">isExecutable</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">isFile</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">isLink</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">isReadable</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">bool</span> <span style="color:#a6e22e">isWritable</span> ( <span style="color:#a6e22e">void</span> )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SplFileObject</span> <span style="color:#a6e22e">openFile</span> ([ <span style="color:#a6e22e">string</span> $open_mode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;r&#34;</span> [, <span style="color:#a6e22e">bool</span> $use_include_path <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span> [, <span style="color:#a6e22e">resource</span> $context <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span> ]]] )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">void</span> <span style="color:#a6e22e">setFileClass</span> ([ <span style="color:#a6e22e">string</span> $class_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SplFileObject&#34;</span> ] )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">void</span> <span style="color:#a6e22e">setInfoClass</span> ([ <span style="color:#a6e22e">string</span> $class_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SplFileInfo&#34;</span> ] )
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">void</span> <span style="color:#a6e22e">__toString</span> ( <span style="color:#a6e22e">void</span> )
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$file = new SplFileInfo(&#39;README.md&#39;);
-echo &#39;File is created at &#39; . date(&#39;Y-m-d H:i:s&#39;, $file-&gt;getCTime()) . PHP_EOL;
-echo &#39;File is modified at &#39; . date(&#39;Y-m-d H:i:s&#39;, $file-&gt;getMTime()) . PHP_EOL;
-echo &#39;File size is &#39; . $file-&gt;getSize() . &#39; bytes&#39; . PHP_EOL;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SplFileInfo</span>(<span style="color:#e6db74">&#39;README.md&#39;</span>);
+<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;File is created at &#39;</span> <span style="color:#f92672">.</span> <span style="color:#a6e22e">date</span>(<span style="color:#e6db74">&#39;Y-m-d H:i:s&#39;</span>, $file<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getCTime</span>()) <span style="color:#f92672">.</span> <span style="color:#a6e22e">PHP_EOL</span>;
+<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;File is modified at &#39;</span> <span style="color:#f92672">.</span> <span style="color:#a6e22e">date</span>(<span style="color:#e6db74">&#39;Y-m-d H:i:s&#39;</span>, $file<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getMTime</span>()) <span style="color:#f92672">.</span> <span style="color:#a6e22e">PHP_EOL</span>;
+<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;File size is &#39;</span> <span style="color:#f92672">.</span> $file<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getSize</span>() <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39; bytes&#39;</span> <span style="color:#f92672">.</span> <span style="color:#a6e22e">PHP_EOL</span>;
 
-// openFile 方法返回的 SplFileObject 对象
-// 读取文件里面的内容
-$fileObj = $file-&gt;openFile(&#39;r&#39;);
-while($fileObj-&gt;valid()){
-    echo $fileObj-&gt;fgets(); // 读取文件里的一行数据
-}
+<span style="color:#75715e">// openFile 方法返回的 SplFileObject 对象
+</span><span style="color:#75715e">// 读取文件里面的内容
+</span><span style="color:#75715e"></span>$fileObj <span style="color:#f92672">=</span> $file<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">openFile</span>(<span style="color:#e6db74">&#39;r&#39;</span>);
+<span style="color:#66d9ef">while</span>($fileObj<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">valid</span>()){
+    <span style="color:#66d9ef">echo</span> $fileObj<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">fgets</span>(); <span style="color:#75715e">// 读取文件里的一行数据
+</span><span style="color:#75715e"></span>}
 
-// 关闭打开的文件
-$fileObj = null;
-$file = null;
+<span style="color:#75715e">// 关闭打开的文件
+</span><span style="color:#75715e"></span>$fileObj <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+$file <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
 </code></pre></div><h3 id="函数">函数</h3>
 <p>目录相关函数：<a href="http://php.net/manual/zh/ref.dir.php">http://php.net/manual/zh/ref.dir.php</a>
 文件系统函数：<a href="http://php.net/manual/zh/ref.filesystem.php">http://php.net/manual/zh/ref.filesystem.php</a></p>

@@ -197,24 +197,24 @@
 <p>如果使用的5.5以上的框架会自动发现包并加载（Lumen需手动注册），我们目前项目都是5.5以上所以无需单独配置。</p>
 <p>Lumen注册方法是在bootstrap/app.php中添加：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">
-$app-&gt;register(&#39;Sentry\Laravel\ServiceProvider&#39;);
+$app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">register</span>(<span style="color:#e6db74">&#39;Sentry\Laravel\ServiceProvider&#39;</span>);
 
-# Sentry must be registered before routes are included
-
-# 必须在路由加载前注册
-
-require __DIR__ . &#39;/../app/Http/routes.php&#39;;
+<span style="color:#75715e"># Sentry must be registered before routes are included
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># 必须在路由加载前注册
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">require</span> <span style="color:#66d9ef">__DIR__</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;/../app/Http/routes.php&#39;</span>;
 
 </code></pre></div><ol start="2">
 <li>然后将报告方法加入 App/Exceptions/Handler.php ​中：</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">
-public function report(Exception $exception){
-    if (app()-&gt;bound(&#39;sentry&#39;) <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span> $this-&gt;shouldReport($exception)) {
-        app(&#39;sentry&#39;)-&gt;captureException($exception);
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">report</span>(<span style="color:#a6e22e">Exception</span> $exception){
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">app</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bound</span>(<span style="color:#e6db74">&#39;sentry&#39;</span>) <span style="color:#f92672">&amp;&amp;</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">shouldReport</span>($exception)) {
+        <span style="color:#a6e22e">app</span>(<span style="color:#e6db74">&#39;sentry&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">captureException</span>($exception);
     }
 
-    parent::report($exception);
+    <span style="color:#66d9ef">parent</span><span style="color:#f92672">::</span><span style="color:#a6e22e">report</span>($exception);
 
 }
 
@@ -225,8 +225,8 @@ public function report(Exception $exception){
 <ol start="4">
 <li>测试是否接入成功可以使用在路由文件中新建一个路由主动抛出异常</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">Route::get(&#39;/debug-sentry&#39;, function () {
-    throw new Exception(&#39;My first Sentry error!&#39;);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">Route</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/debug-sentry&#39;</span>, <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#39;My first Sentry error!&#39;</span>);
 
 });
 </code></pre></div>
