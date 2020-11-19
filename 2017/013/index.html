@@ -195,12 +195,12 @@
 <h3 id="php-7-和-php--7">PHP 7 和 PHP &lt; 7</h3>
 <p>在PHP 7 之前我们对参数没有太多的限定。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">
-function test(array $arr, App\Model\User $user)
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">test</span>(<span style="color:#66d9ef">array</span> $arr, <span style="color:#a6e22e">App\Model\User</span> $user)
 {
 
 }
 </code></pre></div><p>PHP 7 之前我们只能对形参做这样的限制，无法限定基础类型。而 PHP7 之后我们可以对参数进行基础类型限制了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">function test(array $arr, App\Model\User $user, string $string, int $int, bool $bool, float $float) : int 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">test</span>(<span style="color:#66d9ef">array</span> $arr, <span style="color:#a6e22e">App\Model\User</span> $user, <span style="color:#a6e22e">string</span> $string, <span style="color:#a6e22e">int</span> $int, <span style="color:#a6e22e">bool</span> $bool, <span style="color:#a6e22e">float</span> $float) <span style="color:#f92672">:</span> <span style="color:#a6e22e">int</span> 
 {
 
 }
@@ -212,7 +212,7 @@ function test(array $arr, App\Model\User $user)
 <p>你可以通过文档、数据库注释、方法注释等一系列方法告诉调用者该如何传参，但是如果有的人这些都没读或者懒得去看那么你该如何限定他们用不正确的方法调用这个方法呢？</p>
 <p>似乎好像没有办法了。</p>
 <p>但是这个类就可以帮助我们，这里我使用了一个和扩展同样功能的PHP代码实现的包 <code>https://github.com/myclabs/php-enum</code>。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 <span style="color:#f92672">----</span> <span style="color:#75715e"># 1.定义 Enum 部分
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">namespace</span> <span style="color:#a6e22e">Type</span>;
@@ -250,7 +250,7 @@ function test(array $arr, App\Model\User $user)
 <p>第三部分是调用部分，可以看见因为第二个参数已经被限定为枚举类，所以我必须传递一个枚举类型实例给创建方法，如果传递的不是枚举类的实例，那么程序就会抛出异常。</p>
 <p>很简单的我就可以将外部调用时要创建的文章类型限定在规定范围内而不会出现未知的参数，或者一些脏数据进入到数据库中去，同时代码层面就告诉调用者应该如何去传递参数。</p>
 <p>在传递第二个参数的时候你可能觉得麻烦，其实这个库作者已经想到了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 <span style="color:#f92672">----</span> <span style="color:#75715e"># 3.调用部分
 </span><span style="color:#75715e"></span>

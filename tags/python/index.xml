@@ -6,11 +6,7 @@
     <description>Recent content in python on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 14 Aug 2019 16:59:37 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.m2ez.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 14 Aug 2019 16:59:37 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>排序算法-冒泡排序</title>
       <link>https://blog.m2ez.com/2019/009/</link>

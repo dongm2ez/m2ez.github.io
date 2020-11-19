@@ -6,11 +6,7 @@
     <description>Recent content in leetcode on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 17 May 2019 16:59:37 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.m2ez.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 17 May 2019 16:59:37 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>从排序数组中删除重复项</title>
       <link>https://blog.m2ez.com/2019/003/</link>

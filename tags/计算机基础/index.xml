@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机基础 on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content in 计算机基础 on 麦索的麦田</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 26 Sep 2020 19:31:25 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原码、反码、补码</title>
+      <link>https://blog.m2ez.com/2020/008/</link>
+      <pubDate>Sat, 26 Sep 2020 19:31:25 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2020/008/</guid>
+      <description>机器码 要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称为Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -300,8 +300,8 @@
 
 </code></pre></div><p>我们将目录结构改造成这样，并编写一些启动框架的代码到相应的文件</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">
-// public/index.php
-<span style="color:#75715e">&lt;?php</span>
+<span style="color:#75715e">// public/index.php
+</span><span style="color:#75715e"></span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 <span style="color:#66d9ef">require</span> <span style="color:#66d9ef">__DIR__</span><span style="color:#f92672">.</span><span style="color:#e6db74">&#39;/../bootstrap/autoload.php&#39;</span>;
 
@@ -328,7 +328,7 @@ $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
 <p>此时访问 <code>127.0.0.1:8080</code> 或 <code>localhost:8080</code> 就可以看到如下的页面：</p>
 <p><img src="//img.m2ez.com/15043663356684.jpg" alt=""></p>
 <p>这说明框架正确启动了，那么我们怎么确定框架工作正常呢，这里有个简单方法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 <span style="color:#66d9ef">use</span> <span style="color:#a6e22e">Slim\Http\Request</span>;
 <span style="color:#66d9ef">use</span> <span style="color:#a6e22e">Slim\Http\Response</span>;
@@ -349,7 +349,7 @@ $app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">run</spa
 <p><img src="//img.m2ez.com/15043666561898.jpg" alt=""></p>
 <p>测试是成功了，但是我们不能把路由和逻辑都写到 <code>index.php</code> 文件里，因此我们需要代码更好的组织。要让我们的目录规划发挥正在的作用。</p>
 <p>为了单独管理路由，我将路由单独写在 <code>routers</code> 文件夹中，在文件夹中我们新建两个 PHP 脚本文件，然后在 <code>public/index.php</code> 中加入两行代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#66d9ef">require</span> <span style="color:#66d9ef">__DIR__</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;/../bootstrap/autoload.php&#39;</span>;
 
 $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">require_once</span> <span style="color:#66d9ef">__DIR__</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;/../bootstrap/app.php&#39;</span>;
@@ -359,12 +359,12 @@ $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">require_on
 
 $app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">run</span>();
 </code></pre></div><p>变成这样，这样我就可以单独管理 API 和 WEB 项目的路由了，如果有其他路由就也可以 require 更多路由。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 $app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#e6db74">&#39;\App\Http\Controllers\WelcomeController:index&#39;</span>);
 
 </code></pre></div><p>而我们的控制器长什么样呢，是这个样子的：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 <span style="color:#66d9ef">namespace</span> <span style="color:#a6e22e">App\Http\Controllers</span>;
 
@@ -386,7 +386,7 @@ $app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</spa
 }
 </code></pre></div><p>我们知道在现代化的框架中，容器会让我们很方便，我们的基础框架 Slim 提供一个容器的实现，当然你也可以使用其他的第三方的，那么这显然是我们想要的结果，不是只能使用框架提供的，我们可以随时换掉框架的功能，换成我们想要的同样功能组件。</p>
 <p>使用也很简单，在 <code>app.php</code> 文件中初始化 Slim 框架时将容器实例传递给它就可以了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 $container <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\Slim\Container</span>;
 $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\Slim\App</span>($container);
@@ -395,7 +395,7 @@ $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
 
 <span style="color:#66d9ef">return</span> $app;
 </code></pre></div><p>还记得上面那个控制器继承的基类控制器吗，那也是我自己写的，里面可以做一些所有控制器都有可能用的的操作封装。比如我为了更方便的使用容器，我在基类里初始化了一个容器实例。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 
 <span style="color:#66d9ef">namespace</span> <span style="color:#a6e22e">App\Http\Controllers</span>;
@@ -415,7 +415,7 @@ $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
 </code></pre></div><p>现在我已经有了 路由功能，有了控制器功能，还有请求响应的操作，那么作为一个完整的框架那么必须有访问数据库的方法。</p>
 <p>我很喜欢 Laravel 提供的数据库 ORM 组件，那么我就决定使用它了，执行 <code>composer require illuminate/database &quot;~5.5&quot;</code>，我选择了最新的 Laravel 长期支持版 ORM 。</p>
 <p>我们需要此时在 <code>config</code> 文件夹中新添加一个文件 <code>databases.php</code> 文件：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#66d9ef">return</span> [
     <span style="color:#e6db74">&#39;settings&#39;</span> <span style="color:#f92672">=&gt;</span> [
         <span style="color:#e6db74">&#39;db&#39;</span> <span style="color:#f92672">=&gt;</span> [
@@ -431,7 +431,7 @@ $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
     ],
 ];
 </code></pre></div><p>然后修改 <code>public/index.php</code>：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#66d9ef">require</span> <span style="color:#66d9ef">__DIR__</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;/../bootstrap/autoload.php&#39;</span>;
 
 $config <span style="color:#f92672">=</span> <span style="color:#66d9ef">require</span> <span style="color:#66d9ef">__DIR__</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;/../config/databases.php&#39;</span>;
@@ -443,7 +443,7 @@ $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">require_on
 
 $app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">run</span>();
 </code></pre></div><p>修改 <code>bootstrap/app.php</code>：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 $container <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\Slim\Container</span>($config);
 $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\Slim\App</span>($container);
@@ -461,7 +461,7 @@ $app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
 
 <span style="color:#66d9ef">return</span> $app;
 </code></pre></div><p>然后我们就可以在控制器中使用 ORM 功能了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 <span style="color:#66d9ef">namespace</span> <span style="color:#a6e22e">App\Http\Controllers</span>;
 
