@@ -53,10 +53,10 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2017",
-    "datePublished": "2017-11-04 16:59:37 \u002b0800 CST",
-    "dateModified" : "2017-11-04 16:59:37 \u002b0800 CST",
+    "datePublished": "2017-11-04 16:59:37 \x2b0800 CST",
+    "dateModified" : "2017-11-04 16:59:37 \x2b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2017\/020\/",
-    "wordCount" : "1852",
+    "wordCount" : "1838",
     "keywords" : [ "docker","mysql", "麦索的麦田"]
 }
 </script>
@@ -170,7 +170,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">1852 words</span>
+                <span class="post-word-count">1838 words</span>
         </div>
     </header>
 
@@ -197,30 +197,30 @@
 <p>我们的工作是在 Mysql 镜像基础上进行的。</p>
 <p><code>docker pull mysql:5.7.20</code> 这条命令会下载最新的 mysql 镜像，当然也可以指定版本。</p>
 <p>新建一个 DockerFile 文件：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mysql:5.7.20</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 3306</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> my.cnf /etc/mysql/<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;mysqld&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mysql:5.7.20</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 3306</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> my.cnf /etc/mysql/<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;mysqld&#34;</span>]<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>在构建镜像前，我们需要 mysql 的配置文件 my.cnf ，可以先启动一个 mysql 的容器，然后进入容器复制它下来，并对其进行修改：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">!includedir /etc/mysql/conf.d/</span>
-<span style="color:#66d9ef">[mysqld]</span>
-<span style="color:#a6e22e">pid-file</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/run/mysqld/mysqld.pid</span>
-<span style="color:#a6e22e">socket</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/run/mysqld/mysqld.sock</span>
-<span style="color:#a6e22e">datadir</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/lib/mysql</span>
-<span style="color:#75715e">#log-error=/var/log/mysql/error.log</span>
-<span style="color:#75715e"># By default we only accept connections from localhost</span>
-<span style="color:#75715e">#bind-address=127.0.0.1</span>
-<span style="color:#a6e22e">log-bin</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/log/mysql/mysql-bin.index</span>
-<span style="color:#a6e22e">server-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
-<span style="color:#75715e"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
-<span style="color:#a6e22e">symbolic-links</span><span style="color:#f92672">=</span><span style="color:#e6db74">0</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">!includedir /etc/mysql/conf.d/</span>
+<span style="color:#a6e22e">[mysqld]</span>
+<span style="color:#a6e22e">pid-file</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/run/mysqld/mysqld.pid</span>
+<span style="color:#a6e22e">socket</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/run/mysqld/mysqld.sock</span>
+<span style="color:#a6e22e">datadir</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/lib/mysql</span>
+<span style="color:#75715e">#log-error=/var/log/mysql/error.log</span>
+<span style="color:#75715e"># By default we only accept connections from localhost</span>
+<span style="color:#75715e">#bind-address=127.0.0.1</span>
+<span style="color:#a6e22e">log-bin</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/log/mysql/mysql-bin.index</span>
+<span style="color:#a6e22e">server-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
+<span style="color:#75715e"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
+<span style="color:#a6e22e">symbolic-links</span><span style="color:#f92672">=</span><span style="color:#e6db74">0</span>
 </code></pre></div><p>以上是我修改好的一个 my.conf 文件，我们主要修改的是以下这些选项：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e"># bind-address=127.0.0.1 # 注释这个选项可以让远程机器访问，或者可以修改为 0.0.0.0</span>
-<span style="color:#a6e22e">log-bin</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/log/mysql/mysql-bin.index # 开启 log-bin 日志，日志路径</span>
-<span style="color:#a6e22e">server-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">1 # 服务器唯一ID，默认是1，一般取IP最后一段，这里看情况分配</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e"># bind-address=127.0.0.1 # 注释这个选项可以让远程机器访问，或者可以修改为 0.0.0.0</span>
+<span style="color:#a6e22e">log-bin</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/log/mysql/mysql-bin.index # 开启 log-bin 日志，日志路径</span>
+<span style="color:#a6e22e">server-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">1 # 服务器唯一ID，默认是1，一般取IP最后一段，这里看情况分配</span>
 </code></pre></div><p>这是我的主库的 <code>my.cnf</code>，从库的基本一样，只是 <code>servier-id</code> 不一样，从库为 2，将这个文件也放在文件夹里。</p>
 <p>构建需要的文件结构就是以下这样：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">master
@@ -250,13 +250,13 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
 +------------------+----------+--------------+------------------+-------------------+
 </code></pre><p>使用<code>hostname</code>查看主容器的hostname，如我的主容器是<code>483842c63235</code>。</p>
 <p>接下来配置从库mysql：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">change master to</span>
-<span style="color:#a6e22e">master_host</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;master&#39;,#要连接的主服务器的ip</span>
-<span style="color:#a6e22e">master_user</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;user&#39;,#指定的用户名，最好不要用root</span>
-<span style="color:#a6e22e">master_log_file</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql-bin.000003&#39;,#主库记录的值</span>
-<span style="color:#a6e22e">master_log_pos</span><span style="color:#f92672">=</span><span style="color:#e6db74">154,#主库的pos值</span>
-<span style="color:#a6e22e">master_port</span><span style="color:#f92672">=</span><span style="color:#e6db74">3306,#主库3306映射的端口</span>
-<span style="color:#a6e22e">master_password</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql&#39;;#主库要连接的用户的密码了</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">change master to</span>
+<span style="color:#a6e22e">master_host</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;master&#39;,#要连接的主服务器的ip</span>
+<span style="color:#a6e22e">master_user</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;user&#39;,#指定的用户名，最好不要用root</span>
+<span style="color:#a6e22e">master_log_file</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql-bin.000003&#39;,#主库记录的值</span>
+<span style="color:#a6e22e">master_log_pos</span><span style="color:#f92672">=</span><span style="color:#e6db74">154,#主库的pos值</span>
+<span style="color:#a6e22e">master_port</span><span style="color:#f92672">=</span><span style="color:#e6db74">3306,#主库3306映射的端口</span>
+<span style="color:#a6e22e">master_password</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql&#39;;#主库要连接的用户的密码了</span>
 </code></pre></div><p>使用<code>start slave</code>启动主从同步</p>
 <p>使用命令查看<code>show slave status\G</code></p>
 <p>打印如下信息：</p>
@@ -265,11 +265,11 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
                   Master_Host: master //主服务器地址
                   Master_User: user //授权帐户名，尽量避免使用root
                   Master_Port: <span style="color:#ae81ff">3306</span> //数据库端口，部分版本没有此行
-                Connect_Retry: <span style="color:#ae81ff">60</span>
+                Connect_Retry: 60
               Master_Log_File: mysql-bin.000003 //同步主库的日志文件名
           Read_Master_Log_Pos: <span style="color:#ae81ff">154</span> //同步读取二进制日志的位置，大于等于
                Relay_Log_File: 6c7648e829e0-relay-bin.000001
-                Relay_Log_Pos: <span style="color:#ae81ff">4</span>
+                Relay_Log_Pos: 4
         Relay_Master_Log_File: mysql-bin.000003
              Slave_IO_Running: Yes //此状态必须YES
             Slave_SQL_Running: Yes //此状态必须YES
@@ -279,14 +279,14 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
        Replicate_Ignore_Table:
       Replicate_Wild_Do_Table:
   Replicate_Wild_Ignore_Table:
-                   Last_Errno: <span style="color:#ae81ff">0</span>
+                   Last_Errno: 0
                    Last_Error:
-                 Skip_Counter: <span style="color:#ae81ff">0</span>
-          Exec_Master_Log_Pos: <span style="color:#ae81ff">154</span>
-              Relay_Log_Space: <span style="color:#ae81ff">154</span>
+                 Skip_Counter: 0
+          Exec_Master_Log_Pos: 154
+              Relay_Log_Space: 154
               Until_Condition: None
                Until_Log_File:
-                Until_Log_Pos: <span style="color:#ae81ff">0</span>
+                Until_Log_Pos: 0
            Master_SSL_Allowed: No
            Master_SSL_CA_File:
            Master_SSL_CA_Path:
@@ -295,18 +295,18 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
                Master_SSL_Key:
         Seconds_Behind_Master: NULL
 Master_SSL_Verify_Server_Cert: No
-                Last_IO_Errno: <span style="color:#ae81ff">0</span>
+                Last_IO_Errno: 0
                 Last_IO_Error:
-               Last_SQL_Errno: <span style="color:#ae81ff">0</span>
+               Last_SQL_Errno: 0
                Last_SQL_Error:
   Replicate_Ignore_Server_Ids:
-             Master_Server_Id: <span style="color:#ae81ff">0</span>
+             Master_Server_Id: 0
                   Master_UUID:
              Master_Info_File: /var/lib/mysql/master.info
-                    SQL_Delay: <span style="color:#ae81ff">0</span>
+                    SQL_Delay: 0
           SQL_Remaining_Delay: NULL
       Slave_SQL_Running_State: Slave has read all relay log; waiting <span style="color:#66d9ef">for</span> more updates
-           Master_Retry_Count: <span style="color:#ae81ff">86400</span>
+           Master_Retry_Count: 86400
                   Master_Bind:
       Last_IO_Error_Timestamp:
      Last_SQL_Error_Timestamp:
@@ -314,7 +314,7 @@ Master_SSL_Verify_Server_Cert: No
            Master_SSL_Crlpath:
            Retrieved_Gtid_Set:
             Executed_Gtid_Set:
-                Auto_Position: <span style="color:#ae81ff">0</span>
+                Auto_Position: 0
          Replicate_Rewrite_DB:
                  Channel_Name:
            Master_TLS_Version:
@@ -343,7 +343,7 @@ docker run -p <span style="color:#ae81ff">3306</span> --name mysql-slave  -v /et
 docker stop mysql-master mysql-slave
 docker start mysql-master mysql-slave
 
-sleep <span style="color:#ae81ff">3</span>
+sleep 3
 
 docker exec -it mysql-master mysql -S /var/lib/mysql/mysql.sock -e <span style="color:#e6db74">&#34;CREATE USER &#39;users&#39;@&#39;127.0.0.1&#39; IDENTIFIED BY &#39;mysql&#39;;GRANT REPLICATION SLAVE ON *.* TO &#39;users&#39;@&#39;127.0.0.1&#39;;&#34;</span>
 
@@ -455,7 +455,7 @@ grep <span style="color:#e6db74">&#34;alias mysql-master&#34;</span> /etc/profil
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2020</span>
+        <span itemprop="copyrightYear">2014 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>
@@ -465,7 +465,7 @@ grep <span style="color:#e6db74">&#34;alias mysql-master&#34;</span> /etc/profil
          
 
          
-            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
          
 		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
     </div>

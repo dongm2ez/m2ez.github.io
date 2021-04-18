@@ -53,8 +53,8 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2017",
-    "datePublished": "2017-07-07 20:59:37 \u002b0800 CST",
-    "dateModified" : "2017-07-07 20:59:37 \u002b0800 CST",
+    "datePublished": "2017-07-07 20:59:37 \x2b0800 CST",
+    "dateModified" : "2017-07-07 20:59:37 \x2b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2017\/008\/",
     "wordCount" : "1148",
     "keywords" : [ "laravel", "麦索的麦田"]
@@ -204,19 +204,19 @@
 <p>index.php 里首先把 bootstrap/autoload.php 引入，这个文件引入的是 composer 的 autoload 文件，将所有的包加载到脚本里，这个脚本文件还定义了一个常量 LARAVEL_START 记录了框架启动的微秒时间戳。</p>
 <p>然后引入了 bootstrap/app.php 脚本，这个脚本加载了 laravl 框架的核心文件，返回了一个应用实例。</p>
 <p>随后就是后续步骤</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">// 得到应用核心实例
-</span><span style="color:#75715e"></span>$kernel <span style="color:#f92672">=</span> $app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">make</span>(<span style="color:#a6e22e">Illuminate\Contracts\Http\Kernel</span><span style="color:#f92672">::</span><span style="color:#a6e22e">class</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">// 得到应用核心实例
+$kernel = $app-&gt;make(Illuminate\Contracts\Http\Kernel::class);
 
-<span style="color:#75715e">// 对请求处理后获得响应
-</span><span style="color:#75715e"></span>$response <span style="color:#f92672">=</span> $kernel<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">handle</span>(
-    $request <span style="color:#f92672">=</span> <span style="color:#a6e22e">Illuminate\Http\Request</span><span style="color:#f92672">::</span><span style="color:#a6e22e">capture</span>() <span style="color:#75715e">// 获得请求参数
-</span><span style="color:#75715e"></span>);
+// 对请求处理后获得响应
+$response = $kernel-&gt;handle(
+    $request = Illuminate\Http\Request::capture() // 获得请求参数
+);
 
-<span style="color:#75715e">// 发送响应
-</span><span style="color:#75715e"></span>$response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">send</span>();
+// 发送响应
+$response-&gt;send();
 
-<span style="color:#75715e">// 终止
-</span><span style="color:#75715e"></span>$kernel<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">terminate</span>($request, $response);
+// 终止
+$kernel-&gt;terminate($request, $response);
 </code></pre></div><p>我们想知道路由在哪分配调用就在 <code>$kernel-&gt;handle()</code> 这里，其中调用了 <code>$this-sendRequestThroughRouter()</code>，这里就将请求发送给了中间件和路由。</p>
 <p><code>$this-&gt;dispatchToRouter()</code>  中 <code>$this-&gt;router-&gt;dispatch($request)</code> 就将请求传入到 Router 类中了。</p>
 <p>然后再 Router 类的 <code>dispatch()</code> 的方法中调用了 Router 类的 <code>dispatchToRoute()</code> 方法将请求向下传递。</p>
@@ -225,8 +225,8 @@
 <p>然后这个实例在 Router 类的 <code>dispatchToRoute()</code> 方法中实例有被传入到 <code>runRouteWithinStack()</code> 方法。这个方法中又调用多个方法将匹配到的开发者定义的 URL 的映射的控制器实例化，去调用控制器的 <code>callAction()</code> 方法，<code>callAction()</code> 写在控制器的基类中，就是我们写一个控制器都要继承的那个 <code>Conreoller</code> 类中。</p>
 <p>方法很简单，就是讲传入的方法名和参数用 PHP 函数 <code>call_user_func_array()</code> 进行调用。</p>
 <p>以上是我们的最佳实践。但是在你初始化 laravel 框架的时候他的首页是以下这样调用的。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">Route</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">view</span>(<span style="color:#e6db74">&#39;welcome&#39;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">Route::get(&#39;/&#39;, function () {
+    return view(&#39;welcome&#39;);
 });
 </code></pre></div><p>路由中使用匿名函数，在调用控制器的实例前框架先会判断是否是一个控制器动作，如何不是就获取路由中的匿名函数进行调用。判断的依据就是开发者定义的路由的第二个参数是否是一个字符串。</p>
 <p>这是 laravel 路由的主流程，其他中间件调用，Request 验证等等都在主流程的各个步骤中附加分发调用了。</p>
@@ -316,7 +316,7 @@
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2020</span>
+        <span itemprop="copyrightYear">2014 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>
@@ -326,7 +326,7 @@
          
 
          
-            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
          
 		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
     </div>

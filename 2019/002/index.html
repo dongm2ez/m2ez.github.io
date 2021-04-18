@@ -53,8 +53,8 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2019",
-    "datePublished": "2019-02-23 16:59:37 \u002b0800 CST",
-    "dateModified" : "2019-02-23 16:59:37 \u002b0800 CST",
+    "datePublished": "2019-02-23 16:59:37 \x2b0800 CST",
+    "dateModified" : "2019-02-23 16:59:37 \x2b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2019\/002\/",
     "wordCount" : "1005",
     "keywords" : [ "树莓派","物联网", "麦索的麦田"]
@@ -227,11 +227,11 @@ $ ./adb connect &lt;ip-address&gt;
 connected to &lt;ip-address&gt;:5555
 
 <span style="color:#75715e"># adb连接上之后配置 Wi-Fi</span>
-$ ./adb shell am startservice <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-n com.google.wifisetup/.WifiSetupService <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-a WifiSetupService.Connect <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-e ssid &lt;Network_SSID&gt; <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-e passphrase &lt;Network_Passcode&gt;
+$ ./adb shell am startservice <span style="color:#ae81ff">\</span>
+-n com.google.wifisetup/.WifiSetupService <span style="color:#ae81ff">\</span>
+-a WifiSetupService.Connect <span style="color:#ae81ff">\</span>
+-e ssid &lt;Network_SSID&gt; <span style="color:#ae81ff">\</span>
+-e passphrase &lt;Network_Passcode&gt;
 
 <span style="color:#75715e"># 验证是否 Wi-Fi 是否连接成功</span>
 $ ./adb logcat -d | grep Wifi
@@ -340,7 +340,7 @@ List of devices attached
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2020</span>
+        <span itemprop="copyrightYear">2014 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>
@@ -350,7 +350,7 @@ List of devices attached
          
 
          
-            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
          
 		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
     </div>

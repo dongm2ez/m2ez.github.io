@@ -6,7 +6,11 @@
     <description>Recent content in 随笔 on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 30 Jun 2017 16:59:37 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Jun 2017 16:59:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.m2ez.com/tags/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>你好，世界</title>
       <link>https://blog.m2ez.com/2017/001/</link>

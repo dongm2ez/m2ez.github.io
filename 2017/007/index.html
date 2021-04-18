@@ -53,10 +53,10 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2017",
-    "datePublished": "2017-07-05 20:59:37 \u002b0800 CST",
-    "dateModified" : "2017-07-05 20:59:37 \u002b0800 CST",
+    "datePublished": "2017-07-05 20:59:37 \x2b0800 CST",
+    "dateModified" : "2017-07-05 20:59:37 \x2b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2017\/007\/",
-    "wordCount" : "840",
+    "wordCount" : "834",
     "keywords" : [ "git","gitlab", "麦索的麦田"]
 }
 </script>
@@ -170,7 +170,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">840 words</span>
+                <span class="post-word-count">834 words</span>
         </div>
     </header>
 
@@ -212,7 +212,7 @@ sudo dpkg -i gitlab-ce-XXX.deb
 <p>使用 wget 或 curl 将这个包下载到服务器上。服务器下载慢的话可在本地用工具下载然后通过 SCP 或 ftp 传到服务器上去。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i gitlab-ce_9.0.0-ce.0_amd64.deb
 </code></pre></div><p>使用以上命令进行安装。</p>
-<p>打开/etc/gitlab/gitlab.rb,将external_url = &lsquo;<a href="http://git.example.com">http://git.example.com</a>&rsquo;修改为自己的域名地址：http://example.com，默认为80端口，如要使用其他端口后面加上端口号，如：http://127.0.0.1:8080。</p>
+<p>打开/etc/gitlab/gitlab.rb,将external_url = &lsquo;<a href="http://git.example.com">http://git.example.com</a>'修改为自己的域名地址：http://example.com，默认为80端口，如要使用其他端口后面加上端口号，如：http://127.0.0.1:8080。</p>
 <p>然后执行：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo gitlab-ctl reconfigure
 </code></pre></div><p>启动完成后浏览器访问配置好的地址，应该出现重置管理员密码的界面。</p>
@@ -326,7 +326,7 @@ sudo dpkg -i gitlab-ce-XXX.deb
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2020</span>
+        <span itemprop="copyrightYear">2014 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>
@@ -336,7 +336,7 @@ sudo dpkg -i gitlab-ce-XXX.deb
          
 
          
-            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
          
 		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
     </div>
