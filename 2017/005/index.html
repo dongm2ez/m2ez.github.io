@@ -53,8 +53,8 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2017",
-    "datePublished": "2017-07-04 20:59:37 \u002b0800 CST",
-    "dateModified" : "2017-07-04 20:59:37 \u002b0800 CST",
+    "datePublished": "2017-07-04 20:59:37 \x2b0800 CST",
+    "dateModified" : "2017-07-04 20:59:37 \x2b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2017\/005\/",
     "wordCount" : "1708",
     "keywords" : [ "PHP", "麦索的麦田"]
@@ -193,7 +193,7 @@
         <p>PHP中将所有__(两个下划线)开头的类方法作为魔术方法，这方法之所以称为魔术方法是因为其实现的功能就如变魔术一样感觉很神奇。在特定的事件下触发，这真的很酷。</p>
 <h3 id="__construct"><strong>__construct()</strong></h3>
 <p>这个方法应该是最常用的，被称为构造器或者构造方法，当一个对象被实例化时会被首先调用，而在 PHP 框架中一些过滤器，中间件及依赖注入也一般在这个方法中完成。父类的构造器可以被子类继承和重写。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
 
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> __construct() {
@@ -230,7 +230,7 @@ This is C construct</p>
 <h3 id="__destruct"><strong>__destruct()</strong></h3>
 <p>析构方法，PHP 将对象销毁前将调用这个方法，这个方法可能对于 PHP 这种运行时间短的脚本可能无意义，但在有些情况下还是具有意义的。</p>
 <p>比如你需要一个长时间运行的脚本，设置 <code>set_time_limit(0);</code> 后需要不断执行这个脚本，一般这样的脚本是循环执行一些任务，这其中可能会涉及到频繁的创建某个对象，这时候析构方法就会起到作用，它可以将对象打开的一些资源及时的释放，以防止内存溢出或单个进程占用过多内存。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Log</span>{
 
@@ -245,7 +245,7 @@ This is C construct</p>
 }
 </code></pre></div><h3 id="__get与__set"><strong>__get()与__set()</strong></h3>
 <p>这两个方法的作用是当调用或设置一个类及其父类方法中未定义的属性时这个方法会被触发。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MethodTest</span>
 {
@@ -289,30 +289,30 @@ This is C construct</p>
 </code></pre></div><p>在 MethodTest 这个类中使用 __get 和 __set 将所有不存在的属性都保存在类的 data 属性中，而在Penguin 类中我们连接了数据库或者是数据提供者，由于某些原因数据源中原来的 name 变更为 username ，如果这时要检查所有调用 Penguin 类的地方将 name 换成 username 显然是困难而且无趣的甚至会有忽略的地方，而使用一个 __get 方法我们不用改变外部调用的属性名就可以实现从 name 转变为 username</p>
 <h3 id="__call-和-__callstatic"><strong>__call 和 __callStatic</strong></h3>
 <p>__call 和 __callStatic 是类似的方法，前者是调用类不存在的方法时执行，而后者是调用类不存在的静态方式方法时执行。正常情况下如果调用一个类不存在的方法 PHP 会抛出致命错误，而使用这两个魔术方法我们可以替换一些更友好的提示或者记录错误调用日志信息、将用户重定向、抛出异常等等，亦或者是如同 __set 和__get 那样做方法的重命名。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">class A
 {
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">function</span> __callStatic($name, $arguments)
+    public static function __callStatic($name, $arguments)
     {
-        <span style="color:#a6e22e">var_dump</span>($name);
-        <span style="color:#a6e22e">var_dump</span>($arguments);
-        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;unknown static method &#39;</span> <span style="color:#f92672">.</span> $name;
+        var_dump($name);
+        var_dump($arguments);
+        echo &#39;unknown static method &#39; . $name;
     }
 
-    <span style="color:#66d9ef">function</span> __call($name, $arguments)
+    function __call($name, $arguments)
     {
-        <span style="color:#a6e22e">var_dump</span>($name);
-        <span style="color:#a6e22e">var_dump</span>($arguments);
-        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;unknown method &#39;</span> <span style="color:#f92672">.</span> $name;
+        var_dump($name);
+        var_dump($arguments);
+        echo &#39;unknown method &#39; . $name;
     }
 }
 
-$a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">A</span>();
-$a<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">agfdgdrsfgdf</span>([<span style="color:#ae81ff">123</span>,<span style="color:#ae81ff">3213</span>]);
-<span style="color:#a6e22e">A</span><span style="color:#f92672">::</span><span style="color:#a6e22e">sdfsd</span>();
+$a = new A();
+$a-&gt;agfdgdrsfgdf([123,3213]);
+A::sdfsd();
 </code></pre></div><h3 id="__sleep-和-__wakeup"><strong>__sleep() 和 __wakeup()</strong></h3>
 <p>当我们执行 <code>serialize()</code> 和 <code>unserialize()</code> 对对象进行操作是时，会调用这两个方法，比如对象有一个数据库链接，想要在反序列化时恢复链接状态，而在序列化时希望将属性键名保存就可以使用这两个魔术方法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Connection</span>
 {
     <span style="color:#66d9ef">protected</span> $link;
@@ -345,7 +345,7 @@ $a<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">agfdgdrsfg
 }
 </code></pre></div><h3 id="__clone"><strong>__clone()</strong></h3>
 <p>如同名字一样，这个方法在对象被复制是调用，如我们要实现一个单例模式，我们可以用这个魔术方法防止对象被克隆。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Singleton</span> {
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> $_instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>;
 
@@ -369,31 +369,31 @@ $a<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">agfdgdrsfg
 <blockquote>
 <p>PHP 5.2.0 之前，__toString() 方法只有在直接使用于 echo 或 print 时才能生效。PHP 5.2.0 之后，则可以在任何字符串环境生效（例如通过 printf()，使用 %s 修饰符），但不能用于非字符串环境（如使用 %d 修饰符）。自 PHP 5.2.0 起，如果将一个未定义 __toString() 方法的对象转换为字符串，会产生 E_RECOVERABLE_ERROR 级别的错误。</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">// Declare a simple class
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestClass</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">// Declare a simple class
+class TestClass
 {
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> __toString() {
-        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;this is a object&#39;</span>;
+    public function __toString() {
+        return &#39;this is a object&#39;;
     }
 }
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Penguin</span> {
+class Penguin {
 
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> __construct($name) {
-      $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">species</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Penguin&#39;</span>;
-      $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> $name;
+  public function __construct($name) {
+      $this-&gt;species = &#39;Penguin&#39;;
+      $this-&gt;name = $name;
   }
 
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> __toString() {
-      <span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34; (&#34;</span> <span style="color:#f92672">.</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">species</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+  public function __toString() {
+      return $this-&gt;name . &#34; (&#34; . $this-&gt;species . &#34;)\n&#34;;
   }
 }
 
-$class <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TestClass</span>();
-<span style="color:#66d9ef">echo</span> $class;
+$class = new TestClass();
+echo $class;
 
-$tux <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Penguin</span>(<span style="color:#e6db74">&#39;tux&#39;</span>);
-<span style="color:#66d9ef">echo</span> $tux;
+$tux = new Penguin(&#39;tux&#39;);
+echo $tux;
 
 </code></pre></div><p>在 TestClass 的调用中我们输出了一个友好的提示，而在 Penguin 我们将对象的属性组合后输出，比如在模板中调用。</p>
 <h3 id="__invoke"><strong>__invoke()</strong></h3>
@@ -401,7 +401,7 @@ $tux <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
 <blockquote>
 <p>PHP 5.3.0 添加</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CallableClass</span> 
 {
     <span style="color:#66d9ef">function</span> __invoke($x) {
@@ -416,7 +416,7 @@ $obj(<span style="color:#ae81ff">5</span>); <span style="color:#75715e">// int(5
 <blockquote>
 <p>PHP 5.1.0 添加</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span>
 {
     <span style="color:#66d9ef">public</span> $var1;
@@ -439,7 +439,7 @@ $a<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">var2</span
 <blockquote>
 <p>PHP 5.6.0 添加</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">C</span> {
     <span style="color:#66d9ef">private</span> $prop;
 
@@ -547,7 +547,7 @@ $a<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">var2</span
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2020</span>
+        <span itemprop="copyrightYear">2014 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>
@@ -557,7 +557,7 @@ $a<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">var2</span
          
 
          
-            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
          
 		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
     </div>

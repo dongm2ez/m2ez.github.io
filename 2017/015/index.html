@@ -53,8 +53,8 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2017",
-    "datePublished": "2017-08-21 16:59:37 \u002b0800 CST",
-    "dateModified" : "2017-08-21 16:59:37 \u002b0800 CST",
+    "datePublished": "2017-08-21 16:59:37 \x2b0800 CST",
+    "dateModified" : "2017-08-21 16:59:37 \x2b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2017\/015\/",
     "wordCount" : "809",
     "keywords" : [ "算法","python", "麦索的麦田"]
@@ -219,26 +219,26 @@
     hour <span style="color:#f92672">=</span> times<span style="color:#f92672">.</span>tm_hour <span style="color:#f92672">-</span> <span style="color:#ae81ff">12</span> <span style="color:#66d9ef">if</span> times<span style="color:#f92672">.</span>tm_hour <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">12</span> <span style="color:#66d9ef">else</span> times<span style="color:#f92672">.</span>tm_hour
     minute <span style="color:#f92672">=</span> times<span style="color:#f92672">.</span>tm_min
 
-    <span style="color:#75715e"># 钟表总度数</span>
+    <span style="color:#75715e"># 钟表总度数</span>
     timekeeper_angle <span style="color:#f92672">=</span> <span style="color:#ae81ff">360</span>
-    <span style="color:#75715e"># 时间刻度份数</span>
+    <span style="color:#75715e"># 时间刻度份数</span>
     scale <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>
-    <span style="color:#75715e"># 每份时间刻度占用的度数</span>
+    <span style="color:#75715e"># 每份时间刻度占用的度数</span>
     one_scale <span style="color:#f92672">=</span> timekeeper_angle <span style="color:#f92672">/</span> scale
-    <span style="color:#75715e"># 分针每走1分钟时针转动的度数</span>
+    <span style="color:#75715e"># 分针每走1分钟时针转动的度数</span>
     one_relate_scale <span style="color:#f92672">=</span> one_scale <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span>
-    <span style="color:#75715e"># 分针每走1分钟转动的度数</span>
+    <span style="color:#75715e"># 分针每走1分钟转动的度数</span>
     one_minute_scale <span style="color:#f92672">=</span> timekeeper_angle <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span>
 
-    <span style="color:#75715e"># 小时*每份度数 得 整点时间的时针度数</span>
+    <span style="color:#75715e"># 小时*每份度数 得 整点时间的时针度数</span>
     integral_scale <span style="color:#f92672">=</span> hour <span style="color:#f92672">*</span> one_scale
-    <span style="color:#75715e"># 分针带动时针走的度数</span>
+    <span style="color:#75715e"># 分针带动时针走的度数</span>
     relate_scale <span style="color:#f92672">=</span> minute <span style="color:#f92672">*</span> one_relate_scale
 
-    <span style="color:#75715e"># 时针真正的起始点度数</span>
+    <span style="color:#75715e"># 时针真正的起始点度数</span>
     relay_hour_scale <span style="color:#f92672">=</span> integral_scale <span style="color:#f92672">+</span> relate_scale
 
-    <span style="color:#75715e"># 分钟的现在度数</span>
+    <span style="color:#75715e"># 分钟的现在度数</span>
     relay_minute_scale <span style="color:#f92672">=</span> minute <span style="color:#f92672">*</span> one_minute_scale
 
     <span style="color:#66d9ef">print</span>(abs(relay_hour_scale <span style="color:#f92672">-</span> relay_minute_scale))
@@ -246,7 +246,7 @@
 
 calculate(time<span style="color:#f92672">.</span>localtime(time<span style="color:#f92672">.</span>time()))
 </code></pre></div><p>PHP 版</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">calculate</span>($time){
 
@@ -369,7 +369,7 @@ calculate(time<span style="color:#f92672">.</span>localtime(time<span style="col
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2020</span>
+        <span itemprop="copyrightYear">2014 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>
@@ -379,7 +379,7 @@ calculate(time<span style="color:#f92672">.</span>localtime(time<span style="col
          
 
          
-            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1 </a> |
          
 		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
     </div>

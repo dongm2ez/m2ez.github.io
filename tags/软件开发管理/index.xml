@@ -6,7 +6,11 @@
     <description>Recent content in 软件开发管理 on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 25 Jun 2020 19:31:25 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Jun 2020 19:31:25 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.m2ez.com/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>迭代与需求的关系</title>
       <link>https://blog.m2ez.com/2020/007/</link>
