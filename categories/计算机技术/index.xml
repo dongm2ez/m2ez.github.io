@@ -6,10 +6,28 @@
     <description>Recent content in 计算机技术 on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 18 Apr 2021 11:51:03 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 30 May 2021 11:36:57 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PHP8 新增字符串方法与 laravel 性能差异比较</title>
+      <link>https://blog.m2ez.com/2021/003/</link>
+      <pubDate>Sun, 30 May 2021 11:36:57 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2021/003/</guid>
+      <description>在 PHP8 的更新中对字符串操作新增了三个函数，这三个函数分别是str_contains、str_starts_with 和 str_ends_with, 在PHP8以前这三个函数</description>
+    </item>
+    
+    <item>
+      <title>如何用 PHPUnit 测试私有方法</title>
+      <link>https://blog.m2ez.com/2021/002/</link>
+      <pubDate>Tue, 27 Apr 2021 21:00:03 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2021/002/</guid>
+      <description>当要对类中的私有方法进行测试时很难通过 new 一个对象的方法来创建对象的实例然后调用方法进行单元测试，此时有两种方法进行私有方法的测试。 方法一 这种</description>
+    </item>
     
     <item>
       <title>Socket 连接的建立步骤</title>

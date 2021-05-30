@@ -9,9 +9,9 @@
     <meta name="description" content="麦索的个人博客">
     
     
-    <link rel="prev" href="https://blog.m2ez.com/2020/008/" />
-    <link rel="next" href="https://blog.m2ez.com/2021/002/" />
-    <link rel="canonical" href="https://blog.m2ez.com/2021/001/" />
+    <link rel="prev" href="https://blog.m2ez.com/2021/001/" />
+    <link rel="next" href="https://blog.m2ez.com/2021/003/" />
+    <link rel="canonical" href="https://blog.m2ez.com/2021/002/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
     <title>
         
         
-            Socket 连接的建立步骤 | 麦索的麦田
+            如何用 PHPUnit 测试私有方法 | 麦索的麦田
         
     </title>
-    <meta name="title" content="Socket 连接的建立步骤 | 麦索的麦田">
+    <meta name="title" content="如何用 PHPUnit 测试私有方法 | 麦索的麦田">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -43,9 +43,9 @@
          "@id": "https:\/\/blog.m2ez.com\/"
     },
     "articleSection" : "posts",
-    "name" : "Socket 连接的建立步骤",
-    "headline" : "Socket 连接的建立步骤",
-    "description" : "Socket 连接建立过程的描述",
+    "name" : "如何用 PHPUnit 测试私有方法",
+    "headline" : "如何用 PHPUnit 测试私有方法",
+    "description" : "用 PHPUnit 测试私有方法",
     "inLanguage" : "zh",
     "author" : "麦索",
     "creator" : "麦索",
@@ -53,11 +53,11 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2021",
-    "datePublished": "2021-04-18 11:51:03 \x2b0800 CST",
-    "dateModified" : "2021-04-18 11:51:03 \x2b0800 CST",
-    "url" : "https:\/\/blog.m2ez.com\/2021\/001\/",
-    "wordCount" : "649",
-    "keywords" : [ "Socket", "麦索的麦田"]
+    "datePublished": "2021-04-27 21:00:03 \x2b0800 CST",
+    "dateModified" : "2021-04-27 21:00:03 \x2b0800 CST",
+    "url" : "https:\/\/blog.m2ez.com\/2021\/002\/",
+    "wordCount" : "250",
+    "keywords" : [ "PHP", "麦索的麦田"]
 }
 </script>
 
@@ -153,11 +153,11 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Socket 连接的建立步骤</h1>
+        <h1 class="post-title" itemprop="name headline">如何用 PHPUnit 测试私有方法</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://blog.m2ez.com/" rel="author">麦索</a> with ♥
                 <span class="post-time">
-                on <time datetime=2021-04-18 itemprop="datePublished">April 18, 2021</time>
+                on <time datetime=2021-04-27 itemprop="datePublished">April 27, 2021</time>
                 </span>
                 in
                 
@@ -170,7 +170,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">649 words</span>
+                <span class="post-word-count">250 words</span>
         </div>
     </header>
 
@@ -190,37 +190,47 @@
         
         
 
-        <p>Socket 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。</p>
-<p>网络中的设备要想交换信息进行通信，就需要创建套接字，套接字是形如 IP:Port 这样的IP地址对，这样对形式是IPv4版本，新的套接字可以指定为IPv6。这部分是在网络层指定对。</p>
-<p>然后在传输层可以指定使用TCP连接的方式，还是使用UDP连接的方式。一般来说在网络通信中是由服务器先开启进行服务，等待客户端去建立连接，所以客户端和服务端的概念是一个相对的概念。
-服务端创建一个IPv4的TCP传输的socket的步骤：</p>
-<ol>
-<li>调用系统函数socket()，创建并绑定一个IP地址和端口。</li>
-<li>调用系统函数listen()，进行地址监听。此时可以通过 netstate 命令查看对应端口是否被监听。</li>
-<li>调用系统函数accept()，从内核获取客户端的连接，如果没有客户端进行连接，则会阻塞等待。</li>
-</ol>
-<p>客户端发起连接的步骤：</p>
-<ol>
-<li>客户端创建socket连接</li>
-<li>调用系统函数connect()发起连接请求，在该函数中指定要连接的服务端的IP和Port，然后进行TCP三次握手确认连接状态</li>
-</ol>
-<p>在TCP连接中，内核要为每个socket维护两个队列</p>
-<ul>
-<li>半连接队列
-<ul>
-<li>没有完全建立连接的队列</li>
-<li>还未完成三次握手，服务端处于 syn_rcvd 状态，既等待客户端发送回执</li>
-</ul>
-</li>
-<li>全连接队列
-<ul>
-<li>建立连接的队列</li>
-<li>完成了三次握手，服务端处于 established 状态</li>
-</ul>
-</li>
-</ul>
-<p>当TCP全连接队列不为空时，服务端的 accept() 函数就会从队列中取出完成的连接返回给应用，后续的数据传输度使用这个socket。建立连接后，客户端和服务端就可以互相传输数据了，双方都可以通过read()和write()函数来读写数据了。</p>
+        <p>当要对类中的私有方法进行测试时很难通过 new  一个对象的方法来创建对象的实例然后调用方法进行单元测试，此时有两种方法进行私有方法的测试。</p>
+<h2 id="方法一">方法一</h2>
+<p>这种方法是使用使用反射的方式来读取代码文件，然后再对要测试的方法的可见性进行改变以使得可以在外部调用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">    public function testCleanMetrics()
+    {
+        $metrics = [
+            &#39;key1&#39; =&gt; &#39;value1&#39;,
+            &#39;key2&#39; =&gt; &#39;value2&#39;,
+            &#39;key3&#39; =&gt; &#39;value3&#39;
+        ];
 
+        $method = new \ReflectionMethod(&#39;\Cronitor\Monitor&#39;, &#39;cleanMetrics&#39;); // 反射获取类的方法
+        $method-&gt;setAccessible(true); // 修改方法的可访问性
+
+        $cleanMetricsResult = $method-&gt;invokeArgs($this-&gt;monitor, [$metrics]);
+
+        $this-&gt;assertSame(&#39;key1:value1&#39;, $cleanMetricsResult[0]);
+        $this-&gt;assertArrayNotHasKey(&#39;key1&#39;, $cleanMetricsResult);
+    }
+</code></pre></div><h2 id="方法二">方法二</h2>
+<p>这种方法是通过写一个匿名函数并对函数进行重新绑定的类的函数到匿名函数的方式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">    public function testCleanMetrics()
+    {
+        $metrics = [
+            &#39;key1&#39; =&gt; &#39;value1&#39;,
+            &#39;key2&#39; =&gt; &#39;value2&#39;,
+            &#39;key3&#39; =&gt; &#39;value3&#39;
+        ];
+
+        $monitor = new \Cronitor\Monitor();
+
+        $bar = function () use ($metrics) {
+            return $this-&gt;cleanMetrics();
+        };
+
+        $baz = $bar-&gt;bindTo($monitor, $monitor);
+
+        $this-&gt;assertSame(&#39;key1:value1&#39;, $baz()[0]);
+        $this-&gt;assertArrayNotHasKey(&#39;key1&#39;, $$baz());
+    }
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -234,7 +244,7 @@
             
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://blog.m2ez.com/2021/001/>https://blog.m2ez.com/2021/001/</span>
+                    <a href=https://blog.m2ez.com/2021/002/>https://blog.m2ez.com/2021/002/</span>
             </p>
             
             
@@ -250,8 +260,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://blog.m2ez.com/tags/socket/">
-                    #Socket</a></span>
+            <span class="tag"><a href="https://blog.m2ez.com/tags/php/">
+                    #PHP</a></span>
             
             </section>
         
@@ -263,10 +273,10 @@
 
     <div class="post-nav">
         
-        <a href="https://blog.m2ez.com/2020/008/" class="prev" rel="prev" title="原码、反码、补码"><i class="iconfont icon-left"></i>&nbsp;原码、反码、补码</a>
+        <a href="https://blog.m2ez.com/2021/001/" class="prev" rel="prev" title="Socket 连接的建立步骤"><i class="iconfont icon-left"></i>&nbsp;Socket 连接的建立步骤</a>
         
         
-        <a href="https://blog.m2ez.com/2021/002/" class="next" rel="next" title="如何用 PHPUnit 测试私有方法">如何用 PHPUnit 测试私有方法&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://blog.m2ez.com/2021/003/" class="next" rel="next" title="PHP8 新增字符串方法与 laravel 性能差异比较">PHP8 新增字符串方法与 laravel 性能差异比较&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
