@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0009b6ae17c54e69142760c63c7b4bff";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,15 +62,16 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2021",
-    "datePublished": "2021-05-30 11:36:57 \x2b0800 CST",
-    "dateModified" : "2021-05-30 11:36:57 \x2b0800 CST",
+    "datePublished": "2021-05-30 11:36:57 \u002b0800 CST",
+    "dateModified" : "2021-05-30 11:36:57 \u002b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2021\/003\/",
     "wordCount" : "679",
     "keywords" : [ "PHP", "麦索的麦田"]
 }
 </script>
 
-  </head>
+</head>
+
     <body class="">
         <div class="wrapper">
             <nav class="navbar">
@@ -192,144 +202,144 @@
 
         <p>在 PHP8 的更新中对字符串操作新增了三个函数，这三个函数分别是<code>str_contains</code>、<code>str_starts_with</code> 和 <code>str_ends_with</code>, 在PHP8以前这三个函数在主流框架如Laravel、Yii中都提供。一般来说PHP内置的函数都会比我们用PHP写的要快不少，但是相比框架提供的这些函数到底性能提升了多少呢？</p>
 <p>因此我写了个小程序进行了验证实验，我做实验的机器是一台iMac，机器配置如下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SHELL" data-lang="SHELL">MacOS Big Sur
-Version 11.3.1
-
-iMac<span style="color:#f92672">(</span>Retina 5K, 27-inch, 2017<span style="color:#f92672">)</span>
-Processor 3.4GHz Quad-Core Intel Core i5
-Memory <span style="color:#ae81ff">32</span> GB <span style="color:#ae81ff">2400</span> MHz DDR4
-Startup Disk Macintosh HD
-Graphics Radeon Pro <span style="color:#ae81ff">570</span> 4GB
-</code></pre></div><p>PHP 版本如下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SHELL" data-lang="SHELL">PHP 8.0.5 <span style="color:#f92672">(</span>cli<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>built: Apr <span style="color:#ae81ff">29</span> <span style="color:#ae81ff">2021</span> 16:01:35<span style="color:#f92672">)</span> <span style="color:#f92672">(</span> NTS <span style="color:#f92672">)</span>
-Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> The PHP Group
-Zend Engine v4.0.5, Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> Zend Technologies
-    with Zend OPcache v8.0.5, Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span>, by Zend Technologies
-</code></pre></div><p>实验程序代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">
-Artisan::command(&#39;test0&#39;, function () {
-    $count = 1000000;
-    $laravel_time = microtime(true) - LARAVEL_START;
-    echo &#39;Laravel run time is &#39; . $laravel_time . PHP_EOL . PHP_EOL;
-
-    $arr = [];
-    for ($j = 0; $j &lt; <span style="color:#f92672">5</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">j</span> <span style="color:#960050;background-color:#1e0010">++</span> <span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">{</span>
-        <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">start </span><span style="color:#f92672">=</span> <span style="color:#e6db74">microtime(true);</span>
-        <span style="color:#a6e22e">for</span> <span style="color:#960050;background-color:#1e0010">($</span><span style="color:#a6e22e">i </span><span style="color:#f92672">=</span> <span style="color:#e6db74">0;</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">i</span> <span style="color:#960050;background-color:#1e0010">&lt;</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">count</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">++)</span> <span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Illuminate</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Support</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Str::contains</span><span style="color:#960050;background-color:#1e0010">(&#39;</span><span style="color:#a6e22e">abc</span><span style="color:#960050;background-color:#1e0010">&#39;,</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">a</span><span style="color:#960050;background-color:#1e0010">&#39;);</span>
-        <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">end </span><span style="color:#f92672">=</span> <span style="color:#e6db74">microtime(true);</span>
-
-        <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">laravel_str_time </span><span style="color:#f92672">=</span> <span style="color:#e6db74">$end</span> <span style="color:#a6e22e">-</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">start</span><span style="color:#960050;background-color:#1e0010">;</span>
-
-        <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">Str::contains</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">is</span> <span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">.</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">laravel_str_time</span> <span style="color:#960050;background-color:#1e0010">.</span> <span style="color:#a6e22e">PHP_EOL</span><span style="color:#960050;background-color:#1e0010">;</span>
-
-        <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">start </span><span style="color:#f92672">=</span> <span style="color:#e6db74">microtime(true);</span>
-        <span style="color:#a6e22e">for</span> <span style="color:#960050;background-color:#1e0010">($</span><span style="color:#a6e22e">i </span><span style="color:#f92672">=</span> <span style="color:#e6db74">0;</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">i</span> <span style="color:#960050;background-color:#1e0010">&lt;</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">count</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">++)</span> <span style="color:#a6e22e">str_contains</span><span style="color:#960050;background-color:#1e0010">(&#39;</span><span style="color:#a6e22e">abc</span><span style="color:#960050;background-color:#1e0010">&#39;,</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">a</span><span style="color:#960050;background-color:#1e0010">&#39;);</span>
-        <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">end </span><span style="color:#f92672">=</span> <span style="color:#e6db74">microtime(true);</span>
-
-        <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">php8_str_time </span><span style="color:#f92672">=</span> <span style="color:#e6db74">$end</span> <span style="color:#a6e22e">-</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">start</span><span style="color:#960050;background-color:#1e0010">;</span>
-
-        <span style="color:#a6e22e">echo</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">PHP8</span> <span style="color:#a6e22e">str_contains</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">is</span> <span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">.</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">php8_str_time</span> <span style="color:#960050;background-color:#1e0010">.</span> <span style="color:#a6e22e">PHP_EOL</span> <span style="color:#960050;background-color:#1e0010">.</span> <span style="color:#a6e22e">PHP_EOL</span><span style="color:#960050;background-color:#1e0010">;</span>
-
-        <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">arr</span><span style="color:#960050;background-color:#1e0010">[]</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#a6e22e">number_format</span><span style="color:#960050;background-color:#1e0010">($</span><span style="color:#a6e22e">php8_str_time</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">laravel_str_time</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">4</span><span style="color:#960050;background-color:#1e0010">);</span>
-    <span style="color:#960050;background-color:#1e0010">}</span>
-
-    <span style="color:#a6e22e">var_dump</span><span style="color:#960050;background-color:#1e0010">($</span><span style="color:#a6e22e">arr</span><span style="color:#960050;background-color:#1e0010">);</span>
-    <span style="color:#a6e22e">echo</span> <span style="color:#a6e22e">array_sum</span><span style="color:#960050;background-color:#1e0010">($</span><span style="color:#a6e22e">arr</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#a6e22e">count</span><span style="color:#960050;background-color:#1e0010">($</span><span style="color:#a6e22e">arr</span><span style="color:#960050;background-color:#1e0010">);</span>
-<span style="color:#960050;background-color:#1e0010">});</span>
-</code></pre></div><p>程序输出：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SHELL" data-lang="SHELL">php artisan test0                                
-Laravel run time is 0.10241389274597
-
-Str::contains run is 0.11590790748596
-PHP8 str_contains run is 0.025718927383423
-
-Str::contains run is 0.11841297149658
-PHP8 str_contains run is 0.024212121963501
-
-Str::contains run is 0.11694502830505
-PHP8 str_contains run is 0.025036096572876
-
-Str::contains run is 0.11578488349915
-PHP8 str_contains run is 0.025848865509033
-
-Str::contains run is 0.11652398109436
-PHP8 str_contains run is 0.026134014129639
-
-array<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-  <span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2219&#34;</span>
-  <span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2045&#34;</span>
-  <span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2141&#34;</span>
-  <span style="color:#f92672">[</span>3<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2232&#34;</span>
-  <span style="color:#f92672">[</span>4<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2243&#34;</span>
-<span style="color:#f92672">}</span>
-0.2176% 
-</code></pre></div><p>用同样的程序，修改调用的方法分别对 str_starts_with 和 str_ends_with 进行实验，输出如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Laravel run time is 0.097244024276733
-
-Str::startsWith run is 0.13129806518555
-PHP8 str_starts_with run is 0.023024082183838
-
-Str::startsWith run is 0.13406491279602
-PHP8 str_starts_with run is 0.024108171463013
-
-Str::startsWith run is 0.13589406013489
-PHP8 str_starts_with run is 0.025053024291992
-
-Str::startsWith run is 0.13407921791077
-PHP8 str_starts_with run is 0.024497985839844
-
-Str::startsWith run is 0.13846492767334
-PHP8 str_starts_with run is 0.024585962295532
-
-array<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-  <span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1754&#34;</span>
-  <span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1798&#34;</span>
-  <span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1844&#34;</span>
-  <span style="color:#f92672">[</span>3<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1827&#34;</span>
-  <span style="color:#f92672">[</span>4<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1776&#34;</span>
-<span style="color:#f92672">}</span>
-0.17998%                        
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Laravel run time is 0.094044923782349
-
-Str::endsWith run is 0.12809109687805
-PHP8 str_ends_with run is 0.023317098617554
-
-Str::endsWith run is 0.12816786766052
-PHP8 str_ends_with run is 0.023905038833618
-
-Str::endsWith run is 0.12953305244446
-PHP8 str_ends_with run is 0.024739027023315
-
-Str::endsWith run is 0.13504600524902
-PHP8 str_ends_with run is 0.025351047515869
-
-Str::endsWith run is 0.13313508033752
-PHP8 str_ends_with run is 0.025480985641479
-
-array<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-  <span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1820&#34;</span>
-  <span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1865&#34;</span>
-  <span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1910&#34;</span>
-  <span style="color:#f92672">[</span>3<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1877&#34;</span>
-  <span style="color:#f92672">[</span>4<span style="color:#f92672">]=</span>&gt;
-  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1914&#34;</span>
-<span style="color:#f92672">}</span>
-0.18772% 
-</code></pre></div><p>可以看出性能相比于应用框架所提供的提升在 18%-20% 这个范围，另一点是 str_contains 可以很好的替代 strpos 和 strstr 这两个PHP函数，而不需要再进行 !== 或 === 的判断。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SHELL" data-lang="SHELL"><span style="display:flex;"><span>MacOS Big Sur
+</span></span><span style="display:flex;"><span>Version 11.3.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>iMac<span style="color:#f92672">(</span>Retina 5K, 27-inch, 2017<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Processor 3.4GHz Quad-Core Intel Core i5
+</span></span><span style="display:flex;"><span>Memory <span style="color:#ae81ff">32</span> GB <span style="color:#ae81ff">2400</span> MHz DDR4
+</span></span><span style="display:flex;"><span>Startup Disk Macintosh HD
+</span></span><span style="display:flex;"><span>Graphics Radeon Pro <span style="color:#ae81ff">570</span> 4GB
+</span></span></code></pre></div><p>PHP 版本如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SHELL" data-lang="SHELL"><span style="display:flex;"><span>PHP 8.0.5 <span style="color:#f92672">(</span>cli<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>built: Apr <span style="color:#ae81ff">29</span> <span style="color:#ae81ff">2021</span> 16:01:35<span style="color:#f92672">)</span> <span style="color:#f92672">(</span> NTS <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> The PHP Group
+</span></span><span style="display:flex;"><span>Zend Engine v4.0.5, Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> Zend Technologies
+</span></span><span style="display:flex;"><span>    with Zend OPcache v8.0.5, Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span>, by Zend Technologies
+</span></span></code></pre></div><p>实验程序代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Artisan</span><span style="color:#f92672">::</span><span style="color:#a6e22e">command</span>(<span style="color:#e6db74">&#39;test0&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    $count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000</span>;
+</span></span><span style="display:flex;"><span>    $laravel_time <span style="color:#f92672">=</span> <span style="color:#a6e22e">microtime</span>(<span style="color:#66d9ef">true</span>) <span style="color:#f92672">-</span> <span style="color:#a6e22e">LARAVEL_START</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Laravel run time is &#39;</span> <span style="color:#f92672">.</span> $laravel_time <span style="color:#f92672">.</span> <span style="color:#a6e22e">PHP_EOL</span> <span style="color:#f92672">.</span> <span style="color:#a6e22e">PHP_EOL</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $arr <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> ($j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; $j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span>; $j <span style="color:#f92672">++</span> ) {
+</span></span><span style="display:flex;"><span>        $start <span style="color:#f92672">=</span> <span style="color:#a6e22e">microtime</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> ($i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; $i <span style="color:#f92672">&lt;</span> $count; $i<span style="color:#f92672">++</span>) <span style="color:#a6e22e">\Illuminate\Support\Str</span><span style="color:#f92672">::</span><span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#39;abc&#39;</span>, <span style="color:#e6db74">&#39;a&#39;</span>);
+</span></span><span style="display:flex;"><span>        $end <span style="color:#f92672">=</span> <span style="color:#a6e22e">microtime</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $laravel_str_time <span style="color:#f92672">=</span> $end <span style="color:#f92672">-</span> $start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Str::contains run is &#39;</span> <span style="color:#f92672">.</span> $laravel_str_time <span style="color:#f92672">.</span> <span style="color:#a6e22e">PHP_EOL</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $start <span style="color:#f92672">=</span> <span style="color:#a6e22e">microtime</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> ($i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; $i <span style="color:#f92672">&lt;</span> $count; $i<span style="color:#f92672">++</span>) <span style="color:#a6e22e">str_contains</span>(<span style="color:#e6db74">&#39;abc&#39;</span>, <span style="color:#e6db74">&#39;a&#39;</span>);
+</span></span><span style="display:flex;"><span>        $end <span style="color:#f92672">=</span> <span style="color:#a6e22e">microtime</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $php8_str_time <span style="color:#f92672">=</span> $end <span style="color:#f92672">-</span> $start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;PHP8 str_contains run is &#39;</span> <span style="color:#f92672">.</span> $php8_str_time <span style="color:#f92672">.</span> <span style="color:#a6e22e">PHP_EOL</span> <span style="color:#f92672">.</span> <span style="color:#a6e22e">PHP_EOL</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $arr[] <span style="color:#f92672">=</span> <span style="color:#a6e22e">number_format</span>($php8_str_time <span style="color:#f92672">/</span> $laravel_str_time, <span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">var_dump</span>($arr);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">array_sum</span>($arr) <span style="color:#f92672">/</span> <span style="color:#a6e22e">count</span>($arr);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>程序输出：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SHELL" data-lang="SHELL"><span style="display:flex;"><span>php artisan test0                                
+</span></span><span style="display:flex;"><span>Laravel run time is 0.10241389274597
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::contains run is 0.11590790748596
+</span></span><span style="display:flex;"><span>PHP8 str_contains run is 0.025718927383423
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::contains run is 0.11841297149658
+</span></span><span style="display:flex;"><span>PHP8 str_contains run is 0.024212121963501
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::contains run is 0.11694502830505
+</span></span><span style="display:flex;"><span>PHP8 str_contains run is 0.025036096572876
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::contains run is 0.11578488349915
+</span></span><span style="display:flex;"><span>PHP8 str_contains run is 0.025848865509033
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::contains run is 0.11652398109436
+</span></span><span style="display:flex;"><span>PHP8 str_contains run is 0.026134014129639
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>array<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2219&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2045&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2141&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>3<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2232&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>4<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.2243&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>0.2176% 
+</span></span></code></pre></div><p>用同样的程序，修改调用的方法分别对 str_starts_with 和 str_ends_with 进行实验，输出如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Laravel run time is 0.097244024276733
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::startsWith run is 0.13129806518555
+</span></span><span style="display:flex;"><span>PHP8 str_starts_with run is 0.023024082183838
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::startsWith run is 0.13406491279602
+</span></span><span style="display:flex;"><span>PHP8 str_starts_with run is 0.024108171463013
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::startsWith run is 0.13589406013489
+</span></span><span style="display:flex;"><span>PHP8 str_starts_with run is 0.025053024291992
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::startsWith run is 0.13407921791077
+</span></span><span style="display:flex;"><span>PHP8 str_starts_with run is 0.024497985839844
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::startsWith run is 0.13846492767334
+</span></span><span style="display:flex;"><span>PHP8 str_starts_with run is 0.024585962295532
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>array<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1754&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1798&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1844&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>3<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1827&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>4<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1776&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>0.17998%                        
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Laravel run time is 0.094044923782349
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::endsWith run is 0.12809109687805
+</span></span><span style="display:flex;"><span>PHP8 str_ends_with run is 0.023317098617554
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::endsWith run is 0.12816786766052
+</span></span><span style="display:flex;"><span>PHP8 str_ends_with run is 0.023905038833618
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::endsWith run is 0.12953305244446
+</span></span><span style="display:flex;"><span>PHP8 str_ends_with run is 0.024739027023315
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::endsWith run is 0.13504600524902
+</span></span><span style="display:flex;"><span>PHP8 str_ends_with run is 0.025351047515869
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Str::endsWith run is 0.13313508033752
+</span></span><span style="display:flex;"><span>PHP8 str_ends_with run is 0.025480985641479
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>array<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1820&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1865&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1910&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>3<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1877&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>4<span style="color:#f92672">]=</span>&gt;
+</span></span><span style="display:flex;"><span>  string<span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;0.1914&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>0.18772% 
+</span></span></code></pre></div><p>可以看出性能相比于应用框架所提供的提升在 18%-20% 这个范围，另一点是 str_contains 可以很好的替代 strpos 和 strstr 这两个PHP函数，而不需要再进行 !== 或 === 的判断。</p>
 
     </div>
 
@@ -381,27 +391,21 @@ array<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> <
     <div class="post-comment">
         
             
-                <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-
-        clientID: 'fd7e14ae2ba870464ae2',
-        clientSecret: 'a857e314906c4ffdacd94705a4907acf52a200f3',
-        repo: 'm2ez.github.io',
-        owner: 'dongm2ez',
-        admin: ['dongm2ez'],
-        id: location.pathname, 
-        distractionFreeMode: false 
-    });
-    (function () {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-            return;
-        }
-        gitalk.render('gitalk-container');
-    })();
+                <script src="https://giscus.app/client.js"
+        data-repo="dongm2ez/m2ez.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk5NTg2NjgzOA=="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOBbbP1s4CQakC"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
 </script>
 
             
@@ -414,7 +418,7 @@ array<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> <
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2021</span>
+        <span itemprop="copyrightYear">2014 - 2022</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>

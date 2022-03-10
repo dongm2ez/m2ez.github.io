@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0009b6ae17c54e69142760c63c7b4bff";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,15 +62,16 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2019",
-    "datePublished": "2019-02-23 16:59:37 \x2b0800 CST",
-    "dateModified" : "2019-02-23 16:59:37 \x2b0800 CST",
+    "datePublished": "2019-02-23 16:59:37 \u002b0800 CST",
+    "dateModified" : "2019-02-23 16:59:37 \u002b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2019\/002\/",
     "wordCount" : "1005",
     "keywords" : [ "树莓派","物联网", "麦索的麦田"]
 }
 </script>
 
-  </head>
+</head>
+
     <body class="">
         <div class="wrapper">
             <nav class="navbar">
@@ -222,34 +232,34 @@
 ￼
 <img src="//img.m2ez.com/image/2.jpg" alt=""></p>
 <p>通过无线和网线都可以将你的电脑和树莓派进行通信，和电脑连通的树莓派被视为一个安卓设备，因此可以使用android开发工具包中的adb进行远程调试。adb 工具可以通过 ip:5555 端口与 android thins开发板进行通讯，如果有鼠标显示器可以直接连接到树莓派上进行网络连接。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 先通过有线连接，获取IP</span>
-$ ./adb connect &lt;ip-address&gt;
-connected to &lt;ip-address&gt;:5555
-
-<span style="color:#75715e"># adb连接上之后配置 Wi-Fi</span>
-$ ./adb shell am startservice <span style="color:#ae81ff">\</span>
--n com.google.wifisetup/.WifiSetupService <span style="color:#ae81ff">\</span>
--a WifiSetupService.Connect <span style="color:#ae81ff">\</span>
--e ssid &lt;Network_SSID&gt; <span style="color:#ae81ff">\</span>
--e passphrase &lt;Network_Passcode&gt;
-
-<span style="color:#75715e"># 验证是否 Wi-Fi 是否连接成功</span>
-$ ./adb logcat -d | grep Wifi
-...
-V WifiWatcher: Network state changed to CONNECTED
-V WifiWatcher: SSID changed: ...
-I WifiConfigurator: Successfully connected to ...
-
-
-<span style="color:#75715e"># 重启，撤掉网线，获取 Wi-Fi 连接后的设备 IP，可通过 HDMI 显示器获得或从路由器后台获得</span>
-$ ./adb connect &lt;wifi-ip-address&gt;
-connected to &lt;wifi-ip-address&gt;:5555
-
-<span style="color:#75715e"># 查看设备是否attached</span>
-$ ./adb devices
-List of devices attached
-&lt;wifi-ip-address&gt;:5555 device
-</code></pre></div><p>这时官方的demo我们就可以通过adb的方式发送的树莓派上进行运行了。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 先通过有线连接，获取IP</span>
+</span></span><span style="display:flex;"><span>$ ./adb connect &lt;ip-address&gt;
+</span></span><span style="display:flex;"><span>connected to &lt;ip-address&gt;:5555
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># adb连接上之后配置 Wi-Fi</span>
+</span></span><span style="display:flex;"><span>$ ./adb shell am startservice <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-n com.google.wifisetup/.WifiSetupService <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-a WifiSetupService.Connect <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-e ssid &lt;Network_SSID&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-e passphrase &lt;Network_Passcode&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 验证是否 Wi-Fi 是否连接成功</span>
+</span></span><span style="display:flex;"><span>$ ./adb logcat -d | grep Wifi
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>V WifiWatcher: Network state changed to CONNECTED
+</span></span><span style="display:flex;"><span>V WifiWatcher: SSID changed: ...
+</span></span><span style="display:flex;"><span>I WifiConfigurator: Successfully connected to ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 重启，撤掉网线，获取 Wi-Fi 连接后的设备 IP，可通过 HDMI 显示器获得或从路由器后台获得</span>
+</span></span><span style="display:flex;"><span>$ ./adb connect &lt;wifi-ip-address&gt;
+</span></span><span style="display:flex;"><span>connected to &lt;wifi-ip-address&gt;:5555
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看设备是否attached</span>
+</span></span><span style="display:flex;"><span>$ ./adb devices
+</span></span><span style="display:flex;"><span>List of devices attached
+</span></span><span style="display:flex;"><span>&lt;wifi-ip-address&gt;:5555 device
+</span></span></code></pre></div><p>这时官方的demo我们就可以通过adb的方式发送的树莓派上进行运行了。
 官方提供的demo 目录链接 ：<a href="https://developer.android.com/things/sdk/samples-drivers.html">https://developer.android.com/things/sdk/samples-drivers.html</a></p>
 
     </div>
@@ -307,27 +317,21 @@ List of devices attached
     <div class="post-comment">
         
             
-                <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-
-        clientID: 'fd7e14ae2ba870464ae2',
-        clientSecret: 'a857e314906c4ffdacd94705a4907acf52a200f3',
-        repo: 'm2ez.github.io',
-        owner: 'dongm2ez',
-        admin: ['dongm2ez'],
-        id: location.pathname, 
-        distractionFreeMode: false 
-    });
-    (function () {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-            return;
-        }
-        gitalk.render('gitalk-container');
-    })();
+                <script src="https://giscus.app/client.js"
+        data-repo="dongm2ez/m2ez.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk5NTg2NjgzOA=="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOBbbP1s4CQakC"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
 </script>
 
             
@@ -340,7 +344,7 @@ List of devices attached
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2021</span>
+        <span itemprop="copyrightYear">2014 - 2022</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0009b6ae17c54e69142760c63c7b4bff";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,15 +62,16 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2019",
-    "datePublished": "2019-02-23 16:59:37 \x2b0800 CST",
-    "dateModified" : "2019-02-23 16:59:37 \x2b0800 CST",
+    "datePublished": "2019-02-23 16:59:37 \u002b0800 CST",
+    "dateModified" : "2019-02-23 16:59:37 \u002b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2019\/001\/",
     "wordCount" : "1425",
     "keywords" : [ "Linux", "麦索的麦田"]
 }
 </script>
 
-  </head>
+</head>
+
     <body class="">
         <div class="wrapper">
             <nav class="navbar">
@@ -208,67 +218,67 @@
 <p>普通硬盘直接格式化挂载到/home</p>
 <p>没有使用交换分区，因为我的内存8G我觉得交换分区是不需要的。</p>
 <p>分区结束后执行格式化命令</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkfs.ext4 -b <span style="color:#ae81ff">4096</span> /dev/sda1
-mkfs.ext4 -b <span style="color:#ae81ff">4096</span> /dev/sdb1
-mkfs.ext4 -b <span style="color:#ae81ff">4096</span> /dev/sdb2
-mkfs.ext4 -b <span style="color:#ae81ff">4096</span> /dev/sdb3
-</code></pre></div><p>在我的系统分区中sda是普通硬盘，sdb是SSD</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkfs.ext4 -b <span style="color:#ae81ff">4096</span> /dev/sda1
+</span></span><span style="display:flex;"><span>mkfs.ext4 -b <span style="color:#ae81ff">4096</span> /dev/sdb1
+</span></span><span style="display:flex;"><span>mkfs.ext4 -b <span style="color:#ae81ff">4096</span> /dev/sdb2
+</span></span><span style="display:flex;"><span>mkfs.ext4 -b <span style="color:#ae81ff">4096</span> /dev/sdb3
+</span></span></code></pre></div><p>在我的系统分区中sda是普通硬盘，sdb是SSD</p>
 <p>当分区完成后就是挂载，需要将硬盘挂载到镜像的/mnt目录，这个目录是linux中专门用来挂载外部设备的，比如U盘，光驱之类的 。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># mount -t ext4 /dev/sda1 /mnt/home</span>
-<span style="color:#75715e"># mount -t ext4 /dev/sdb1 /mnt/boot</span>
-<span style="color:#75715e"># mount -t ext4 /dev/sdb2 /mnt/var</span>
-<span style="color:#75715e"># mount -t ext4 /dev/sdb3 /mnt</span>
-</code></pre></div><p>修改软件源，软件源是arch的软件仓库，虽然不修改使用默认的也可，但速度体验就不是很好了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># mount -t ext4 /dev/sda1 /mnt/home</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mount -t ext4 /dev/sdb1 /mnt/boot</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mount -t ext4 /dev/sdb2 /mnt/var</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mount -t ext4 /dev/sdb3 /mnt</span>
+</span></span></code></pre></div><p>修改软件源，软件源是arch的软件仓库，虽然不修改使用默认的也可，但速度体验就不是很好了。</p>
 <p><code>https://www.archlinux.org/mirrorlist/</code></p>
 <p>在官方的软件源生成页面选择china可以获取到最新的国内软件源</p>
 <p>修改软件源配置文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vim /etc/pacman.d/mirrorlist
-nano /etc/pacman.d/mirrorlist
-</code></pre></div><p>以上只是用两种不同的编辑器进行编辑，看你喜欢哪种了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sed -i <span style="color:#e6db74">&#34;s/^/#/g&#34;</span> /etc/pacman.d/mirrorlist //
-</code></pre></div><p>该命令可以使文件全部被注释，记得备份。然后把上面网址获取的最新源粘贴进去。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pacman -Syy
-</code></pre></div><p>更新一下软件源</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pacstrap /mnt base base-devel vim
-</code></pre></div><p>安装基本系统，base是基础软件包组，base-devel是基础开发包组，vim是世界上最好的编辑器。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>vim /etc/pacman.d/mirrorlist
+</span></span><span style="display:flex;"><span>nano /etc/pacman.d/mirrorlist
+</span></span></code></pre></div><p>以上只是用两种不同的编辑器进行编辑，看你喜欢哪种了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sed -i <span style="color:#e6db74">&#34;s/^/#/g&#34;</span> /etc/pacman.d/mirrorlist //
+</span></span></code></pre></div><p>该命令可以使文件全部被注释，记得备份。然后把上面网址获取的最新源粘贴进去。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacman -Syy
+</span></span></code></pre></div><p>更新一下软件源</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacstrap /mnt base base-devel vim
+</span></span></code></pre></div><p>安装基本系统，base是基础软件包组，base-devel是基础开发包组，vim是世界上最好的编辑器。</p>
 <p>生成fstab</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">genfstab -U -p /mnt &gt; /mnt/etc/fstab
-</code></pre></div><p>切换到新安装的系统中</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">arch-chroot /mnt
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">passwd root
-</code></pre></div><p>运行passwd，设置root密码，要敲两遍，不要忘了它。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>genfstab -U -p /mnt &gt; /mnt/etc/fstab
+</span></span></code></pre></div><p>切换到新安装的系统中</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>arch-chroot /mnt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>passwd root
+</span></span></code></pre></div><p>运行passwd，设置root密码，要敲两遍，不要忘了它。</p>
 <h2 id="主机名">主机名</h2>
 <p>用vim打开/etc/hostname，往里面写一个作为主机名的名字，只要字母、横线和数字。</p>
 <h2 id="语言环境">语言环境</h2>
 <p>然后用vim打开/etc/locale.gen，然后找到以下四行，取消注释:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">en_US.UTF-8
-zh_CN.UTF-8
-zh_CN.GBK
-zh_CN.GB2312
-</code></pre></div><p>然后运行 <code># locale-gen</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>en_US.UTF-8
+</span></span><span style="display:flex;"><span>zh_CN.UTF-8
+</span></span><span style="display:flex;"><span>zh_CN.GBK
+</span></span><span style="display:flex;"><span>zh_CN.GB2312
+</span></span></code></pre></div><p>然后运行 <code># locale-gen</code></p>
 <p>再编辑<code>/etc/locale.conf</code>，里面写上</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">LANG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>
-</code></pre></div><p>现在生成启动要用到的ramdisk</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkinitcpio -p linux
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pacman -S wpa_supplicant dialog
-</code></pre></div><p>保证新系统可以联网，现在你可以安装其他觉得需要的包。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>LANG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>
+</span></span></code></pre></div><p>现在生成启动要用到的ramdisk</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkinitcpio -p linux
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacman -S wpa_supplicant dialog
+</span></span></code></pre></div><p>保证新系统可以联网，现在你可以安装其他觉得需要的包。</p>
 <h2 id="引导器">引导器</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pacman -S grub
-grub-install --target<span style="color:#f92672">=</span>i386-pc --recheck --debug /dev/sdb
-grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre></div><p>我的系统是安装到/dev/sdb中的，根据自己实际情况修改此参数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacman -S grub
+</span></span><span style="display:flex;"><span>grub-install --target<span style="color:#f92672">=</span>i386-pc --recheck --debug /dev/sdb
+</span></span><span style="display:flex;"><span>grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></div><p>我的系统是安装到/dev/sdb中的，根据自己实际情况修改此参数</p>
 <p>接下来执行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">exit
-umount -R /mnt
-reboot
-</code></pre></div><p>这些命令分别是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>exit
+</span></span><span style="display:flex;"><span>umount -R /mnt
+</span></span><span style="display:flex;"><span>reboot
+</span></span></code></pre></div><p>这些命令分别是：</p>
 <p>退出硬盘的linux系统</p>
 <p>取消/mnt下的所用挂载</p>
 <p>重启</p>
 <p>进入新安装的系统后执行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">useradd -m admin
-passwd admin
-</code></pre></div><p>新建一个叫admin用户给其设置密码，平时使用linux不应该在root用户下进行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>useradd -m admin
+</span></span><span style="display:flex;"><span>passwd admin
+</span></span></code></pre></div><p>新建一个叫admin用户给其设置密码，平时使用linux不应该在root用户下进行。</p>
 <p>记得执行最开始的那两个连接网络的命令的其中一个，不然没有网络，接下来你是无法安装软件的。</p>
 <p>其实这已经算安装完成了arch，但这在服务器上可以，在你的个人电脑上体验还是差些，你可以安装一个桌面环境。</p>
 <p>我选择的是gnome，看你的喜好了。</p>
@@ -328,27 +338,21 @@ passwd admin
     <div class="post-comment">
         
             
-                <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-
-        clientID: 'fd7e14ae2ba870464ae2',
-        clientSecret: 'a857e314906c4ffdacd94705a4907acf52a200f3',
-        repo: 'm2ez.github.io',
-        owner: 'dongm2ez',
-        admin: ['dongm2ez'],
-        id: location.pathname, 
-        distractionFreeMode: false 
-    });
-    (function () {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-            return;
-        }
-        gitalk.render('gitalk-container');
-    })();
+                <script src="https://giscus.app/client.js"
+        data-repo="dongm2ez/m2ez.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk5NTg2NjgzOA=="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOBbbP1s4CQakC"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
 </script>
 
             
@@ -361,7 +365,7 @@ passwd admin
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2021</span>
+        <span itemprop="copyrightYear">2014 - 2022</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>

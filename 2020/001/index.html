@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0009b6ae17c54e69142760c63c7b4bff";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,15 +62,16 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2020",
-    "datePublished": "2020-02-25 16:59:37 \x2b0800 CST",
-    "dateModified" : "2020-02-25 16:59:37 \x2b0800 CST",
+    "datePublished": "2020-02-25 16:59:37 \u002b0800 CST",
+    "dateModified" : "2020-02-25 16:59:37 \u002b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2020\/001\/",
     "wordCount" : "381",
     "keywords" : [ "laravel", "麦索的麦田"]
 }
 </script>
 
-  </head>
+</head>
+
     <body class="">
         <div class="wrapper">
             <nav class="navbar">
@@ -196,40 +206,38 @@
 <p><code>$ composer require sentry/sentry-laravel:1.5.0</code></p>
 <p>如果使用的5.5以上的框架会自动发现包并加载（Lumen需手动注册），我们目前项目都是5.5以上所以无需单独配置。</p>
 <p>Lumen注册方法是在bootstrap/app.php中添加：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">
-$app-&gt;register(&#39;Sentry\Laravel\ServiceProvider&#39;);
-
-# Sentry must be registered before routes are included
-
-# 必须在路由加载前注册
-
-require __DIR__ . &#39;/../app/Http/routes.php&#39;;
-
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">register</span>(<span style="color:#e6db74">&#39;Sentry\Laravel\ServiceProvider&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sentry must be registered before routes are included
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 必须在路由加载前注册
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">require</span> <span style="color:#66d9ef">__DIR__</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;/../app/Http/routes.php&#39;</span>;
+</span></span></code></pre></div><ol start="2">
 <li>然后将报告方法加入 App/Exceptions/Handler.php ​中：</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">
-public function report(Exception $exception){
-    if (app()-&gt;bound(&#39;sentry&#39;) <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span> $this-&gt;shouldReport($exception)) {
-        app(&#39;sentry&#39;)-&gt;captureException($exception);
-    }
-
-    parent::report($exception);
-
-}
-
-</code></pre></div><p>​3. 执行 <code>php artisan vendor:publish --provider=&quot;Sentry\Laravel\ServiceProvider&quot;​</code> 将配置文件加入config文件夹中（Lumen需要手动复制或创建），将sentry中获得的DSN链接配置进文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">report</span>(<span style="color:#a6e22e">Exception</span> $exception){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">app</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bound</span>(<span style="color:#e6db74">&#39;sentry&#39;</span>) <span style="color:#f92672">&amp;&amp;</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">shouldReport</span>($exception)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">app</span>(<span style="color:#e6db74">&#39;sentry&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">captureException</span>($exception);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">parent</span><span style="color:#f92672">::</span><span style="color:#a6e22e">report</span>($exception);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>​3. 执行 <code>php artisan vendor:publish --provider=&quot;Sentry\Laravel\ServiceProvider&quot;​</code> 将配置文件加入config文件夹中（Lumen需要手动复制或创建），将sentry中获得的DSN链接配置进文件：</p>
 <p><code>'dsn' =&gt; env('SENTRY_LARAVEL_DSN', null)，</code></p>
 <p>如果是null，sentry SDK将不触发上报。</p>
 <p>需在<code>.env</code>中添加 <code>SENTRY_LARAVEL_DSN=https://&lt;key&gt;@sentry.io/&lt;project&gt;</code> 配置，具体地址是Sentry中项目分配。</p>
 <ol start="4">
 <li>测试是否接入成功可以使用在路由文件中新建一个路由主动抛出异常</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">Route::get(&#39;/debug-sentry&#39;, function () {
-    throw new Exception(&#39;My first Sentry error!&#39;);
-
-});
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#a6e22e">Route</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/debug-sentry&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#39;My first Sentry error!&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -282,27 +290,21 @@ public function report(Exception $exception){
     <div class="post-comment">
         
             
-                <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-
-        clientID: 'fd7e14ae2ba870464ae2',
-        clientSecret: 'a857e314906c4ffdacd94705a4907acf52a200f3',
-        repo: 'm2ez.github.io',
-        owner: 'dongm2ez',
-        admin: ['dongm2ez'],
-        id: location.pathname, 
-        distractionFreeMode: false 
-    });
-    (function () {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-            return;
-        }
-        gitalk.render('gitalk-container');
-    })();
+                <script src="https://giscus.app/client.js"
+        data-repo="dongm2ez/m2ez.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk5NTg2NjgzOA=="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOBbbP1s4CQakC"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
 </script>
 
             
@@ -315,7 +317,7 @@ public function report(Exception $exception){
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2021</span>
+        <span itemprop="copyrightYear">2014 - 2022</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>

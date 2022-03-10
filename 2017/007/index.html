@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0009b6ae17c54e69142760c63c7b4bff";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,15 +62,16 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2017",
-    "datePublished": "2017-07-05 20:59:37 \x2b0800 CST",
-    "dateModified" : "2017-07-05 20:59:37 \x2b0800 CST",
+    "datePublished": "2017-07-05 20:59:37 \u002b0800 CST",
+    "dateModified" : "2017-07-05 20:59:37 \u002b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2017\/007\/",
-    "wordCount" : "834",
+    "wordCount" : "840",
     "keywords" : [ "git","gitlab", "麦索的麦田"]
 }
 </script>
 
-  </head>
+</head>
+
     <body class="">
         <div class="wrapper">
             <nav class="navbar">
@@ -170,7 +180,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">834 words</span>
+                <span class="post-word-count">840 words</span>
         </div>
     </header>
 
@@ -199,39 +209,39 @@
 <p>GitLab 下载地址：https://about.gitlab.com/downloads/#ubuntu1604</p>
 <p>其他版本请自行选择不同系统。</p>
 <p>1.首先是安装一些依赖服务</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install curl openssh-server ca-certificates postfix
-</code></pre></div><p>2.官方的建议是使用脚本直接执行安装</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
-sudo apt-get install gitlab-ce
-</code></pre></div><p>如果你能通过以上方式安装，恭喜你的网络很好，但一般因为大墙的存在这个方式很多时候并不能成功，所以我们要通过手动下载包的方式进行安装。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo curl -LJO https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/xenial/gitlab-ce-XXX.deb/download
-sudo dpkg -i gitlab-ce-XXX.deb
-</code></pre></div><p>以上是示例，具体版本需要进行替换，在 <a href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a> 中找到适合自己的 GitLab 版本，从 Download 获取到下载地址。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install curl openssh-server ca-certificates postfix
+</span></span></code></pre></div><p>2.官方的建议是使用脚本直接执行安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+</span></span><span style="display:flex;"><span>sudo apt-get install gitlab-ce
+</span></span></code></pre></div><p>如果你能通过以上方式安装，恭喜你的网络很好，但一般因为大墙的存在这个方式很多时候并不能成功，所以我们要通过手动下载包的方式进行安装。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo curl -LJO https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/xenial/gitlab-ce-XXX.deb/download
+</span></span><span style="display:flex;"><span>sudo dpkg -i gitlab-ce-XXX.deb
+</span></span></code></pre></div><p>以上是示例，具体版本需要进行替换，在 <a href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a> 中找到适合自己的 GitLab 版本，从 Download 获取到下载地址。</p>
 <p><img src="//img.m2ez.com/14902391408842.jpg" alt=""></p>
 <p>我选择的是目前最新的 GitLab 9.0 版本</p>
 <p>使用 wget 或 curl 将这个包下载到服务器上。服务器下载慢的话可在本地用工具下载然后通过 SCP 或 ftp 传到服务器上去。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i gitlab-ce_9.0.0-ce.0_amd64.deb
-</code></pre></div><p>使用以上命令进行安装。</p>
-<p>打开/etc/gitlab/gitlab.rb,将external_url = &lsquo;<a href="http://git.example.com">http://git.example.com</a>'修改为自己的域名地址：http://example.com，默认为80端口，如要使用其他端口后面加上端口号，如：http://127.0.0.1:8080。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dpkg -i gitlab-ce_9.0.0-ce.0_amd64.deb
+</span></span></code></pre></div><p>使用以上命令进行安装。</p>
+<p>打开/etc/gitlab/gitlab.rb,将external_url = &lsquo;<a href="http://git.example.com">http://git.example.com</a>&rsquo;修改为自己的域名地址：http://example.com，默认为80端口，如要使用其他端口后面加上端口号，如：http://127.0.0.1:8080。</p>
 <p>然后执行：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo gitlab-ctl reconfigure
-</code></pre></div><p>启动完成后浏览器访问配置好的地址，应该出现重置管理员密码的界面。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo gitlab-ctl reconfigure
+</span></span></code></pre></div><p>启动完成后浏览器访问配置好的地址，应该出现重置管理员密码的界面。</p>
 <h3 id="汉化">汉化</h3>
 <p>1.下载社区提供的汉化包，在 <a href="https://gitlab.com/xhang/gitlab/">https://gitlab.com/xhang/gitlab/</a> 中找到相应的汉化分支。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo wget wget -cO gitlab-9.0_zh.tar.gz https://gitlab.com/xhang/gitlab/repository/archive.tar.gz?ref<span style="color:#f92672">=</span>9-0-stable-zh
-</code></pre></div><p>2.解压包</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo tar zxvf gitlab-9.0_zh.tar.gz
-</code></pre></div><p>3.停止 GitLab 服务</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo gitlab-ctl stop
-</code></pre></div><p>4.备份 gitlab-rails 目录，该目录下主要是web应用部分，也是当前项目仓库的起始版本，也是汉化包要覆盖的目录。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo tar zcvf /opt/gitlab/embedded/service/gitlab-rails-bak.tar.gz gitlab-rails
-</code></pre></div><p>5.将解压后的汉化补丁覆盖原来的</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo cp -rf gitlab-9-0-stable-zh/* gitlab-rails/
-</code></pre></div><p>6.启动服务</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo gitlab-ctl start
-</code></pre></div><p>7.重新执行配置命令</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo gitlab-ctl reconfigure
-</code></pre></div><p>汉化完成</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo wget wget -cO gitlab-9.0_zh.tar.gz https://gitlab.com/xhang/gitlab/repository/archive.tar.gz?ref<span style="color:#f92672">=</span>9-0-stable-zh
+</span></span></code></pre></div><p>2.解压包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo tar zxvf gitlab-9.0_zh.tar.gz
+</span></span></code></pre></div><p>3.停止 GitLab 服务</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo gitlab-ctl stop
+</span></span></code></pre></div><p>4.备份 gitlab-rails 目录，该目录下主要是web应用部分，也是当前项目仓库的起始版本，也是汉化包要覆盖的目录。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo tar zcvf /opt/gitlab/embedded/service/gitlab-rails-bak.tar.gz gitlab-rails
+</span></span></code></pre></div><p>5.将解压后的汉化补丁覆盖原来的</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo cp -rf gitlab-9-0-stable-zh/* gitlab-rails/
+</span></span></code></pre></div><p>6.启动服务</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo gitlab-ctl start
+</span></span></code></pre></div><p>7.重新执行配置命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo gitlab-ctl reconfigure
+</span></span></code></pre></div><p>汉化完成</p>
 <h3 id="一些界面设置">一些界面设置</h3>
 <p>进入界面后关掉一些我们可能用不到的设置，在 「管理区域」的设置中进行更改</p>
 <p><img src="//img.m2ez.com/14902593794119.jpg" alt=""></p>
@@ -293,27 +303,21 @@ sudo dpkg -i gitlab-ce-XXX.deb
     <div class="post-comment">
         
             
-                <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-
-        clientID: 'fd7e14ae2ba870464ae2',
-        clientSecret: 'a857e314906c4ffdacd94705a4907acf52a200f3',
-        repo: 'm2ez.github.io',
-        owner: 'dongm2ez',
-        admin: ['dongm2ez'],
-        id: location.pathname, 
-        distractionFreeMode: false 
-    });
-    (function () {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-            return;
-        }
-        gitalk.render('gitalk-container');
-    })();
+                <script src="https://giscus.app/client.js"
+        data-repo="dongm2ez/m2ez.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk5NTg2NjgzOA=="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOBbbP1s4CQakC"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
 </script>
 
             
@@ -326,7 +330,7 @@ sudo dpkg -i gitlab-ce-XXX.deb
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2021</span>
+        <span itemprop="copyrightYear">2014 - 2022</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>

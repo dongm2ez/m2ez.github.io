@@ -6,11 +6,7 @@
     <description>Recent content in laravel on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 25 Feb 2020 16:59:37 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.m2ez.com/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 25 Feb 2020 16:59:37 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Laravel/Lumen项目接入Sentry异常监控</title>
       <link>https://blog.m2ez.com/2020/001/</link>

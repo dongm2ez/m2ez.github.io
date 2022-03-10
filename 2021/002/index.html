@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0009b6ae17c54e69142760c63c7b4bff";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,15 +62,16 @@
     "accountablePerson" : "麦索",
     "copyrightHolder" : "麦索",
     "copyrightYear" : "2021",
-    "datePublished": "2021-04-27 21:00:03 \x2b0800 CST",
-    "dateModified" : "2021-04-27 21:00:03 \x2b0800 CST",
+    "datePublished": "2021-04-27 21:00:03 \u002b0800 CST",
+    "dateModified" : "2021-04-27 21:00:03 \u002b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2021\/002\/",
     "wordCount" : "250",
     "keywords" : [ "PHP", "麦索的麦田"]
 }
 </script>
 
-  </head>
+</head>
+
     <body class="">
         <div class="wrapper">
             <nav class="navbar">
@@ -193,44 +203,44 @@
         <p>当要对类中的私有方法进行测试时很难通过 new  一个对象的方法来创建对象的实例然后调用方法进行单元测试，此时有两种方法进行私有方法的测试。</p>
 <h2 id="方法一">方法一</h2>
 <p>这种方法是使用使用反射的方式来读取代码文件，然后再对要测试的方法的可见性进行改变以使得可以在外部调用。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">    public function testCleanMetrics()
-    {
-        $metrics = [
-            &#39;key1&#39; =&gt; &#39;value1&#39;,
-            &#39;key2&#39; =&gt; &#39;value2&#39;,
-            &#39;key3&#39; =&gt; &#39;value3&#39;
-        ];
-
-        $method = new \ReflectionMethod(&#39;\Cronitor\Monitor&#39;, &#39;cleanMetrics&#39;); // 反射获取类的方法
-        $method-&gt;setAccessible(true); // 修改方法的可访问性
-
-        $cleanMetricsResult = $method-&gt;invokeArgs($this-&gt;monitor, [$metrics]);
-
-        $this-&gt;assertSame(&#39;key1:value1&#39;, $cleanMetricsResult[0]);
-        $this-&gt;assertArrayNotHasKey(&#39;key1&#39;, $cleanMetricsResult);
-    }
-</code></pre></div><h2 id="方法二">方法二</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">testCleanMetrics</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        $metrics <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key1&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value1&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key2&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value2&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key3&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value3&#39;</span>
+</span></span><span style="display:flex;"><span>        ];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $method <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\ReflectionMethod</span>(<span style="color:#e6db74">&#39;\Cronitor\Monitor&#39;</span>, <span style="color:#e6db74">&#39;cleanMetrics&#39;</span>); <span style="color:#75715e">// 反射获取类的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        $method<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setAccessible</span>(<span style="color:#66d9ef">true</span>); <span style="color:#75715e">// 修改方法的可访问性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        $cleanMetricsResult <span style="color:#f92672">=</span> $method<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">invokeArgs</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">monitor</span>, [$metrics]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertSame</span>(<span style="color:#e6db74">&#39;key1:value1&#39;</span>, $cleanMetricsResult[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertArrayNotHasKey</span>(<span style="color:#e6db74">&#39;key1&#39;</span>, $cleanMetricsResult);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h2 id="方法二">方法二</h2>
 <p>这种方法是通过写一个匿名函数并对函数进行重新绑定的类的函数到匿名函数的方式</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">    public function testCleanMetrics()
-    {
-        $metrics = [
-            &#39;key1&#39; =&gt; &#39;value1&#39;,
-            &#39;key2&#39; =&gt; &#39;value2&#39;,
-            &#39;key3&#39; =&gt; &#39;value3&#39;
-        ];
-
-        $monitor = new \Cronitor\Monitor();
-
-        $bar = function () use ($metrics) {
-            return $this-&gt;cleanMetrics();
-        };
-
-        $baz = $bar-&gt;bindTo($monitor, $monitor);
-
-        $this-&gt;assertSame(&#39;key1:value1&#39;, $baz()[0]);
-        $this-&gt;assertArrayNotHasKey(&#39;key1&#39;, $$baz());
-    }
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">testCleanMetrics</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        $metrics <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key1&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value1&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key2&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value2&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key3&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value3&#39;</span>
+</span></span><span style="display:flex;"><span>        ];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $monitor <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\Cronitor\Monitor</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $bar <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () <span style="color:#66d9ef">use</span> ($metrics) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">cleanMetrics</span>();
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $baz <span style="color:#f92672">=</span> $bar<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bindTo</span>($monitor, $monitor);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertSame</span>(<span style="color:#e6db74">&#39;key1:value1&#39;</span>, $baz()[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertArrayNotHasKey</span>(<span style="color:#e6db74">&#39;key1&#39;</span>, $$baz());
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -283,27 +293,21 @@
     <div class="post-comment">
         
             
-                <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-
-        clientID: 'fd7e14ae2ba870464ae2',
-        clientSecret: 'a857e314906c4ffdacd94705a4907acf52a200f3',
-        repo: 'm2ez.github.io',
-        owner: 'dongm2ez',
-        admin: ['dongm2ez'],
-        id: location.pathname, 
-        distractionFreeMode: false 
-    });
-    (function () {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-            return;
-        }
-        gitalk.render('gitalk-container');
-    })();
+                <script src="https://giscus.app/client.js"
+        data-repo="dongm2ez/m2ez.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk5NTg2NjgzOA=="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOBbbP1s4CQakC"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
 </script>
 
             
@@ -316,7 +320,7 @@
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2021</span>
+        <span itemprop="copyrightYear">2014 - 2022</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i>
