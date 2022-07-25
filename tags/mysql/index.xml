@@ -6,7 +6,16 @@
     <description>Recent content in mysql on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 04 Nov 2017 16:59:37 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jul 2022 18:01:53 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
+      <link>https://blog.m2ez.com/2022/001/</link>
+      <pubDate>Mon, 25 Jul 2022 18:01:53 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2022/001/</guid>
+      <description>平时我们对语句调优一般用 EXPLAIN 就可以，但是对于一些复杂语句和疑难杂症这个所能给出信息不够详细，从 MySQL 5.6 开始加入了 Optimizer Trace 功能查看优化器生成执行计划的整</description>
+    </item>
+    
     <item>
       <title>使用 Docker 完成 MySQL 数据库主从配置</title>
       <link>https://blog.m2ez.com/2017/020/</link>
