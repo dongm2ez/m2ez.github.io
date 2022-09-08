@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>监控系统 on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 监控系统 on 麦索的麦田</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 23 Feb 2023 09:39:18 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一种监控报警阈值确定的思路</title>
+      <link>https://blog.m2ez.com/2023/001/</link>
+      <pubDate>Thu, 23 Feb 2023 09:39:18 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2023/001/</guid>
+      <description>当我们建立一个对项目的监控系统，在系统出现异常时会有想要及时被告知的需求。对于大部分监控系统，提供了监控报警功能，但其中的阈值该如何确定是一</description>
+    </item>
+    
+  </channel>
+</rss>
