@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="robots" content="noodp"/>
-    <meta property="og:title" content="一种监控报警阈值确定的思路">
+    <meta property="og:title" content="一种监控报警阈值确定的思路 —— 统计分布算法">
     <meta name="author" content="麦索">
     <meta name="description" content="麦索的个人博客">
     
@@ -32,10 +32,10 @@
     <title>
         
         
-            一种监控报警阈值确定的思路 | 麦索的麦田
+            一种监控报警阈值确定的思路 —— 统计分布算法 | 麦索的麦田
         
     </title>
-    <meta name="title" content="一种监控报警阈值确定的思路 | 麦索的麦田">
+    <meta name="title" content="一种监控报警阈值确定的思路 —— 统计分布算法 | 麦索的麦田">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -53,9 +53,9 @@
          "@id": "https:\/\/blog.m2ez.com\/"
     },
     "articleSection" : "posts",
-    "name" : "一种监控报警阈值确定的思路",
-    "headline" : "一种监控报警阈值确定的思路",
-    "description" : "在监控系统中如何确定一种可行的阈值，通过实践和理论结合找到一种思路，在实际应用中效果还不错",
+    "name" : "一种监控报警阈值确定的思路 —— 统计分布算法",
+    "headline" : "一种监控报警阈值确定的思路 —— 统计分布算法",
+    "description" : "在监控系统中如何确定一种可行的阈值，通过实践和理论结合找到一种思路，在实际应用中效果较好",
     "inLanguage" : "zh",
     "author" : "麦索",
     "creator" : "麦索",
@@ -66,7 +66,7 @@
     "datePublished": "2023-02-23 09:39:18 \u002b0800 CST",
     "dateModified" : "2023-02-23 09:39:18 \u002b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2023\/001\/",
-    "wordCount" : "771",
+    "wordCount" : "1225",
     "keywords" : [ "监控系统", "麦索的麦田"]
 }
 </script>
@@ -164,7 +164,7 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">一种监控报警阈值确定的思路</h1>
+        <h1 class="post-title" itemprop="name headline">一种监控报警阈值确定的思路 —— 统计分布算法</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://blog.m2ez.com/" rel="author">麦索</a> with ♥
                 <span class="post-time">
@@ -181,7 +181,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">771 words</span>
+                <span class="post-word-count">1225 words</span>
         </div>
     </header>
 
@@ -201,12 +201,25 @@
         
         
 
-        <p>当我们建立一个对项目的监控系统，在系统出现异常时会有想要及时被告知的需求。对于大部分监控系统，提供了监控报警功能，但其中的阈值该如何确定是一个值得思考的问题。</p>
+        <h2 id="统计分布算法是什么">统计分布算法是什么</h2>
+<p>统计分布算法（Statistical Distribution Algorithm）：这种算法是根据数据的概率分布进行阈值设置的。比如，计算出数据的均值和标准差，通过均值加减若干个标准差来确定阈值。根据数据的分布情况，阈值的精度和敏感度较高，常见的应用场景有金融风控系统等。
+统计分布算法是根据数据的概率分布来进行阈值设置的。具体步骤如下：</p>
+<ol>
+<li>首先，需要计算数据集的均值和标准差。</li>
+<li>然后，根据需要确定一个合适的标准差倍数k (通常取2或3)。</li>
+<li>根据均值和标准差，计算上下界，公式为：upper_bound = mean + k * std_deviation; lower_bound = mean - k * std_deviation;</li>
+<li>最后，设置阈值为upper_bound和lower_bound之间的某个值，根据实际情况和需求来选择。
+统计分布算法是一种比较常用和实用的算法，适用于大部分的场景。但是不同的场景需要区别对待，具体的应用还需要结合实际情况来制定具体的数值</li>
+</ol>
+<h2 id="实践">实践</h2>
+<p>当我们建立一个对项目的监控系统，在系统出现异常时会有想要及时被告知的需求。对于大部分监控系统，提供了监控报警功能，但其中的阈值该如何确定是一个值得思考的问题。</p>
 <p>如果监控系统还没上线，大部分时候对于报警阈值往往是根据经验拍脑袋决定的，而对于已经上线获取到一定项目数据的监控系统，去确定报警阈值，可以使用统计学到一些方法根据历史数据确定一个值。</p>
 <p>比如我们收集了项目的异常事件，并发送到 Sentry 监控。在收集了一段时间后项目异常后，我们并不能百分百解决所有存在的异常问题：有一些问题出现的原因是暂时无法定位的；有一些是偶发性问题，影响并不大，优先级并不高；还有一些是可预知的事件，比如在版本释放后，会有一些服务暂时下线不可用引起的异常。</p>
 <p>那么监控系统里会经常驻留以上这些异常，这些异常对我们来说已经知晓，但暂无精力去解决，对于报警来说他们不算做系统异常情况。这时就需要根据这些异常值出现的数量确定我们的监控阈值该设定为多少合适。</p>
 <p>我们可将历史的异常数量按一定的单位时间导出为一张 Excel 表，根据这些数值用 AVERAGE 函数算出平均值，再用 STDEV.S 算出标准差。理论上单位时间内，“正常”值应该在平均数上下一个标准差内波动的数值上正常情况，监控系统只关心的是上限，所以低于一个标准差的值是不用关心的。那么如果较为关心超过正常值的情况，可将报警阈值设置为平均数加上一个标准差为第一个报警阈值，而后根据情况设置增加几个标准差为第二个报警阈值，以及第三、第四个等。</p>
 <p>根据正态分布和标准差的性质，我们从计算阈值要包含所有 0 开始的值，一个正标准差约覆盖 84.13% 的情况，两个标准差约覆盖 97.72% 的情况，三个标准差则为 99.87，之后发生的概率就是小于 1% 的发生概率了，那么也就是说可以根据这个思路，来确定我们该去设置几个标准差的值为报警阈值。</p>
+<h2 id="数据过滤">数据过滤</h2>
+<p>对于一些服务系统并不是全体 24 小时都有用户使用，所以对数据还需做一些过滤。比如过滤掉周末时间，过滤掉晚间无用户使用系统时间，然后对于过低和过高的值进行过滤</p>
 <h2 id="参考">参考</h2>
 <p>百度百科. 标准差[EB/OL]. [2023-02-23]. <a href="https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%B7%AE/1415772">https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%B7%AE/1415772</a>.</p>
 <p>百度百科. 正态分布[EB/OL]. [2023-02-23]. <a href="https://baike.baidu.com/item/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/829892">https://baike.baidu.com/item/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/829892</a></p>
