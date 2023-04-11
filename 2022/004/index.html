@@ -301,79 +301,79 @@
 </span></span></code></pre></div><p>BITMAP_INDEXES_BY_LEGEND_IDENTIFIER_BY_CHART_NAME 维护的是每个图例在 bitmap 中的存储位置，这样在图例增加时只需维护相应的 chart 的存储位置即可，不会影响到其他图表的图例存储。</p>
 <p>DEFAULT_CHART_LEGEND_VISIBILITIES 定义了图例的默认值，当用户未做更改时可以直接返回其值，在存储时可进行比对，如果值一致就不存储到数据库里了。</p>
 <p>在定义完这两个常量后，需要做的就是对存储和获取的过程给予相应的处理，Laravel 的 Model 提供了访问器和设置器的功能，我可以利用这个机制对值进行处理，因此我在 model 里新增了以下方法：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span> <span style="color:#e6db74">/**
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     * @return array&lt;string,array&lt;string,bool&gt;&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getChartLegendVisibilitiesAttribute</span>(<span style="color:#f92672">?</span><span style="color:#a6e22e">string</span> $value)<span style="color:#f92672">:</span> <span style="color:#66d9ef">array</span>
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        $value <span style="color:#f92672">=</span> $value <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">\Safe\json_decode</span>($value, <span style="color:#66d9ef">true</span>) <span style="color:#f92672">:</span> [];
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span><span style="color:#e6db74">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> * @return array&lt;string,array&lt;string,bool&gt;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getChartLegendVisibilitiesAttribute</span>(<span style="color:#f92672">?</span><span style="color:#a6e22e">string</span> $value)<span style="color:#f92672">:</span> <span style="color:#66d9ef">array</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    $value <span style="color:#f92672">=</span> $value <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">\Safe\json_decode</span>($value, <span style="color:#66d9ef">true</span>) <span style="color:#f92672">:</span> [];
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $value <span style="color:#f92672">+=</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">DEFAULT_CHART_LEGEND_VISIBILITIES</span>;
+</span></span><span style="display:flex;"><span>    $value <span style="color:#f92672">+=</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">DEFAULT_CHART_LEGEND_VISIBILITIES</span>;
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $chart_legend_visibilities <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">/** @var string $chart_name */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> ($value <span style="color:#66d9ef">as</span> $chart_name <span style="color:#f92672">=&gt;</span> $legend_visibilities_bitmap) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> (<span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">BITMAP_INDEXES_BY_LEGEND_IDENTIFIER_BY_CHART_NAME</span>[$chart_name] <span style="color:#66d9ef">as</span> $legend_identifier <span style="color:#f92672">=&gt;</span> $bitmap_index) {
+</span></span><span style="display:flex;"><span>            $chart_legend_visibilities[$chart_name][$legend_identifier] <span style="color:#f92672">=</span> (<span style="color:#a6e22e">bool</span>) (($legend_visibilities_bitmap <span style="color:#f92672">&gt;&gt;</span> $bitmap_index) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ksort</span>($chart_legend_visibilities);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> $chart_legend_visibilities;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> * @param array&lt;string,array&lt;string,bool&gt;&gt;|null $value
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> * @return void
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setChartLegendVisibilitiesAttribute</span>(<span style="color:#f92672">?</span><span style="color:#66d9ef">array</span> $value)<span style="color:#f92672">:</span> <span style="color:#a6e22e">void</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ($value <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) {
 </span></span><span style="display:flex;"><span>        $chart_legend_visibilities <span style="color:#f92672">=</span> [];
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">/** @var string $chart_name */</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> ($value <span style="color:#66d9ef">as</span> $chart_name <span style="color:#f92672">=&gt;</span> $legend_visibilities_bitmap) {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">foreach</span> (<span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">BITMAP_INDEXES_BY_LEGEND_IDENTIFIER_BY_CHART_NAME</span>[$chart_name] <span style="color:#66d9ef">as</span> $legend_identifier <span style="color:#f92672">=&gt;</span> $bitmap_index) {
-</span></span><span style="display:flex;"><span>                $chart_legend_visibilities[$chart_name][$legend_identifier] <span style="color:#f92672">=</span> (<span style="color:#a6e22e">bool</span>) (($legend_visibilities_bitmap <span style="color:#f92672">&gt;&gt;</span> $bitmap_index) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> ($value <span style="color:#66d9ef">as</span> $chart_name <span style="color:#f92672">=&gt;</span> $legend_visibilities) {
+</span></span><span style="display:flex;"><span>            $legend_visibilities_bitmap <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">foreach</span> ($legend_visibilities <span style="color:#66d9ef">as</span> $legend_identifier <span style="color:#f92672">=&gt;</span> $legend_visibility) {
+</span></span><span style="display:flex;"><span>                $bitmap_index <span style="color:#f92672">=</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">BITMAP_INDEXES_BY_LEGEND_IDENTIFIER_BY_CHART_NAME</span>[$chart_name][$legend_identifier];
+</span></span><span style="display:flex;"><span>                $legend_visibilities_bitmap <span style="color:#f92672">|=</span> ($legend_visibility <span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">true</span>) <span style="color:#f92672">&lt;&lt;</span> $bitmap_index;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> ($legend_visibilities_bitmap <span style="color:#f92672">!==</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">DEFAULT_CHART_LEGEND_VISIBILITIES</span>[$chart_name]) {
+</span></span><span style="display:flex;"><span>                $chart_legend_visibilities[$chart_name] <span style="color:#f92672">=</span> $legend_visibilities_bitmap;
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ksort</span>($chart_legend_visibilities);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $chart_legend_visibilities;
+</span></span><span style="display:flex;"><span>        $value <span style="color:#f92672">=</span> $chart_legend_visibilities <span style="color:#f92672">===</span> [] <span style="color:#f92672">?</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">\Safe\json_encode</span>($chart_legend_visibilities);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">/**
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     * @param array&lt;string,array&lt;string,bool&gt;&gt;|null $value
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     *
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     * @return void
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setChartLegendVisibilitiesAttribute</span>(<span style="color:#f92672">?</span><span style="color:#66d9ef">array</span> $value)<span style="color:#f92672">:</span> <span style="color:#a6e22e">void</span>
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($value <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) {
-</span></span><span style="display:flex;"><span>            $chart_legend_visibilities <span style="color:#f92672">=</span> [];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">foreach</span> ($value <span style="color:#66d9ef">as</span> $chart_name <span style="color:#f92672">=&gt;</span> $legend_visibilities) {
-</span></span><span style="display:flex;"><span>                $legend_visibilities_bitmap <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">foreach</span> ($legend_visibilities <span style="color:#66d9ef">as</span> $legend_identifier <span style="color:#f92672">=&gt;</span> $legend_visibility) {
-</span></span><span style="display:flex;"><span>                    $bitmap_index <span style="color:#f92672">=</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">BITMAP_INDEXES_BY_LEGEND_IDENTIFIER_BY_CHART_NAME</span>[$chart_name][$legend_identifier];
-</span></span><span style="display:flex;"><span>                    $legend_visibilities_bitmap <span style="color:#f92672">|=</span> ($legend_visibility <span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">true</span>) <span style="color:#f92672">&lt;&lt;</span> $bitmap_index;
-</span></span><span style="display:flex;"><span>                }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> ($legend_visibilities_bitmap <span style="color:#f92672">!==</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">DEFAULT_CHART_LEGEND_VISIBILITIES</span>[$chart_name]) {
-</span></span><span style="display:flex;"><span>                    $chart_legend_visibilities[$chart_name] <span style="color:#f92672">=</span> $legend_visibilities_bitmap;
-</span></span><span style="display:flex;"><span>                }
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            $value <span style="color:#f92672">=</span> $chart_legend_visibilities <span style="color:#f92672">===</span> [] <span style="color:#f92672">?</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">\Safe\json_encode</span>($chart_legend_visibilities);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">attributes</span>[<span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">COLUMN_CHART_LEGEND_VISIBILITIES</span>] <span style="color:#f92672">=</span> $value;
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">attributes</span>[<span style="color:#a6e22e">self</span><span style="color:#f92672">::</span><span style="color:#a6e22e">COLUMN_CHART_LEGEND_VISIBILITIES</span>] <span style="color:#f92672">=</span> $value;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>这样我所要实现的功能基本在这里完成了。现在所要做的就是在控制器里对返回的图表数据的状态进行绑定：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span><span style="color:#e6db74">/**
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     * @param array&lt;string,array&lt;int|string,mixed&gt;&gt; $chart_data
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     * @param \App\Models\UserExtra                 $user_extra
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     * @param string                                $chart_name
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     *
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     * @return array&lt;string,array&lt;int|string,mixed&gt;&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getChartLegendVisibility</span>(<span style="color:#66d9ef">array</span> $chart_data, <span style="color:#a6e22e">UserExtra</span> $user_extra, <span style="color:#a6e22e">string</span> $chart_name)<span style="color:#f92672">:</span> <span style="color:#66d9ef">array</span>
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        $legend_label_id_by_store_index <span style="color:#f92672">=</span> <span style="color:#a6e22e">array_flip</span>(<span style="color:#a6e22e">UserExtra</span><span style="color:#f92672">::</span><span style="color:#a6e22e">BITMAP_INDEXES_BY_LEGEND_IDENTIFIER_BY_CHART_NAME</span>[$chart_name]);
-</span></span><span style="display:flex;"><span>        $legend_visibilities            <span style="color:#f92672">=</span> $user_extra<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">chart_legend_visibilities</span>[$chart_name];
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> * @param array&lt;string,array&lt;int|string,mixed&gt;&gt; $chart_data
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> * @param \App\Models\UserExtra                 $user_extra
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> * @param string                                $chart_name
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> * @return array&lt;string,array&lt;int|string,mixed&gt;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getChartLegendVisibility</span>(<span style="color:#66d9ef">array</span> $chart_data, <span style="color:#a6e22e">UserExtra</span> $user_extra, <span style="color:#a6e22e">string</span> $chart_name)<span style="color:#f92672">:</span> <span style="color:#66d9ef">array</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    $legend_label_id_by_store_index <span style="color:#f92672">=</span> <span style="color:#a6e22e">array_flip</span>(<span style="color:#a6e22e">UserExtra</span><span style="color:#f92672">::</span><span style="color:#a6e22e">BITMAP_INDEXES_BY_LEGEND_IDENTIFIER_BY_CHART_NAME</span>[$chart_name]);
+</span></span><span style="display:flex;"><span>    $legend_visibilities            <span style="color:#f92672">=</span> $user_extra<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">chart_legend_visibilities</span>[$chart_name];
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> ($chart_data[<span style="color:#e6db74">&#39;series&#39;</span>] <span style="color:#66d9ef">as</span> $series_index <span style="color:#f92672">=&gt;</span> $series) {
-</span></span><span style="display:flex;"><span>            $key <span style="color:#f92672">=</span> <span style="color:#a6e22e">array_shift</span>($legend_label_id_by_store_index);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> ($chart_data[<span style="color:#e6db74">&#39;series&#39;</span>] <span style="color:#66d9ef">as</span> $series_index <span style="color:#f92672">=&gt;</span> $series) {
+</span></span><span style="display:flex;"><span>        $key <span style="color:#f92672">=</span> <span style="color:#a6e22e">array_shift</span>($legend_label_id_by_store_index);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            $chart_data[<span style="color:#e6db74">&#39;series&#39;</span>][$series_index][<span style="color:#e6db74">&#39;id&#39;</span>]      <span style="color:#f92672">=</span> $key;
-</span></span><span style="display:flex;"><span>            $chart_data[<span style="color:#e6db74">&#39;series&#39;</span>][$series_index][<span style="color:#e6db74">&#39;visible&#39;</span>] <span style="color:#f92672">=</span> $legend_visibilities[$key];
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $chart_data;
+</span></span><span style="display:flex;"><span>        $chart_data[<span style="color:#e6db74">&#39;series&#39;</span>][$series_index][<span style="color:#e6db74">&#39;id&#39;</span>]      <span style="color:#f92672">=</span> $key;
+</span></span><span style="display:flex;"><span>        $chart_data[<span style="color:#e6db74">&#39;series&#39;</span>][$series_index][<span style="color:#e6db74">&#39;visible&#39;</span>] <span style="color:#f92672">=</span> $legend_visibilities[$key];
 </span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> $chart_data;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>$chart_data 传递的是构建好的 Highcharts 需要的数据，这部分可以参考 Highcharts 的文档。这个函数的目的就是将每个图例的数据与我们所维护的图例是否显示的数据绑定，之后再提供修改图例显示状态的 API 即可实现这个功能。</p>
 
     </div>

@@ -66,7 +66,7 @@
     "datePublished": "2017-09-03 16:59:37 \u002b0800 CST",
     "dateModified" : "2017-09-03 16:59:37 \u002b0800 CST",
     "url" : "https:\/\/blog.m2ez.com\/2017\/018\/",
-    "wordCount" : "3402",
+    "wordCount" : "3416",
     "keywords" : [ "PHP", "麦索的麦田"]
 }
 </script>
@@ -181,7 +181,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">3402 words</span>
+                <span class="post-word-count">3416 words</span>
         </div>
     </header>
 
@@ -334,7 +334,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">require</span> <span style="color:#66d9ef">__DIR__</span><span style="color:#f92672">.</span><span style="color:#e6db74">&#39;/../vendor/autoload.php&#39;</span>;
 </span></span></code></pre></div><p>然后运行 <code>composer install</code> 安装框架的依赖包，安装完成后我们的目录中就会多出一个 <code>vendor</code> 的目录和 <code>composer.lock</code> 的文件，此时运行 <code>php -S 0.0.0.0:8080 -t public public/index.php</code> 利用 PHP 自带的 web 服务器进行测试，为了这个命令更简单使用，我们可以将这个命令加到 <code>composer.json</code> 的 <code>script</code> 中。</p>
 <p>此时访问 <code>127.0.0.1:8080</code> 或 <code>localhost:8080</code> 就可以看到如下的页面：</p>
-<p><img src="//img.m2ez.com/15043663356684.jpg" alt=""></p>
+<p><img src="/posts/2017/images/15043663356684.jpg" alt="not found" loading="lazy" ></p>
 <p>这说明框架正确启动了，那么我们怎么确定框架工作正常呢，这里有个简单方法：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 </span></span><span style="display:flex;"><span>
@@ -354,7 +354,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">run</span>();
 </span></span></code></pre></div><p>对 <code>public/index.php</code> 的代码进行修改，此时访问 <code>http://localhost:8080/hello/dongm2ez</code>，那么我们就会看到：</p>
-<p><img src="//img.m2ez.com/15043666561898.jpg" alt=""></p>
+<p><img src="/posts/2017/images/15043666561898.jpg" alt="hello page" loading="lazy" ></p>
 <p>测试是成功了，但是我们不能把路由和逻辑都写到 <code>index.php</code> 文件里，因此我们需要代码更好的组织。要让我们的目录规划发挥正在的作用。</p>
 <p>为了单独管理路由，我将路由单独写在 <code>routers</code> 文件夹中，在文件夹中我们新建两个 PHP 脚本文件，然后在 <code>public/index.php</code> 中加入两行代码：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
@@ -397,8 +397,6 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$container <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\Slim\Container</span>;
 </span></span><span style="display:flex;"><span>$app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\Slim\App</span>($container);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> $app;
 </span></span></code></pre></div><p>还记得上面那个控制器继承的基类控制器吗，那也是我自己写的，里面可以做一些所有控制器都有可能用的的操作封装。比如我为了更方便的使用容器，我在基类里初始化了一个容器实例。</p>
@@ -506,7 +504,7 @@
 <p>Laravel 为什么流行，因为作者本是一名 .net 开发者，在使用 CI 框架时萌生了想法要做一个更简洁、灵活的框架，他的思想真的很先进吗，不一定的，其他开发语言早就有了 Laravel 中的功能，它只是在 PHP 中实现了它们。</p>
 <p>以上例子其实告诉我们，不要给自己贴标签，人生不设限，你不是 PHP 程序员，你就是开发者，任何开发相关的东西我们都该去了解和掌握，标签只能别人给你贴，不要自己给自己贴。</p>
 <p>最后，这份代码我已经上传到 GitHub ，如果你有兴趣可以 fork 并完善它，开发配置一个自己的框架，以你的需求为出发，选择你最喜欢的技术和组件。</p>
-<p>地址：<a href="https://github.com/dongm2ez/m2ez-framework"></a></p>
+<p>地址：<a href="https://github.com/dongm2ez/m2ez-framework">m2ez-framework</a></p>
 
     </div>
 

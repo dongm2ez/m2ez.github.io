@@ -204,43 +204,43 @@
         <p>当要对类中的私有方法进行测试时很难通过 new  一个对象的方法来创建对象的实例然后调用方法进行单元测试，此时有两种方法进行私有方法的测试。</p>
 <h2 id="方法一">方法一</h2>
 <p>这种方法是使用使用反射的方式来读取代码文件，然后再对要测试的方法的可见性进行改变以使得可以在外部调用。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">testCleanMetrics</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        $metrics <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key1&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value1&#39;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key2&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value2&#39;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key3&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value3&#39;</span>
-</span></span><span style="display:flex;"><span>        ];
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">testCleanMetrics</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    $metrics <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;key1&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value1&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;key2&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value2&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;key3&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value3&#39;</span>
+</span></span><span style="display:flex;"><span>    ];
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $method <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\ReflectionMethod</span>(<span style="color:#e6db74">&#39;\Cronitor\Monitor&#39;</span>, <span style="color:#e6db74">&#39;cleanMetrics&#39;</span>); <span style="color:#75715e">// 反射获取类的方法
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        $method<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setAccessible</span>(<span style="color:#66d9ef">true</span>); <span style="color:#75715e">// 修改方法的可访问性
+</span></span><span style="display:flex;"><span>    $method <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\ReflectionMethod</span>(<span style="color:#e6db74">&#39;\Cronitor\Monitor&#39;</span>, <span style="color:#e6db74">&#39;cleanMetrics&#39;</span>); <span style="color:#75715e">// 反射获取类的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    $method<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setAccessible</span>(<span style="color:#66d9ef">true</span>); <span style="color:#75715e">// 修改方法的可访问性
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>        $cleanMetricsResult <span style="color:#f92672">=</span> $method<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">invokeArgs</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">monitor</span>, [$metrics]);
+</span></span><span style="display:flex;"><span>    $cleanMetricsResult <span style="color:#f92672">=</span> $method<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">invokeArgs</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">monitor</span>, [$metrics]);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertSame</span>(<span style="color:#e6db74">&#39;key1:value1&#39;</span>, $cleanMetricsResult[<span style="color:#ae81ff">0</span>]);
-</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertArrayNotHasKey</span>(<span style="color:#e6db74">&#39;key1&#39;</span>, $cleanMetricsResult);
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertSame</span>(<span style="color:#e6db74">&#39;key1:value1&#39;</span>, $cleanMetricsResult[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertArrayNotHasKey</span>(<span style="color:#e6db74">&#39;key1&#39;</span>, $cleanMetricsResult);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="方法二">方法二</h2>
 <p>这种方法是通过写一个匿名函数并对函数进行重新绑定的类的函数到匿名函数的方式</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">testCleanMetrics</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        $metrics <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key1&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value1&#39;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key2&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value2&#39;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;key3&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value3&#39;</span>
-</span></span><span style="display:flex;"><span>        ];
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PHP" data-lang="PHP"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">testCleanMetrics</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    $metrics <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;key1&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value1&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;key2&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value2&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;key3&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;value3&#39;</span>
+</span></span><span style="display:flex;"><span>    ];
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $monitor <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\Cronitor\Monitor</span>();
+</span></span><span style="display:flex;"><span>    $monitor <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\Cronitor\Monitor</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $bar <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () <span style="color:#66d9ef">use</span> ($metrics) {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">cleanMetrics</span>();
-</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    $bar <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () <span style="color:#66d9ef">use</span> ($metrics) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">cleanMetrics</span>();
+</span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $baz <span style="color:#f92672">=</span> $bar<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bindTo</span>($monitor, $monitor);
+</span></span><span style="display:flex;"><span>    $baz <span style="color:#f92672">=</span> $bar<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bindTo</span>($monitor, $monitor);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertSame</span>(<span style="color:#e6db74">&#39;key1:value1&#39;</span>, $baz()[<span style="color:#ae81ff">0</span>]);
-</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertArrayNotHasKey</span>(<span style="color:#e6db74">&#39;key1&#39;</span>, $$baz());
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertSame</span>(<span style="color:#e6db74">&#39;key1:value1&#39;</span>, $baz()[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assertArrayNotHasKey</span>(<span style="color:#e6db74">&#39;key1&#39;</span>, $$baz());
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
     </div>
 
