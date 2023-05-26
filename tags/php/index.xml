@@ -6,7 +6,16 @@
     <description>Recent content in PHP on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 30 May 2021 11:36:57 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 May 2023 11:39:18 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
+      <link>https://blog.m2ez.com/2023/002/</link>
+      <pubDate>Fri, 26 May 2023 11:39:18 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2023/002/</guid>
+      <description>在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 创建一个包含 PHP 和 Xdebug 的</description>
+    </item>
+    
     <item>
       <title>PHP8 新增字符串方法与 laravel 性能差异比较</title>
       <link>https://blog.m2ez.com/2021/003/</link>

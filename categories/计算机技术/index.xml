@@ -6,7 +6,16 @@
     <description>Recent content in 计算机技术 on 麦索的麦田</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 23 Feb 2023 09:39:18 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 May 2023 11:39:18 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
+      <link>https://blog.m2ez.com/2023/002/</link>
+      <pubDate>Fri, 26 May 2023 11:39:18 +0800</pubDate>
+      
+      <guid>https://blog.m2ez.com/2023/002/</guid>
+      <description>在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 创建一个包含 PHP 和 Xdebug 的</description>
+    </item>
+    
     <item>
       <title>一种监控报警阈值确定的思路 —— 统计分布算法</title>
       <link>https://blog.m2ez.com/2023/001/</link>
