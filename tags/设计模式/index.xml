@@ -13,7 +13,7 @@
     <description><![CDATA[现在的大部分 Web 框架都是使用金字塔式的分层架构，一般这种应用都是阻塞同步 IO 模型的编程实现，理解这种分层架构模型的实质有助于理解框架。 因为万变不]]></description>
 </item>
 <item>
-    <title>简单解释什么是 依赖注入 和 控制反转</title>
+    <title>趣说什么是 依赖注入 和 控制反转</title>
     <link>https://blog.m2ez.com/posts/2017/012/</link>
     <pubDate>Sun, 09 Jul 2017 16:59:37 &#43;0800</pubDate>
     <author>麦索</author>

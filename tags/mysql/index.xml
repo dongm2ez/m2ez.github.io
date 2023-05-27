@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>mysql - 标签 - 麦索的麦田</title>
+        <title>MySQL - 标签 - 麦索的麦田</title>
         <link>https://blog.m2ez.com/tags/mysql/</link>
-        <description>mysql - 标签 - 麦索的麦田</description>
+        <description>MySQL - 标签 - 麦索的麦田</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
             <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Mon, 25 Jul 2022 18:01:53 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/mysql/" rel="self" type="application/rss+xml" /><item>
     <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
@@ -19,6 +19,14 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2017/020/</guid>
     <description><![CDATA[使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行]]></description>
+</item>
+<item>
+    <title>MySQL 常用数据存储引擎区别</title>
+    <link>https://blog.m2ez.com/posts/2017/009/</link>
+    <pubDate>Sat, 08 Jul 2017 16:59:37 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2017/009/</guid>
+    <description><![CDATA[mysql有多种存储引擎，目前常用的是 MyISAM 和 InnoDB 这两个引擎，除了这两个引擎以为还有许多其他引擎，有官方的，也有一些公司自己研发的。这篇文章主要简]]></description>
 </item>
 </channel>
 </rss>

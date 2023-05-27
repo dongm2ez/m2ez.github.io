@@ -29,7 +29,7 @@
     <description><![CDATA[当要对类中的私有方法进行测试时，很难通过创建对象的实例，然后调用这个方法进行单元测试。但是有其他两种方法对私有方法进行测试。 方法一 使用反射的]]></description>
 </item>
 <item>
-    <title>PHP是什么-PHP的架构及原理概述</title>
+    <title>PHP 是什么 - PHP 的架构及原理概述</title>
     <link>https://blog.m2ez.com/posts/2018/001/</link>
     <pubDate>Sun, 25 Feb 2018 16:59:37 &#43;0800</pubDate>
     <author>麦索</author>
