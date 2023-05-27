@@ -4,7 +4,27 @@
         <link>https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/</link>
         <description>计算机技术 - 分类 - 麦索的麦田</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 26 May 2023 11:39:18 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sat, 27 May 2023 19:54:56 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+    <title>面向对象程序语言中的抽象类与接口的区别</title>
+    <link>https://blog.m2ez.com/posts/2023/004/</link>
+    <pubDate>Sat, 27 May 2023 19:54:56 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/004/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/2023/images/9d2c7529e30d4e86a47320c712608219noop20230222155921-a6bcf.jpg" referrerpolicy="no-referrer">
+            </div>抽象类与接口的区别]]></description>
+</item>
+<item>
+    <title>Redis 的事务机制</title>
+    <link>https://blog.m2ez.com/posts/2023/003/</link>
+    <pubDate>Sat, 27 May 2023 18:54:58 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/003/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/2023/images/Redis.png" referrerpolicy="no-referrer">
+            </div>Redis 的事务机制，以及事务的原子性]]></description>
+</item>
+<item>
     <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
     <link>https://blog.m2ez.com/posts/2023/002/</link>
     <pubDate>Fri, 26 May 2023 11:39:18 &#43;0800</pubDate>
@@ -67,22 +87,6 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2021/001/</guid>
     <description><![CDATA[Socket 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。 网络中的设备进行通信，就需要创建套接字，套接字是形如 IP:Port 这样的IP地址对，]]></description>
-</item>
-<item>
-    <title>计算机信息表示编码中的原码、反码、补码</title>
-    <link>https://blog.m2ez.com/posts/2020/008/</link>
-    <pubDate>Sat, 26 Sep 2020 19:31:25 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2020/008/</guid>
-    <description><![CDATA[机器码 要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称 Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货币]]></description>
-</item>
-<item>
-    <title>RPC 学习笔记</title>
-    <link>https://blog.m2ez.com/posts/2020/003/</link>
-    <pubDate>Tue, 10 Mar 2020 16:59:37 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2020/003/</guid>
-    <description><![CDATA[RPC框架 Dubbo：国内最早开源的 RPC 框架，由阿里巴巴公司开发并于 2011 年末对外开源，仅支持 Java 语言。 Motan：微博内部使用的 RPC 框架，于 2016 年对外]]></description>
 </item>
 </channel>
 </rss>
