@@ -1,20 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>leetcode on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/tags/leetcode/</link>
-    <description>Recent content in leetcode on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Fri, 17 May 2019 16:59:37 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>从排序数组中删除重复项</title>
-      <link>https://blog.m2ez.com/2019/003/</link>
-      <pubDate>Fri, 17 May 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/003/</guid>
-      <description>题目链接 从排序数组中删除重复项 解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。 代码 PHP版本 class Solution { /** * @param Integer[] $nums * @return</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>leetcode - 标签 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/tags/leetcode/</link>
+        <description>leetcode - 标签 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 17 May 2019 16:59:37 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/leetcode/" rel="self" type="application/rss+xml" /><item>
+    <title>从排序数组中删除重复项</title>
+    <link>https://blog.m2ez.com/posts/2019/003/</link>
+    <pubDate>Fri, 17 May 2019 16:59:37 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2019/003/</guid>
+    <description><![CDATA[题目链接 从排序数组中删除重复项 解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。 代码 PHP 版本 1 2 3 4 5 6 7 8 9 10 11 12]]></description>
+</item>
+</channel>
 </rss>

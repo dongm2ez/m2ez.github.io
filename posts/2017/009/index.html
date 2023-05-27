@@ -23,7 +23,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.m2ez.com\/posts\/2017\/009\/"
-        },"genre": "posts","keywords": "数据库","wordcount":  1827 ,
+        },"genre": "posts","keywords": "数据库","wordcount":  1799 ,
         "url": "https:\/\/blog.m2ez.com\/posts\/2017\/009\/","datePublished": "2017-07-08T16:59:37+08:00","dateModified": "2017-07-08T16:59:37+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -67,7 +67,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MySQL 常用数据存储引擎区别</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-07-08">2017-07-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1827 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-07-08">2017-07-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1799 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -98,13 +98,13 @@
 <h2 id="innodb">InnoDB</h2>
 <p>InnoDB 存储引擎最大的亮点就是支持事务，支持回滚，它支持 Hash/B-tree 索引类型。</p>
 <p>锁级别为行锁，行锁优点是适用于高并发的频繁表修改，高并发是性能优于 MyISAM。缺点是系统消耗较大，索引不仅缓存自身，也缓存数据，相比 MyISAM 需要更大的内存。</p>
-<p>InnoDB 中不保存表的具体行数，也就是说，执行 select count(*) from table时，InnoDB 要扫描一遍整个表来计算有多少行。</p>
+<p>InnoDB 中不保存表的具体行数，也就是说，执行 <code>select count(*) from table</code> 时，InnoDB 要扫描一遍整个表来计算有多少行。</p>
 <p>支持事务，支持外键。</p>
 <h3 id="acid-事务">ACID 事务</h3>
-<p><strong>A</strong> 事务的原子性(Atomicity)：指一个事务要么全部执行，要么不执行。也就是说一个事务不可能只执行了一半就停止了。比如你从取款机取钱，这个事务可以分成两个步骤：1）划卡，2）出钱。不可能划了卡,而钱却没出来，这两步必须同时完成，要么就不完成。
-<strong>C</strong> 事务的一致性(Consistency)：指事务的运行并不改变数据库中数据的一致性。例如，完整性约束了a+b=10，一个事务改变了a，那么b也应该随之改变。
-<strong>I</strong> 独立性(Isolation）：事务的独立性也有称作隔离性，是指两个以上的事务不会出现交错执行的状态。因为这样可能会导致数据不一致。
-<strong>D</strong> 持久性(Durability）：事务的持久性是指事务执行成功以后，该事务所对数据库所作的更改便是持久的保存在数据库之中，不会无缘无故的回滚。</p>
+<p><strong>A</strong> 事务的原子性（Atomicity）：指一个事务要么全部执行，要么不执行。也就是说一个事务不可能只执行了一半就停止了。比如你从取款机取钱，这个事务可以分成两个步骤：1）划卡，2）出钱。不可能划了卡,而钱却没出来，这两步必须同时完成，要么就不完成。
+<strong>C</strong> 事务的一致性（Consistency）：指事务的运行并不改变数据库中数据的一致性。例如，完整性约束了 a+b=10，一个事务改变了 a，那么 b 也应该随之改变。
+<strong>I</strong> 独立性（Isolation）：事务的独立性也有称作隔离性，是指两个以上的事务不会出现交错执行的状态。因为这样可能会导致数据不一致。
+<strong>D</strong> 持久性（Durability）：事务的持久性是指事务执行成功以后，该事务所对数据库所作的更改便是持久的保存在数据库之中，不会无缘无故的回滚。</p>
 <h2 id="memory">Memory</h2>
 <p>Memory 是内存级别存储引擎，数据存储在内存中，所以他能够存储的数据量较小。</p>
 <p>因为内存的特性，存储引擎对数据的一致性支持较差。锁级别为表锁，不支持事务。但访问速度非常快，并且默认使用 hash 索引。</p>
@@ -167,17 +167,17 @@
 <tr>
 <td>COUNT without WHERE</td>
 <td style="text-align:center">MyISAM更优。因为MyISAM保存了表的具体行数</td>
-<td style="text-align:center">InnoDB没有保存表的具体行数，需要逐行扫描统计，就很慢了</td>
+<td style="text-align:center">InnoDB 没有保存表的具体行数，需要逐行扫描统计，就很慢了</td>
 </tr>
 <tr>
 <td>COUNT with WHERE</td>
 <td style="text-align:center">一样</td>
-<td style="text-align:center">一样，InnoDB也会锁表</td>
+<td style="text-align:center">一样，InnoDB 也会锁表</td>
 </tr>
 <tr>
 <td>锁</td>
 <td style="text-align:center">只支持表锁</td>
-<td style="text-align:center">支持表锁、行锁 行锁大幅度提高了多用户并发操作的新能。但是InnoDB的行锁，只是在WHERE的主键是有效的，非主键的WHERE都会锁全表的</td>
+<td style="text-align:center">支持表锁、行锁 行锁大幅度提高了多用户并发操作的新能。但是 InnoDB 的行锁，只是在 WHERE 的主键是有效的，非主键的WHERE都会锁全表的</td>
 </tr>
 <tr>
 <td>外键</td>
@@ -187,7 +187,7 @@
 <tr>
 <td>FULLTEXT全文索引</td>
 <td style="text-align:center">支持</td>
-<td style="text-align:center">不支持（5.6.4以上支持英文全文索引） 可以通过使用Sphinx从InnoDB中获得全文索引，会慢一点</td>
+<td style="text-align:center">不支持（5.6.4以上支持英文全文索引） 可以通过使用 Sphinx 从 InnoDB 中获得全文索引，会慢一点</td>
 </tr>
 </tbody>
 </table>

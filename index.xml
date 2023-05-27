@@ -1,37 +1,90 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>麦索的麦田 on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/</link>
-    <description>Recent content in 麦索的麦田 on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Fri, 26 May 2023 11:39:18 +0800</lastBuildDate>
-    <atom:link href="https://blog.m2ez.com/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Posts</title>
-      <link>https://blog.m2ez.com/posts/</link>
-      <pubDate>Fri, 26 May 2023 11:39:18 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/posts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dongm2ez</title>
-      <link>https://blog.m2ez.com/about/</link>
-      <pubDate>Tue, 23 Jun 2020 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/about/</guid>
-      <description>&lt;p&gt;Contact me:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Email: &lt;a href=&#34;mailto:dongm2ez@163.com&#34;&gt;dongm2ez@163.com&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Github: &lt;a href=&#34;https://github.com/dongm2ez&#34;&gt;https://github.com/dongm2ez&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;My Github chart:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ghchart.rshah.org/dongm2ez&#34; alt=&#34;dongm2ez&amp;amp;rsquo;s Github chart&#34;&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>麦索的麦田</title>
+        <link>https://blog.m2ez.com/</link>
+        <description>麦索的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 26 May 2023 11:39:18 &#43;0800</lastBuildDate>
+            <atom:link href="https://blog.m2ez.com/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
+    <link>https://blog.m2ez.com/posts/2023/002/</link>
+    <pubDate>Fri, 26 May 2023 11:39:18 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/002/</guid>
+    <description><![CDATA[在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 1. 创建一个包含 PHP 和 Xdebug]]></description>
+</item>
+<item>
+    <title>一种监控报警阈值确定的思路 —— 统计分布算法</title>
+    <link>https://blog.m2ez.com/posts/2023/001/</link>
+    <pubDate>Thu, 23 Feb 2023 09:39:18 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/001/</guid>
+    <description><![CDATA[统计分布算法 统计分布算法（Statistical Distribution Algorithm）：这种算法是根据数据的概率分布进行阈值设置的。比如，计算出数据的均值和]]></description>
+</item>
+<item>
+    <title>使用 Highcharts 作为前端图表，在数据库中保存图例显示状态的功能设计</title>
+    <link>https://blog.m2ez.com/posts/2022/004/</link>
+    <pubDate>Thu, 08 Sep 2022 14:14:43 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2022/004/</guid>
+    <description><![CDATA[需求背景 公司前端使用 Highcharts 构建图表，图表的图例支持点击显示或隐藏相应的指标。现在有需求后端需要存储用户在前端点击后显示图表的状态，对于已经隐藏的]]></description>
+</item>
+<item>
+    <title>英语学习心得之词典的选择</title>
+    <link>https://blog.m2ez.com/posts/2022/003/</link>
+    <pubDate>Wed, 27 Jul 2022 10:27:53 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2022/003/</guid>
+    <description><![CDATA[在英语学习的过程中，对于不认识的词需要查词典来寻找释义，常用的英文词典主要有三种：英英词典、英汉双解词典、英汉词典。 英英词典 有两类，一类是 E]]></description>
+</item>
+<item>
+    <title>数据结构与算法概览</title>
+    <link>https://blog.m2ez.com/posts/2022/002/</link>
+    <pubDate>Tue, 26 Jul 2022 10:27:53 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2022/002/</guid>
+    <description><![CDATA[总结一些数据结构与算法： 常见数据结构 数组 数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。 数组的特点： 支持随机]]></description>
+</item>
+<item>
+    <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
+    <link>https://blog.m2ez.com/posts/2022/001/</link>
+    <pubDate>Mon, 25 Jul 2022 18:01:53 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2022/001/</guid>
+    <description><![CDATA[平时我们对语句调优一般用 EXPLAIN 就可以，但是对于一些复杂语句和疑难杂症这个所能给出信息不够详细，从 MySQL 5.6 开始加入了 Optimizer Trace 功能查看优化器生成执行计划的整]]></description>
+</item>
+<item>
+    <title>PHP8 新增的字符串方法与 Laravel 提供的性能差异比较</title>
+    <link>https://blog.m2ez.com/posts/2021/003/</link>
+    <pubDate>Sun, 30 May 2021 11:36:57 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2021/003/</guid>
+    <description><![CDATA[在 PHP8 中新增了三个字符串函数操作，这三个函数分别是str_contains、str_starts_with 和 str_ends_with, 在 PHP8 以前这三个函数在主流框架如 L]]></description>
+</item>
+<item>
+    <title>如何用 PHPUnit 测试类的私有方法</title>
+    <link>https://blog.m2ez.com/posts/2021/002/</link>
+    <pubDate>Tue, 27 Apr 2021 21:00:03 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2021/002/</guid>
+    <description><![CDATA[当要对类中的私有方法进行测试时，很难通过创建对象的实例，然后调用这个方法进行单元测试。但是有其他两种方法对私有方法进行测试。 方法一 使用反射的]]></description>
+</item>
+<item>
+    <title>Socket 连接的建立步骤</title>
+    <link>https://blog.m2ez.com/posts/2021/001/</link>
+    <pubDate>Sun, 18 Apr 2021 11:51:03 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2021/001/</guid>
+    <description><![CDATA[Socket 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。 网络中的设备进行通信，就需要创建套接字，套接字是形如 IP:Port 这样的IP地址对，]]></description>
+</item>
+<item>
+    <title>计算机信息表示编码中的原码、反码、补码</title>
+    <link>https://blog.m2ez.com/posts/2020/008/</link>
+    <pubDate>Sat, 26 Sep 2020 19:31:25 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2020/008/</guid>
+    <description><![CDATA[机器码 要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称 Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货币]]></description>
+</item>
+</channel>
 </rss>

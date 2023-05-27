@@ -23,7 +23,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.m2ez.com\/posts\/2022\/002\/"
-        },"genre": "posts","keywords": "数据结构与算法, 计算机基础, 算法","wordcount":  18 ,
+        },"genre": "posts","keywords": "数据结构与算法, 计算机基础, 算法","wordcount":  3469 ,
         "url": "https:\/\/blog.m2ez.com\/posts\/2022\/002\/","datePublished": "2022-07-26T10:27:53+08:00","dateModified": "2022-07-26T10:27:53+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -67,15 +67,31 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">数据结构与算法概览</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-26">2022-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 18 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-26">2022-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3469 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>总结一些数据结构与算法，用脑图呈现：</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#常见数据结构">常见数据结构</a>
+      <ul>
+        <li><a href="#数组">数组</a></li>
+        <li><a href="#链表">链表</a></li>
+        <li><a href="#栈">栈</a></li>
+        <li><a href="#队列">队列</a></li>
+        <li><a href="#跳表">跳表</a></li>
+        <li><a href="#散列表">散列表</a></li>
+        <li><a href="#二叉树">二叉树</a></li>
+        <li><a href="#图">图</a></li>
+        <li><a href="#堆">堆</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>总结一些数据结构与算法：</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -84,6 +100,149 @@
         data-sizes="auto"
         alt="/posts/2022/images/数据结构与算法脑图.jpg"
         title="数据结构与算法" /></p>
+<h2 id="常见数据结构">常见数据结构</h2>
+<h3 id="数组">数组</h3>
+<p>数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。</p>
+<p>数组的特点：</p>
+<ul>
+<li>支持随机访问，根据下标随机访问的时间复杂度为 O(1)。</li>
+<li>插入和删除操作比较低效，时间复杂度为 O(n)。</li>
+<li>数组的大小固定，需要预先申请空间，如果空间不够，需要重新申请空间，再将原来的数据复制过去，时间复杂度为 O(n)。</li>
+<li>数组的内存空间是连续的，所以在内存中的地址也是连续的，所以支持随机访问。</li>
+</ul>
+<h3 id="链表">链表</h3>
+<p>链表是一种线性表数据结构，它用一组任意的内存空间，来存储一组具有相同类型的数据。</p>
+<p>链表的特点：</p>
+<ul>
+<li>不支持随机访问，只能从头开始遍历，时间复杂度为 O(n)。</li>
+<li>插入和删除操作比较高效，时间复杂度为 O(1)。</li>
+<li>链表的大小不固定，不需要预先申请空间，如果空间不够，需要重新申请空间，再将原来的数据复制过去，时间复杂度为 O(n)。</li>
+<li>链表的内存空间是任意的，所以在内存中的地址也是任意的，所以不支持随机访问，所以支持动态扩容。</li>
+</ul>
+<h3 id="栈">栈</h3>
+<p>栈是一种特殊的线性表数据结构，它只能在一端进行插入和删除操作，这一端称为栈顶，另一端称为栈底。</p>
+<p>栈的特点：</p>
+<ul>
+<li>先进后出，后进先出。</li>
+<li>支持随机访问，根据下标随机访问的时间复杂度为 O(1)。</li>
+<li>插入和删除操作比较高效，时间复杂度为 O(1)。</li>
+<li>栈的大小固定，需要预先申请空间，如果空间不够，需要重新申请空间，再将原来的数据复制过去，时间复杂度为 O(n)。</li>
+<li>栈的内存空间是连续的，所以在内存中的地址也是连续的，所以支持随机访问。</li>
+<li>栈的应用：函数调用栈、表达式求值、括号匹配、浏览器前进后退、编辑器撤销操作。</li>
+<li>栈的实现：数组实现、链表实现。</li>
+<li>栈的优化：数组实现的栈，当栈满时，需要扩容，当栈空时，需要缩容，扩容和缩容的时间复杂度为 O(n)，可以使用循环队列来实现，当栈满时，不需要扩容，当栈空时，不需要缩容，时间复杂度为 O(1)。</li>
+</ul>
+<h3 id="队列">队列</h3>
+<p>队列是一种特殊的线性表数据结构，它只能在一端进行插入操作，另一端进行删除操作，这一端称为队尾，另一端称为队头。</p>
+<p>队列的特点：</p>
+<ul>
+<li>先进先出，后进后出。</li>
+<li>支持随机访问，根据下标随机访问的时间复杂度为 O(1)。</li>
+<li>插入和删除操作比较高效，时间复杂度为 O(1)。</li>
+<li>队列的大小固定，需要预先申请空间，如果空间不够，需要重新申请空间，再将原来的数据复制过去，时间复杂度为 O(n)。</li>
+<li>队列的内存空间是连续的，所以在内存中的地址也是连续的，所以支持随机访问。</li>
+<li>队列的应用：消息队列、阻塞队列、并发队列。</li>
+<li>队列的实现：数组实现、链表实现。</li>
+<li>队列的优化：数组实现的队列，当队列满时，需要扩容，当队列空时，需要缩容，扩容和缩容的时间复杂度为 O(n)，可以使用循环队列来实现，当队列满时，不需要扩容，当队列空时，不需要缩容，时间复杂度为 O(1)。</li>
+<li>阻塞队列：当队列满时，插入操作会被阻塞，当队列空时，删除操作会被阻塞。</li>
+<li>并发队列：当队列满时，插入操作会被阻塞，当队列空时，删除操作会被阻塞，支持多线程并发操作。</li>
+</ul>
+<h3 id="跳表">跳表</h3>
+<p>跳表是一种特殊的链表数据结构，它通过添加多级索引来提高链表的查询效率。</p>
+<p>跳表的特点：</p>
+<ul>
+<li>支持随机访问，根据下标随机访问的时间复杂度为 O(logn)。</li>
+<li>插入和删除操作比较高效，时间复杂度为 O(logn)。</li>
+<li>跳表的大小不固定，不需要预先申请空间，如果空间不够，需要重新申请空间，再将原来的数据复制过去，时间复杂度为 O(n)。</li>
+<li>跳表的内存空间是任意的，所以在内存中的地址也是任意的，所以不支持随机访问，所以支持动态扩容。</li>
+<li>跳表的应用：Redis、LevelDB。</li>
+<li>跳表的实现：链表实现。</li>
+<li>跳表的优化：跳表的查询效率取决于索引的高度，索引的高度取决于索引的建立策略，索引的建立策略有两种，一种是随机建立索引，一种是按照固定的间隔建立索引，按照固定的间隔建立索引的时间复杂度为 O(logn)，随机建立索引的时间复杂度为 O(n)。</li>
+</ul>
+<h3 id="散列表">散列表</h3>
+<p>散列表是一种特殊的线性表数据结构，它通过散列函数将数据映射到散列表中的一个位置，来加快数据的查找效率。</p>
+<p>散列表的特点：</p>
+<ul>
+<li>支持随机访问，根据下标随机访问的时间复杂度为 O(1)。</li>
+<li>插入和删除操作比较高效，时间复杂度为 O(1)。</li>
+<li>散列表的大小固定，需要预先申请空间，如果空间不够，需要重新申请空间，再将原来的数据复制过去，时间复杂度为 O(n)。</li>
+<li>散列表的内存空间是连续的，所以在内存中的地址也是连续的，所以支持随机访问。</li>
+<li>散列表的应用：Redis、LevelDB。</li>
+<li>散列表的实现：数组实现。</li>
+<li>散列表的优化：散列表的查询效率取决于散列函数的设计，散列函数的设计有两种，一种是直接寻址法，一种是拉链法，直接寻址法的时间复杂度为 O(1)，拉链法的时间复杂度为 O(1+k)，k 为链表的长度。</li>
+<li>散列冲突：当两个数据映射到散列表的同一个位置时，称为散列冲突，散列冲突的解决方法有两种，一种是开放寻址法，一种是链表法，开放寻址法的时间复杂度为 O(1)，链表法的时间复杂度为 O(1+k)，k 为链表的长度。</li>
+</ul>
+<h3 id="二叉树">二叉树</h3>
+<p>二叉树是一种特殊的树形结构，它的每个节点最多只能有两个子节点。</p>
+<p>二叉树的特点：</p>
+<ul>
+<li>二叉树的高度为 logn。</li>
+<li>二叉树的遍历方式有三种，分别是前序遍历、中序遍历、后序遍历。</li>
+<li>二叉树的应用：二叉搜索树、平衡二叉树、红黑树、B+ 树。</li>
+<li>二叉树的实现：链表实现。</li>
+<li>二叉树的优化：二叉树的遍历方式有两种，分别是深度优先遍历、广度优先遍历，深度优先遍历的时间复杂度为 O(n)，广度优先遍历的时间复杂度为 O(n)。</li>
+<li>二叉搜索树：二叉搜索树是一种特殊的二叉树，它的每个节点的值都大于左子树的所有节点的值，小于右子树的所有节点的值，它的中序遍历是有序的。</li>
+<li>平衡二叉树：平衡二叉树是一种特殊的二叉树，它的左子树和右子树的高度差不超过 1。</li>
+<li>红黑树：红黑树是一种特殊的二叉搜索树，它的每个节点都有颜色，红色或者黑色，它的每个节点都满足以下条件：
+<ul>
+<li>根节点是黑色的。</li>
+<li>每个叶子节点都是黑色的。</li>
+<li>不能有相邻的两个红色节点。</li>
+<li>从任意节点到叶子节点的所有路径都包含相同数目的黑色节点。</li>
+<li>红黑树的高度为 logn。</li>
+<li>红黑树的应用：Java 中的 TreeMap、TreeSet。</li>
+<li>红黑树的实现：链表实现。</li>
+<li>红黑树的优化：红黑树的插入和删除操作的时间复杂度为 O(logn)。</li>
+</ul>
+</li>
+<li>B+ 树：B+ 树是一种特殊的二叉搜索树，它的每个节点都有多个子节点，它的每个节点都满足以下条件：
+<ul>
+<li>根节点至少有两个子节点。</li>
+<li>每个节点至少有 m/2 个子节点。</li>
+<li>每个节点的子节点数目都比它少 1。</li>
+<li>所有叶子节点都在同一层。</li>
+<li>B+ 树的高度为 logn。</li>
+<li>B+ 树的应用：MySQL、MongoDB。</li>
+<li>B+ 树的实现：链表实现。</li>
+<li>B+ 树的优化：B+ 树的插入和删除操作的时间复杂度为 O(logn)。</li>
+<li>B+ 树的区别：B+ 树的每个节点都存储数据，B 树的每个节点都不存储数据，B+ 树的叶子节点都有指针指向下一个叶子节点，B 树的叶子节点没有指针指向下一个叶子节点。</li>
+<li>B+ 树的优点：B+ 树的查询效率比 B 树高，因为 B+ 树的内部节点不存储数据，所以 B+ 树的内部节点可以存储更多的子节点，所以 B+ 树的高度比 B 树低，所以 B+ 树的查询效率比 B 树高。</li>
+</ul>
+</li>
+</ul>
+<h3 id="图">图</h3>
+<p>图是一种非线性表数据结构，它由顶点和边组成，顶点之间的关系用边表示。</p>
+<p>图的特点：</p>
+<ul>
+<li>图的遍历方式有两种，分别是深度优先遍历、广度优先遍历。</li>
+<li>图的应用：社交网络、推荐系统。</li>
+<li>图的实现：邻接矩阵实现、邻接表实现。</li>
+<li>图的优化：图的遍历方式有两种，分别是深度优先遍历、广度优先遍历，深度优先遍历的时间复杂度为 O(n)，广度优先遍历的时间复杂度为 O(n)。</li>
+<li>图的分类：无向图、有向图、无权图、有权图、稀疏图、稠密图。</li>
+<li>无向图：无向图是一种特殊的图，它的边没有方向。</li>
+<li>有向图：有向图是一种特殊的图，它的边有方向。</li>
+<li>无权图：无权图是一种特殊的图，它的边没有权重。</li>
+<li>有权图：有权图是一种特殊的图，它的边有权重。</li>
+<li>稀疏图：稀疏图是一种特殊的图，它的边的数量接近于顶点的数量。</li>
+<li>稠密图：稠密图是一种特殊的图，它的边的数量接近于顶点的数量的平方。</li>
+<li>图的存储方式：邻接矩阵、邻接表、邻接多重表、十字链表、边集数组。</li>
+</ul>
+<h3 id="堆">堆</h3>
+<p>堆是一种特殊的树形数据结构，它的每个节点都有一个值，且每个节点的值都大于等于（或小于等于）其子树中每个节点的值。</p>
+<p>堆的特点：</p>
+<ul>
+<li>堆的高度为 logn。</li>
+<li>堆的遍历方式有两种，分别是深度优先遍历、广度优先遍历。</li>
+<li>堆的应用：优先级队列。</li>
+<li>堆的实现：数组实现。</li>
+<li>堆的优化：堆的遍历方式有两种，分别是深度优先遍历、广度优先遍历，深度优先遍历的时间复杂度为 O(n)，广度优先遍历的时间复杂度为 O(n)。</li>
+<li>堆的分类：大顶堆、小顶堆。
+<ul>
+<li>大顶堆：大顶堆是一种特殊的堆，它的每个节点的值都大于等于其子树中每个节点的值。</li>
+<li>小顶堆：小顶堆是一种特殊的堆，它的每个节点的值都小于等于其子树中每个节点的值。</li>
+</ul>
+</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -106,7 +265,7 @@
     </div>
 
     <div class="post-nav"><a href="/posts/2022/001/" class="prev" rel="prev" title="MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</a>
-            <a href="/posts/2022/003/" class="next" rel="next" title="英语学习心得之词典选择">英语学习心得之词典选择<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+            <a href="/posts/2022/003/" class="next" rel="next" title="英语学习心得之词典的选择">英语学习心得之词典的选择<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

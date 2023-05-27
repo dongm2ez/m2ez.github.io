@@ -1,20 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>网络 on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/tags/%E7%BD%91%E7%BB%9C/</link>
-    <description>Recent content in 网络 on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Fri, 25 Aug 2017 16:59:37 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>网络七层模型与四层模型区别</title>
-      <link>https://blog.m2ez.com/2017/016/</link>
-      <pubDate>Fri, 25 Aug 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/016/</guid>
-      <description>作为一个 Web 程序员👨‍💻‍，对于网络模型你应该了解，知道网络到底是怎么进行通信的，进行工作的，为什么服务器能够接收到请求，做出响应。这里面的原</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>网络 - 标签 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/tags/%E7%BD%91%E7%BB%9C/</link>
+        <description>网络 - 标签 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 25 Aug 2017 16:59:37 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>网络七层模型与四层模型区别</title>
+    <link>https://blog.m2ez.com/posts/2017/016/</link>
+    <pubDate>Fri, 25 Aug 2017 16:59:37 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2017/016/</guid>
+    <description><![CDATA[作为一个 Web 程序员👨‍💻‍，对于网络模型你应该了解，知道网络到底是怎么进行通信的，进行工作的，为什么服务器能够接收到请求，做出响应。这里面的原]]></description>
+</item>
+</channel>
 </rss>

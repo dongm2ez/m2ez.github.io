@@ -1,20 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>测试 on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/tags/%E6%B5%8B%E8%AF%95/</link>
-    <description>Recent content in 测试 on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Thu, 13 Feb 2020 16:59:37 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>为什么应该学习自动化测试？</title>
-      <link>https://blog.m2ez.com/2020/002/</link>
-      <pubDate>Thu, 13 Feb 2020 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/002/</guid>
-      <description>终于等到了2020年的第一次研发分享，本次分享的主题是自动化测试，也就是大家常提到的单元测试。 我们为什么需要自动化测试 自动化测试的目标是什么</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>测试 - 标签 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/tags/%E6%B5%8B%E8%AF%95/</link>
+        <description>测试 - 标签 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Thu, 13 Feb 2020 16:59:37 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E6%B5%8B%E8%AF%95/" rel="self" type="application/rss+xml" /><item>
+    <title>为什么应该学习自动化测试？</title>
+    <link>https://blog.m2ez.com/posts/2020/002/</link>
+    <pubDate>Thu, 13 Feb 2020 16:59:37 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2020/002/</guid>
+    <description><![CDATA[本次分享的主题是自动化测试，也就是大家常提到的单元测试。 我们为什么需要自动化测试 自动化测试的目标是什么 自动化测试是为了帮助我们将写好的代码以]]></description>
+</item>
+</channel>
 </rss>

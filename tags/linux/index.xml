@@ -1,20 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Linux on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/tags/linux/</link>
-    <description>Recent content in Linux on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Sat, 23 Feb 2019 16:59:37 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Arch Linux 傻瓜安装笔记</title>
-      <link>https://blog.m2ez.com/2019/001/</link>
-      <pubDate>Sat, 23 Feb 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/001/</guid>
-      <description>因为没有傻瓜的安装引导程序，安装Arch的工作是一个对linux菜鸟很艰难的工作，但是当你能安装的时候，你就会对linux有更好的理解，我把</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Linux - 标签 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/tags/linux/</link>
+        <description>Linux - 标签 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sat, 23 Feb 2019 16:59:37 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Arch Linux 安装笔记</title>
+    <link>https://blog.m2ez.com/posts/2019/001/</link>
+    <pubDate>Sat, 23 Feb 2019 16:59:37 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2019/001/</guid>
+    <description><![CDATA[安装 Arch 的工作是一个对 linux 菜鸟很艰难的工作，但是当你能安装的时候，你就会对 linux 有更好的理解，我把我的安装 Arch 的经验与大家分享一下，希望对大家有帮助。]]></description>
+</item>
+</channel>
 </rss>

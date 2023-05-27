@@ -1,20 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>数据结构与算法 on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
-    <description>Recent content in 数据结构与算法 on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Tue, 26 Jul 2022 10:27:53 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>数据结构与算法概览</title>
-      <link>https://blog.m2ez.com/2022/002/</link>
-      <pubDate>Tue, 26 Jul 2022 10:27:53 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2022/002/</guid>
-      <description>总结一些数据结构与算法，用脑图呈现：</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>数据结构与算法 - 标签 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
+        <description>数据结构与算法 - 标签 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Tue, 26 Jul 2022 10:27:53 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
+    <title>数据结构与算法概览</title>
+    <link>https://blog.m2ez.com/posts/2022/002/</link>
+    <pubDate>Tue, 26 Jul 2022 10:27:53 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2022/002/</guid>
+    <description><![CDATA[总结一些数据结构与算法： 常见数据结构 数组 数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。 数组的特点： 支持随机]]></description>
+</item>
+</channel>
 </rss>

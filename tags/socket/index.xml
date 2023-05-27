@@ -1,20 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Socket on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/tags/socket/</link>
-    <description>Recent content in Socket on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Sun, 18 Apr 2021 11:51:03 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/socket/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Socket 连接的建立步骤</title>
-      <link>https://blog.m2ez.com/2021/001/</link>
-      <pubDate>Sun, 18 Apr 2021 11:51:03 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2021/001/</guid>
-      <description>Socket 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。 网络中的设备要想交换信息进行通信，就需要创建套接字，套接字是形如 IP:Port 这样的</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Socket - 标签 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/tags/socket/</link>
+        <description>Socket - 标签 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sun, 18 Apr 2021 11:51:03 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/socket/" rel="self" type="application/rss+xml" /><item>
+    <title>Socket 连接的建立步骤</title>
+    <link>https://blog.m2ez.com/posts/2021/001/</link>
+    <pubDate>Sun, 18 Apr 2021 11:51:03 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2021/001/</guid>
+    <description><![CDATA[Socket 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。 网络中的设备进行通信，就需要创建套接字，套接字是形如 IP:Port 这样的IP地址对，]]></description>
+</item>
+</channel>
 </rss>

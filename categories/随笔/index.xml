@@ -1,47 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>随笔 on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/</link>
-    <description>Recent content in 随笔 on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Thu, 25 Jun 2020 19:29:35 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>如何卓有成效</title>
-      <link>https://blog.m2ez.com/2020/006/</link>
-      <pubDate>Thu, 25 Jun 2020 19:29:35 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/006/</guid>
-      <description>我们三节课作为一家纯互联网公司，我的同事们都是知识工作者，知识工作者的工作目前很难像体力工作者一样被标准化衡量，而体力工作者的工作也是经过了</description>
-    </item>
-    
-    <item>
-      <title>量变引起质变</title>
-      <link>https://blog.m2ez.com/2020/005/</link>
-      <pubDate>Thu, 25 Jun 2020 19:28:20 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/005/</guid>
-      <description>在做拉取巨量引擎广告数据时，本地开发时只拉取了近一个月的数据作为样本，将一个月的数据可能出现的问题都做了处理，但是当上线后拉取历史之前的历史</description>
-    </item>
-    
-    <item>
-      <title>记二十九岁生日感想</title>
-      <link>https://blog.m2ez.com/2020/004/</link>
-      <pubDate>Thu, 25 Jun 2020 19:23:42 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/004/</guid>
-      <description>在6月18日参加了公司组织的第一次学习培训活动，通过一次现金流游戏获得了很多收获，这虽然是一个模拟的游戏，但是从中学到了很多东西，也发现了一</description>
-    </item>
-    
-    <item>
-      <title>你好，世界</title>
-      <link>https://blog.m2ez.com/2017/001/</link>
-      <pubDate>Fri, 30 Jun 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/001/</guid>
-      <description>你好世界，这是我的第一篇静态博客文章，之前用过免费空间，也自己写过博客程序，现在我用 github page 。 用 github page 是因为独立博客的管理太麻烦，最好在保留控制权</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>随笔 - 分类 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/</link>
+        <description>随笔 - 分类 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Thu, 25 Jun 2020 19:29:35 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/" rel="self" type="application/rss+xml" /><item>
+    <title>如何卓有成效</title>
+    <link>https://blog.m2ez.com/posts/2020/006/</link>
+    <pubDate>Thu, 25 Jun 2020 19:29:35 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2020/006/</guid>
+    <description><![CDATA[我们三节课作为一家纯互联网公司，我的同事们都是知识工作者，知识工作者的工作目前很难像体力工作者一样被标准化衡量，而体力工作者的工作也是经过了]]></description>
+</item>
+<item>
+    <title>量变引起质变</title>
+    <link>https://blog.m2ez.com/posts/2020/005/</link>
+    <pubDate>Thu, 25 Jun 2020 19:28:20 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2020/005/</guid>
+    <description><![CDATA[在做拉取巨量引擎广告数据时，本地开发时只拉取了近一个月的数据作为样本，将一个月的数据可能出现的问题都做了处理，但是当上线后拉取历史之前的历史]]></description>
+</item>
+<item>
+    <title>记二十九岁生日感想</title>
+    <link>https://blog.m2ez.com/posts/2020/004/</link>
+    <pubDate>Thu, 25 Jun 2020 19:23:42 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2020/004/</guid>
+    <description><![CDATA[6 月 18 日参加了公司组织的第一次学习培训活动，通过一次现金流游戏获得了很多收获，这虽然是一个模拟的游戏，但是从中学到了很多东西，也发现了一些自]]></description>
+</item>
+<item>
+    <title>你好，世界</title>
+    <link>https://blog.m2ez.com/posts/2017/001/</link>
+    <pubDate>Fri, 30 Jun 2017 16:59:37 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2017/001/</guid>
+    <description><![CDATA[你好世界，这是我的第一篇静态博客文章，之前用过免费空间，也自己写过博客程序，现在我用 github page 。 用 github page 是因为独立博客的管理太麻烦，最好在保留控制权]]></description>
+</item>
+</channel>
 </rss>

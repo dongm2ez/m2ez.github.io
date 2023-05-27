@@ -23,7 +23,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.m2ez.com\/posts\/2017\/020\/"
-        },"genre": "posts","keywords": "docker, mysql","wordcount":  1985 ,
+        },"genre": "posts","keywords": "docker, mysql","wordcount":  1854 ,
         "url": "https:\/\/blog.m2ez.com\/posts\/2017\/020\/","datePublished": "2017-11-04T16:59:37+08:00","dateModified": "2017-11-04T16:59:37+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -67,7 +67,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用 Docker 完成 MySQL 数据库主从配置</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-11-04">2017-11-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1985 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-11-04">2017-11-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1854 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -110,7 +110,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;mysqld&#34;</span><span class="p">]</span><span class="err">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>在构建镜像前，我们需要 mysql 的配置文件 my.cnf ，可以先启动一个 mysql 的容器，然后进入容器复制它下来，并对其进行修改：</p>
+</div><p>在构建镜像前，我们需要 MySQL 的配置文件 my.cnf ，可以先启动一个 MySQL 的容器，然后进入容器复制它下来，并对其进行修改：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -174,7 +174,7 @@
 </span></span><span class="line"><span class="cl">└── my.cnf
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>然后在master目录中使用 <code>docker build -t master/mysql:5.7.20 .</code> 命令构建镜像主库，从库构建命令 <code>docker build -t slave/mysql:5.7.20 .</code>。命令最后有个<code>.</code>，不要忘记，代表当前目录。-t 的意思是tag，是 &ndash;tag 的缩写，也就是命名这个镜像，如果不加docker会随机给这个镜像一个名字，建议格式为<code>name:tag</code></p>
+</div><p>然后在 master 目录中使用 <code>docker build -t master/mysql:5.7.20 .</code> 命令构建镜像主库，从库构建命令 <code>docker build -t slave/mysql:5.7.20 .</code>。命令最后有个 <code>.</code>，不要忘记，代表当前目录。<code>-t</code> 的意思是 <code>tag</code>，是 <code>--tag</code> 的缩写，也就是命名这个镜像，如果不加 docker 会随机给这个镜像一个名字，建议格式为 <code>name:tag</code></p>
 <p>构建完成后我们使用以下命令启动主库和从库：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -188,8 +188,8 @@
 </span></span><span class="line"><span class="cl">docker run -p <span class="m">3306</span> --name mysql-slave --link mysql-master:master -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root -d slave/mysql:5.7.20
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>然后分别执行<code>docker exec -it mysql-master bash</code>和<code>docker exec -it slave-master bash</code>命令进入到容器内部。执行<code>mysql -uroot -proot</code>进入mysql环境，这时我们的环境搭建就已经完成了，下面正式配置主从连接。</p>
-<p>当然此时docker会分配一个唯一的端口给容器，我们也可以用mysql客户端连接进行配置。使用<code>docker ps</code>查看端口号，就可以用客户端连接进行管理。</p>
+</div><p>然后分别执行 <code>docker exec -it mysql-master bash</code>和<code>docker exec -it slave-master bash</code> 命令进入到容器内部。执行 <code>mysql -uroot -proot</code> 进入 MySQL 环境，这时我们的环境搭建就已经完成了，下面正式配置主从连接。</p>
+<p>当然此时 docker 会分配一个唯一的端口给容器，我们也可以用 MySQL 客户端连接进行配置。使用 <code>docker ps</code> 查看端口号，就可以用客户端连接进行管理。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -204,16 +204,16 @@
 </span></span><span class="line"><span class="cl">483842c63235        master/mysql:5.7.20   <span class="s2">&#34;docker-entrypoint...&#34;</span>   <span class="m">5</span> minutes ago       Up <span class="m">5</span> minutes        0.0.0.0:32768-&gt;3306/tcp   mysql-master
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>使用<code>GRANT REPLICATION SLAVE ON *.* to 'user'@'%' identified by 'mysql';</code> 或者 <code>GRANT REPLICATION SLAVE ON *.* TO 'user'@'192.168.1.200' IDENTIFIED BY 'mysql';</code>创建一个用户，上一个是所有ip都可以访问，下一个是指定ip才可以访问。</p>
-<p>然后使用<code>GRANT SELECT,REPLICATION SLAVE ON *.* TO 'user'@'%';</code>给这个用户读取权限。</p>
-<p>使用<code>show master status</code>查看mysql主容器的状态，打印如下信息：</p>
+</div><p>使用 <code>GRANT REPLICATION SLAVE ON *.* to 'user'@'%' identified by 'mysql';</code> 或者 <code>GRANT REPLICATION SLAVE ON *.* TO 'user'@'192.168.1.200' IDENTIFIED BY 'mysql';</code> 创建一个用户，上一个是所有ip都可以访问，下一个是指定ip才可以访问。</p>
+<p>然后使用 <code>GRANT SELECT,REPLICATION SLAVE ON *.* TO 'user'@'%';</code> 给这个用户读取权限。</p>
+<p>使用 <code>show master status</code> 查看 MySQL 主容器的状态，打印如下信息：</p>
 <pre tabindex="0"><code>+------------------+----------+--------------+------------------+-------------------+
 | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
 +------------------+----------+--------------+------------------+-------------------+
 | mysql-bin.000003 |      154 |              |                  |                   |
 +------------------+----------+--------------+------------------+-------------------+
-</code></pre><p>使用<code>hostname</code>查看主容器的hostname，如我的主容器是<code>483842c63235</code>。</p>
-<p>接下来配置从库mysql：</p>
+</code></pre><p>使用 <code>hostname</code> 查看主容器的 hostname ，如我的主容器是 <code>483842c63235</code>。</p>
+<p>接下来配置从库 MySQL：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -234,8 +234,8 @@
 </span></span><span class="line"><span class="cl"><span class="na">master_password</span><span class="o">=</span><span class="s">&#39;mysql&#39;;#主库要连接的用户的密码了</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>使用<code>start slave</code>启动主从同步</p>
-<p>使用命令查看<code>show slave status\G</code></p>
+</div><p>使用 <code>start slave</code> 启动主从同步</p>
+<p>使用命令查看 <code>show slave status\G</code></p>
 <p>打印如下信息：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -361,9 +361,9 @@
 </span></span><span class="line"><span class="cl"><span class="m">1</span> row in <span class="nb">set</span> <span class="o">(</span>0.00 sec<span class="o">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这样就是完成了一组主从mysql的配置。</p>
+</div><p>这样就是完成了一组主从 MySQL 的配置。</p>
 <h3 id="shell脚本">shell脚本</h3>
-<p>一下一个相应的shell脚本，可以在1分钟能启动一组mysql主从容器，运行这个脚本需要稍作修改，主要是mysql配置文件。</p>
+<p>一下一个相应的 shell 脚本，可以在 1 分钟能启动一组 MySQL 主从容器，运行这个脚本需要稍作修改，主要是 MySQL 配置文件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

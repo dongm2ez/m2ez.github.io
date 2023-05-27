@@ -1,443 +1,88 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/posts/</link>
-    <description>Recent content in Posts on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Fri, 26 May 2023 11:39:18 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
-      <link>https://blog.m2ez.com/2023/002/</link>
-      <pubDate>Fri, 26 May 2023 11:39:18 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2023/002/</guid>
-      <description>在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 创建一个包含 PHP 和 Xdebug 的</description>
-    </item>
-    
-    <item>
-      <title>一种监控报警阈值确定的思路 —— 统计分布算法</title>
-      <link>https://blog.m2ez.com/2023/001/</link>
-      <pubDate>Thu, 23 Feb 2023 09:39:18 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2023/001/</guid>
-      <description>统计分布算法是什么 统计分布算法（Statistical Distribution Algorithm）：这种算法是根据数据的概率分布进行阈值设置的。比如，计算出数据的</description>
-    </item>
-    
-    <item>
-      <title>Highcharts 图表中图例显示状态存储的功能设计</title>
-      <link>https://blog.m2ez.com/2022/004/</link>
-      <pubDate>Thu, 08 Sep 2022 14:14:43 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2022/004/</guid>
-      <description>需求背景 公司前端使用 Highcharts 构建图表，图表的图例支持点击显示或隐藏相应的指标。现在有需求后端需要存储用户在前端点击后显示图表的状态，对于已经隐藏的</description>
-    </item>
-    
-    <item>
-      <title>英语学习心得之词典选择</title>
-      <link>https://blog.m2ez.com/2022/003/</link>
-      <pubDate>Wed, 27 Jul 2022 10:27:53 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2022/003/</guid>
-      <description>在英语学习的过程中我们对于不认识的词需要靠词典（这里的词典包括纸质和电子）来寻找释义，在国内可以接触到的英文词典主要有三种：英汉词典、英汉双</description>
-    </item>
-    
-    <item>
-      <title>数据结构与算法概览</title>
-      <link>https://blog.m2ez.com/2022/002/</link>
-      <pubDate>Tue, 26 Jul 2022 10:27:53 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2022/002/</guid>
-      <description>总结一些数据结构与算法，用脑图呈现：</description>
-    </item>
-    
-    <item>
-      <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
-      <link>https://blog.m2ez.com/2022/001/</link>
-      <pubDate>Mon, 25 Jul 2022 18:01:53 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2022/001/</guid>
-      <description>平时我们对语句调优一般用 EXPLAIN 就可以，但是对于一些复杂语句和疑难杂症这个所能给出信息不够详细，从 MySQL 5.6 开始加入了 Optimizer Trace 功能查看优化器生成执行计划的整</description>
-    </item>
-    
-    <item>
-      <title>PHP8 新增字符串方法与 laravel 性能差异比较</title>
-      <link>https://blog.m2ez.com/2021/003/</link>
-      <pubDate>Sun, 30 May 2021 11:36:57 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2021/003/</guid>
-      <description>在 PHP8 的更新中对字符串操作新增了三个函数，这三个函数分别是str_contains、str_starts_with 和 str_ends_with, 在PHP8以前这三个函数</description>
-    </item>
-    
-    <item>
-      <title>如何用 PHPUnit 测试私有方法</title>
-      <link>https://blog.m2ez.com/2021/002/</link>
-      <pubDate>Tue, 27 Apr 2021 21:00:03 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2021/002/</guid>
-      <description>当要对类中的私有方法进行测试时很难通过 new 一个对象的方法来创建对象的实例然后调用方法进行单元测试，此时有两种方法进行私有方法的测试。 方法一 这种</description>
-    </item>
-    
-    <item>
-      <title>Socket 连接的建立步骤</title>
-      <link>https://blog.m2ez.com/2021/001/</link>
-      <pubDate>Sun, 18 Apr 2021 11:51:03 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2021/001/</guid>
-      <description>Socket 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。 网络中的设备要想交换信息进行通信，就需要创建套接字，套接字是形如 IP:Port 这样的</description>
-    </item>
-    
-    <item>
-      <title>原码、反码、补码</title>
-      <link>https://blog.m2ez.com/2020/008/</link>
-      <pubDate>Sat, 26 Sep 2020 19:31:25 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/008/</guid>
-      <description>机器码 要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称为Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货</description>
-    </item>
-    
-    <item>
-      <title>迭代与需求的关系</title>
-      <link>https://blog.m2ez.com/2020/007/</link>
-      <pubDate>Thu, 25 Jun 2020 19:31:25 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/007/</guid>
-      <description>迭代和需求应该是整体与特殊的关系，而不是整体和部分的关系。 迭代是关于用户，场景，需求的一般性描述，一个迭代中的需求都是带有共性存在的，因此每</description>
-    </item>
-    
-    <item>
-      <title>如何卓有成效</title>
-      <link>https://blog.m2ez.com/2020/006/</link>
-      <pubDate>Thu, 25 Jun 2020 19:29:35 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/006/</guid>
-      <description>我们三节课作为一家纯互联网公司，我的同事们都是知识工作者，知识工作者的工作目前很难像体力工作者一样被标准化衡量，而体力工作者的工作也是经过了</description>
-    </item>
-    
-    <item>
-      <title>量变引起质变</title>
-      <link>https://blog.m2ez.com/2020/005/</link>
-      <pubDate>Thu, 25 Jun 2020 19:28:20 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/005/</guid>
-      <description>在做拉取巨量引擎广告数据时，本地开发时只拉取了近一个月的数据作为样本，将一个月的数据可能出现的问题都做了处理，但是当上线后拉取历史之前的历史</description>
-    </item>
-    
-    <item>
-      <title>记二十九岁生日感想</title>
-      <link>https://blog.m2ez.com/2020/004/</link>
-      <pubDate>Thu, 25 Jun 2020 19:23:42 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/004/</guid>
-      <description>在6月18日参加了公司组织的第一次学习培训活动，通过一次现金流游戏获得了很多收获，这虽然是一个模拟的游戏，但是从中学到了很多东西，也发现了一</description>
-    </item>
-    
-    <item>
-      <title>RPC学习笔记</title>
-      <link>https://blog.m2ez.com/2020/003/</link>
-      <pubDate>Tue, 10 Mar 2020 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/003/</guid>
-      <description>RPC框架 Dubbo：国内最早开源的 RPC 框架，由阿里巴巴公司开发并于 2011 年末对外开源，仅支持 Java 语言。 Motan：微博内部使用的 RPC 框架，于 2016 年对外</description>
-    </item>
-    
-    <item>
-      <title>Laravel/Lumen项目接入Sentry异常监控</title>
-      <link>https://blog.m2ez.com/2020/001/</link>
-      <pubDate>Tue, 25 Feb 2020 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/001/</guid>
-      <description>首先安装sentry SDK包： $ composer require sentry/sentry-laravel:1.5.0 如果使用的5.5以上的框架会自动发现包并加载（Lumen需手动注册），我们目前项目都是5.5以上所以无</description>
-    </item>
-    
-    <item>
-      <title>为什么应该学习自动化测试？</title>
-      <link>https://blog.m2ez.com/2020/002/</link>
-      <pubDate>Thu, 13 Feb 2020 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2020/002/</guid>
-      <description>终于等到了2020年的第一次研发分享，本次分享的主题是自动化测试，也就是大家常提到的单元测试。 我们为什么需要自动化测试 自动化测试的目标是什么</description>
-    </item>
-    
-    <item>
-      <title>排序算法-冒泡排序</title>
-      <link>https://blog.m2ez.com/2019/009/</link>
-      <pubDate>Wed, 14 Aug 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/009/</guid>
-      <description>算法描述 冒泡排序是一种简单的排序算法。它重复地遍历排序的数列，一次比较两个元素，如果它们的顺序错误就交换彼此。遍历数列的工作是重复地进行直到</description>
-    </item>
-    
-    <item>
-      <title>Python计算生态中那些著名的库-数据分析</title>
-      <link>https://blog.m2ez.com/2019/006/</link>
-      <pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/006/</guid>
-      <description>Numpy C语言实现，Python接口实现的，计算速度很快，是诸多数据分析和数据处理的底层库。 官方网站：www.numpy.org Pandas Python数据</description>
-    </item>
-    
-    <item>
-      <title>Python计算生态中那些著名的库-数据可视化</title>
-      <link>https://blog.m2ez.com/2019/007/</link>
-      <pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/007/</guid>
-      <description>Matplotlib 高质量的二维数据可视化功能库 提供超过百种数据可视化展示效果，Python最主要的数据可视化功能库，基于Numpy开发 官方网站：matplo</description>
-    </item>
-    
-    <item>
-      <title>Python计算生态中那些著名的库-文本处理</title>
-      <link>https://blog.m2ez.com/2019/005/</link>
-      <pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/005/</guid>
-      <description>PyPDF2 用来处理pdf文件的工具集 提供了一批处理PDF文件的计算功能，支持获取信息、分隔/整合文件、加密解密等，完全Python语言实现，不需要额</description>
-    </item>
-    
-    <item>
-      <title>Python计算生态中那些著名的库-机器学习</title>
-      <link>https://blog.m2ez.com/2019/008/</link>
-      <pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/008/</guid>
-      <description>Scikit-learn 机器学习方法集工具集 提供一批统一化的机器学习方法功能接口，提供聚类、分类、回归、强化学习等计算功能，机器学习最基本且最优秀的Python第</description>
-    </item>
-    
-    <item>
-      <title>编程中的自顶向下设计思想</title>
-      <link>https://blog.m2ez.com/2019/004/</link>
-      <pubDate>Mon, 12 Aug 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/004/</guid>
-      <description>自顶向下设计是一种软件设计过程方法，是一种总到分的设计思路。 我们设计软件实际上是一种问题求解的过程，复杂的问题如果从问题本身去解决，难度是相</description>
-    </item>
-    
-    <item>
-      <title>从排序数组中删除重复项</title>
-      <link>https://blog.m2ez.com/2019/003/</link>
-      <pubDate>Fri, 17 May 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/003/</guid>
-      <description>题目链接 从排序数组中删除重复项 解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。 代码 PHP版本 class Solution { /** * @param Integer[] $nums * @return</description>
-    </item>
-    
-    <item>
-      <title>Arch Linux 傻瓜安装笔记</title>
-      <link>https://blog.m2ez.com/2019/001/</link>
-      <pubDate>Sat, 23 Feb 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/001/</guid>
-      <description>因为没有傻瓜的安装引导程序，安装Arch的工作是一个对linux菜鸟很艰难的工作，但是当你能安装的时候，你就会对linux有更好的理解，我把</description>
-    </item>
-    
-    <item>
-      <title>用 Raspberry Pi 3（树莓派）和 Android Things 搭建物联网开发环境</title>
-      <link>https://blog.m2ez.com/2019/002/</link>
-      <pubDate>Sat, 23 Feb 2019 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2019/002/</guid>
-      <description>简介树莓派是一个极小的单块电路板，但是却有着计算机的所有基本功能，而 Android Things 是 Google 在 Android 的基础上去掉了一些物联网不需要的库，又加入了一些物联网需要的</description>
-    </item>
-    
-    <item>
-      <title>Laravel 5.5 以下版本中自定义日志行为</title>
-      <link>https://blog.m2ez.com/2018/002/</link>
-      <pubDate>Tue, 31 Jul 2018 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2018/002/</guid>
-      <description>在 Laravel 5.6 版本中日志行为可以很容易的进行自定义，而在5.5以下版本中日志行为自定义自由度并不是很高，但是项目有需求不能因为这个就强行将项目升级为</description>
-    </item>
-    
-    <item>
-      <title>PHP是什么-PHP的架构及原理概述</title>
-      <link>https://blog.m2ez.com/2018/001/</link>
-      <pubDate>Sun, 25 Feb 2018 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2018/001/</guid>
-      <description>记得我刚开始学习PHP的时候，许多面试官会经常问我PHP是什么，那时的标准回答是PHP是一种弱类型动态脚本编程语言，开源，免费，是超文本预处</description>
-    </item>
-    
-    <item>
-      <title>使用 Docker 完成 MySQL 数据库主从配置</title>
-      <link>https://blog.m2ez.com/2017/020/</link>
-      <pubDate>Sat, 04 Nov 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/020/</guid>
-      <description>使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行</description>
-    </item>
-    
-    <item>
-      <title>开发者的简单服务器集群管理</title>
-      <link>https://blog.m2ez.com/2017/019/</link>
-      <pubDate>Sun, 10 Sep 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/019/</guid>
-      <description>概述 本篇是以开发者的视角进行，非专业运维视角，开发管理服务器集群，也许仅仅是自己的项目，或者是在创业公司而没有专业的运维。 开发管理服务器集群</description>
-    </item>
-    
-    <item>
-      <title>用开源组件构建属于你的 PHP 框架</title>
-      <link>https://blog.m2ez.com/2017/018/</link>
-      <pubDate>Sun, 03 Sep 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/018/</guid>
-      <description>为什么要构建自己的 PHP 框架？ 现在的 PHP 框架很多，当然不止 PHP ，即使是其他编程语言也有很多框架，这篇文章讲 PHP 框架构建是因为我对 PHP 的生态最为熟悉，但这</description>
-    </item>
-    
-    <item>
-      <title>Web 金字塔式开发框架分层模型概述</title>
-      <link>https://blog.m2ez.com/2017/017/</link>
-      <pubDate>Sat, 26 Aug 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/017/</guid>
-      <description>现在的大部分 Web 框架都是使用金字塔式的分层架构，一般这种应用都是阻塞同步 IO 模型的编程实现，理解这种分层架构模型的实质有助于理解框架。 因为万变不</description>
-    </item>
-    
-    <item>
-      <title>网络七层模型与四层模型区别</title>
-      <link>https://blog.m2ez.com/2017/016/</link>
-      <pubDate>Fri, 25 Aug 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/016/</guid>
-      <description>作为一个 Web 程序员👨‍💻‍，对于网络模型你应该了解，知道网络到底是怎么进行通信的，进行工作的，为什么服务器能够接收到请求，做出响应。这里面的原</description>
-    </item>
-    
-    <item>
-      <title>求钟表时针和分钟夹角问题</title>
-      <link>https://blog.m2ez.com/2017/015/</link>
-      <pubDate>Mon, 21 Aug 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/015/</guid>
-      <description>这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。 问题 给定一个时间值，需要计算出表盘上时针与分针的之间的夹角度数。 思路</description>
-    </item>
-    
-    <item>
-      <title>Laravel 的 Eloquent模型 中的属性访问控制意义及实践</title>
-      <link>https://blog.m2ez.com/2017/014/</link>
-      <pubDate>Mon, 31 Jul 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/014/</guid>
-      <description>我们在定义一个自己的 Laravel 模型时都需要继承 Illuminate\Database\Eloquent\Model 这个类，在这个类中定义了很多模型相关的操作和行为。今天我们来重点说说 Model 中包含的属性。 在框架定义属性中</description>
-    </item>
-    
-    <item>
-      <title>PHP 用 Enum 限定参数类型</title>
-      <link>https://blog.m2ez.com/2017/013/</link>
-      <pubDate>Wed, 26 Jul 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/013/</guid>
-      <description>痛点 PHP 是一门若类型语言，这是大家都知道的，弱类型让我们在编写代码时很舒服，但是维护它却变得不那么舒服，一个小型的 PHP 项目只有有限的几个程序员去</description>
-    </item>
-    
-    <item>
-      <title>HTTP 协议 Request 和 Response 参数笔记</title>
-      <link>https://blog.m2ez.com/2017/010/</link>
-      <pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/010/</guid>
-      <description>Request 请求方法 一般的网页应用中只会用到 GET 和 POST 方法，而 RESTful 接口中会用到其他方法。 GET : 请求获取 Request-URI 所标识的资源。 POST : 在 Request-URI 所标识的资源后附加新的数据。 HEAD :</description>
-    </item>
-    
-    <item>
-      <title>互联网的基础协议 HTTP</title>
-      <link>https://blog.m2ez.com/2017/011/</link>
-      <pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/011/</guid>
-      <description>HTTP 协议中文全称 「超文本传输协议」，是互联网的基础协议，目前最新版本为 HTTP 2.0。 HTTP 是基于 TCP/IP 协议的 应用层协议，主要规定了客户端与服务器端之间通信</description>
-    </item>
-    
-    <item>
-      <title>简单解释什么是 依赖注入 和 控制反转</title>
-      <link>https://blog.m2ez.com/2017/012/</link>
-      <pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/012/</guid>
-      <description>关于 依赖注入 与 控制反转 的概念有些人觉得很难理解，最近在给别人讲这个概念的时候梳理了一个比较好理解的解释，而且我认为非技术人员也应该能听的懂，</description>
-    </item>
-    
-    <item>
-      <title>MySQL 常用数据存储引擎区别</title>
-      <link>https://blog.m2ez.com/2017/009/</link>
-      <pubDate>Sat, 08 Jul 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/009/</guid>
-      <description>mysql有多种存储引擎，目前常用的是 MyISAM 和 InnoDB 这两个引擎，除了这两个引擎以为还有许多其他引擎，有官方的，也有一些公司自己研发的。这篇文章主要简</description>
-    </item>
-    
-    <item>
-      <title>laravel 源码分析-路由是如何调用到控制器</title>
-      <link>https://blog.m2ez.com/2017/008/</link>
-      <pubDate>Fri, 07 Jul 2017 20:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/008/</guid>
-      <description>概述 laravel 的路由相比其他PHP框架非常灵活和优雅，它也能做的在url不变的情况下改变调用的控制器和方法。 那么这到底在 laravel 里是怎么完成的呢 路由到底是</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu 搭建 GitLab 笔记</title>
-      <link>https://blog.m2ez.com/2017/007/</link>
-      <pubDate>Wed, 05 Jul 2017 20:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/007/</guid>
-      <description>简介 GitLab 社区版可以提供许多与 GitHub 相同的功能，且部署在属于自己的机器上，我们会因为网络及其他一些问题而不便使用 GitHub ，这时部署一个 GitLab 是最好的选择。 下载</description>
-    </item>
-    
-    <item>
-      <title>PHP 的魔术方法及其应用</title>
-      <link>https://blog.m2ez.com/2017/005/</link>
-      <pubDate>Tue, 04 Jul 2017 20:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/005/</guid>
-      <description>PHP中将所有__(两个下划线)开头的类方法作为魔术方法，这方法之所以称为魔术方法是因为其实现的功能就如变魔术一样感觉很神奇。在特定的事件下</description>
-    </item>
-    
-    <item>
-      <title>S.O.L.I.D 面向对象设计和编程（OOD&amp;OOP）笔记</title>
-      <link>https://blog.m2ez.com/2017/006/</link>
-      <pubDate>Tue, 04 Jul 2017 20:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/006/</guid>
-      <description>SOLID是 面向对象编程 和 面试对象设计 的五个基本原则，应用这五个原则能创建一个易于维护和扩展的软件系统。SOLID可以指导代码重构和在迭代的</description>
-    </item>
-    
-    <item>
-      <title>PHP 文件操作的各种姿势</title>
-      <link>https://blog.m2ez.com/2017/004/</link>
-      <pubDate>Mon, 03 Jul 2017 20:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/004/</guid>
-      <description>使用 SPL 库 SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。 迭代器 FilesystemIterator 官方文档：http://php.net/manual/zh/class.</description>
-    </item>
-    
-    <item>
-      <title>Jenkins 部署 PHP 应用</title>
-      <link>https://blog.m2ez.com/2017/003/</link>
-      <pubDate>Sun, 02 Jul 2017 20:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/003/</guid>
-      <description>安装 Jenkins 方式一：docker方式安装 拉取jenkins官方镜像，按照镜像文档启动镜像就可以了 方式二：手动安装 以下所有操作都使用 root 用户进行操作。</description>
-    </item>
-    
-    <item>
-      <title>PHP trait 特性在 Laravel 中的使用个人心得</title>
-      <link>https://blog.m2ez.com/2017/002/</link>
-      <pubDate>Sat, 01 Jul 2017 20:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/002/</guid>
-      <description>trait 是在PHP5.4中为了方便代码复用的一种实现方式，但目前我在看的的PHP项目中较少看的有程序员去主动使用这个实现方式，在laravel中有</description>
-    </item>
-    
-    <item>
-      <title>你好，世界</title>
-      <link>https://blog.m2ez.com/2017/001/</link>
-      <pubDate>Fri, 30 Jun 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/001/</guid>
-      <description>你好世界，这是我的第一篇静态博客文章，之前用过免费空间，也自己写过博客程序，现在我用 github page 。 用 github page 是因为独立博客的管理太麻烦，最好在保留控制权</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有文章 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/posts/</link>
+        <description>所有文章 | 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 26 May 2023 11:39:18 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
+    <link>https://blog.m2ez.com/posts/2023/002/</link>
+    <pubDate>Fri, 26 May 2023 11:39:18 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/002/</guid>
+    <description><![CDATA[在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 1. 创建一个包含 PHP 和 Xdebug]]></description>
+</item>
+<item>
+    <title>一种监控报警阈值确定的思路 —— 统计分布算法</title>
+    <link>https://blog.m2ez.com/posts/2023/001/</link>
+    <pubDate>Thu, 23 Feb 2023 09:39:18 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/001/</guid>
+    <description><![CDATA[统计分布算法 统计分布算法（Statistical Distribution Algorithm）：这种算法是根据数据的概率分布进行阈值设置的。比如，计算出数据的均值和]]></description>
+</item>
+<item>
+    <title>使用 Highcharts 作为前端图表，在数据库中保存图例显示状态的功能设计</title>
+    <link>https://blog.m2ez.com/posts/2022/004/</link>
+    <pubDate>Thu, 08 Sep 2022 14:14:43 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2022/004/</guid>
+    <description><![CDATA[需求背景 公司前端使用 Highcharts 构建图表，图表的图例支持点击显示或隐藏相应的指标。现在有需求后端需要存储用户在前端点击后显示图表的状态，对于已经隐藏的]]></description>
+</item>
+<item>
+    <title>英语学习心得之词典的选择</title>
+    <link>https://blog.m2ez.com/posts/2022/003/</link>
+    <pubDate>Wed, 27 Jul 2022 10:27:53 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2022/003/</guid>
+    <description><![CDATA[在英语学习的过程中，对于不认识的词需要查词典来寻找释义，常用的英文词典主要有三种：英英词典、英汉双解词典、英汉词典。 英英词典 有两类，一类是 E]]></description>
+</item>
+<item>
+    <title>数据结构与算法概览</title>
+    <link>https://blog.m2ez.com/posts/2022/002/</link>
+    <pubDate>Tue, 26 Jul 2022 10:27:53 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2022/002/</guid>
+    <description><![CDATA[总结一些数据结构与算法： 常见数据结构 数组 数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。 数组的特点： 支持随机]]></description>
+</item>
+<item>
+    <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
+    <link>https://blog.m2ez.com/posts/2022/001/</link>
+    <pubDate>Mon, 25 Jul 2022 18:01:53 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2022/001/</guid>
+    <description><![CDATA[平时我们对语句调优一般用 EXPLAIN 就可以，但是对于一些复杂语句和疑难杂症这个所能给出信息不够详细，从 MySQL 5.6 开始加入了 Optimizer Trace 功能查看优化器生成执行计划的整]]></description>
+</item>
+<item>
+    <title>PHP8 新增的字符串方法与 Laravel 提供的性能差异比较</title>
+    <link>https://blog.m2ez.com/posts/2021/003/</link>
+    <pubDate>Sun, 30 May 2021 11:36:57 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2021/003/</guid>
+    <description><![CDATA[在 PHP8 中新增了三个字符串函数操作，这三个函数分别是str_contains、str_starts_with 和 str_ends_with, 在 PHP8 以前这三个函数在主流框架如 L]]></description>
+</item>
+<item>
+    <title>如何用 PHPUnit 测试类的私有方法</title>
+    <link>https://blog.m2ez.com/posts/2021/002/</link>
+    <pubDate>Tue, 27 Apr 2021 21:00:03 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2021/002/</guid>
+    <description><![CDATA[当要对类中的私有方法进行测试时，很难通过创建对象的实例，然后调用这个方法进行单元测试。但是有其他两种方法对私有方法进行测试。 方法一 使用反射的]]></description>
+</item>
+<item>
+    <title>Socket 连接的建立步骤</title>
+    <link>https://blog.m2ez.com/posts/2021/001/</link>
+    <pubDate>Sun, 18 Apr 2021 11:51:03 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2021/001/</guid>
+    <description><![CDATA[Socket 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。 网络中的设备进行通信，就需要创建套接字，套接字是形如 IP:Port 这样的IP地址对，]]></description>
+</item>
+<item>
+    <title>计算机信息表示编码中的原码、反码、补码</title>
+    <link>https://blog.m2ez.com/posts/2020/008/</link>
+    <pubDate>Sat, 26 Sep 2020 19:31:25 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2020/008/</guid>
+    <description><![CDATA[机器码 要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称 Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货币]]></description>
+</item>
+</channel>
 </rss>

@@ -1,29 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>docker on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/tags/docker/</link>
-    <description>Recent content in docker on 麦索的麦田</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Fri, 26 May 2023 11:39:18 +0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
-      <link>https://blog.m2ez.com/2023/002/</link>
-      <pubDate>Fri, 26 May 2023 11:39:18 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2023/002/</guid>
-      <description>在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 创建一个包含 PHP 和 Xdebug 的</description>
-    </item>
-    
-    <item>
-      <title>使用 Docker 完成 MySQL 数据库主从配置</title>
-      <link>https://blog.m2ez.com/2017/020/</link>
-      <pubDate>Sat, 04 Nov 2017 16:59:37 +0800</pubDate>
-      
-      <guid>https://blog.m2ez.com/2017/020/</guid>
-      <description>使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>docker - 标签 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/tags/docker/</link>
+        <description>docker - 标签 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 26 May 2023 11:39:18 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
+    <link>https://blog.m2ez.com/posts/2023/002/</link>
+    <pubDate>Fri, 26 May 2023 11:39:18 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/002/</guid>
+    <description><![CDATA[在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 1. 创建一个包含 PHP 和 Xdebug]]></description>
+</item>
+<item>
+    <title>使用 Docker 完成 MySQL 数据库主从配置</title>
+    <link>https://blog.m2ez.com/posts/2017/020/</link>
+    <pubDate>Sat, 04 Nov 2017 16:59:37 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2017/020/</guid>
+    <description><![CDATA[使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行]]></description>
+</item>
+</channel>
 </rss>
