@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Ubuntu 搭建 GitLab 笔记 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="Ubuntu 搭建 GitLab 笔记" />
+<meta property="og:description" content="简介 GitLab 社区版可以提供许多与 GitHub 相同的功能，且部署在属于自己的机器上，我们会因为网络及其他一些问题而不便使用 GitHub ，这时部署一个 GitLab 是最好的选择。 下载" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2017/007/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-07-05T20:59:37+08:00" />
+<meta property="article:modified_time" content="2017-07-05T20:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ubuntu 搭建 GitLab 笔记"/>
+<meta name="twitter:description" content="简介 GitLab 社区版可以提供许多与 GitHub 相同的功能，且部署在属于自己的机器上，我们会因为网络及其他一些问题而不便使用 GitHub ，这时部署一个 GitLab 是最好的选择。 下载"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2017/007/" /><link rel="prev" href="https://blog.m2ez.com/posts/2017/005/" /><link rel="next" href="https://blog.m2ez.com/posts/2017/008/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Ubuntu 搭建 GitLab 笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2017\/007\/"
+        },"genre": "posts","keywords": "git, gitlab","wordcount":  826 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2017\/007\/","datePublished": "2017-07-05T20:59:37+08:00","dateModified": "2017-07-05T20:59:37+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Ubuntu 搭建 GitLab 笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-07-05">2017-07-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 826 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a>
+      <ul>
+        <li><a href="#下载-gitlab-并安装">下载 GitLab 并安装</a></li>
+        <li><a href="#汉化">汉化</a></li>
+        <li><a href="#一些界面设置">一些界面设置</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="简介">简介</h2>
+<p>GitLab 社区版可以提供许多与 GitHub 相同的功能，且部署在属于自己的机器上，我们会因为网络及其他一些问题而不便使用 GitHub ，这时部署一个 GitLab 是最好的选择。</p>
+<h3 id="下载-gitlab-并安装">下载 GitLab 并安装</h3>
+<p>我的环境是 Ubuntu 16.04 下进行部署操作。</p>
+<p>GitLab 下载地址：https://about.gitlab.com/downloads/#ubuntu1604</p>
+<p>其他版本请自行选择不同系统。</p>
+<p>1.首先是安装一些依赖服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install curl openssh-server ca-certificates postfix
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>2.官方的建议是使用脚本直接执行安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh <span class="p">|</span> sudo bash
+</span></span><span class="line"><span class="cl">sudo apt-get install gitlab-ce
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果你能通过以上方式安装，恭喜你的网络很好，但一般因为大墙的存在这个方式很多时候并不能成功，所以我们要通过手动下载包的方式进行安装。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo curl -LJO https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/xenial/gitlab-ce-XXX.deb/download
+</span></span><span class="line"><span class="cl">sudo dpkg -i gitlab-ce-XXX.deb
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以上是示例，具体版本需要进行替换，在 <a href="https://packages.gitlab.com/gitlab/gitlab-ce" target="_blank" rel="noopener noreffer">https://packages.gitlab.com/gitlab/gitlab-ce</a>
+ 中找到适合自己的 GitLab 版本，从 Download 获取到下载地址。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/14902391408842.jpg"
+        data-srcset="/posts/2017/images/14902391408842.jpg, /posts/2017/images/14902391408842.jpg 1.5x, /posts/2017/images/14902391408842.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/14902391408842.jpg"
+        title="/posts/2017/images/14902391408842.jpg" /></p>
+<p>我选择的是目前最新的 GitLab 9.0 版本</p>
+<p>使用 wget 或 curl 将这个包下载到服务器上。服务器下载慢的话可在本地用工具下载然后通过 SCP 或 ftp 传到服务器上去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo dpkg -i gitlab-ce_9.0.0-ce.0_amd64.deb
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用以上命令进行安装。</p>
+<p>打开/etc/gitlab/gitlab.rb,将external_url = &lsquo;<a href="http://git.example.com" target="_blank" rel="noopener noreffer">http://git.example.com</a>
+&rsquo;修改为自己的域名地址：http://example.com，默认为80端口，如要使用其他端口后面加上端口号，如：http://127.0.0.1:8080。</p>
+<p>然后执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo gitlab-ctl reconfigure
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>启动完成后浏览器访问配置好的地址，应该出现重置管理员密码的界面。</p>
+<h3 id="汉化">汉化</h3>
+<p>1.下载社区提供的汉化包，在 <a href="https://gitlab.com/xhang/gitlab/" target="_blank" rel="noopener noreffer">https://gitlab.com/xhang/gitlab/</a>
+ 中找到相应的汉化分支。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo wget wget -cO gitlab-9.0_zh.tar.gz https://gitlab.com/xhang/gitlab/repository/archive.tar.gz?ref<span class="o">=</span>9-0-stable-zh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>2.解压包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo tar zxvf gitlab-9.0_zh.tar.gz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>3.停止 GitLab 服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo gitlab-ctl stop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>4.备份 gitlab-rails 目录，该目录下主要是web应用部分，也是当前项目仓库的起始版本，也是汉化包要覆盖的目录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo tar zcvf /opt/gitlab/embedded/service/gitlab-rails-bak.tar.gz gitlab-rails
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>5.将解压后的汉化补丁覆盖原来的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo cp -rf gitlab-9-0-stable-zh/* gitlab-rails/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>6.启动服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo gitlab-ctl start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>7.重新执行配置命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo gitlab-ctl reconfigure
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>汉化完成</p>
+<h3 id="一些界面设置">一些界面设置</h3>
+<p>进入界面后关掉一些我们可能用不到的设置，在 「管理区域」的设置中进行更改</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/14902593794119.jpg"
+        data-srcset="/posts/2017/images/14902593794119.jpg, /posts/2017/images/14902593794119.jpg 1.5x, /posts/2017/images/14902593794119.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/14902593794119.jpg"
+        title="/posts/2017/images/14902593794119.jpg" /></p>
+<p>「开启 Gravatar 头像」关闭，国内访问不了，要想访问得翻墙
+「开启注册」关闭，我们自己的仓库系统不需要公开注册，账号分配就好</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2017-07-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2017/007/" data-title="Ubuntu 搭建 GitLab 笔记" data-hashtags="git,gitlab"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2017/007/" data-hashtag="git"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2017/007/" data-title="Ubuntu 搭建 GitLab 笔记"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2017/007/" data-title="Ubuntu 搭建 GitLab 笔记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2017/007/" data-title="Ubuntu 搭建 GitLab 笔记"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/git/">git</a>,&nbsp;<a href="/tags/gitlab/">gitlab</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2017/005/" class="prev" rel="prev" title="PHP 的魔术方法及其应用"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>PHP 的魔术方法及其应用</a>
+            <a href="/posts/2017/008/" class="next" rel="next" title="laravel 源码分析-路由是如何调用到控制器">laravel 源码分析-路由是如何调用到控制器<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

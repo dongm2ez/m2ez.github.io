@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>PHP8 新增字符串方法与 laravel 性能差异比较 - 麦索的麦田</title><meta name="Description" content="PHP8 新增函数性能测试"><meta property="og:title" content="PHP8 新增字符串方法与 laravel 性能差异比较" />
+<meta property="og:description" content="PHP8 新增函数性能测试" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2021/003/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-30T11:36:57+08:00" />
+<meta property="article:modified_time" content="2021-05-30T11:36:57+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PHP8 新增字符串方法与 laravel 性能差异比较"/>
+<meta name="twitter:description" content="PHP8 新增函数性能测试"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2021/003/" /><link rel="prev" href="https://blog.m2ez.com/posts/2021/002/" /><link rel="next" href="https://blog.m2ez.com/posts/2022/001/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "PHP8 新增字符串方法与 laravel 性能差异比较",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2021\/003\/"
+        },"genre": "posts","keywords": "PHP","wordcount":  811 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2021\/003\/","datePublished": "2021-05-30T11:36:57+08:00","dateModified": "2021-05-30T11:36:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": "PHP8 新增函数性能测试"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">PHP8 新增字符串方法与 laravel 性能差异比较</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-05-30">2021-05-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 811 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>在 PHP8 的更新中对字符串操作新增了三个函数，这三个函数分别是<code>str_contains</code>、<code>str_starts_with</code> 和 <code>str_ends_with</code>, 在PHP8以前这三个函数在主流框架如Laravel、Yii中都提供。一般来说PHP内置的函数都会比我们用PHP写的要快不少，但是相比框架提供的这些函数到底性能提升了多少呢？</p>
+<p>因此我写了个小程序进行了验证实验，我做实验的机器是一台iMac，机器配置如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">MacOS Big Sur
+</span></span><span class="line"><span class="cl">Version 11.3.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iMac<span class="o">(</span>Retina 5K, 27-inch, 2017<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Processor 3.4GHz Quad-Core Intel Core i5
+</span></span><span class="line"><span class="cl">Memory <span class="m">32</span> GB <span class="m">2400</span> MHz DDR4
+</span></span><span class="line"><span class="cl">Startup Disk Macintosh HD
+</span></span><span class="line"><span class="cl">Graphics Radeon Pro <span class="m">570</span> 4GB
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>PHP 版本如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">PHP 8.0.5 <span class="o">(</span>cli<span class="o">)</span> <span class="o">(</span>built: Apr <span class="m">29</span> <span class="m">2021</span> 16:01:35<span class="o">)</span> <span class="o">(</span> NTS <span class="o">)</span>
+</span></span><span class="line"><span class="cl">Copyright <span class="o">(</span>c<span class="o">)</span> The PHP Group
+</span></span><span class="line"><span class="cl">Zend Engine v4.0.5, Copyright <span class="o">(</span>c<span class="o">)</span> Zend Technologies
+</span></span><span class="line"><span class="cl">    with Zend OPcache v8.0.5, Copyright <span class="o">(</span>c<span class="o">)</span>, by Zend Technologies
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实验程序代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-PHP" data-lang="PHP"><span class="line"><span class="cl"><span class="nx">Artisan</span><span class="o">::</span><span class="na">command</span><span class="p">(</span><span class="s1">&#39;test0&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$count</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$laravel_time</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="o">-</span> <span class="nx">LARAVEL_START</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="s1">&#39;Laravel run time is &#39;</span> <span class="o">.</span> <span class="nv">$laravel_time</span> <span class="o">.</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">$arr</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="nv">$j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$j</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$j</span> <span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$start</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$count</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="nx">\Illuminate\Support\Str</span><span class="o">::</span><span class="na">contains</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$end</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$laravel_str_time</span> <span class="o">=</span> <span class="nv">$end</span> <span class="o">-</span> <span class="nv">$start</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">echo</span> <span class="s1">&#39;Str::contains run is &#39;</span> <span class="o">.</span> <span class="nv">$laravel_str_time</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$start</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$count</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="nx">str_contains</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$end</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$php8_str_time</span> <span class="o">=</span> <span class="nv">$end</span> <span class="o">-</span> <span class="nv">$start</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">echo</span> <span class="s1">&#39;PHP8 str_contains run is &#39;</span> <span class="o">.</span> <span class="nv">$php8_str_time</span> <span class="o">.</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$arr</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">number_format</span><span class="p">(</span><span class="nv">$php8_str_time</span> <span class="o">/</span> <span class="nv">$laravel_str_time</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">var_dump</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="nx">array_sum</span><span class="p">(</span><span class="nv">$arr</span><span class="p">)</span> <span class="o">/</span> <span class="nx">count</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>程序输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">php artisan test0                                
+</span></span><span class="line"><span class="cl">Laravel run <span class="nb">time</span> is 0.10241389274597
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::contains run is 0.11590790748596
+</span></span><span class="line"><span class="cl">PHP8 str_contains run is 0.025718927383423
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::contains run is 0.11841297149658
+</span></span><span class="line"><span class="cl">PHP8 str_contains run is 0.024212121963501
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::contains run is 0.11694502830505
+</span></span><span class="line"><span class="cl">PHP8 str_contains run is 0.025036096572876
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::contains run is 0.11578488349915
+</span></span><span class="line"><span class="cl">PHP8 str_contains run is 0.025848865509033
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::contains run is 0.11652398109436
+</span></span><span class="line"><span class="cl">PHP8 str_contains run is 0.026134014129639
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">array<span class="o">(</span>5<span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>0<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.2219&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>1<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.2045&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>2<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.2141&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>3<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.2232&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>4<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.2243&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">0.2176% 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>用同样的程序，修改调用的方法分别对 str_starts_with 和 str_ends_with 进行实验，输出如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Laravel run <span class="nb">time</span> is 0.097244024276733
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::startsWith run is 0.13129806518555
+</span></span><span class="line"><span class="cl">PHP8 str_starts_with run is 0.023024082183838
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::startsWith run is 0.13406491279602
+</span></span><span class="line"><span class="cl">PHP8 str_starts_with run is 0.024108171463013
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::startsWith run is 0.13589406013489
+</span></span><span class="line"><span class="cl">PHP8 str_starts_with run is 0.025053024291992
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::startsWith run is 0.13407921791077
+</span></span><span class="line"><span class="cl">PHP8 str_starts_with run is 0.024497985839844
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::startsWith run is 0.13846492767334
+</span></span><span class="line"><span class="cl">PHP8 str_starts_with run is 0.024585962295532
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">array<span class="o">(</span>5<span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>0<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1754&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>1<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1798&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>2<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1844&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>3<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1827&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>4<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1776&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">0.17998%                        
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Laravel run <span class="nb">time</span> is 0.094044923782349
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::endsWith run is 0.12809109687805
+</span></span><span class="line"><span class="cl">PHP8 str_ends_with run is 0.023317098617554
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::endsWith run is 0.12816786766052
+</span></span><span class="line"><span class="cl">PHP8 str_ends_with run is 0.023905038833618
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::endsWith run is 0.12953305244446
+</span></span><span class="line"><span class="cl">PHP8 str_ends_with run is 0.024739027023315
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::endsWith run is 0.13504600524902
+</span></span><span class="line"><span class="cl">PHP8 str_ends_with run is 0.025351047515869
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Str::endsWith run is 0.13313508033752
+</span></span><span class="line"><span class="cl">PHP8 str_ends_with run is 0.025480985641479
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">array<span class="o">(</span>5<span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>0<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1820&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>1<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1865&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>2<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1910&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>3<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1877&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>4<span class="o">]=</span>&gt;
+</span></span><span class="line"><span class="cl">  string<span class="o">(</span>6<span class="o">)</span> <span class="s2">&#34;0.1914&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">0.18772% 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看出性能相比于应用框架所提供的提升在 18%-20% 这个范围，另一点是 str_contains 可以很好的替代 strpos 和 strstr 这两个PHP函数，而不需要再进行 !== 或 === 的判断。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-05-30</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2021/003/" data-title="PHP8 新增字符串方法与 laravel 性能差异比较" data-hashtags="PHP"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2021/003/" data-hashtag="PHP"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2021/003/" data-title="PHP8 新增字符串方法与 laravel 性能差异比较"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2021/003/" data-title="PHP8 新增字符串方法与 laravel 性能差异比较"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2021/003/" data-title="PHP8 新增字符串方法与 laravel 性能差异比较"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/php/">PHP</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2021/002/" class="prev" rel="prev" title="如何用 PHPUnit 测试私有方法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>如何用 PHPUnit 测试私有方法</a>
+            <a href="/posts/2022/001/" class="next" rel="next" title="MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace">MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

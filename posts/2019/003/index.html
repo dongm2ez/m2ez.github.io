@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>从排序数组中删除重复项 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="从排序数组中删除重复项" />
+<meta property="og:description" content="题目链接 从排序数组中删除重复项 解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。 代码 PHP版本 1 2 3 4 5 6 7 8 9 10" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2019/003/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-05-17T16:59:37+08:00" />
+<meta property="article:modified_time" content="2019-05-17T16:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从排序数组中删除重复项"/>
+<meta name="twitter:description" content="题目链接 从排序数组中删除重复项 解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。 代码 PHP版本 1 2 3 4 5 6 7 8 9 10"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2019/003/" /><link rel="prev" href="https://blog.m2ez.com/posts/2019/001/" /><link rel="next" href="https://blog.m2ez.com/posts/2019/004/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "从排序数组中删除重复项",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2019\/003\/"
+        },"genre": "posts","keywords": "leetcode, 算法","wordcount":  208 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2019\/003\/","datePublished": "2019-05-17T16:59:37+08:00","dateModified": "2019-05-17T16:59:37+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">从排序数组中删除重复项</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-05-17">2019-05-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 208 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#题目链接">题目链接</a></li>
+    <li><a href="#解题思路">解题思路</a></li>
+    <li><a href="#代码">代码</a>
+      <ul>
+        <li><a href="#php版本">PHP版本</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="题目链接">题目链接</h2>
+<p><a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/21/" target="_blank" rel="noopener noreffer">从排序数组中删除重复项</a>
+</p>
+<h2 id="解题思路">解题思路</h2>
+<p>迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。</p>
+<h2 id="代码">代码</h2>
+<h3 id="php版本">PHP版本</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-PHP" data-lang="PHP"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param Integer[] $nums
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return Integer
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">function</span> <span class="nf">removeDuplicates</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$size</span> <span class="o">=</span> <span class="nx">sizeof</span><span class="p">(</span><span class="nv">$nums</span><span class="p">);</span><span class="c1">// 防止数组越界
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">foreach</span><span class="p">(</span><span class="nv">$nums</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$item</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="nv">$key</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nv">$size</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="nv">$nums</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">===</span> <span class="nv">$nums</span><span class="p">[</span><span class="nv">$key</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]){</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">unset</span><span class="p">(</span><span class="nv">$nums</span><span class="p">[</span><span class="nv">$key</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">count</span><span class="p">(</span><span class="nv">$nums</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>语言坑点：</p>
+<ol>
+<li>PHP使用for循环时<code>unset</code>掉元素不重置下标，数组下标保持原状，所以有可能漏掉判断元素。</li>
+<li>PHP判断是否相等时会将NULL 与 0相等，必须连类型一起判断。</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2019-05-17</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2019/003/" data-title="从排序数组中删除重复项" data-hashtags="leetcode,算法"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2019/003/" data-hashtag="leetcode"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2019/003/" data-title="从排序数组中删除重复项"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2019/003/" data-title="从排序数组中删除重复项"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2019/003/" data-title="从排序数组中删除重复项"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/leetcode/">leetcode</a>,&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2019/001/" class="prev" rel="prev" title="Arch Linux 傻瓜安装笔记"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Arch Linux 傻瓜安装笔记</a>
+            <a href="/posts/2019/004/" class="next" rel="next" title="编程中的自顶向下设计思想">编程中的自顶向下设计思想<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

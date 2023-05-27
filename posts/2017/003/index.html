@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Jenkins 部署 PHP 应用 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="Jenkins 部署 PHP 应用" />
+<meta property="og:description" content="安装 Jenkins 方式一：docker方式安装 拉取jenkins官方镜像，按照镜像文档启动镜像就可以了 方式二：手动安装 以下所有操作都使用 root 用户进行操作。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2017/003/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-07-02T20:59:37+08:00" />
+<meta property="article:modified_time" content="2017-07-02T20:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Jenkins 部署 PHP 应用"/>
+<meta name="twitter:description" content="安装 Jenkins 方式一：docker方式安装 拉取jenkins官方镜像，按照镜像文档启动镜像就可以了 方式二：手动安装 以下所有操作都使用 root 用户进行操作。"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2017/003/" /><link rel="prev" href="https://blog.m2ez.com/posts/2017/002/" /><link rel="next" href="https://blog.m2ez.com/posts/2017/004/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Jenkins 部署 PHP 应用",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2017\/003\/"
+        },"genre": "posts","keywords": "PHP, JAVA, Jenkins","wordcount":  1589 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2017\/003\/","datePublished": "2017-07-02T20:59:37+08:00","dateModified": "2017-07-02T20:59:37+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Jenkins 部署 PHP 应用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-07-02">2017-07-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1589 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装-jenkins">安装 Jenkins</a>
+      <ul>
+        <li><a href="#安装-java">安装 Java</a></li>
+        <li><a href="#安装-tomcat">安装 Tomcat</a></li>
+        <li><a href="#安装-jenkins-1">安装 Jenkins</a></li>
+      </ul>
+    </li>
+    <li><a href="#jenkins-插件">Jenkins 插件</a></li>
+    <li><a href="#jenkins-部署-php-步骤">Jenkins 部署 PHP 步骤</a>
+      <ul>
+        <li><a href="#拉取代码">拉取代码</a></li>
+        <li><a href="#构建">构建</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="安装-jenkins">安装 Jenkins</h2>
+<p>方式一：docker方式安装</p>
+<p>拉取jenkins官方镜像，按照镜像文档启动镜像就可以了</p>
+<p>方式二：手动安装</p>
+<p>以下所有操作都使用 root 用户进行操作。</p>
+<p>在各项目官网，下载 Java、Tomcat、Jenkins</p>
+<p>Java: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener noreffer">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>
+
+Tomcat: <a href="http://tomcat.apache.org/download-90.cgi" target="_blank" rel="noopener noreffer">http://tomcat.apache.org/download-90.cgi</a>
+
+jen
+Jenkins: <a href="https://jenkins.io/" target="_blank" rel="noopener noreffer">https://jenkins.io/</a>
+</p>
+<p>所用环境: jdk1.8.0_121 tomcat-9.0.0.M17 jenkins 2.32.2</p>
+<p>我把所用的 tar.gz 压缩包都放在 /opt/ 目录中，然后解压到 /usr/local/src 中。</p>
+<h3 id="安装-java">安装 Java</h3>
+<p>解压后的 Java 包默认为 jdk1.8.0_121</p>
+<p>配置 Java 环境变量 <code>vim /etc/profile</code>，在其中加入:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#java</span>
+</span></span><span class="line"><span class="cl"><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/local/src/jdk1.8.0_121 <span class="c1">#这行根据实际情况修改</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="nv">$JAVA_HOME</span>/lib/dt.jar:<span class="nv">$JAVA_HOME</span>/lib/tools.jar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改完成后使用 <code>source /etc/profile</code> 让新配置生效。</p>
+<h3 id="安装-tomcat">安装 Tomcat</h3>
+<p>解压后的 Tomcat 包默认为 apache-tomcat-9.0.0.M17</p>
+<p>使用 <code>chmod a+x apache-tomcat-9.0.0.M17/bin/*.sh</code> 命令给予 Tomcat 启动关闭 shell 脚本可执行权限。</p>
+<p>执行 <code>bin/catalina.sh run</code> 可以从控制台看到tomcat启动，以确保 Tomcat 可以正确启动。</p>
+<p>要让 Tomcat 在后台运行使用 <code>bin/startup.sh</code></p>
+<h3 id="安装-jenkins-1">安装 Jenkins</h3>
+<p>将 jenkins 的 .war 包放到 Tomcat 的 webapps 目录中，运行 <code>bin/startup.sh</code></p>
+<p>然后就可以通过 <code>http://&lt;你的ip地址&gt;/jenkins/</code> 访问安装完毕的 jenkins</p>
+<p>然后按照页面指引完成最后的安装</p>
+<h2 id="jenkins-插件">Jenkins 插件</h2>
+<ul>
+<li><strong>Subversion/Git</strong>：用于集成项目版本控制软件，根据需要选择（在上篇博文已安装使用）</li>
+<li><strong>Phing/Ant</strong>：使用Phing或Apache Ant 对PHP项目做自动化构建</li>
+<li><strong>CheckStyle</strong>：使用PHP CodeSniffer进行代码风格检查的工具。用于检查PHP代码是否有违反一组预先设置好的编码标准的一个PEAR包，内置了ZEND,PEAR的编码风格规则</li>
+<li><strong>Clover PHP</strong>：使用phpunit进行单元测试的工具，可以被xdebug扩展用来生成代码覆盖率报告，并且可以与phing集成来自动测试，还可以和Selenium整合来完成大型自动化集成测试</li>
+<li><strong>DRY</strong>：使用PHPCPD(php copy paste detector)来发现项目中的重复代码</li>
+<li><strong>HTML Publisher</strong>：用来发布phpunit代码覆盖率报告</li>
+<li><strong>JDepend</strong>：使用PHP Depend分析php中静态代码，用来检查项目中的代码规模和复杂程度</li>
+<li><strong>Plot</strong>：使用phploc来统计php项目规模大小的工具，可以统计php的项目代码行数</li>
+<li><strong>PMD</strong>：使用phpmd(php mess dector),对基于pdepend的结果进行分析，一旦项目超过了pdepend中各具体指标的规定，将发出警告信息.</li>
+<li><strong>Violations</strong>：按照代码缺陷严重性集中显示pwd静态代码分析的结果</li>
+<li><strong>xUnit</strong>：使用JUnit的格式来输出phpunit的日志文件</li>
+</ul>
+<h2 id="jenkins-部署-php-步骤">Jenkins 部署 PHP 步骤</h2>
+<p>代码拉取 - 执行检查（非必须）- 打包 - 远程或本地部署</p>
+<p>部署的方式很多种，jenkins 也提供很多插件优化部署流程</p>
+<p>本文档主要说一下远程部署</p>
+<p>远程部署首先拉取代码，我们使用 git 管理代码。</p>
+<p>用 ssh-keygen 生成公钥和私钥，git 和 登录远程服务器都会用到。</p>
+<p>git 仓库上每个项目都有一个部署公钥，将生成的公钥添加到 git 仓库。</p>
+<p>然后创建一个自由风格的 jenkins 部署项目，进入配置。</p>
+<h3 id="拉取代码">拉取代码</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/14877524448478.jpg"
+        data-srcset="/posts/2017/images/14877524448478.jpg, /posts/2017/images/14877524448478.jpg 1.5x, /posts/2017/images/14877524448478.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/14877524448478.jpg"
+        title="/posts/2017/images/14877524448478.jpg" /></p>
+<p>选择 git ，默认会拉取仓库的 master 分支，点击 add 添加一个拉取代码的凭证。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/14877525840602.jpg"
+        data-srcset="/posts/2017/images/14877525840602.jpg, /posts/2017/images/14877525840602.jpg 1.5x, /posts/2017/images/14877525840602.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/14877525840602.jpg"
+        title="/posts/2017/images/14877525840602.jpg" /></p>
+<p>Kind 选 SSH Username with private key
+Private key 选择 From the Jenkins master ~/.ssh (已经使用 ssh-keygen 生成公私钥)</p>
+<p>创建完成后选择凭证，输入 git 仓库的地址，然后就可以保存后点击立即构建，测试代码能不能正确拉取，拉取正确后点击工作空间就可以看见你的代码库中的代码了。</p>
+<h3 id="构建">构建</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/14877531720409.jpg"
+        data-srcset="/posts/2017/images/14877531720409.jpg, /posts/2017/images/14877531720409.jpg 1.5x, /posts/2017/images/14877531720409.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/14877531720409.jpg"
+        title="/posts/2017/images/14877531720409.jpg" /></p>
+<p>默认有这些构建选项，本地构建简单使用 Execute shell 执行 shell 指令。</p>
+<p>远程构建需要新安装一个插件，在 系统管理-管理插件-可选插件 中搜索 Publish Over SSH 插件并安装，重启 Jenkins 以启用插件。</p>
+<p>将本机的公钥复制到远程服务器root用户的 /root/.ssh/authorized_keys 文件中。</p>
+<p>然后在 系统管理-系统设置-Publish over SSH
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/14877587669714.jpg"
+        data-srcset="/posts/2017/images/14877587669714.jpg, /posts/2017/images/14877587669714.jpg 1.5x, /posts/2017/images/14877587669714.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/14877587669714.jpg"
+        title="/posts/2017/images/14877587669714.jpg" /></p>
+<p>填入私钥文件地址</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/14877589010557.jpg"
+        data-srcset="/posts/2017/images/14877589010557.jpg, /posts/2017/images/14877589010557.jpg 1.5x, /posts/2017/images/14877589010557.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/14877589010557.jpg"
+        title="/posts/2017/images/14877589010557.jpg" /></p>
+<p>增加一个 ssh 服务器配置</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/14877589436549.jpg"
+        data-srcset="/posts/2017/images/14877589436549.jpg, /posts/2017/images/14877589436549.jpg 1.5x, /posts/2017/images/14877589436549.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/14877589436549.jpg"
+        title="/posts/2017/images/14877589436549.jpg" /></p>
+<p>构建中选择 Send files or execute commands over SSH</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/14877591104113.jpg"
+        data-srcset="/posts/2017/images/14877591104113.jpg, /posts/2017/images/14877591104113.jpg 1.5x, /posts/2017/images/14877591104113.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/14877591104113.jpg"
+        title="/posts/2017/images/14877591104113.jpg" /></p>
+<p>简单点可以直接执行 shell 指令，到想要部署的项目目录用 git 直接拉取远程代码，但这样用 Jenkins 意义真的不是特别大，可以在本机将代码打包，然后传输到远程机器，再解压开到项目目录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /var/www/web
+</span></span><span class="line"><span class="cl">tar -czf project_<span class="sb">`</span>date +%F-%H-%M-%S<span class="sb">`</span>.bak.tar.gz --exclude<span class="o">=</span><span class="s1">&#39;project/runtime&#39;</span> --exclude<span class="o">=</span><span class="s1">&#39;project/.git&#39;</span> /home/www/web/project
+</span></span><span class="line"><span class="cl">tar xzf /var/www/web/project-tar/project.<span class="si">${</span><span class="nv">BUILD_NUMBER</span><span class="si">}</span>.<span class="si">${</span><span class="nv">BUILD_ID</span><span class="si">}</span>.tar.gz -C /home/www/web/project
+</span></span><span class="line"><span class="cl">chmod -R <span class="m">755</span> /home/www/web/project/
+</span></span><span class="line"><span class="cl">chmod <span class="m">777</span> /home/www/web/project/web/assets/
+</span></span><span class="line"><span class="cl">tail -n100 /home/www/web/project/runtime/logs/error.log
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以上是一个示例，进行了线上代码备份打包、解包新部署包，修改权限、打印错误日志一系列操作。</p>
+<p>构建打包操作是使用的 Phing 这个工具，有兴趣可以去了解一下这个工具。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2017-07-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2017/003/" data-title="Jenkins 部署 PHP 应用" data-hashtags="PHP,JAVA,Jenkins"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2017/003/" data-hashtag="PHP"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2017/003/" data-title="Jenkins 部署 PHP 应用"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2017/003/" data-title="Jenkins 部署 PHP 应用"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2017/003/" data-title="Jenkins 部署 PHP 应用"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/php/">PHP</a>,&nbsp;<a href="/tags/java/">JAVA</a>,&nbsp;<a href="/tags/jenkins/">Jenkins</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2017/002/" class="prev" rel="prev" title="PHP trait 特性在 Laravel 中的使用个人心得"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>PHP trait 特性在 Laravel 中的使用个人心得</a>
+            <a href="/posts/2017/004/" class="next" rel="next" title="PHP 文件操作的各种姿势">PHP 文件操作的各种姿势<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

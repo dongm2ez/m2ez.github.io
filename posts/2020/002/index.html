@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>为什么应该学习自动化测试？ - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="为什么应该学习自动化测试？" />
+<meta property="og:description" content="终于等到了2020年的第一次研发分享，本次分享的主题是自动化测试，也就是大家常提到的单元测试。 我们为什么需要自动化测试 自动化测试的目标是什么" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2020/002/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-02-13T16:59:37+08:00" />
+<meta property="article:modified_time" content="2020-02-13T16:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="为什么应该学习自动化测试？"/>
+<meta name="twitter:description" content="终于等到了2020年的第一次研发分享，本次分享的主题是自动化测试，也就是大家常提到的单元测试。 我们为什么需要自动化测试 自动化测试的目标是什么"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2020/002/" /><link rel="prev" href="https://blog.m2ez.com/posts/2019/009/" /><link rel="next" href="https://blog.m2ez.com/posts/2020/001/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "为什么应该学习自动化测试？",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2020\/002\/"
+        },"genre": "posts","keywords": "测试, 研发分享","wordcount":  1349 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2020\/002\/","datePublished": "2020-02-13T16:59:37+08:00","dateModified": "2020-02-13T16:59:37+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">为什么应该学习自动化测试？</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-02-13">2020-02-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1349 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#我们为什么需要自动化测试">我们为什么需要自动化测试</a>
+      <ul>
+        <li><a href="#自动化测试的目标是什么">自动化测试的目标是什么</a></li>
+        <li><a href="#如果没有自动化测试情况是什么样的">如果没有自动化测试情况是什么样的</a></li>
+        <li><a href="#自动测试的不足">自动测试的不足</a></li>
+      </ul>
+    </li>
+    <li><a href="#自动化测试的分类">自动化测试的分类</a></li>
+    <li><a href="#测试框架">测试框架</a></li>
+    <li><a href="#ci流程将自动化测试纳入开发流程">CI流程将自动化测试纳入开发流程</a></li>
+    <li><a href="#测试覆盖率">测试覆盖率</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>终于等到了2020年的第一次研发分享，本次分享的主题是自动化测试，也就是大家常提到的单元测试。</p>
+<h2 id="我们为什么需要自动化测试">我们为什么需要自动化测试</h2>
+<h3 id="自动化测试的目标是什么">自动化测试的目标是什么</h3>
+<p>自动化测试是为了帮助我们将写好的代码以自动的方式进行功能检查，以确保现有的改动不影响已有的功能，多次的改动对已经完成的功能没有影响，它能够帮助我们有效避免和改善以下情况：</p>
+<ol>
+<li>修改代码未考虑完善对已有代码的影响</li>
+<li>新功能的考虑周全（IPO编程：INPUT、PROCESS、OUTPUT）</li>
+<li>减少大量重复的手动测试代码劳动</li>
+<li>减少代码总体缺陷</li>
+<li>改善开发团队内部伙伴关系</li>
+<li>提高问题出现后的响应效率</li>
+<li>降低回归的成本、提高回归的效率、覆盖率以及稳定性</li>
+</ol>
+<h3 id="如果没有自动化测试情况是什么样的">如果没有自动化测试情况是什么样的</h3>
+<ol>
+<li>黑盒测试回归效率低</li>
+<li>手动测试的偶然性和不确定性</li>
+<li>回归覆盖率不足</li>
+<li>交付的产品质量无法保证，全靠评估</li>
+<li>系统越复杂，问题越多</li>
+<li>上线时间长、构建失败率高导致的蝴蝶效应🦋（迭代过快、加班多）</li>
+</ol>
+<h3 id="自动测试的不足">自动测试的不足</h3>
+<ol>
+<li>无法减少成本投入，而是为了加快测试结果反馈，提升测试质量</li>
+<li>自动化适用于回归和冒烟，而不是发现BUG</li>
+<li>不是所有的系统都适合做自动化测试</li>
+</ol>
+<h2 id="自动化测试的分类">自动化测试的分类</h2>
+<ul>
+<li>单元测试：针对函数或者模块所进行的测试</li>
+<li>集成测试：针对整体产品的某个功能所进行的测试</li>
+<li>端对端测试：从用户界面直达数据库的全链路测试</li>
+</ul>
+<h2 id="测试框架">测试框架</h2>
+<p>首先自动化测试可以脱离开代码本身的语言，并不是用什么语言写的功能代码就必须用什么语言才能进行测试。当然业界实践中一般自动化测试一般由开发功能的工程师自己写，所以能够使用统一的语言去构建测试那么是一种好的实践，但并非不可违背。</p>
+<ul>
+<li>
+<p>Java：</p>
+<ul>
+<li>JUnit，Java语言的单元测试框架，多数Java的开发环境都已经集成了JUnit作为单元测试的工具</li>
+<li>testNG，涵盖了整个核心的JUnit4功能，但引入了一些新的功能，使其功能更强大，使用更方便，支持多线程测试</li>
+</ul>
+</li>
+<li>
+<p>Python：</p>
+<ul>
+<li>Robot，Python测试框架，Python最重要的测试框架之一</li>
+<li>Pytest，适用于多种软件测试，经常被QA团队、开发团队、个人团队、开源团队使用</li>
+<li>UnitTest/PyUnit，受到JUnit启发的测试框架</li>
+<li>Behave，行为驱动开发（behavior-driven development，BDD）的代表，一种在敏捷开发思想指导方法下产生的测试框架</li>
+<li>Lettuce，另一种基于Cucumber和Python的行为驱动类自动化工具</li>
+</ul>
+</li>
+<li>
+<p>PHP</p>
+<ul>
+<li>PHPUnit，借鉴与JUnit的测试框架，很长一段时间内文档不多，作者说完全Copy自JUnit，所以看JUnit的文档就可以了</li>
+<li>Codeception，编写单元测试，也能够编写功能测试和验收测试</li>
+<li>Behat，行为驱动PHP测试框架</li>
+<li>Selenium，一个复杂的自动化测试框架</li>
+</ul>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2020/images/15826241202941.jpg"
+        data-srcset="/posts/2020/images/15826241202941.jpg, /posts/2020/images/15826241202941.jpg 1.5x, /posts/2020/images/15826241202941.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2020/images/15826241202941.jpg"
+        title="自动测试框架分类图" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2020/images/15826244537725.jpg"
+        data-srcset="/posts/2020/images/15826244537725.jpg, /posts/2020/images/15826244537725.jpg 1.5x, /posts/2020/images/15826244537725.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2020/images/15826244537725.jpg"
+        title="PHPUnit版本" /></p>
+<p><a href="https://github.com/sebastianbergmann/phpunit" target="_blank" rel="noopener noreffer">PHPUnit</a>
+的9版本刚刚发布</p>
+<h2 id="ci流程将自动化测试纳入开发流程">CI流程将自动化测试纳入开发流程</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2020/images/15826246950135.jpg"
+        data-srcset="/posts/2020/images/15826246950135.jpg, /posts/2020/images/15826246950135.jpg 1.5x, /posts/2020/images/15826246950135.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2020/images/15826246950135.jpg"
+        title="快速迭代流程" /></p>
+<p>互联网软件的优势就是发布迅速，迭代快速，BUG可以被迅速修复，新功能可以快速交付给用户。而开发和发布互联网软件已经在行业内形成了一套行之有效的方法，那就是持续集成（Continuous integration，简称CI）</p>
+<p>Jenkins、Travis、gitlab-CI都是优秀的CI工具。</p>
+<p>流程：提交代码-测试(第一轮)-构建-测试（第二轮）-部署</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2020/images/15826248065946.jpg"
+        data-srcset="/posts/2020/images/15826248065946.jpg, /posts/2020/images/15826248065946.jpg 1.5x, /posts/2020/images/15826248065946.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2020/images/15826248065946.jpg"
+        title="持续交付和持续部署的区别" /></p>
+<h2 id="测试覆盖率">测试覆盖率</h2>
+<p>测试覆盖率是评估测试是否OK的一个指标</p>
+<p><code>phpunit --coverage-html ./tests/codeCoverage</code> 命令会生成一个html格式的测试文档</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-02-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2020/002/" data-title="为什么应该学习自动化测试？" data-hashtags="测试,研发分享"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2020/002/" data-hashtag="测试"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2020/002/" data-title="为什么应该学习自动化测试？"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2020/002/" data-title="为什么应该学习自动化测试？"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2020/002/" data-title="为什么应该学习自动化测试？"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%B5%8B%E8%AF%95/">测试</a>,&nbsp;<a href="/tags/%E7%A0%94%E5%8F%91%E5%88%86%E4%BA%AB/">研发分享</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2019/009/" class="prev" rel="prev" title="排序算法-冒泡排序"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>排序算法-冒泡排序</a>
+            <a href="/posts/2020/001/" class="next" rel="next" title="Laravel/Lumen项目接入Sentry异常监控">Laravel/Lumen项目接入Sentry异常监控<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>开发者的简单服务器集群管理 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="开发者的简单服务器集群管理" />
+<meta property="og:description" content="概述 本篇是以开发者的视角进行，非专业运维视角，开发管理服务器集群，也许仅仅是自己的项目，或者是在创业公司而没有专业的运维。 开发管理服务器集群" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2017/019/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-09-10T16:59:37+08:00" />
+<meta property="article:modified_time" content="2017-09-10T16:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="开发者的简单服务器集群管理"/>
+<meta name="twitter:description" content="概述 本篇是以开发者的视角进行，非专业运维视角，开发管理服务器集群，也许仅仅是自己的项目，或者是在创业公司而没有专业的运维。 开发管理服务器集群"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2017/019/" /><link rel="prev" href="https://blog.m2ez.com/posts/2017/018/" /><link rel="next" href="https://blog.m2ez.com/posts/2017/020/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "开发者的简单服务器集群管理",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2017\/019\/"
+        },"genre": "posts","keywords": "运维","wordcount":  989 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2017\/019\/","datePublished": "2017-09-10T16:59:37+08:00","dateModified": "2017-09-10T16:59:37+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">开发者的简单服务器集群管理</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-09-10">2017-09-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 989 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#实现方法">实现方法</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="概述">概述</h2>
+<p>本篇是以开发者的视角进行，非专业运维视角，开发管理服务器集群，也许仅仅是自己的项目，或者是在创业公司而没有专业的运维。</p>
+<p>开发管理服务器集群，用各种工具需要付出一定的学习成本，但开发者的主要工作不在于此，所以我们需要最简单又比较安全的管理方法，以下是一个对开发者比较好的管理服务器方案，希望对大家有帮助</p>
+<h2 id="实现方法">实现方法</h2>
+<p>现有服务器 A、B、C 三台服务器，我们将 A 作为部署维护服务器，连接 B、C 进行操作。</p>
+<p>首先更改服务器名 <code>sudo vim /etc/hostname</code>，以使得每个服务器有易于你标识的名字，让我们操作服务器时根据提示符知道我们现在操作哪一台服务器。</p>
+<p>查看系统网络信息 <code>ifconfig</code>，这一步是获取服务器的 IP 地址。</p>
+<p>我使用的服务器是 Ubuntu，Ubuntu 更新 <code>sudo apt update</code>，16.04 以上版本可使用 <code>apt</code> 代替 <code>apt-get</code>。</p>
+<p>安装 SSH 服务 <code>sudo apt install ssh</code>。</p>
+<p>禁用防火墙，不禁用无法连接用 SSH 连接服务器，禁用命令 <code>sudo ufw disable</code>，当然更安全的做法是只允许特定端口可访问，这里为了简单直接禁用了防火墙。</p>
+<p>SSH 连接命令 <code>ssh -p 端口号 username@xxx.xxx.xxx.xxx</code>，端口非必须，默认22。</p>
+<p>默认 SSH 使用密码进行连接，更安全的方式是使用密钥进行连接，在 of 上使用 <code>ssh-keygen</code> 创建密钥，会在家目录的 .ssh 目录中生成 id_rsa 和 id_rsa.pub 这两个私钥和公钥。将公钥上传到 B 和 C 中，可以使用 scp 命令或者 ssh-copy-id 命令。</p>
+<p>踩坑：配置ssh免密码登录后，仍提示输入密码</p>
+<p>SSH 不希望 <code>home</code> 目录和 <code>~/.ssh</code> 目录对组有写权限，进行以下修改:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">chmod g-w /home/dongm2ez
+</span></span><span class="line"><span class="cl">chmod <span class="m">700</span> /home/dongm2ez/.ssh
+</span></span><span class="line"><span class="cl">chmod <span class="m">600</span> /home/dongm2ez/.ssh/authorized_keys
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 B 和 C 的家目录创建 .ssh 目录，使用 <code>cat path/to/id_rsa.pub &gt;&gt; authorized_keys</code> 将秘钥内容加入到认证文件中。同时给予其权限 <code>chmod 600 authorized_keys</code></p>
+<p>在 of 的 <code>~/.ssh/config</code> 文件中可以配置 ssh 连接信息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Host B
+</span></span><span class="line"><span class="cl">HostName xxx.xxx.xxx.xxx
+</span></span><span class="line"><span class="cl">User 用户名
+</span></span><span class="line"><span class="cl">Port 端口号
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Host C
+</span></span><span class="line"><span class="cl">HostName xxx.xxx.xxx.xxx
+</span></span><span class="line"><span class="cl">User 用户名
+</span></span><span class="line"><span class="cl">Port 端口号
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样就可以使用 <code>ssh hostname</code> 进行主机连接了，每新加一台管理服务器只需更新这个文件就可。</p>
+<p>同时为了安全应该禁用 root 用户登录 和 密码登录，使用 <code>sudo vim /etc/ssh/sshd_config</code> 编辑文件，进行以下修改。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">RSAAuthentication yes <span class="c1">#开启RSA验证</span>
+</span></span><span class="line"><span class="cl">PubkeyAuthentication yes <span class="c1">#是否使用公钥验证</span>
+</span></span><span class="line"><span class="cl">PasswordAuthentication no <span class="c1">#禁止使用密码验证登录</span>
+</span></span><span class="line"><span class="cl">PermitRootLogin no <span class="c1">#禁止root用户登录</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>这样的服务器管理方法对于管理几台或十几台服务器是对开发者比较好的，简单也安全。</p>
+<p>对于更多的服务器管理，我们就需要工具和自动化脚本了。</p>
+<p>现代开发者，请学会如何使用 docker ，不仅仅是开发会让你很方便，而且能使得你的开发环境和线上测试和生产环境完全一致，只要他们是用同一个 dockerfile 文件构建的镜像。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2017-09-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2017/019/" data-title="开发者的简单服务器集群管理" data-hashtags="运维"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2017/019/" data-hashtag="运维"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2017/019/" data-title="开发者的简单服务器集群管理"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2017/019/" data-title="开发者的简单服务器集群管理"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2017/019/" data-title="开发者的简单服务器集群管理"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2017/018/" class="prev" rel="prev" title="用开源组件构建属于你的 PHP 框架"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>用开源组件构建属于你的 PHP 框架</a>
+            <a href="/posts/2017/020/" class="next" rel="next" title="使用 Docker 完成 MySQL 数据库主从配置">使用 Docker 完成 MySQL 数据库主从配置<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

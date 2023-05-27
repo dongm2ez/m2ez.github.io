@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>配置本地 docker 中运行的 PHP xdebug 环境 - 麦索的麦田</title><meta name="Description" content="xdebug 是 PHP 的一个调试扩展，可以在 PHP 代码中设置断点，然后在 IDE 中调试 PHP 代码。这是一个非常有用的工具，可以帮助我们快速定位 PHP 代码中的问题。"><meta property="og:title" content="配置本地 docker 中运行的 PHP xdebug 环境" />
+<meta property="og:description" content="xdebug 是 PHP 的一个调试扩展，可以在 PHP 代码中设置断点，然后在 IDE 中调试 PHP 代码。这是一个非常有用的工具，可以帮助我们快速定位 PHP 代码中的问题。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2023/002/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-26T11:39:18+08:00" />
+<meta property="article:modified_time" content="2023-05-26T11:39:18+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="配置本地 docker 中运行的 PHP xdebug 环境"/>
+<meta name="twitter:description" content="xdebug 是 PHP 的一个调试扩展，可以在 PHP 代码中设置断点，然后在 IDE 中调试 PHP 代码。这是一个非常有用的工具，可以帮助我们快速定位 PHP 代码中的问题。"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2023/002/" /><link rel="prev" href="https://blog.m2ez.com/posts/2023/001/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "配置本地 docker 中运行的 PHP xdebug 环境",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2023\/002\/"
+        },"genre": "posts","keywords": "debug, docker, PHP","wordcount":  619 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2023\/002\/","datePublished": "2023-05-26T11:39:18+08:00","dateModified": "2023-05-26T11:39:18+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": "xdebug 是 PHP 的一个调试扩展，可以在 PHP 代码中设置断点，然后在 IDE 中调试 PHP 代码。这是一个非常有用的工具，可以帮助我们快速定位 PHP 代码中的问题。"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">配置本地 docker 中运行的 PHP xdebug 环境</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-26">2023-05-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 619 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-创建一个包含-php-和-xdebug-的-dockerfile">1. 创建一个包含 PHP 和 Xdebug 的 Dockerfile</a></li>
+    <li><a href="#2-配置-phpini-文件">2. 配置 php.ini 文件</a></li>
+    <li><a href="#3-创建并配置虚拟主机可选">3. 创建并配置虚拟主机（可选）</a></li>
+    <li><a href="#4-构建并运行-docker-容器">4. 构建并运行 Docker 容器</a></li>
+    <li><a href="#5-配置-phpstorm">5. 配置 PhpStorm</a></li>
+    <li><a href="#6-设置-php_ide_config-环境变量">6. 设置 PHP_IDE_CONFIG 环境变量</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。</p>
+<p>在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始：</p>
+<h2 id="1-创建一个包含-php-和-xdebug-的-dockerfile">1. 创建一个包含 PHP 和 Xdebug 的 Dockerfile</h2>
+<p>首先创建一个 <code>Dockerfile</code>，包含 PHP 和 Xdebug 的安装步骤。以下是一个简单的示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> php:8.2-apache</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pecl install xdebug <span class="o">&amp;&amp;</span> docker-php-ext-enable xdebug<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./php.ini /usr/local/etc/php/conf.d/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./000-default.conf /etc/apache2/sites-available/<span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>此示例使用了官方 PHP 8.2 容器，并安装了 Xdebug 扩展。</p>
+<h2 id="2-配置-phpini-文件">2. 配置 php.ini 文件</h2>
+<p>在项目中创建一个 <code>php.ini</code> 文件，包含以下 Xdebug 配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">xdebug.mode</span><span class="o">=</span><span class="s">debug</span>
+</span></span><span class="line"><span class="cl"><span class="na">xdebug.start_with_request</span><span class="o">=</span><span class="s">yes</span>
+</span></span><span class="line"><span class="cl"><span class="na">xdebug.client_host</span><span class="o">=</span><span class="s">host.docker.internal</span>
+</span></span><span class="line"><span class="cl"><span class="na">xdebug.client_port</span><span class="o">=</span><span class="s">9003</span>
+</span></span><span class="line"><span class="cl"><span class="na">xdebug.idekey</span><span class="o">=</span><span class="s">PHPSTORM</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>xdebug.mode=debug</code> 启用调试模式。</li>
+<li><code>xdebug.start_with_request=yes</code> 指示 Xdebug 对每个请求启动调试。</li>
+<li><code>xdebug.client_host=host.docker.internal</code> 特殊 DNS 名称，用于从容器内访问主机。Docker 容器通常使用 <code>host.docker.internal</code> 这个别名来引用主机系统。对于 Docker Desktop for Mac 和 Windows 工作。</li>
+<li><code>xdebug.client_port=9003</code> 是 Xdebug 3 中的默认监听端口。在 PhpStorm 中也使用相同端口。</li>
+<li><code>xdebug.idekey=PHPSTORM</code> 设置 IDE key。这对应于您在 PhpStorm 中配置的 key。</li>
+</ul>
+<h2 id="3-创建并配置虚拟主机可选">3. 创建并配置虚拟主机（可选）</h2>
+<p>如果需要，创建一个 <code>000-default.conf</code> 文件，其中包含您的 Apache 虚拟主机配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;VirtualHost</span> <span class="err">*:80</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    DocumentRoot /var/www/html/public
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;Directory</span> <span class="err">/var/www/html/public</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        AllowOverride All
+</span></span><span class="line"><span class="cl">        Require all granted
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/Directory&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/VirtualHost&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4-构建并运行-docker-容器">4. 构建并运行 Docker 容器</h2>
+<p>在 Dockerfile 所在的目录中运行以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker build -t my-php-xdebug .
+</span></span><span class="line"><span class="cl">docker run -d -p 80:80 --name my-php-xdebug-instance -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/var/www/html my-php-xdebug-container
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此命令将构建一个名为 <code>my-php-xdebug</code> 的 Docker 镜像，并使用名为 <code>my-php-xdebug-instance</code> 的实例运行它。将 <code>80:80</code> 映射到主机，以便通过 <code>http://localhost</code> 访问。</p>
+<h2 id="5-配置-phpstorm">5. 配置 PhpStorm</h2>
+<p>配置 PhpStorm，并确保等待计算机接收 Xdebug 连接（点击小电话图标，启用 PHP debug 监听）。</p>
+<p>对项目进行映射配置，确保在 PHPStrom 中可以断点到正确的位置。</p>
+<h2 id="6-设置-php_ide_config-环境变量">6. 设置 PHP_IDE_CONFIG 环境变量</h2>
+<p>在运行容器时使用 <code>--env</code> 标志设置 <code>PHP_IDE_CONFIG</code> 环境变量：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d --env <span class="nv">PHP_IDE_CONFIG</span><span class="o">=</span><span class="s2">&#34;serverName=myServer&#34;</span> my-php-xdebug-instance
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将 &ldquo;myServer&rdquo; 替换为在第 5 步的 PhpStorm 设置的服务器名称。这是比较重要的一步，如果不设置这个环境变量，那么在 PhpStorm 中断点将不会生效。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-05-26</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2023/002/" data-title="配置本地 docker 中运行的 PHP xdebug 环境" data-hashtags="debug,docker,PHP"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2023/002/" data-hashtag="debug"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2023/002/" data-title="配置本地 docker 中运行的 PHP xdebug 环境"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2023/002/" data-title="配置本地 docker 中运行的 PHP xdebug 环境"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2023/002/" data-title="配置本地 docker 中运行的 PHP xdebug 环境"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debug/">debug</a>,&nbsp;<a href="/tags/docker/">docker</a>,&nbsp;<a href="/tags/php/">PHP</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2023/001/" class="prev" rel="prev" title="一种监控报警阈值确定的思路 —— 统计分布算法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>一种监控报警阈值确定的思路 —— 统计分布算法</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

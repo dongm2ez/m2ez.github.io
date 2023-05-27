@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>一种监控报警阈值确定的思路 —— 统计分布算法 - 麦索的麦田</title><meta name="Description" content="在监控系统中如何确定一种可行的阈值，通过实践和理论结合找到一种思路，在实际应用中效果较好"><meta property="og:title" content="一种监控报警阈值确定的思路 —— 统计分布算法" />
+<meta property="og:description" content="在监控系统中如何确定一种可行的阈值，通过实践和理论结合找到一种思路，在实际应用中效果较好" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2023/001/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-23T09:39:18+08:00" />
+<meta property="article:modified_time" content="2023-02-23T09:39:18+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="一种监控报警阈值确定的思路 —— 统计分布算法"/>
+<meta name="twitter:description" content="在监控系统中如何确定一种可行的阈值，通过实践和理论结合找到一种思路，在实际应用中效果较好"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2023/001/" /><link rel="prev" href="https://blog.m2ez.com/posts/2022/004/" /><link rel="next" href="https://blog.m2ez.com/posts/2023/002/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "一种监控报警阈值确定的思路 —— 统计分布算法",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2023\/001\/"
+        },"genre": "posts","keywords": "监控系统","wordcount":  1226 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2023\/001\/","datePublished": "2023-02-23T09:39:18+08:00","dateModified": "2023-02-23T09:39:18+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": "在监控系统中如何确定一种可行的阈值，通过实践和理论结合找到一种思路，在实际应用中效果较好"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">一种监控报警阈值确定的思路 —— 统计分布算法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-23">2023-02-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1226 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#统计分布算法是什么">统计分布算法是什么</a></li>
+    <li><a href="#实践">实践</a></li>
+    <li><a href="#数据过滤">数据过滤</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="统计分布算法是什么">统计分布算法是什么</h2>
+<p>统计分布算法（Statistical Distribution Algorithm）：这种算法是根据数据的概率分布进行阈值设置的。比如，计算出数据的均值和标准差，通过均值加减若干个标准差来确定阈值。根据数据的分布情况，阈值的精度和敏感度较高，常见的应用场景有金融风控系统等。
+统计分布算法是根据数据的概率分布来进行阈值设置的。具体步骤如下：</p>
+<ol>
+<li>首先，需要计算数据集的均值和标准差。</li>
+<li>然后，根据需要确定一个合适的标准差倍数k (通常取2或3)。</li>
+<li>根据均值和标准差，计算上下界，公式为：upper_bound = mean + k * std_deviation; lower_bound = mean - k * std_deviation;</li>
+<li>最后，设置阈值为upper_bound和lower_bound之间的某个值，根据实际情况和需求来选择。
+统计分布算法是一种比较常用和实用的算法，适用于大部分的场景。但是不同的场景需要区别对待，具体的应用还需要结合实际情况来制定具体的数值</li>
+</ol>
+<h2 id="实践">实践</h2>
+<p>当我们建立一个对项目的监控系统，在系统出现异常时会有想要及时被告知的需求。对于大部分监控系统，提供了监控报警功能，但其中的阈值该如何确定是一个值得思考的问题。</p>
+<p>如果监控系统还没上线，大部分时候对于报警阈值往往是根据经验拍脑袋决定的，而对于已经上线获取到一定项目数据的监控系统，去确定报警阈值，可以使用统计学到一些方法根据历史数据确定一个值。</p>
+<p>比如我们收集了项目的异常事件，并发送到 Sentry 监控。在收集了一段时间后项目异常后，我们并不能百分百解决所有存在的异常问题：有一些问题出现的原因是暂时无法定位的；有一些是偶发性问题，影响并不大，优先级并不高；还有一些是可预知的事件，比如在版本释放后，会有一些服务暂时下线不可用引起的异常。</p>
+<p>那么监控系统里会经常驻留以上这些异常，这些异常对我们来说已经知晓，但暂无精力去解决，对于报警来说他们不算做系统异常情况。这时就需要根据这些异常值出现的数量确定我们的监控阈值该设定为多少合适。</p>
+<p>我们可将历史的异常数量按一定的单位时间导出为一张 Excel 表，根据这些数值用 AVERAGE 函数算出平均值，再用 STDEV.S 算出标准差。理论上单位时间内，“正常”值应该在平均数上下一个标准差内波动的数值上正常情况，监控系统只关心的是上限，所以低于一个标准差的值是不用关心的。那么如果较为关心超过正常值的情况，可将报警阈值设置为平均数加上一个标准差为第一个报警阈值，而后根据情况设置增加几个标准差为第二个报警阈值，以及第三、第四个等。</p>
+<p>根据正态分布和标准差的性质，我们从计算阈值要包含所有 0 开始的值，一个正标准差约覆盖 84.13% 的情况，两个标准差约覆盖 97.72% 的情况，三个标准差则为 99.87，之后发生的概率就是小于 1% 的发生概率了，那么也就是说可以根据这个思路，来确定我们该去设置几个标准差的值为报警阈值。</p>
+<h2 id="数据过滤">数据过滤</h2>
+<p>对于一些服务系统并不是全体 24 小时都有用户使用，所以对数据还需做一些过滤。比如过滤掉周末时间，过滤掉晚间无用户使用系统时间，然后对于过低和过高的值进行过滤</p>
+<h2 id="参考">参考</h2>
+<p>百度百科. 标准差[EB/OL]. [2023-02-23]. <a href="https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%B7%AE/1415772" target="_blank" rel="noopener noreffer">https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%B7%AE/1415772</a>
+.</p>
+<p>百度百科. 正态分布[EB/OL]. [2023-02-23]. <a href="https://baike.baidu.com/item/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/829892" target="_blank" rel="noopener noreffer">https://baike.baidu.com/item/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/829892</a>
+</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-02-23</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2023/001/" data-title="一种监控报警阈值确定的思路 —— 统计分布算法" data-hashtags="监控系统"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2023/001/" data-hashtag="监控系统"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2023/001/" data-title="一种监控报警阈值确定的思路 —— 统计分布算法"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2023/001/" data-title="一种监控报警阈值确定的思路 —— 统计分布算法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2023/001/" data-title="一种监控报警阈值确定的思路 —— 统计分布算法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/">监控系统</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2022/004/" class="prev" rel="prev" title="Highcharts 图表中图例显示状态存储的功能设计"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Highcharts 图表中图例显示状态存储的功能设计</a>
+            <a href="/posts/2023/002/" class="next" rel="next" title="配置本地 docker 中运行的 PHP xdebug 环境">配置本地 docker 中运行的 PHP xdebug 环境<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

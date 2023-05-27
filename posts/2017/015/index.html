@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>求钟表时针和分钟夹角问题 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="求钟表时针和分钟夹角问题" />
+<meta property="og:description" content="这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。 问题 给定一个时间值，需要计算出表盘上时针与分针的之间的夹角度数。 思路" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2017/015/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-08-21T16:59:37+08:00" />
+<meta property="article:modified_time" content="2017-08-21T16:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="求钟表时针和分钟夹角问题"/>
+<meta name="twitter:description" content="这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。 问题 给定一个时间值，需要计算出表盘上时针与分针的之间的夹角度数。 思路"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2017/015/" /><link rel="prev" href="https://blog.m2ez.com/posts/2017/014/" /><link rel="next" href="https://blog.m2ez.com/posts/2017/016/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "求钟表时针和分钟夹角问题",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2017\/015\/"
+        },"genre": "posts","keywords": "算法, python","wordcount":  880 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2017\/015\/","datePublished": "2017-08-21T16:59:37+08:00","dateModified": "2017-08-21T16:59:37+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">求钟表时针和分钟夹角问题</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-08-21">2017-08-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 880 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#问题">问题</a></li>
+        <li><a href="#思路">思路</a></li>
+        <li><a href="#实现代码">实现代码</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。</p>
+<h3 id="问题">问题</h3>
+<p>给定一个时间值，需要计算出表盘上时针与分针的之间的夹角度数。</p>
+<h3 id="思路">思路</h3>
+<p>虽然题目中只有一个条件，但其实已经有许多隐含条件包括在内。</p>
+<p>我们要得出的是时针和分针之间的角度，在一个钟表上因为钟表是圆形，所以我们得出第二个已知条件，表盘360°；第三个已知条件，表盘上有 12 个小时刻度；第三个已知条件，分针走一圈时针走一个刻度。</p>
+<p>虽然题目里没有给出以上条件，但常识告诉我们这些条件。</p>
+<p>拿到这些条件我们的计算就简单了：</p>
+<p>首先计算得出一些我们需要的数值，如每增加一小时时针走多少度，分针增加一分钟走多少度，分针每走一分钟带动时针走多少度。</p>
+<p>得到这些值后我们与给定的时间进行计算：</p>
+<p>小时 * 每增加一小时时针走多少度 = 整点时间时时针度数</p>
+<p>分钟 * 分针每走一分钟带动时针走多少度 = 分针带动时针度数</p>
+<p>整点时间时时针度数 + 分针带动时针度数 = 此时时针度数</p>
+<p>分钟 * 分针增加一分钟走多少度  = 分针度数</p>
+<p>此时时针度数 - 分针度数 = |夹角度数|</p>
+<p>取绝对值就得出了它们之间的夹角度数</p>
+<h3 id="实现代码">实现代码</h3>
+<p>Python 版</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">给定一个时间值算出时针与分针直接的夹角度数
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">hour</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">tm_hour</span> <span class="o">-</span> <span class="mi">12</span> <span class="k">if</span> <span class="n">times</span><span class="o">.</span><span class="n">tm_hour</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="k">else</span> <span class="n">times</span><span class="o">.</span><span class="n">tm_hour</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minute</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">tm_min</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 钟表总度数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timekeeper_angle</span> <span class="o">=</span> <span class="mi">360</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 时间刻度份数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scale</span> <span class="o">=</span> <span class="mi">12</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 每份时间刻度占用的度数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">one_scale</span> <span class="o">=</span> <span class="n">timekeeper_angle</span> <span class="o">/</span> <span class="n">scale</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 分针每走1分钟时针转动的度数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">one_relate_scale</span> <span class="o">=</span> <span class="n">one_scale</span> <span class="o">/</span> <span class="mi">60</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 分针每走1分钟转动的度数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">one_minute_scale</span> <span class="o">=</span> <span class="n">timekeeper_angle</span> <span class="o">/</span> <span class="mi">60</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 小时*每份度数 得 整点时间的时针度数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">integral_scale</span> <span class="o">=</span> <span class="n">hour</span> <span class="o">*</span> <span class="n">one_scale</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 分针带动时针走的度数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">relate_scale</span> <span class="o">=</span> <span class="n">minute</span> <span class="o">*</span> <span class="n">one_relate_scale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 时针真正的起始点度数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">relay_hour_scale</span> <span class="o">=</span> <span class="n">integral_scale</span> <span class="o">+</span> <span class="n">relate_scale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 分钟的现在度数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">relay_minute_scale</span> <span class="o">=</span> <span class="n">minute</span> <span class="o">*</span> <span class="n">one_minute_scale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">relay_hour_scale</span> <span class="o">-</span> <span class="n">relay_minute_scale</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">calculate</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>PHP 版</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">calculate</span><span class="p">(</span><span class="nv">$time</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">$hour</span> <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span> <span class="nx">date</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="nv">$time</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$hour</span> <span class="o">=</span>  <span class="nv">$hour</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="o">?</span> <span class="nv">$hour</span> <span class="o">-</span> <span class="mi">12</span> <span class="o">:</span> <span class="nv">$hour</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$minute</span> <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span> <span class="nx">date</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="nv">$time</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 钟表总度数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$timekeeperAngle</span> <span class="o">=</span> <span class="mi">360</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 时间刻度份数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$scale</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 每份时间刻度占用的度数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$oneScale</span> <span class="o">=</span> <span class="nv">$timekeeperAngle</span> <span class="o">/</span> <span class="nv">$scale</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 分针每走1分钟时针转动的度数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$oneRelateScale</span> <span class="o">=</span> <span class="nv">$oneScale</span> <span class="o">/</span> <span class="mi">60</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 分针每走1分钟转动的度数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$oneMinuteScale</span> <span class="o">=</span> <span class="nv">$timekeeperAngle</span> <span class="o">/</span> <span class="mi">60</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 小时*每份度数 得 整点时间的时针度数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$integralScale</span> <span class="o">=</span> <span class="nv">$hour</span> <span class="o">*</span> <span class="nv">$oneScale</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 分针带动时针走的度数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$relateScale</span> <span class="o">=</span> <span class="nv">$minute</span> <span class="o">*</span> <span class="nv">$oneRelateScale</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 时针真正的起始点度数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$relayHourScale</span> <span class="o">=</span> <span class="nv">$integralScale</span> <span class="o">+</span> <span class="nv">$relateScale</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 分钟的现在度数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$relayMinuteScale</span> <span class="o">=</span> <span class="nv">$minute</span> <span class="o">*</span> <span class="nv">$oneMinuteScale</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="nx">abs</span><span class="p">(</span><span class="nv">$relayHourScale</span> <span class="o">-</span> <span class="nv">$relayMinuteScale</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">calculate</span><span class="p">(</span><span class="nx">time</span><span class="p">());</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2017-08-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2017/015/" data-title="求钟表时针和分钟夹角问题" data-hashtags="算法,python"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2017/015/" data-hashtag="算法"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2017/015/" data-title="求钟表时针和分钟夹角问题"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2017/015/" data-title="求钟表时针和分钟夹角问题"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2017/015/" data-title="求钟表时针和分钟夹角问题"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>,&nbsp;<a href="/tags/python/">python</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2017/014/" class="prev" rel="prev" title="Laravel 的 Eloquent模型 中的属性访问控制意义及实践"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Laravel 的 Eloquent模型 中的属性访问控制意义及实践</a>
+            <a href="/posts/2017/016/" class="next" rel="next" title="网络七层模型与四层模型区别">网络七层模型与四层模型区别<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

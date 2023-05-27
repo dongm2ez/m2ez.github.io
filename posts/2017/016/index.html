@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>网络七层模型与四层模型区别 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="网络七层模型与四层模型区别" />
+<meta property="og:description" content="作为一个 Web 程序员👨‍💻‍，对于网络模型你应该了解，知道网络到底是怎么进行通信的，进行工作的，为什么服务器能够接收到请求，做出响应。这里面的原" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2017/016/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-08-25T16:59:37+08:00" />
+<meta property="article:modified_time" content="2017-08-25T16:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="网络七层模型与四层模型区别"/>
+<meta name="twitter:description" content="作为一个 Web 程序员👨‍💻‍，对于网络模型你应该了解，知道网络到底是怎么进行通信的，进行工作的，为什么服务器能够接收到请求，做出响应。这里面的原"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2017/016/" /><link rel="prev" href="https://blog.m2ez.com/posts/2017/015/" /><link rel="next" href="https://blog.m2ez.com/posts/2017/017/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "网络七层模型与四层模型区别",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2017\/016\/"
+        },"genre": "posts","keywords": "网络","wordcount":  1406 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2017\/016\/","datePublished": "2017-08-25T16:59:37+08:00","dateModified": "2017-08-25T16:59:37+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">网络七层模型与四层模型区别</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-08-25">2017-08-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1406 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#网络模型历史及起源">网络模型历史及起源</a></li>
+        <li><a href="#osi-模型">OSI 模型</a></li>
+        <li><a href="#分层功能职责">分层功能职责</a></li>
+        <li><a href="#数据交互">数据交互</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>作为一个 Web 程序员👨‍💻‍，对于网络模型你应该了解，知道网络到底是怎么进行通信的，进行工作的，为什么服务器能够接收到请求，做出响应。这里面的原理应该是每个 Web 程序员应该了解的。</p>
+<h3 id="网络模型历史及起源">网络模型历史及起源</h3>
+<p>网络模型不是一开始就有的，在网络刚发展时，网络协议是由各互联网公司自己定义的，比如那时的巨头网络公司 IBM、微软、苹果、思科等等，他们每家公司都有自己的网络协议，各家的协议也是不能互通的，那时候大家觉得这是可以的，但对消费者来说这实际上是技术垄断，因为你买了苹果的设备就不能用微软的设备，因为他们的协议不是一样的，没有统一的标准来规范网络协议，都是这些公司的私有协议。</p>
+<p>这样大大的阻碍了互联网的发展，为了解决这个问题，国际标准化组织 1984 提出的模型标准，简称 OSI（Open Systems Interconnection Model），这是一个标准，并非实现。</p>
+<p>TCP/IP 协议就是基于此模型设计。</p>
+<h3 id="osi-模型">OSI 模型</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/15036719876853.jpg"
+        data-srcset="/posts/2017/images/15036719876853.jpg, /posts/2017/images/15036719876853.jpg 1.5x, /posts/2017/images/15036719876853.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/15036719876853.jpg"
+        title="/posts/2017/images/15036719876853.jpg" /></p>
+<p>OSI 模型是从上往下的，越底层越接近硬件，越往上越接近软件，这七层模型分别是物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。</p>
+<p>这种分层模型是我们计算机科学中常用的方法，分层直接通过规定好的接口进行交互，每一层其实对它的上层或下层都是一个黑盒，其实它的上层和下层也不关心它内部的实现，只关心它们之间进行交互的接口，接口是规定的信息，要给到什么都是规定好的。</p>
+<p>这种分层模型的好处就是可以对任何一层进行独立升级、优化，只要保持接口不变那么这个模型整体就不会有问题，比如说物理层从以太网线到光纤，我们的网络速度大大提高，但是整个技术革新的时候，其他层是没有做更多工作的，工作只在物理层完成。这样做的好处也同时提高了我们技术的发展革新速度。</p>
+<h3 id="分层功能职责">分层功能职责</h3>
+<ul>
+<li>物理层：底层数据传输，如网线；网卡标准。</li>
+<li>数据链路层：定义数据的基本格式，如何传输，如何标识；如网卡MAC地址。</li>
+<li>网络层：定义IP编址，定义路由功能；如不同设备的数据转发。</li>
+<li>传输层：端到端传输数据的基本功能；如 TCP、UDP。</li>
+<li>会话层：控制应用程序之间会话能力；如不同软件数据分发给不同软件。</li>
+<li>标识层：数据格式标识，基本压缩加密功能。</li>
+<li>应用层：各种应用软件，包括 Web 应用。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/15036733761966.jpg"
+        data-srcset="/posts/2017/images/15036733761966.jpg, /posts/2017/images/15036733761966.jpg 1.5x, /posts/2017/images/15036733761966.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/15036733761966.jpg"
+        title="/posts/2017/images/15036733761966.jpg" /></p>
+<h3 id="数据交互">数据交互</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/15036739518682.jpg"
+        data-srcset="/posts/2017/images/15036739518682.jpg, /posts/2017/images/15036739518682.jpg 1.5x, /posts/2017/images/15036739518682.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/15036739518682.jpg"
+        title="/posts/2017/images/15036739518682.jpg" /></p>
+<p>我们简化模型，假设有 计算机 A 和 计算机 B 要进行信息交互，比如 A 上开发了一个网页，需要 B 去访问。B 发出一个请求给 A，那么请求数据从 B 的 应用层开始向下传到表示层、再从表示层传到会话层直到物理层，通过物理层传递到 A ，A 的物理层接到请求后将请求向上传递到自己的应用层，应用层再将要请求的数据向自己的物理层方向传递然后 B 接到数据传递数据到自己的应用层。这里简化理解，我们去除了三次握手四次挥手的逻辑。</p>
+<p>数据就是这样在计算机和网络中进行传递的。这其中做的工作就是每层进行层层解包和附加自己所要传递的信息，术语叫做报头。</p>
+<p>在四层，既传输层数据被称作段（Segments）；三层网络层数据被称做包（Packages）；二层数据链路层时数据被称为帧（Frames）；一层物理层时数据被称为比特流（Bits）。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2017/images/15036752337077.jpg"
+        data-srcset="/posts/2017/images/15036752337077.jpg, /posts/2017/images/15036752337077.jpg 1.5x, /posts/2017/images/15036752337077.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/2017/images/15036752337077.jpg"
+        title="/posts/2017/images/15036752337077.jpg" /></p>
+<p>TCP/IP 模型将 OSI 模型由七层简化为四层，传输层和网络层被完整保留，因此网络中最核心的技术就是传输层和网络层技术。</p>
+<p>TCP/IP 协议中每层技术举例：</p>
+<p>网络访问层：ARP、RARP</p>
+<p>互联网层：ICMP、IP</p>
+<p>传输层：TCP、UDP</p>
+<p>应用层：DNS、FTP、HTTP、SMTP、TELNET、IRC、WHOIS</p>
+<h3 id="总结">总结</h3>
+<p>网络七层模型是一个标准，而非实现。</p>
+<p>网络四层模型是一个实现的应用模型。</p>
+<p>网络四层模型由七层模型简化合并而来。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2017-08-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2017/016/" data-title="网络七层模型与四层模型区别" data-hashtags="网络"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2017/016/" data-hashtag="网络"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2017/016/" data-title="网络七层模型与四层模型区别"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2017/016/" data-title="网络七层模型与四层模型区别"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2017/016/" data-title="网络七层模型与四层模型区别"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E7%BD%91%E7%BB%9C/">网络</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2017/015/" class="prev" rel="prev" title="求钟表时针和分钟夹角问题"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>求钟表时针和分钟夹角问题</a>
+            <a href="/posts/2017/017/" class="next" rel="next" title="Web 金字塔式开发框架分层模型概述">Web 金字塔式开发框架分层模型概述<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

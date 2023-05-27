@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Arch Linux 傻瓜安装笔记 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="Arch Linux 傻瓜安装笔记" />
+<meta property="og:description" content="因为没有傻瓜的安装引导程序，安装Arch的工作是一个对linux菜鸟很艰难的工作，但是当你能安装的时候，你就会对linux有更好的理解，我把" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2019/001/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-02-23T16:59:37+08:00" />
+<meta property="article:modified_time" content="2019-02-23T16:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Arch Linux 傻瓜安装笔记"/>
+<meta name="twitter:description" content="因为没有傻瓜的安装引导程序，安装Arch的工作是一个对linux菜鸟很艰难的工作，但是当你能安装的时候，你就会对linux有更好的理解，我把"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2019/001/" /><link rel="prev" href="https://blog.m2ez.com/posts/2019/002/" /><link rel="next" href="https://blog.m2ez.com/posts/2019/003/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Arch Linux 傻瓜安装笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2019\/001\/"
+        },"genre": "posts","keywords": "Linux","wordcount":  1456 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2019\/001\/","datePublished": "2019-02-23T16:59:37+08:00","dateModified": "2019-02-23T16:59:37+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Arch Linux 傻瓜安装笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-02-23">2019-02-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1456 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#分区">分区</a></li>
+    <li><a href="#主机名">主机名</a></li>
+    <li><a href="#语言环境">语言环境</a></li>
+    <li><a href="#引导器">引导器</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>因为没有傻瓜的安装引导程序，安装Arch的工作是一个对linux菜鸟很艰难的工作，但是当你能安装的时候，你就会对linux有更好的理解，我把我的安装Arch的经验与大家分享一下，希望对大家有帮助。</p>
+<p>首先你需要一个到arch的官方网站下载一个镜像，然后先用镜像在虚拟机中安装，我是在虚拟机中尝试三次后安装到物理环境中的。</p>
+<p>安装步骤</p>
+<p>首先确认你可以连接到互联网上面，因为Arch的安装需要在联网环境下进行。</p>
+<p>可以用以下两个命令去连接互联网：</p>
+<p>有线连接 <code># dhcpcd</code></p>
+<p>无线连接 <code># wifi-menu</code></p>
+<h2 id="分区">分区</h2>
+<p>需要手动分区，fdisk和cfdisk都可以，前者是交互式命令行，后者是命令行下的图像化操作。至于如何操作，请搜索这两个工具的使用教程，因为不是这篇文章的重点，所以跳过。</p>
+<p>可以把linux全部安装在一起，也可以选择不同的的系统部件安装在不同的分区中。</p>
+<p>因为我是1个128G的SSD和1T的普通硬盘我的分区方案是这样的</p>
+<p>将SSD分为3部分
+系统内核 200M /boot
+变量数据 16G /var
+根分区 112G /</p>
+<p>普通硬盘直接格式化挂载到/home</p>
+<p>没有使用交换分区，因为我的内存8G我觉得交换分区是不需要的。</p>
+<p>分区结束后执行格式化命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkfs.ext4 -b <span class="m">4096</span> /dev/sda1
+</span></span><span class="line"><span class="cl">mkfs.ext4 -b <span class="m">4096</span> /dev/sdb1
+</span></span><span class="line"><span class="cl">mkfs.ext4 -b <span class="m">4096</span> /dev/sdb2
+</span></span><span class="line"><span class="cl">mkfs.ext4 -b <span class="m">4096</span> /dev/sdb3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在我的系统分区中sda是普通硬盘，sdb是SSD</p>
+<p>当分区完成后就是挂载，需要将硬盘挂载到镜像的/mnt目录，这个目录是linux中专门用来挂载外部设备的，比如U盘，光驱之类的 。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># mount -t ext4 /dev/sda1 /mnt/home</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># mount -t ext4 /dev/sdb1 /mnt/boot</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># mount -t ext4 /dev/sdb2 /mnt/var</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># mount -t ext4 /dev/sdb3 /mnt</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改软件源，软件源是arch的软件仓库，虽然不修改使用默认的也可，但速度体验就不是很好了。</p>
+<p><code>https://www.archlinux.org/mirrorlist/</code></p>
+<p>在官方的软件源生成页面选择china可以获取到最新的国内软件源</p>
+<p>修改软件源配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vim /etc/pacman.d/mirrorlist
+</span></span><span class="line"><span class="cl">nano /etc/pacman.d/mirrorlist
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以上只是用两种不同的编辑器进行编辑，看你喜欢哪种了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sed -i <span class="s2">&#34;s/^/#/g&#34;</span> /etc/pacman.d/mirrorlist //
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该命令可以使文件全部被注释，记得备份。然后把上面网址获取的最新源粘贴进去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pacman -Syy
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更新一下软件源</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pacstrap /mnt base base-devel vim
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装基本系统，base是基础软件包组，base-devel是基础开发包组，vim是世界上最好的编辑器。</p>
+<p>生成fstab</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">genfstab -U -p /mnt &gt; /mnt/etc/fstab
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>切换到新安装的系统中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">arch-chroot /mnt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">passwd root
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行passwd，设置root密码，要敲两遍，不要忘了它。</p>
+<h2 id="主机名">主机名</h2>
+<p>用vim打开/etc/hostname，往里面写一个作为主机名的名字，只要字母、横线和数字。</p>
+<h2 id="语言环境">语言环境</h2>
+<p>然后用vim打开/etc/locale.gen，然后找到以下四行，取消注释:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">en_US.UTF-8
+</span></span><span class="line"><span class="cl">zh_CN.UTF-8
+</span></span><span class="line"><span class="cl">zh_CN.GBK
+</span></span><span class="line"><span class="cl">zh_CN.GB2312
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后运行 <code># locale-gen</code></p>
+<p>再编辑<code>/etc/locale.conf</code>，里面写上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">LANG</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在生成启动要用到的ramdisk</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkinitcpio -p linux
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pacman -S wpa_supplicant dialog
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>保证新系统可以联网，现在你可以安装其他觉得需要的包。</p>
+<h2 id="引导器">引导器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pacman -S grub
+</span></span><span class="line"><span class="cl">grub-install --target<span class="o">=</span>i386-pc --recheck --debug /dev/sdb
+</span></span><span class="line"><span class="cl">grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我的系统是安装到/dev/sdb中的，根据自己实际情况修改此参数</p>
+<p>接下来执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">umount -R /mnt
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这些命令分别是：</p>
+<p>退出硬盘的linux系统</p>
+<p>取消/mnt下的所用挂载</p>
+<p>重启</p>
+<p>进入新安装的系统后执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">useradd -m admin
+</span></span><span class="line"><span class="cl">passwd admin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>新建一个叫admin用户给其设置密码，平时使用linux不应该在root用户下进行。</p>
+<p>记得执行最开始的那两个连接网络的命令的其中一个，不然没有网络，接下来你是无法安装软件的。</p>
+<p>其实这已经算安装完成了arch，但这在服务器上可以，在你的个人电脑上体验还是差些，你可以安装一个桌面环境。</p>
+<p>我选择的是gnome，看你的喜好了。</p>
+<p>其他的软件啊，配置啊，等等这些有两位前辈已经写好了，我参考了他们的教程来安装我的arch，大家可以拿来参考。</p>
+<p><a href="https://wiki.archlinux.org/index.php/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">官方安装教程</a>
+</p>
+<p>最后官方的wiki是相当好的教程，你遇到的arch的基础问题基本都可以在里面找到解决方法，学会使用它。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2019-02-23</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2019/001/" data-title="Arch Linux 傻瓜安装笔记" data-hashtags="Linux"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2019/001/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2019/001/" data-title="Arch Linux 傻瓜安装笔记"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2019/001/" data-title="Arch Linux 傻瓜安装笔记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2019/001/" data-title="Arch Linux 傻瓜安装笔记"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2019/002/" class="prev" rel="prev" title="用 Raspberry Pi 3（树莓派）和 Android Things 搭建物联网开发环境"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>用 Raspberry Pi 3（树莓派）和 Android Things 搭建物联网开发环境</a>
+            <a href="/posts/2019/003/" class="next" rel="next" title="从排序数组中删除重复项">从排序数组中删除重复项<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

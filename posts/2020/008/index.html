@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>原码、反码、补码 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="原码、反码、补码" />
+<meta property="og:description" content="机器码 要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称为Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2020/008/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-09-26T19:31:25+08:00" />
+<meta property="article:modified_time" content="2020-09-26T19:31:25+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="原码、反码、补码"/>
+<meta name="twitter:description" content="机器码 要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称为Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2020/008/" /><link rel="prev" href="https://blog.m2ez.com/posts/2020/007/" /><link rel="next" href="https://blog.m2ez.com/posts/2021/001/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "原码、反码、补码",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2020\/008\/"
+        },"genre": "posts","keywords": "计算机基础, 信息表示和处理","wordcount":  3318 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2020\/008\/","datePublished": "2020-09-26T19:31:25+08:00","dateModified": "2020-09-26T19:31:25+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">原码、反码、补码</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-09-26">2020-09-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3318 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#机器码">机器码</a></li>
+    <li><a href="#真值">真值</a></li>
+    <li><a href="#原码">原码</a></li>
+    <li><a href="#反码">反码</a></li>
+    <li><a href="#补码">补码</a></li>
+    <li><a href="#为什么要使用这么多码">为什么要使用这么多码</a></li>
+    <li><a href="#将符号位参与计算">将符号位参与计算</a></li>
+    <li><a href="#补码的引入">补码的引入</a></li>
+    <li><a href="#多出来那一个数">多出来那一个数</a></li>
+    <li><a href="#原理简述">原理简述</a></li>
+    <li><a href="#同余定理">同余定理</a></li>
+    <li><a href="#证明">证明</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="机器码">机器码</h2>
+<p>要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称为Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货币比特币的称谓来源于此）。
+在机器码中最高位被称为符号位，如果为0则表示此为正数，如果为1则表示此为负数。</p>
+<p>要知道我们的数其实都是有正负之分的，正数的完全写法应该是 +x，通常为了 讨论和书写简单 + 号是被省略的， 只有在和负数讨论时为了精准描述我们此时才会将正数的符号显式书写。
+为了比较和讨论正数和负数，最好的方法是将正数和负数放在数轴上进行讨论。</p>
+<p>我们知道以原点为起点，向左3个单位长度所得的值和向右3个单位长度所得的值，它们的绝对值是相等的，所不同的仅仅是它们的符号。这两个数在十进制中表示为 +(-)3，而 +3 在计算机的字长为8位，转换位二进制就是00000011，-3 则为 10000011。
+将两个数对齐比较： 00000011
+10000011</p>
+<p>可以发现忽略符号位后，其值也是一样的，既获得的两个数的绝对值是一样的。</p>
+<h2 id="真值">真值</h2>
+<p>因为第一位是符号位，所以在机器中的形式值不等于真正的数值，-3的二进制数是10000011，其真值就是-3，但其形式值是131（无视符号位转换二进制到十进制）。为了区别，计算机的数表示中将符号位的机器数对应的数值称为机器码的真值。
+例如：</p>
+<p>00000001 的真值是 +00000001 ，既 +1</p>
+<p>10000001 的真值是 -0000001，既 -1</p>
+<h2 id="原码">原码</h2>
+<p>对于一个数，在计算机中是要使用一定的编码方式进行存储的，原码就是存储其中一个具体数字的编码方式。</p>
+<p>原码的意思是符号位加上真值的绝对值，解释就是第一位表示符号，其余表示值，那么一个8位二进制的数的表示形式就是：
+[符号位]原码 = [+1]原码 = 0000 0001 [符号位]原码 = [-1]原码 = 1000 0001
+因为第一位是符号位，所以这个8位二进制的取值范围是 [1111 1111,0111 1111]这样一个闭区间，转为十进制
+就是[-127,127]，这就是一个字节。</p>
+<h2 id="反码">反码</h2>
+<p>反码的定义是：</p>
+<p>正数的反码是本身，负数的反码是它的原码符号位不变，其余各位取反。[+1] = [00000001]原码 = [00000001]反码
+[-1] = [10000001]反码 = [11111110]反码</p>
+<p>这是另一种机器存储的具体数字的编码方式，只不过对于人类来说其无法直观理解，通常人类要想理解其真值需要转换成原码再计算。</p>
+<h2 id="补码">补码</h2>
+<p>补码的定义是：</p>
+<p>正数的补码是本身，负数的补码是它的原码符号位不变，其余各位取反后再+1（既反码+1）。[+1] = [00000001]原码 = [00000001]反码 = [00000001]补码
+[-1] = [10000001]原码 = [11111110]反码 = [11111111]补码</p>
+<p>依然是人类无法直观看出其数值，需要转换成原码计算其数值。</p>
+<h2 id="为什么要使用这么多码">为什么要使用这么多码</h2>
+<p>我们现在具有了三种计算机编码方式的概念，那么也就是我们知道对一个数计算机可以用三种方式去表示。对于正数三种方式都是相同的，无需过多解释。
+对于负数它们则是完全不同的：</p>
+<p>[-1] = [10000001]原码 = [11111110]反码 = [11111111]补码</p>
+<p>既然原码才是被人类直接识别的方式，为何要有反码和补码？</p>
+<p>对于人类来说，知道第一位是符号位，在计算时我们根据符号位选择真值区域进行加减。但对计算机来说，去判断辨别符号位然后进行计算会让计算机的电路设计变得十分复杂，制造和维护成本高昂！因此科学家发明了将符号位也参与运算的方法。
+根据运算法则：减去一个正数，就等于加上一个相同的负数，即 1-1 = 1 + （-1）= 0，所以对于计算机来说实际上是只有加法而没有减法的，这样的设计让电路变得简单了，实现加法计算机只需要一个加法电路实现，而不需单独实现一个加法电路再实现一个减法电路。
+同样的道理乘法对于计算机来说就是连续的加上一个数，除法就是连续的加上一个数的相反数。这就是所谓的计算思维的一点，解决一个问题用一种方式不断的重复去完成，而且计算机可以不知疲倦的日夜不断计算。</p>
+<h2 id="将符号位参与计算">将符号位参与计算</h2>
+<p>科学家探索将符号位参与运算，那么计算十进制运算 1-1=0 ，如果只有原码：</p>
+<p>1 - 1 = 1 + (-1) = [00000001]原码 + [10000001]原码 = [10000010]原码 = -2</p>
+<p>这样得出的是一个错误的数，只用原码无法解决这个问题，为了解决原码做减法的问题，发明了反码：</p>
+<p>1 - 1 = 1 + (-1) = [0000 0001]原码 + [1000 0001]原码= [0000 0001]反码 + [1111 1110]反码 = [1111
+1111]反码 = [1000 0000]原码 = -0</p>
+<h2 id="补码的引入">补码的引入</h2>
+<p>使用反码后，减法的计算结果的真值正确了，现在出现一个问题，对于人类来说无论是 +0 还是 -0 ，我们认为都是一样的，因为对我们来说带符号的 0 是没有任何意义的，但是对计算机来说却是 [0000 0000]原码 和 [1000 0000]原码 两个编码表示 0。
+补码就是为了解决这个问题而出现的：</p>
+<p>1-1 = 1 + (-1) = [0000 0001]原码 + [1000 0001]原码 = [0000 0001]补码 + [1111 1111]补码 = [0000
+0000]补码=[0000 0000]原码</p>
+<p>这样 0 就表示为 [0000 0000]，-0 则不存在了，而且可以用[1000 0000] 表示 -128：</p>
+<p>(-1) + (-127) = [1000 0001]原码 + [1111 1111]原码 = [1111 1111]补码 + [1000 0001]补码 = [1000
+0000]补码</p>
+<h2 id="多出来那一个数">多出来那一个数</h2>
+<p>-1-127的结果是-128，在有补码参与的运算结果中 [1000 0000]补码 就是-128，但是实际上是使用以前 -0 的补码来表示 -128，因此 -128 是一个特殊数，并没有原码和反码的表示。
+在使用了补码后，不仅仅修复了0的符号问题，同时还能多表示一个最低数，这就是使用原码和反码表示一个8位字节的范围是[-127.127]，而使用补码表示的范围是[-128,127]。</p>
+<h2 id="原理简述">原理简述</h2>
+<p>计算机科学家巧妙的将符号位作为参与计算的要素，减法变加法这背后是具有数学原理的。</p>
+<p>我们将钟表想成一个12进制的工具，如果当前时间是6点，如果希望将时间设置为4点，我们可以这样拨动时针做：
+1.逆时针拨动2小时：6 - 2 = 4
+2. 顺时针拨10小时：（6+10）mod 12 = 4
+3. 顺时针拨22小时（10+12）：（6+22）mod 12 = 4</p>
+<p>三种方法都可以取到相同结果，逆时针拨动的结果可以替代顺时针的方法，也就是减法替代加法。现在问题被简化成为如何用一个正数替代一个负数，这就要提到数学中的一个概念同余定理。</p>
+<h2 id="同余定理">同余定理</h2>
+<p>同余定理是数论中的重要概念，定理是这样的：</p>
+<p>给定一个正整数 m，如果两个整数 a 和 b 满足 a-b 能够被 m 整除，即 (a-b)/m 得到一个整数，那么就称整数 a 与 b 对模 m 同余，记作a≡b(mod m)
+公式：x mod y = x - y L x / y J，意义：x mod y 等于 x 减去 y 乘上 x 与 y 的商的下界</p>
+<p>-3 mod 2 = -3 - 2xL -3/2 J = -3 - 2xL-1.5J = -3 - 2x(-2) = -3 + 4 = 1</p>
+<p>举例：</p>
+<p>4 mod 12 = 4</p>
+<p>16 mod 12 = 4</p>
+<p>28 mod 12 = 4</p>
+<p>所以 4，16，28 关于模 12 同余。对于负数：
+(-2) mod 12 = 12 - 2= 10</p>
+<p>(-4) mod 12 = 12 - 4 = 8</p>
+<p>(-5) mod 12 = 12 - 5 = 7</p>
+<h2 id="证明">证明</h2>
+<p>在钟表问题上：</p>
+<p>逆时针拨2小时 = 顺时针拨10小时逆时针拨4小时 = 顺时针拨8小时逆时针拨5小时= 顺时针拨7小时
+那么用数学公式表示就是：</p>
+<p>（-2）mod 12 = 10，10 mod 12 = 10；意义：-2 与 10 同余</p>
+<p>（-4）mod 12 = 8，8 mod 12 = 8；意义：-4 与 8 同余</p>
+<p>（-5）mod 12 = 7，7 mod 12 = 7；意义：-5 与 7 同余</p>
+<p>现在运用同余数的性质其中之一反身性（a ≡ a (mod m)）与线性运算定理，则有： 7 ≡ 7 (mod 12)
+(-2) ≡ 10 (mod 12)</p>
+<p>7 -2 ≡ 7 + 10 (mod 12)</p>
+<p>为一个负数找到它的正数同余数，即 7 -2 ≡ 7 + 10 (mod 12) 。回到二进制码的计算问题上
+2-1=2+(-1) = [0000 0010]原码 + [1000 0001]原码= [0000 0010]反码 + [1111 1110]反码</p>
+<p>-1 的反码是 1111 1110，如果认为这是原码，则 [1111 1110]原码 = -126，去除符号位的话就是126，那么就有：
+(-1) mod 127 = 126</p>
+<p>126 mod 127 = 126</p>
+<p>即</p>
+<p>(-1) ≡ 126 (mod 127)</p>
+<p>2-1 ≡ 2+126 (mod 127)</p>
+<p>也就是说 2-1 和 2+126 的余数结果相同，而这个余数就是我们期望的计算机结果：2-1=1。那么证明一个数的反码实际上就是这个数对于一个模的同余数，这个模就是所能表示的最大值，在钟表中表述就是转一圈后总能找到克表示范围内的正确数值。
+2+126是钟表时针转过了一圈，而因为符号位是参与计算的，正好和溢出的最高位形成正确的运算结果。反码已经将减法变成加法，为什么计算机还要使用补码，这样还能得到正确的结果不。
+2-1=2+(-1) = [0000 0010]原码 + [1000 0001]原码 = [0000 0010]补码 + [1111 1111]补码</p>
+<p>现在把 [1111 1111] 当成原码，去除符号位则 [0111 1111]原码 = 127。反码在基础上 +1 的话只是相当于增加了模的值，即：
+(-1) mod 128 = 127</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-09-26</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2020/008/" data-title="原码、反码、补码" data-hashtags="计算机基础,信息表示和处理"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2020/008/" data-hashtag="计算机基础"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2020/008/" data-title="原码、反码、补码"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2020/008/" data-title="原码、反码、补码"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2020/008/" data-title="原码、反码、补码"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>,&nbsp;<a href="/tags/%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%A4%84%E7%90%86/">信息表示和处理</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/007/" class="prev" rel="prev" title="迭代与需求的关系"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>迭代与需求的关系</a>
+            <a href="/posts/2021/001/" class="next" rel="next" title="Socket 连接的建立步骤">Socket 连接的建立步骤<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
