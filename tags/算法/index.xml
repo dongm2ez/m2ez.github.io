@@ -10,7 +10,7 @@
     <pubDate>Tue, 26 Jul 2022 10:27:53 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2022/002/</guid>
-    <description><![CDATA[总结一些数据结构与算法： 常见数据结构 数组 数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。 数组的特点： 支持随机]]></description>
+    <description><![CDATA[数据结构与算法脑图，总结一些数据结构与算法。]]></description>
 </item>
 <item>
     <title>从排序数组中删除重复项</title>

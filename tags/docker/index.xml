@@ -10,7 +10,7 @@
     <pubDate>Fri, 26 May 2023 11:39:18 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2023/002/</guid>
-    <description><![CDATA[在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 1. 创建一个包含 PHP 和 Xdebug]]></description>
+    <description><![CDATA[配置本地 docker 中运行的 PHP xdebug 环境的笔记]]></description>
 </item>
 <item>
     <title>使用 Docker 完成 MySQL 数据库主从配置</title>

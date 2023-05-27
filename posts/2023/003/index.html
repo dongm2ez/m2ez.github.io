@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Redis 的事务机制 - 麦索的麦田</title><meta name="Description" content="Redis 的事务机制，以及事务的原子性。"><meta property="og:title" content="Redis 的事务机制" />
+<meta property="og:description" content="Redis 的事务机制，以及事务的原子性。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.m2ez.com/posts/2023/003/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-27T18:54:58+08:00" />
+<meta property="article:modified_time" content="2023-05-27T18:54:58+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redis 的事务机制"/>
+<meta name="twitter:description" content="Redis 的事务机制，以及事务的原子性。"/>
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2023/003/" /><link rel="prev" href="https://blog.m2ez.com/posts/2023/002/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Redis 的事务机制",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2023\/003\/"
+        },"genre": "posts","keywords": "","wordcount":  569 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2023\/003\/","datePublished": "2023-05-27T18:54:58+08:00","dateModified": "2023-05-27T18:54:58+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "麦索"
+            },"description": "Redis 的事务机制，以及事务的原子性。"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/"><i class="fas fa-fw fa-user"></i> 关于 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title=""><i class="fas fa-fw fa-user"></i>关于</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Redis 的事务机制</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-27">2023-05-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 569 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2023/images/Redis.png"
+        data-srcset="/posts/2023/images/Redis.png, /posts/2023/images/Redis.png 1.5x, /posts/2023/images/Redis.png 2x"
+        data-sizes="auto"
+        alt="/posts/2023/images/Redis.png"
+        title="Redis 的事务机制，以及事务的原子性。" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用场景">使用场景</a></li>
+    <li><a href="#注意">注意</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Redis 的事务并不是严格意义上的事务，它只是一种将多个命令打包，然后一次性、按顺序地执行的机制，它并不具备原子性，Redis 的原子性是针对单条命令的，批量指令的原子性无法保证。</p>
+<p>这是官网上的说明 :</p>
+<blockquote>
+<p>From redis docs on transactions:</p>
+<p>It&rsquo;s important to note that even when a command fails, all the other commands in the queue are processed – Redis will not stop the processing of commands.</p>
+</blockquote>
+<p>Redis 的事务基本上可以分为三个阶段：</p>
+<ol>
+<li>开启事务</li>
+<li>命令入队</li>
+<li>执行事务</li>
+</ol>
+<p>MUTLI 命令用于开启事务，EXEC 命令用于执行事务，DISCARD 命令用于取消事务。</p>
+<p>Redis 的事务<strong>不能回滚</strong>，如果在事务执行过程中出现错误，那么 Redis 会继续执行剩余的命令，而不是回滚。</p>
+<p>因为 Redis 是单线程的，所以 Redis 会将事务中的所有命令按照顺序执行，期间不会有其他命令插入。</p>
+<h2 id="使用场景">使用场景</h2>
+<p><strong>数据同步操作</strong>：在同步数据到多个缓存或数据集时，确保每个数据源的一致性更新是很关键的。通过 Redis 事务，可以保证多个键值对同时更新。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">MULTI
+</span></span><span class="line"><span class="cl">SET key1 value1
+</span></span><span class="line"><span class="cl">SET key2 value2
+</span></span><span class="line"><span class="cl">SET key3 value3
+</span></span><span class="line"><span class="cl">EXEC
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>批量操作</strong>：当需要在短时间内完成大量 Redis 操作时，使用事务可以减少网络开销。通过事务执行所有命令，只需要发送一次请求，减少了重复发送消息的需要。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">MULTI
+</span></span><span class="line"><span class="cl">LPUSH list_key item1
+</span></span><span class="line"><span class="cl">LPUSH list_key item2
+</span></span><span class="line"><span class="cl">LPUSH list_key item3
+</span></span><span class="line"><span class="cl">EXEC
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>计数器操作</strong>：在分布式系统中，可能需要统计一些任务完成的数量；这种场景下，使用原子性操作来保证递增或递减的正确性。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">MULTI
+</span></span><span class="line"><span class="cl">INCR completed_tasks
+</span></span><span class="line"><span class="cl">DECR pending_tasks
+</span></span><span class="line"><span class="cl">EXEC
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="注意">注意</h2>
+<p>因为 Redis 的事务并不具备原子性，所以在使用事务时，需要注意以下几点：</p>
+<ol>
+<li>不能取代数据库事务</li>
+<li>本质是一组打包的命令</li>
+<li>不能回滚</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-05-27</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2023/003/" data-title="Redis 的事务机制" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2023/003/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2023/003/" data-title="Redis 的事务机制"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2023/003/" data-title="Redis 的事务机制"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2023/003/" data-title="Redis 的事务机制" data-image="/posts/2023/images/Redis.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/">Tags</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2023/002/" class="prev" rel="prev" title="配置本地 docker 中运行的 PHP xdebug 环境"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>配置本地 docker 中运行的 PHP xdebug 环境</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["dongm2ez"],"clientID":"fd7e14ae2ba870464ae2","clientSecret":"d093b7803a528d11b2edf66b8063794c368cf975","id":"2023-05-27T18:54:58+08:00","owner":"dongm2ez","repo":"m2ez.github.io","title":"Redis 的事务机制"}}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

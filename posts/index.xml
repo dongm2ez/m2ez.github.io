@@ -4,13 +4,23 @@
         <link>https://blog.m2ez.com/posts/</link>
         <description>所有文章 | 麦索的麦田</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 26 May 2023 11:39:18 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sat, 27 May 2023 18:54:58 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Redis 的事务机制</title>
+    <link>https://blog.m2ez.com/posts/2023/003/</link>
+    <pubDate>Sat, 27 May 2023 18:54:58 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/003/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/2023/images/Redis.png" referrerpolicy="no-referrer">
+            </div>Redis 的事务机制，以及事务的原子性]]></description>
+</item>
+<item>
     <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
     <link>https://blog.m2ez.com/posts/2023/002/</link>
     <pubDate>Fri, 26 May 2023 11:39:18 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2023/002/</guid>
-    <description><![CDATA[在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 1. 创建一个包含 PHP 和 Xdebug]]></description>
+    <description><![CDATA[配置本地 docker 中运行的 PHP xdebug 环境的笔记]]></description>
 </item>
 <item>
     <title>一种监控报警阈值确定的思路 —— 统计分布算法</title>
@@ -18,7 +28,7 @@
     <pubDate>Thu, 23 Feb 2023 09:39:18 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2023/001/</guid>
-    <description><![CDATA[统计分布算法 统计分布算法（Statistical Distribution Algorithm）：这种算法是根据数据的概率分布进行阈值设置的。比如，计算出数据的均值和]]></description>
+    <description><![CDATA[统计分布算法在监控系统中的应用]]></description>
 </item>
 <item>
     <title>使用 Highcharts 作为前端图表，在数据库中保存图例显示状态的功能设计</title>
@@ -26,7 +36,7 @@
     <pubDate>Thu, 08 Sep 2022 14:14:43 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2022/004/</guid>
-    <description><![CDATA[需求背景 公司前端使用 Highcharts 构建图表，图表的图例支持点击显示或隐藏相应的指标。现在有需求后端需要存储用户在前端点击后显示图表的状态，对于已经隐藏的]]></description>
+    <description><![CDATA[一种保存图例选择状态的需求设计]]></description>
 </item>
 <item>
     <title>英语学习心得之词典的选择</title>
@@ -34,7 +44,7 @@
     <pubDate>Wed, 27 Jul 2022 10:27:53 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2022/003/</guid>
-    <description><![CDATA[在英语学习的过程中，对于不认识的词需要查词典来寻找释义，常用的英文词典主要有三种：英英词典、英汉双解词典、英汉词典。 英英词典 有两类，一类是 E]]></description>
+    <description><![CDATA[英语学习心得之词典选择，一本好的英英词典能够帮助更好的学习英语，事半功倍]]></description>
 </item>
 <item>
     <title>数据结构与算法概览</title>
@@ -42,7 +52,7 @@
     <pubDate>Tue, 26 Jul 2022 10:27:53 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2022/002/</guid>
-    <description><![CDATA[总结一些数据结构与算法： 常见数据结构 数组 数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。 数组的特点： 支持随机]]></description>
+    <description><![CDATA[数据结构与算法脑图，总结一些数据结构与算法。]]></description>
 </item>
 <item>
     <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
@@ -75,14 +85,6 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2021/001/</guid>
     <description><![CDATA[Socket 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。 网络中的设备进行通信，就需要创建套接字，套接字是形如 IP:Port 这样的IP地址对，]]></description>
-</item>
-<item>
-    <title>计算机信息表示编码中的原码、反码、补码</title>
-    <link>https://blog.m2ez.com/posts/2020/008/</link>
-    <pubDate>Sat, 26 Sep 2020 19:31:25 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2020/008/</guid>
-    <description><![CDATA[机器码 要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称 Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货币]]></description>
 </item>
 </channel>
 </rss>

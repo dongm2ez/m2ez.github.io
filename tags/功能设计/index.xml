@@ -10,7 +10,7 @@
     <pubDate>Thu, 08 Sep 2022 14:14:43 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2022/004/</guid>
-    <description><![CDATA[需求背景 公司前端使用 Highcharts 构建图表，图表的图例支持点击显示或隐藏相应的指标。现在有需求后端需要存储用户在前端点击后显示图表的状态，对于已经隐藏的]]></description>
+    <description><![CDATA[一种保存图例选择状态的需求设计]]></description>
 </item>
 </channel>
 </rss>

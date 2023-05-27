@@ -10,7 +10,7 @@
     <pubDate>Fri, 26 May 2023 11:39:18 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2023/002/</guid>
-    <description><![CDATA[在最近的调试过程中一直无法正确断点，最后发现是 xdebug 的配置问题，记录一下。 在 Docker 中配置 PHP 和 Xdebug 调试环境，通常从以下几个步骤开始： 1. 创建一个包含 PHP 和 Xdebug]]></description>
+    <description><![CDATA[配置本地 docker 中运行的 PHP xdebug 环境的笔记]]></description>
 </item>
 <item>
     <title>一种监控报警阈值确定的思路 —— 统计分布算法</title>
@@ -18,7 +18,7 @@
     <pubDate>Thu, 23 Feb 2023 09:39:18 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2023/001/</guid>
-    <description><![CDATA[统计分布算法 统计分布算法（Statistical Distribution Algorithm）：这种算法是根据数据的概率分布进行阈值设置的。比如，计算出数据的均值和]]></description>
+    <description><![CDATA[统计分布算法在监控系统中的应用]]></description>
 </item>
 <item>
     <title>使用 Highcharts 作为前端图表，在数据库中保存图例显示状态的功能设计</title>
@@ -26,7 +26,7 @@
     <pubDate>Thu, 08 Sep 2022 14:14:43 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2022/004/</guid>
-    <description><![CDATA[需求背景 公司前端使用 Highcharts 构建图表，图表的图例支持点击显示或隐藏相应的指标。现在有需求后端需要存储用户在前端点击后显示图表的状态，对于已经隐藏的]]></description>
+    <description><![CDATA[一种保存图例选择状态的需求设计]]></description>
 </item>
 <item>
     <title>数据结构与算法概览</title>
@@ -34,7 +34,7 @@
     <pubDate>Tue, 26 Jul 2022 10:27:53 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2022/002/</guid>
-    <description><![CDATA[总结一些数据结构与算法： 常见数据结构 数组 数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。 数组的特点： 支持随机]]></description>
+    <description><![CDATA[数据结构与算法脑图，总结一些数据结构与算法。]]></description>
 </item>
 <item>
     <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
