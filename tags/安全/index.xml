@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>安全 - 标签 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/tags/%E5%AE%89%E5%85%A8/</link>
+        <description>安全 - 标签 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sun, 28 May 2023 20:15:33 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E5%AE%89%E5%85%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>数据库中数据脱敏的一种方法</title>
+    <link>https://blog.m2ez.com/posts/2023/005/</link>
+    <pubDate>Sun, 28 May 2023 20:15:33 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/005/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/2023/images/v2_4625346d1637449bb5f2dce5d2ebc3bb_img_png.png" referrerpolicy="no-referrer">
+            </div>一种简单的数据脱敏方法]]></description>
+</item>
+</channel>
+</rss>

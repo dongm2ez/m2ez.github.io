@@ -4,9 +4,19 @@
         <link>https://blog.m2ez.com/</link>
         <description>麦索的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sat, 27 May 2023 19:54:56 &#43;0800</lastBuildDate>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sun, 28 May 2023 20:15:33 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.m2ez.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>数据库中数据脱敏的一种方法</title>
+    <link>https://blog.m2ez.com/posts/2023/005/</link>
+    <pubDate>Sun, 28 May 2023 20:15:33 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/005/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/2023/images/v2_4625346d1637449bb5f2dce5d2ebc3bb_img_png.png" referrerpolicy="no-referrer">
+            </div>一种简单的数据脱敏方法]]></description>
+</item>
+<item>
     <title>面向对象程序语言中的抽象类与接口的区别</title>
     <link>https://blog.m2ez.com/posts/2023/004/</link>
     <pubDate>Sat, 27 May 2023 19:54:56 &#43;0800</pubDate>
@@ -81,14 +91,6 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2021/003/</guid>
     <description><![CDATA[在 PHP8 中新增了三个字符串函数操作，这三个函数分别是str_contains、str_starts_with 和 str_ends_with, 在 PHP8 以前这三个函数在主流框架如 L]]></description>
-</item>
-<item>
-    <title>如何用 PHPUnit 测试类的私有方法</title>
-    <link>https://blog.m2ez.com/posts/2021/002/</link>
-    <pubDate>Tue, 27 Apr 2021 21:00:03 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2021/002/</guid>
-    <description><![CDATA[当要对类中的私有方法进行测试时，很难通过创建对象的实例，然后调用这个方法进行单元测试。但是有其他两种方法对私有方法进行测试。 方法一 使用反射的]]></description>
 </item>
 </channel>
 </rss>
