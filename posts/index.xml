@@ -4,14 +4,24 @@
         <link>https://blog.m2ez.com/posts/</link>
         <description>所有文章 | 麦索的麦田</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sun, 28 May 2023 20:15:33 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Mon, 29 May 2023 21:35:15 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>在三十一岁时去考驾照</title>
+    <link>https://blog.m2ez.com/posts/2023/006/</link>
+    <pubDate>Mon, 29 May 2023 21:35:15 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/006/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/2023/images/006-00.jpeg" referrerpolicy="no-referrer">
+            </div>我“被迫”在三十一岁时去学习驾驶，考驾照。]]></description>
+</item>
+<item>
     <title>数据库中数据脱敏的一种方法</title>
     <link>https://blog.m2ez.com/posts/2023/005/</link>
     <pubDate>Sun, 28 May 2023 20:15:33 &#43;0800</pubDate>
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2023/005/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/posts/2023/images/v2_4625346d1637449bb5f2dce5d2ebc3bb_img_png.png" referrerpolicy="no-referrer">
+                <img src="/posts/2023/images/005-00.png" referrerpolicy="no-referrer">
             </div>一种简单的数据脱敏方法]]></description>
 </item>
 <item>
@@ -21,7 +31,7 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2023/004/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/posts/2023/images/9d2c7529e30d4e86a47320c712608219noop20230222155921-a6bcf.jpg" referrerpolicy="no-referrer">
+                <img src="/posts/2023/images/004-00.jpg" referrerpolicy="no-referrer">
             </div>抽象类与接口的区别]]></description>
 </item>
 <item>
@@ -31,7 +41,7 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2023/003/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/posts/2023/images/Redis.png" referrerpolicy="no-referrer">
+                <img src="/posts/2023/images/003-00.png" referrerpolicy="no-referrer">
             </div>Redis 的事务机制，以及事务的原子性]]></description>
 </item>
 <item>
@@ -81,14 +91,6 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2022/001/</guid>
     <description><![CDATA[平时我们对语句调优一般用 EXPLAIN 就可以，但是对于一些复杂语句和疑难杂症这个所能给出信息不够详细，从 MySQL 5.6 开始加入了 Optimizer Trace 功能查看优化器生成执行计划的整]]></description>
-</item>
-<item>
-    <title>PHP8 新增的字符串方法与 Laravel 提供的性能差异比较</title>
-    <link>https://blog.m2ez.com/posts/2021/003/</link>
-    <pubDate>Sun, 30 May 2021 11:36:57 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2021/003/</guid>
-    <description><![CDATA[在 PHP8 中新增了三个字符串函数操作，这三个函数分别是str_contains、str_starts_with 和 str_ends_with, 在 PHP8 以前这三个函数在主流框架如 L]]></description>
 </item>
 </channel>
 </rss>
