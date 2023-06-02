@@ -4,7 +4,17 @@
         <link>https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/</link>
         <description>计算机技术 - 分类 - 麦索的麦田</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sun, 28 May 2023 20:15:33 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 02 Jun 2023 20:23:40 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+    <title>CSRF 和 XSS 攻击是什么</title>
+    <link>https://blog.m2ez.com/posts/2023/007/</link>
+    <pubDate>Fri, 02 Jun 2023 20:23:40 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/007/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/2023/images/007-00.jpeg" referrerpolicy="no-referrer">
+            </div>两种网络攻击方法]]></description>
+</item>
+<item>
     <title>数据库中数据脱敏的一种方法</title>
     <link>https://blog.m2ez.com/posts/2023/005/</link>
     <pubDate>Sun, 28 May 2023 20:15:33 &#43;0800</pubDate>
@@ -81,14 +91,6 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2021/003/</guid>
     <description><![CDATA[在 PHP8 中新增了三个字符串函数操作，这三个函数分别是str_contains、str_starts_with 和 str_ends_with, 在 PHP8 以前这三个函数在主流框架如 L]]></description>
-</item>
-<item>
-    <title>如何用 PHPUnit 测试类的私有方法</title>
-    <link>https://blog.m2ez.com/posts/2021/002/</link>
-    <pubDate>Tue, 27 Apr 2021 21:00:03 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2021/002/</guid>
-    <description><![CDATA[当要对类中的私有方法进行测试时，很难通过创建对象的实例，然后调用这个方法进行单元测试。但是有其他两种方法对私有方法进行测试。 方法一 使用反射的]]></description>
 </item>
 </channel>
 </rss>

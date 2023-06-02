@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>网络攻击 - 标签 - 麦索的麦田</title>
+        <link>https://blog.m2ez.com/tags/%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB/</link>
+        <description>网络攻击 - 标签 - 麦索的麦田</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 02 Jun 2023 20:23:40 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB/" rel="self" type="application/rss+xml" /><item>
+    <title>CSRF 和 XSS 攻击是什么</title>
+    <link>https://blog.m2ez.com/posts/2023/007/</link>
+    <pubDate>Fri, 02 Jun 2023 20:23:40 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/007/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/2023/images/007-00.jpeg" referrerpolicy="no-referrer">
+            </div>两种网络攻击方法]]></description>
+</item>
+</channel>
+</rss>
