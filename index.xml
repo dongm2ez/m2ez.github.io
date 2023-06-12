@@ -4,9 +4,19 @@
         <link>https://blog.m2ez.com/</link>
         <description>麦索的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Fri, 02 Jun 2023 20:23:40 &#43;0800</lastBuildDate>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Mon, 12 Jun 2023 22:01:00 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.m2ez.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>MySQL 的索引</title>
+    <link>https://blog.m2ez.com/posts/2023/008/</link>
+    <pubDate>Mon, 12 Jun 2023 22:01:00 &#43;0800</pubDate>
+    <author>麦索</author>
+    <guid>https://blog.m2ez.com/posts/2023/008/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/2023/images/008-00.jpeg" referrerpolicy="no-referrer">
+            </div>MySQL 的默认引擎 InnoDB 使用 B+ 树索引]]></description>
+</item>
+<item>
     <title>CSRF 和 XSS 攻击是什么</title>
     <link>https://blog.m2ez.com/posts/2023/007/</link>
     <pubDate>Fri, 02 Jun 2023 20:23:40 &#43;0800</pubDate>
@@ -87,14 +97,6 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2022/003/</guid>
     <description><![CDATA[英语学习心得之词典选择，一本好的英英词典能够帮助更好的学习英语，事半功倍]]></description>
-</item>
-<item>
-    <title>数据结构与算法概览</title>
-    <link>https://blog.m2ez.com/posts/2022/002/</link>
-    <pubDate>Tue, 26 Jul 2022 10:27:53 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2022/002/</guid>
-    <description><![CDATA[数据结构与算法脑图，总结一些数据结构与算法。]]></description>
 </item>
 </channel>
 </rss>
