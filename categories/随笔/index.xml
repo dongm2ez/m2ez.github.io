@@ -4,17 +4,7 @@
         <link>https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/</link>
         <description>随笔 - 分类 - 麦索的麦田</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Mon, 29 May 2023 21:35:15 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/" rel="self" type="application/rss+xml" /><item>
-    <title>在三十一岁时去考驾照</title>
-    <link>https://blog.m2ez.com/posts/2023/006/</link>
-    <pubDate>Mon, 29 May 2023 21:35:15 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2023/006/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/2023/images/006-00.jpeg" referrerpolicy="no-referrer">
-            </div>我“被迫”在三十一岁时去学习驾驶，考驾照。]]></description>
-</item>
-<item>
+            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Thu, 25 Jun 2020 19:29:35 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/categories/%E9%9A%8F%E7%AC%94/" rel="self" type="application/rss+xml" /><item>
     <title>如何卓有成效</title>
     <link>https://blog.m2ez.com/posts/2020/006/</link>
     <pubDate>Thu, 25 Jun 2020 19:29:35 &#43;0800</pubDate>
@@ -29,22 +19,6 @@
     <author>麦索</author>
     <guid>https://blog.m2ez.com/posts/2020/005/</guid>
     <description><![CDATA[在做拉取巨量引擎广告数据时，本地开发时只拉取了近一个月的数据作为样本，将一个月的数据可能出现的问题都做了处理，但是当上线后拉取历史之前的历史]]></description>
-</item>
-<item>
-    <title>记二十九岁生日感想</title>
-    <link>https://blog.m2ez.com/posts/2020/004/</link>
-    <pubDate>Thu, 25 Jun 2020 19:23:42 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2020/004/</guid>
-    <description><![CDATA[6 月 18 日参加了公司组织的第一次学习培训活动，通过一次现金流游戏获得了很多收获，这虽然是一个模拟的游戏，但是从中学到了很多东西，也发现了一些自]]></description>
-</item>
-<item>
-    <title>你好，世界</title>
-    <link>https://blog.m2ez.com/posts/2017/001/</link>
-    <pubDate>Fri, 30 Jun 2017 16:59:37 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2017/001/</guid>
-    <description><![CDATA[你好世界，这是我的第一篇静态博客文章，之前用过免费空间，也自己写过博客程序，现在我用 github page 。 用 github page 是因为独立博客的管理太麻烦，最好在保留控制权]]></description>
 </item>
 </channel>
 </rss>
