@@ -10,8 +10,8 @@
 <meta property="og:url" content="https://blog.m2ez.com/posts/2023/004/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-27T19:54:56+08:00" />
 <meta property="article:modified_time" content="2023-05-27T19:54:56+08:00" /><meta property="og:site_name" content="麦索的麦田" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="面向对象程序语言中的抽象类与接口的区别"/>
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="面向对象程序语言中的抽象类与接口的区别"/>
 <meta name="twitter:description" content="抽象类与接口很容易混淆，本文将从定义、使用、设计等方面来阐述抽象类与接口的区别。"/>
 <meta name="application-name" content="麦索的麦田">
 <meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -103,10 +103,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Object</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="o">...</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Object</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>接口</strong>：是一个完全抽象的类，它只包含抽象方法和常量。接口不能被实例化，它只能被实现。接口的实现类必须实现接口中的所有抽象方法，否则实现类也必须声明为抽象类。</p>
 <p>接口中的抽象方法定义了一些通用的行为的规格，但是没有具体的实现。接口中的抽象方法不能被声明为 private，否则实现类将无法访问它。接口不能有构造方法。</p>
@@ -118,10 +118,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Cloneable</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="o">...</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Cloneable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="使用">使用</h2>
 <p><strong>抽象类</strong>：子类使用抽象类通过 <code>extends</code> 关键字进行继承。一个类只能继承一个抽象类。</p>
@@ -159,7 +159,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.118.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
         </div>
