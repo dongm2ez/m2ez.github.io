@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>提示词工程是什么？ - 麦索的麦田</title><meta name="Description" content="提示词工程概念和一些构建提示词的例子"><meta property="og:url" content="https://blog.m2ez.com/posts/2025/001/">
+  <meta property="og:site_name" content="麦索的麦田">
+  <meta property="og:title" content="提示词工程是什么？">
+  <meta property="og:description" content="提示词工程概念和一些构建提示词的例子">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-03T11:51:24+08:00">
+    <meta property="article:modified_time" content="2025-06-03T11:51:24+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="大模型">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="提示词工程是什么？">
+  <meta name="twitter:description" content="提示词工程概念和一些构建提示词的例子">
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2025/001/" /><link rel="prev" href="https://blog.m2ez.com/posts/2023/008/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "提示词工程是什么？",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2025\/001\/"
+        },"genre": "posts","keywords": "AI, 大模型","wordcount":  4784 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2025\/001\/","datePublished": "2025-06-03T11:51:24+08:00","dateModified": "2025-06-03T11:51:24+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": "提示词工程概念和一些构建提示词的例子"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">提示词工程是什么？</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-06-03">2025-06-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4784 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/001.png"
+        data-srcset="/posts/2025/images/001.png, /posts/2025/images/001.png 1.5x, /posts/2025/images/001.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/001.png"
+        title="提示词工程概念和一些构建提示词的例子" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#提示工程是什么">提示工程是什么</a></li>
+    <li><a href="#大模型工作原理和提示词">大模型工作原理和提示词</a></li>
+    <li><a href="#企业为什么需要提示词工程">企业为什么需要提示词工程</a>
+      <ul>
+        <li><a href="#要素">要素</a></li>
+        <li><a href="#策略">策略</a></li>
+      </ul>
+    </li>
+    <li><a href="#框架">框架</a>
+      <ul>
+        <li><a href="#思维链">思维链</a></li>
+        <li><a href="#思维树">思维树</a></li>
+        <li><a href="#react">ReAct</a></li>
+        <li><a href="#问题分解">问题分解</a></li>
+      </ul>
+    </li>
+    <li><a href="#通用技巧">通用技巧</a>
+      <ul>
+        <li><a href="#从简单开始">从简单开始</a></li>
+        <li><a href="#指令">指令</a></li>
+        <li><a href="#避免不明确">避免不明确</a></li>
+        <li><a href="#做什么还是不做什么">做什么还是不做什么</a></li>
+      </ul>
+    </li>
+    <li><a href="#具体提示技巧">具体提示技巧</a>
+      <ul>
+        <li><a href="#零样本提示">零样本提示</a></li>
+        <li><a href="#少样本提示">少样本提示</a></li>
+        <li><a href="#链式思考cot">链式思考（COT）</a></li>
+        <li><a href="#零样本思维链zero-shot-cot">零样本思维链（Zero-Shot-CoT）</a></li>
+        <li><a href="#自动思维链auto-cot">自动思维链（Auto-CoT）</a></li>
+        <li><a href="#自我一致性">自我一致性</a></li>
+        <li><a href="#生成知识提示">生成知识提示</a></li>
+        <li><a href="#链式提示prompt-chaining">链式提示（Prompt Chaining）</a></li>
+      </ul>
+    </li>
+    <li><a href="#工具">工具</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="提示工程是什么">提示工程是什么</h2>
+<p>通过<strong>试错</strong>和<strong>迭代</strong>，找到大模型生成内容的最优解。是设计、优化、评估、调试的系统过程。</p>
+<p>提示词工程师：</p>
+<ol>
+<li>交付和测试提示词，让大模型产出最理想的成果</li>
+<li>针对需求进行深入理解，然后提出解决方案，再从解决问题的过程中创造价值和记录最佳实践</li>
+</ol>
+<h2 id="大模型工作原理和提示词">大模型工作原理和提示词</h2>
+<p>LLM 是一个预测引擎，本质是基于概率学。接收顺序文本输入，预测下一个应该出现的 Token。LLM 被设计为反复执行此过程，将之前预测的 Token 添加到序列文本的末尾，以预测下一个 Token。</p>
+<p>编写的提示词，是在引导 LLM 预测正确的 Token 序列。提示词技术具有普适性，但最佳的措辞和结构可能因模型的架构、训练数据和微调的差异而依赖模型本身，所以有效的提示工程需要了解目标模型的特性。</p>
+<h2 id="企业为什么需要提示词工程">企业为什么需要提示词工程</h2>
+<p>普通用户与 AIChat 对话时可以很自由的进行调整询问内容，但产品化的 AI 工具一般会针对场景进行封装，所以企业级应用的产出内容需要做到相对的稳定，才会让用户感到对产品满意。
+提示工程不是一次性任务，今天效果好的提示可能随着底层模型的演变而需要调整，所以持续测试和适应是必要的。</p>
+<h3 id="要素">要素</h3>
+<p><strong>指令</strong> ：想要模型执行的特定任务或指令</p>
+<p><strong>上下文</strong>：包含外部信息或额外的上下文信息，引导语言模型更好地响应</p>
+<p><strong>输入数据</strong>：用户输入的内容或者问题</p>
+<p><strong>输出数据</strong>：指定出的类型或格式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">请将文本分为中性、否定或肯定
+</span></span><span class="line"><span class="cl">文本：我觉得食物还可以。
+</span></span><span class="line"><span class="cl">情绪：
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在上面的例子中，第一句是指令，第二句是输入数据，第三句是输出数据。本例子没有上下文。提示词所需的格式取决于想要完成的任务类型，并非所有元素都是必须的。</p>
+<h3 id="策略">策略</h3>
+<ol>
+<li>编写清晰的说明
+<ol>
+<li>请简单回答 VS 请以高中生能听懂的话回答</li>
+<li>请简短回答 VS 回答内容在100个字以内</li>
+<li>总结不要太长 VS 用一句话总结</li>
+</ol>
+</li>
+<li>提供参考文本（能够减少幻觉、RAG是同样的原理）</li>
+<li>将复杂任务拆分为更简单的子任务
+<ol>
+<li>可以让大模型辅助拆分任务</li>
+<li>需要很长的对话的任务，可以过滤和总结之前的内容</li>
+</ol>
+</li>
+<li>给模型时间&quot;思考&quot;
+<ol>
+<li>让我们一步一步思考，确保内容的正确</li>
+</ol>
+</li>
+<li>使用外部工具</li>
+<li>系统的测试变化
+<ol>
+<li>有可能提示词在某个单独的例子上性能很好，但在其他内容上性能很差，所以需要进行全面性测试</li>
+<li>目的是确保这个提示词是最佳的，让这个改变对总体是正面的</li>
+</ol>
+</li>
+</ol>
+<h2 id="框架">框架</h2>
+<h3 id="思维链">思维链</h3>
+<p>来自 2022 年的论文 Chain of ThoughtPrompting Elicits Reasoning in Large LanguageModels（《思维链提示引发大模型的推理能力》）。</p>
+<p>是通过引导大模型进行逐步推理，使其在解决复杂问题时表现出更强的推理能力。结合链式提示有了产品：LangChain 和 Dify、Coze、N8N 的 WorkFlow</p>
+<h3 id="思维树">思维树</h3>
+<p>来自 2023 年的论文 Tree of Thoughts: Deliberate Problem Solving with Large Language Models（《思想树：用大型语言模型进行深思熟虑的解决问题》）</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/001-1.png"
+        data-srcset="/posts/2025/images/001-1.png, /posts/2025/images/001-1.png 1.5x, /posts/2025/images/001-1.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/001-1.png"
+        title="思维树架构" /></p>
+<p>ToT 需针对不同的任务定义思维/步骤的数量以及每步的候选项数量。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/001-2.png"
+        data-srcset="/posts/2025/images/001-2.png, /posts/2025/images/001-2.png 1.5x, /posts/2025/images/001-2.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/001-2.png"
+        title="思维树统计数据" /></p>
+<blockquote>
+<p>假设三位不同的专家来回答这个问题。
+所有专家都写下他们思考这个问题的第一个步骤，然后与大家分享。然后，所有专家都写下他们思考的下一个步骤并分享。以此类推，直到所有专家写完他们思考的所有步骤。只要大家发现有专家的步骤出错了，就让这位专家离开。
+请问&hellip;</p></blockquote>
+<p>六顶思维帽方法、狼人杀方法</p>
+<h3 id="react">ReAct</h3>
+<p>来自于 2022 年的论文 ReAct:Synergizing Reasoning and Acting inLanguage Models （《ReAct：在语言模型中协同推理与行动》）。</p>
+<p>使语言模型能够根据推理结果采取适当的行动，从而更有效的完成任务。分为两步和，Reasoning 和 Acting，既思考和执行。Acting 利用 Tool 的能力可以执行一些外部任务。</p>
+<h3 id="问题分解">问题分解</h3>
+<p>来自于 2022 年的论文 Decomposed Prompting: A ModularApproach for Solving ComplexTasks”​（《分析提示：一种求解复杂任务的模块化方法》）。</p>
+<p>将复杂问题分解为多个子问题，然后逐步求解，最后整合结果。这种方法可以帮助语言模型更好的处理复杂的任务。</p>
+<h2 id="通用技巧">通用技巧</h2>
+<h3 id="从简单开始">从简单开始</h3>
+<p>之所以被称为工程，是因为提示词设计是一个逐步迭代的过程，需要大量的实验才能获得最佳的结果。</p>
+<p>通常<strong>具体性、简洁性和简明性</strong>通常会带来更好的结果。面对一个复杂的大任务时，尝试将任务分解为更简单的子任务，并随着结果的改善逐步构建，避免在提示词设计过程中一开始就添加过多的复杂性。</p>
+<p>奥卡姆剃刀原理（简单有效原理）：如无必要，勿增实体</p>
+<h3 id="指令">指令</h3>
+<p>通过大量的实验以找出最有效的方法，以不同的关键词（keywords）、上下文（contexts）和数据（data）试验不同的指令（instruction），看看什么样的提示词最适合当前的特定用例和任务。</p>
+<p>上下文越具体和任务越相关效果越好（大模型是基于概率推测和生成和产出内容的）</p>
+<p>有些人的建议：</p>
+<ol>
+<li>将指令放在提示的开头</li>
+<li>使用 ### 这样的清晰分隔符来指令和上下文</li>
+</ol>
+<h3 id="避免不明确">避免不明确</h3>
+<p>向大模型询问了解提示词，以下都能得到结果</p>
+<blockquote>
+<p>解释提示工程的概念。保持解释简短，只有几句话，不要过于描述。</p></blockquote>
+<blockquote>
+<p>使用 2-3 句话向高中学生解释提示工程的概念。</p></blockquote>
+<h3 id="做什么还是不做什么">做什么还是不做什么</h3>
+<blockquote>
+<p>以下是向客户推荐电影的代理程序。
+不要询问兴趣。不要询问个人信息。</p></blockquote>
+<blockquote>
+<p>你是向客户推荐电影的代理程序。代理负责从全球热门电影中推荐电影。你应该避免询问用户的偏好并避免询问个人信息。如果没有电影推荐，应该回答“抱歉，今天找不到电影推荐。</p></blockquote>
+<h2 id="具体提示技巧">具体提示技巧</h2>
+<h3 id="零样本提示">零样本提示</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/001-3.png"
+        data-srcset="/posts/2025/images/001-3.png, /posts/2025/images/001-3.png 1.5x, /posts/2025/images/001-3.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/001-3.png"
+        title="图片" /></p>
+<h3 id="少样本提示">少样本提示</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/001-4.png"
+        data-srcset="/posts/2025/images/001-4.png, /posts/2025/images/001-4.png 1.5x, /posts/2025/images/001-4.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/001-4.png"
+        title="图片" /></p>
+<p>在复杂任务上，零样本表现不佳。通过提供少量提示能实现更好的生成性能。</p>
+<p>对于更加困难的任务可以尝试增加更多的样本。但在复杂的推理任务中可能不具有良好的性能。</p>
+<ol>
+<li>示例应多样化、高质量且书写良好。一个小错误就可能混淆模型并导致不希望的输出。</li>
+<li>如果想生成对各种输入都具有鲁棒性的输出，那么在示例中包含边缘情况非常重要。</li>
+</ol>
+<p>边缘情况是那些不寻常或意外的输入，但模型仍应能够处理。</p>
+<h3 id="链式思考cot">链式思考（COT）</h3>
+<p>可以通过结合少样本提示，获得更好的结果</p>
+<blockquote>
+<p>这组数中的奇数加起来是偶数：4、8、9、15、12、2、1。
+A：将所有奇数相加（9、15、1）得到25。答案为False。
+这组数中的奇数加起来是偶数：17、10、19、4、8、12、24。
+A：将所有奇数相加（17、19）得到36。
+答案为True。
+这组数中的奇数加起来是偶数：16、11、14、4、8、13、24。
+A：将所有奇数相加（11、13）得到24。
+答案为True。
+这组数中的奇数加起来是偶数：17、9、10、12、13、4、2。
+A：将所有奇数相加（17、9、13）得到39。
+答案为False。
+这组数中的奇数加起来是偶数：15、32、5、13、82、7、1。
+A：</p></blockquote>
+<h3 id="零样本思维链zero-shot-cot">零样本思维链（Zero-Shot-CoT）</h3>
+<blockquote>
+<p>我去市场买了10个苹果。我给了邻居2个苹果和修理工2个苹果。然后我去买了5个苹果并吃了1个。我还剩下多少苹果？让我们逐步思考。</p></blockquote>
+<h3 id="自动思维链auto-cot">自动思维链（Auto-CoT）</h3>
+<ul>
+<li>阶段一：问题聚类</li>
+<li>阶段二：演示抽样</li>
+</ul>
+<p><a href="https://github.com/amazon-science/auto-cot" target="_blank" rel="noopener noreffer">https://github.com/amazon-science/auto-cot</a>
+</p>
+<p>思维链需要手工制作有效且多样化的例子，可能导致次优解。自动思维链先将问题划分为几个聚类，然后从聚类中进行一个具有代表性的问题，再使用带有简单启发的零样本思维链生成推理链。</p>
+<h3 id="自我一致性">自我一致性</h3>
+<p>通过少样本 CoT 采样多个不同的推理路径，并使用生成结果选择最一致的答案。</p>
+<p>在高温度值的设定下，通过多数服从少数的方式，选出概率最高的结果。</p>
+<blockquote>
+<p>Q：林中有15棵树。林业工人今天将在林中种树。完成后，将有21棵树。林业工人今天种了多少棵树？
+A：我们从15棵树开始。后来我们有21棵树。差异必须是他们种树的数量。因此，他们必须种了21-15 = 6棵树。答案是6。
+Q：停车场有3辆汽车，又来了2辆汽车，停车场有多少辆汽车？
+A：停车场已经有3辆汽车。又来了2辆。现在有3 + 2 = 5辆汽车。答案是5。
+Q：Leah有32块巧克力，她的姐姐有42块。如果他们吃了35块，他们总共还剩多少块？
+A：Leah有32块巧克力，Leah的姐姐有42块。这意味着最初有32 + 42 = 74块巧克力。已经吃了35块。因此，他们总共还剩74-35 = 39块巧克力。答案是39。Q：Jason有20个棒棒糖。他给Denny一些棒棒糖。现在Jason只有12个棒棒糖。Jason给Denny多少棒棒糖？
+A：Jason有20个棒棒糖。因为他现在只有12个，所以他必须把剩下的给Denny。他给Denny的棒棒糖数量必须是20-12 = 8个棒棒糖。答案是8。
+Q：Shawn有五个玩具。圣诞节，他从他的父母那里得到了两个玩具。他现在有多少个玩具？
+A：他有5个玩具。他从妈妈那里得到了2个，所以在那之后他有5 + 2 = 7个玩具。然后他从爸爸那里得到了2个，所以总共他有7 + 2 = 9个玩具。答案是9。Q：服务器房间里有9台计算机。从周一到周四，每天都会安装5台计算机。现在服务器房间里有多少台计算机？
+A：从周一到周四有4天。每天都添加了5台计算机。这意味着总共添加了4 * 5 =20台计算机。一开始有9台计算机，所以现在有9 + 20 = 29台计算机。答案是29。
+Q：Michael有58个高尔夫球。星期二，他丢失了23个高尔夫球。星期三，他又丢失了2个。星期三结束时他还剩多少个高尔夫球？
+A：Michael最初有58个球。星期二他丢失了23个，所以在那之后他有58-23 = 35个球。星期三他又丢失了2个，所以现在他有35-2 = 33个球。答案是33。
+Q：Olivia有23美元。她用每个3美元的价格买了五个百吉饼。她还剩多少钱？A：她用每个3美元的价格买了5个百吉饼。这意味着她花了15美元。她还剩8美元。
+Q：当我6岁时，我的妹妹是我的一半年龄。现在我70岁了，我的妹妹多大？
+A：</p></blockquote>
+<h3 id="生成知识提示">生成知识提示</h3>
+<blockquote>
+<p>输入：希腊比墨西哥大。
+知识：希腊的面积约为131,957平方公里，而墨西哥的面积约为1,964,375平方公里，使墨西哥比希腊大了1,389%。
+输入：眼镜总是会起雾。
+知识：当你的汗水、呼吸和周围的湿度中的水蒸气落在冷的表面上，冷却并变成微小的液滴时，会在眼镜镜片上产生冷凝。你看到的是一层薄膜。你的镜片相对于你的呼吸会比较凉，尤其是当外面的空气很冷时。
+输入：鱼有思考能力。
+知识：鱼比它们看起来更聪明。在许多领域，如记忆力，它们的认知能力与或超过非人类灵长类动物等“更高级”的脊椎动物。鱼的长期记忆帮助它们跟踪复杂的社交关系。
+输入：一个人一生中吸烟很多香烟的常见影响是患肺癌的几率高于正常水平。
+知识：那些一生中平均每天吸烟不到一支香烟的人，患肺癌的风险是从不吸烟者的9倍。
+在每天吸烟1到10支香烟之间的人群中，死于肺癌的风险几乎是从不吸烟者的12倍。输入：一块石头和一颗卵石大小相同。
+知识：卵石是一种根据Udden-Wentworth沉积学尺度的颗粒大小为4到64毫米的岩屑。卵石通常被认为比颗粒（直径2到4毫米）大，比卵石（直径64到256毫米）小。
+输入：高尔夫球的一部分是试图获得比其他人更高的得分。
+知识：</p></blockquote>
+<blockquote>
+<p>问题：高尔夫球的一部分是试图获得比其他人更高的得分。是或否？
+知识：高尔夫球的目标是以最少的杆数打完一组洞。一轮高尔夫球比赛通常包括18个洞。每个洞在标准高尔夫球场上一轮只打一次。每个杆计为一分，总杆数用于确定比赛的获胜者。
+解释和答案：</p></blockquote>
+<h3 id="链式提示prompt-chaining">链式提示（Prompt Chaining）</h3>
+<p>将大问题分解成子任务，将子任务的提示词提供给模型，得到的结果作为新的提示词的一部分。
+例子：Dify 中的节点和连线。</p>
+<p>可以完成很复杂的任务，提高性能。另外的优点：</p>
+<ul>
+<li>提高 LLM 应用的透明度，增加控制性和可靠性。</li>
+<li>更容易地定位模型中的问题，分析并改进需要提高的不同阶段的性能</li>
+</ul>
+<p>提示词：</p>
+<blockquote>
+<p>你是一个很有帮助的助手。你的任务是根据文档回答问题。第一步是从文档中提取与问题相关的引文，由####分隔。请使用&lt;quotes&gt;&lt;/quotes&gt;输出引文列表。如果没有找到相关引文，请回应“未找到相关引文！”。<br/><br/>
+#### <br/>
+{{文档}}<br/>
+#### <br/>
+输出：</p></blockquote>
+<blockquote>
+<p>根据从文档中提取的相关引文（由&lt;quotes&gt;&lt;/quotes&gt;分隔）和原始文档（由####分隔），请构建对问题的回答。请确保答案准确、语气友好且有帮助。<br/><br/>
+####<br/>
+{{文档}}<br/>
+####<br/>
+&lt;quotes&gt;
+- Chain-of-thought (CoT) prompting[27]<br/>
+- Generated knowledge prompting[37]<br/>
+- Least-to-most prompting[38]<br/>
+- Self-consistency decoding[39]<br/>
+- Complexity-based prompting[41]<br/>
+- Self-refine[42]<br/>
+- Tree-of-thought prompting[43]<br/>
+- Maieutic prompting[45]<br/>
+- Directional-stimulus prompting[46]<br/>
+- Textual inversion and embeddings[59]<br/>
+- Using gradient descent to search for prompts[61][62][63][64]<br/>
+- Prompt injection[65][66][67]<br/>
+&lt;/quotes&gt;</p></blockquote>
+<h2 id="工具">工具</h2>
+<p>提示词样例 <a href="https://www.aishort.top/" target="_blank" rel="noopener noreffer">https://www.aishort.top/</a>
+</p>
+<p>提示词生成 <a href="https://www.aipromptgenerator.net/" target="_blank" rel="noopener noreffer">https://www.aipromptgenerator.net/</a>
+</p>
+<p>提示词交易平台</p>
+<p><a href="https://promptbase.com/" target="_blank" rel="noopener noreffer">https://promptbase.com/</a>
+</p>
+<p><a href="https://snackprompt.com/" target="_blank" rel="noopener noreffer">https://snackprompt.com/</a>
+</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-06-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2025/001/" data-title="提示词工程是什么？" data-hashtags="AI,大模型"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2025/001/" data-hashtag="AI"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2025/001/" data-title="提示词工程是什么？"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2025/001/" data-title="提示词工程是什么？"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2025/001/" data-title="提示词工程是什么？" data-image="/posts/2025/images/001.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/ai/">AI</a>,&nbsp;<a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2023/008/" class="prev" rel="prev" title="MySQL 的索引"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>MySQL 的索引</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["dongm2ez"],"clientID":"fd7e14ae2ba870464ae2","clientSecret":"d093b7803a528d11b2edf66b8063794c368cf975","id":"2025-06-03T11:51:24+08:00","owner":"dongm2ez","repo":"m2ez.github.io","title":"提示词工程是什么？"}}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

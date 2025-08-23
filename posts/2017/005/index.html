@@ -4,15 +4,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>PHP 的魔术方法及其应用 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="PHP 的魔术方法及其应用" />
-<meta property="og:description" content="PHP 中将所有__(两个下划线)开头的类方法作为魔术方法，这方法之所以称为魔术方法是因为其实现的功能就如变魔术一样感觉很神奇。在特定的事件下触发" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.m2ez.com/posts/2017/005/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-07-04T20:59:37+08:00" />
-<meta property="article:modified_time" content="2017-07-04T20:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+        <title>PHP 的魔术方法及其应用 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:url" content="https://blog.m2ez.com/posts/2017/005/">
+  <meta property="og:site_name" content="麦索的麦田">
+  <meta property="og:title" content="PHP 的魔术方法及其应用">
+  <meta property="og:description" content="PHP 中将所有__(两个下划线)开头的类方法作为魔术方法，这方法之所以称为魔术方法是因为其实现的功能就如变魔术一样感觉很神奇。在特定的事件下触发，这真的很酷。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-07-04T20:59:37+08:00">
+    <meta property="article:modified_time" content="2017-07-04T20:59:37+08:00">
+    <meta property="article:tag" content="PHP">
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="PHP 的魔术方法及其应用"/>
-<meta name="twitter:description" content="PHP 中将所有__(两个下划线)开头的类方法作为魔术方法，这方法之所以称为魔术方法是因为其实现的功能就如变魔术一样感觉很神奇。在特定的事件下触发"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PHP 的魔术方法及其应用">
+  <meta name="twitter:description" content="PHP 中将所有__(两个下划线)开头的类方法作为魔术方法，这方法之所以称为魔术方法是因为其实现的功能就如变魔术一样感觉很神奇。在特定的事件下触发，这真的很酷。">
 <meta name="application-name" content="麦索的麦田">
 <meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +35,7 @@
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "麦索"
+                "name": "作者"
             },"description": ""
     }
     </script></head>
@@ -67,7 +72,7 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">PHP 的魔术方法及其应用</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-07-04">2017-07-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1934 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
@@ -80,22 +85,22 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#__construct"><strong>__construct()</strong></a></li>
-        <li><a href="#__destruct"><strong>__destruct()</strong></a></li>
+        <li><a href="#__"><strong>__construct()</strong></a></li>
+        <li><a href="#__-1"><strong>__destruct()</strong></a></li>
         <li><a href="#__get与__set"><strong>__get()与__set()</strong></a></li>
         <li><a href="#__call-和-__callstatic"><strong>__call 和 __callStatic</strong></a></li>
         <li><a href="#__sleep-和-__wakeup"><strong>__sleep() 和 __wakeup()</strong></a></li>
-        <li><a href="#__clone"><strong>__clone()</strong></a></li>
-        <li><a href="#__tostring"><strong>__toString()</strong></a></li>
-        <li><a href="#__invoke"><strong>__invoke()</strong></a></li>
-        <li><a href="#__set_state"><strong>__set_state()</strong></a></li>
-        <li><a href="#__debuginfo"><strong>__debuginfo()</strong></a></li>
+        <li><a href="#__-2"><strong>__clone()</strong></a></li>
+        <li><a href="#__-3"><strong>__toString()</strong></a></li>
+        <li><a href="#__-4"><strong>__invoke()</strong></a></li>
+        <li><a href="#__-5"><strong>__set_state()</strong></a></li>
+        <li><a href="#__-6"><strong>__debuginfo()</strong></a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>PHP 中将所有__(两个下划线)开头的类方法作为魔术方法，这方法之所以称为魔术方法是因为其实现的功能就如变魔术一样感觉很神奇。在特定的事件下触发，这真的很酷。</p>
-<h3 id="__construct"><strong>__construct()</strong></h3>
+<h3 id="__"><strong>__construct()</strong></h3>
 <p>这个方法应该是最常用的，被称为构造器或者构造方法，当一个对象被实例化时会被首先调用，而在 PHP 框架中一些过滤器，中间件及依赖注入也一般在这个方法中完成。父类的构造器可以被子类继承和重写。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -165,7 +170,7 @@ This is A construct
 This is B construct
 This is C construct</p>
 <p>构造方法能帮助我们完成一些数据初始化，属性初始化的任务，在实例化类后使得调用类更便利。</p>
-<h3 id="__destruct"><strong>__destruct()</strong></h3>
+<h3 id="__-1"><strong>__destruct()</strong></h3>
 <p>析构方法，PHP 将对象销毁前将调用这个方法，这个方法可能对于 PHP 这种运行时间短的脚本可能无意义，但在有些情况下还是具有意义的。</p>
 <p>比如你需要一个长时间运行的脚本，设置 <code>set_time_limit(0);</code> 后需要不断执行这个脚本，一般这样的脚本是循环执行一些任务，这其中可能会涉及到频繁的创建某个对象，这时候析构方法就会起到作用，它可以将对象打开的一些资源及时的释放，以防止内存溢出或单个进程占用过多内存。</p>
 <div class="highlight"><div class="chroma">
@@ -411,7 +416,7 @@ This is C construct</p>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="__clone"><strong>__clone()</strong></h3>
+</div><h3 id="__-2"><strong>__clone()</strong></h3>
 <p>如同名字一样，这个方法在对象被复制是调用，如我们要实现一个单例模式，我们可以用这个魔术方法防止对象被克隆。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -457,11 +462,10 @@ This is C construct</p>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="__tostring"><strong>__toString()</strong></h3>
+</div><h3 id="__-3"><strong>__toString()</strong></h3>
 <p>当对象被当做字符串是调用此方法。</p>
 <blockquote>
-<p>PHP 5.2.0 之前，__toString() 方法只有在直接使用于 echo 或 print 时才能生效。PHP 5.2.0 之后，则可以在任何字符串环境生效（例如通过 printf()，使用 %s 修饰符），但不能用于非字符串环境（如使用 %d 修饰符）。自 PHP 5.2.0 起，如果将一个未定义 __toString() 方法的对象转换为字符串，会产生 E_RECOVERABLE_ERROR 级别的错误。</p>
-</blockquote>
+<p>PHP 5.2.0 之前，__toString() 方法只有在直接使用于 echo 或 print 时才能生效。PHP 5.2.0 之后，则可以在任何字符串环境生效（例如通过 printf()，使用 %s 修饰符），但不能用于非字符串环境（如使用 %d 修饰符）。自 PHP 5.2.0 起，如果将一个未定义 __toString() 方法的对象转换为字符串，会产生 E_RECOVERABLE_ERROR 级别的错误。</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -519,11 +523,10 @@ This is C construct</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在 TestClass 的调用中我们输出了一个友好的提示，而在 Penguin 我们将对象的属性组合后输出，比如在模板中调用。</p>
-<h3 id="__invoke"><strong>__invoke()</strong></h3>
+<h3 id="__-4"><strong>__invoke()</strong></h3>
 <p>当尝试用函数的方式调用一个对象是触发此方法。</p>
 <blockquote>
-<p>PHP 5.3.0 添加</p>
-</blockquote>
+<p>PHP 5.3.0 添加</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -550,11 +553,10 @@ This is C construct</p>
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">var_dump</span><span class="p">(</span><span class="nx">is_callable</span><span class="p">(</span><span class="nv">$obj</span><span class="p">))</span> <span class="c1">// bool(true)
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="__set_state"><strong>__set_state()</strong></h3>
+</div><h3 id="__-5"><strong>__set_state()</strong></h3>
 <p>调用 var_export() 导出类时，此魔术方法被调用。</p>
 <blockquote>
-<p>PHP 5.1.0 添加</p>
-</blockquote>
+<p>PHP 5.1.0 添加</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -597,11 +599,10 @@ This is C construct</p>
 </span></span><span class="line"><span class="cl"><span class="nx">var_dump</span><span class="p">(</span><span class="nx">var_export</span><span class="p">(</span><span class="nv">$a</span><span class="p">));</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="__debuginfo"><strong>__debuginfo()</strong></h3>
+</div><h3 id="__-6"><strong>__debuginfo()</strong></h3>
 <p>这个方法在对对象使用 <code>var_dump()</code> 时调用。</p>
 <blockquote>
-<p>PHP 5.6.0 添加</p>
-</blockquote>
+<p>PHP 5.6.0 添加</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -680,8 +681,8 @@ This is C construct</p>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
         </div>
     </footer></div>

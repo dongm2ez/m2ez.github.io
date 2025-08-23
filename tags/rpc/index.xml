@@ -1,16 +1,19 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>RPC - 标签 - 麦索的麦田</title>
-        <link>https://blog.m2ez.com/tags/rpc/</link>
-        <description>RPC - 标签 - 麦索的麦田</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Tue, 10 Mar 2020 16:59:37 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/rpc/" rel="self" type="application/rss+xml" /><item>
-    <title>RPC 学习笔记</title>
-    <link>https://blog.m2ez.com/posts/2020/003/</link>
-    <pubDate>Tue, 10 Mar 2020 16:59:37 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2020/003/</guid>
-    <description><![CDATA[RPC框架 Dubbo：国内最早开源的 RPC 框架，由阿里巴巴公司开发并于 2011 年末对外开源，仅支持 Java 语言。 Motan：微博内部使用的 RPC 框架，于 2016 年对外]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RPC on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/rpc/</link>
+    <description>Recent content in RPC on 麦索的麦田</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 10 Mar 2020 16:59:37 +0800</lastBuildDate>
+    <atom:link href="https://blog.m2ez.com/tags/rpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RPC 学习笔记</title>
+      <link>https://blog.m2ez.com/posts/2020/003/</link>
+      <pubDate>Tue, 10 Mar 2020 16:59:37 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2020/003/</guid>
+      <description>&lt;h2 id=&#34;rpc框架&#34;&gt;RPC框架&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Dubbo&lt;/strong&gt;：国内最早开源的 RPC 框架，由阿里巴巴公司开发并于 2011 年末对外开源，仅支持 Java 语言。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Motan&lt;/strong&gt;：微博内部使用的 RPC 框架，于 2016 年对外开源，仅支持 Java 语言。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tars&lt;/strong&gt;：腾讯内部使用的 RPC 框架，于 2017 年对外开源，仅支持 C++ 语言。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Spring Cloud&lt;/strong&gt;：国外 Pivotal 公司 2014 年对外开源的 RPC 框架，仅支持 Java 语言&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Yar&lt;/strong&gt;：PHP轻量的RPC框架，鸟哥开源，仅支持 PHP 语言&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;跨语言平台-rpc&#34;&gt;跨语言平台 RPC&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;gRPC：Google 于 2015 年对外开源的跨语言 RPC 框架，支持多种语言。&lt;/li&gt;&#xA;&lt;li&gt;Thrift：最初是由 Facebook 开发的内部系统跨语言的 RPC 框架，2007 年贡献给了 Apache 基金，成为 Apache 开源项目之一，支持多种语言。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;grpc&#34;&gt;gRPC&lt;/h2&gt;&#xA;&lt;p&gt;gRPC 是一个高性能开源的通用的 RPC 框架，可以跨语言使用。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

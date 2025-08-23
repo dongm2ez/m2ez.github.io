@@ -1,40 +1,40 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Laravel - 标签 - 麦索的麦田</title>
-        <link>https://blog.m2ez.com/tags/laravel/</link>
-        <description>Laravel - 标签 - 麦索的麦田</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Tue, 25 Feb 2020 16:59:37 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/laravel/" rel="self" type="application/rss+xml" /><item>
-    <title>Laravel/Lumen 项目接入 Sentry 异常监控</title>
-    <link>https://blog.m2ez.com/posts/2020/001/</link>
-    <pubDate>Tue, 25 Feb 2020 16:59:37 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2020/001/</guid>
-    <description><![CDATA[首先安装 sentry SDK 包： $ composer require sentry/sentry-laravel:1.5.0 如果使用的 5.5 以上的框架会自动发现包并加载（Lumen 需手动注册），我们目前项目都是 5.5 以上所以无需单独配置。 Lumen 注册方法]]></description>
-</item>
-<item>
-    <title>Laravel 5.6 以下版本中自定义日志行为</title>
-    <link>https://blog.m2ez.com/posts/2018/002/</link>
-    <pubDate>Tue, 31 Jul 2018 16:59:37 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2018/002/</guid>
-    <description><![CDATA[在 Laravel 5.6 版本中日志行为可以很容易的进行自定义，而在 5.5 以下版本中日志行为自定义自由度并不是很高，但是项目有需求不能因为这个就强行将项目升级为 5.6 吧]]></description>
-</item>
-<item>
-    <title>Laravel 的 Eloquent 中的属性访问控制意义及实践</title>
-    <link>https://blog.m2ez.com/posts/2017/014/</link>
-    <pubDate>Mon, 31 Jul 2017 16:59:37 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2017/014/</guid>
-    <description><![CDATA[我们在定义一个自己的 Laravel 模型时都需要继承 Illuminate\Database\Eloquent\Model 这个类，在这个类中定义了很多模型相关的操作和行为。今天我们来重点说说 Model 中包含的属性。 在框架定义属性中]]></description>
-</item>
-<item>
-    <title>Laravel 源码分析-路由是如何调用到控制器</title>
-    <link>https://blog.m2ez.com/posts/2017/008/</link>
-    <pubDate>Fri, 07 Jul 2017 20:59:37 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2017/008/</guid>
-    <description><![CDATA[概述 laravel 的路由相比其他PHP框架非常灵活和优雅，它也能做的在 url 不变的情况下改变调用的控制器和方法。 那么这到底在 laravel 里是怎么完成的呢 路由到底是如何]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laravel on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/laravel/</link>
+    <description>Recent content in Laravel on 麦索的麦田</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 25 Feb 2020 16:59:37 +0800</lastBuildDate>
+    <atom:link href="https://blog.m2ez.com/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel/Lumen 项目接入 Sentry 异常监控</title>
+      <link>https://blog.m2ez.com/posts/2020/001/</link>
+      <pubDate>Tue, 25 Feb 2020 16:59:37 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2020/001/</guid>
+      <description>&lt;ol&gt;&#xA;&lt;li&gt;首先安装 sentry SDK 包：&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;code&gt;$ composer require sentry/sentry-laravel:1.5.0&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;如果使用的 5.5 以上的框架会自动发现包并加载（Lumen 需手动注册），我们目前项目都是 5.5 以上所以无需单独配置。&lt;/p&gt;&#xA;&lt;p&gt;Lumen 注册方法是在 bootstrap/app.php 中添加：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Laravel 5.6 以下版本中自定义日志行为</title>
+      <link>https://blog.m2ez.com/posts/2018/002/</link>
+      <pubDate>Tue, 31 Jul 2018 16:59:37 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2018/002/</guid>
+      <description>&lt;p&gt;在 Laravel 5.6 版本中日志行为可以很容易的进行自定义，而在 5.5 以下版本中日志行为自定义自由度并不是很高，但是项目有需求不能因为这个就强行将项目升级为 5.6 吧，况且作为一个稳定的项目升级框架大版本有可能会有很多坑，基于这些原因我尝试了对 Laravel 5.5 的日志进行改造以适应我的需求。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Laravel 的 Eloquent 中的属性访问控制意义及实践</title>
+      <link>https://blog.m2ez.com/posts/2017/014/</link>
+      <pubDate>Mon, 31 Jul 2017 16:59:37 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2017/014/</guid>
+      <description>&lt;p&gt;我们在定义一个自己的 Laravel 模型时都需要继承 Illuminate\Database\Eloquent\Model 这个类，在这个类中定义了很多模型相关的操作和行为。今天我们来重点说说 Model 中包含的属性。&lt;/p&gt;&#xA;&lt;p&gt;在框架定义属性中访问权限一般有 &lt;code&gt;protected&lt;/code&gt; 和 &lt;code&gt;public&lt;/code&gt; 两种，这两种属性是在我们继承基础模型后可以重写的，那为什么不统一都是&lt;code&gt;protected&lt;/code&gt;，是因为有一些属性我们需要去动态改变。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Laravel 源码分析-路由是如何调用到控制器</title>
+      <link>https://blog.m2ez.com/posts/2017/008/</link>
+      <pubDate>Fri, 07 Jul 2017 20:59:37 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2017/008/</guid>
+      <description>&lt;h3 id=&#34;概述&#34;&gt;概述&lt;/h3&gt;&#xA;&lt;p&gt;laravel 的路由相比其他PHP框架非常灵活和优雅，它也能做的在 url 不变的情况下改变调用的控制器和方法。&lt;/p&gt;&#xA;&lt;p&gt;那么这到底在 laravel 里是怎么完成的呢&lt;/p&gt;&#xA;&lt;h3 id=&#34;路由到底是如何获取的&#34;&gt;路由到底是如何获取的？&lt;/h3&gt;&#xA;&lt;p&gt;这没什么神秘的，回忆一下我们写一个单页过程化 PHP 脚本时我们是如何接收 HTML 页面传输的参数的？&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

@@ -1,18 +1,19 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Redis - 标签 - 麦索的麦田</title>
-        <link>https://blog.m2ez.com/tags/redis/</link>
-        <description>Redis - 标签 - 麦索的麦田</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Sat, 27 May 2023 18:54:58 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/redis/" rel="self" type="application/rss+xml" /><item>
-    <title>Redis 的事务机制</title>
-    <link>https://blog.m2ez.com/posts/2023/003/</link>
-    <pubDate>Sat, 27 May 2023 18:54:58 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2023/003/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/2023/images/003-00.png" referrerpolicy="no-referrer">
-            </div>Redis 的事务机制，以及事务的原子性]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/redis/</link>
+    <description>Recent content in Redis on 麦索的麦田</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 27 May 2023 18:54:58 +0800</lastBuildDate>
+    <atom:link href="https://blog.m2ez.com/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis 的事务机制</title>
+      <link>https://blog.m2ez.com/posts/2023/003/</link>
+      <pubDate>Sat, 27 May 2023 18:54:58 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2023/003/</guid>
+      <description>Redis 的事务机制，以及事务的原子性</description>
+    </item>
+  </channel>
 </rss>

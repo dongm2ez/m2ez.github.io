@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
     <head>
-	<meta name="generator" content="Hugo 0.123.0">
+	<meta name="generator" content="Hugo 0.148.2">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="麦索的麦田" />
-<meta property="og:description" content="麦索的个人博客" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.m2ez.com/" /><meta property="og:site_name" content="麦索的麦田" />
+        <title>麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:url" content="https://blog.m2ez.com/">
+  <meta property="og:site_name" content="麦索的麦田">
+  <meta property="og:title" content="麦索的麦田">
+  <meta property="og:description" content="麦索的个人博客">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="website">
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="麦索的麦田"/>
-<meta name="twitter:description" content="麦索的个人博客"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="麦索的麦田">
+  <meta name="twitter:description" content="麦索的个人博客">
 <meta name="application-name" content="麦索的麦田">
 <meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -20,10 +23,7 @@
     {
         "@context": "http://schema.org",
         "@type": "WebSite",
-        "url": "https:\/\/blog.m2ez.com\/","inLanguage": "zh-CN","author": {
-                "@type": "Person",
-                "name": "麦索"
-            },"description": "麦索的个人博客","name": "麦索的麦田"
+        "url": "https:\/\/blog.m2ez.com\/","inLanguage": "zh-CN","description": "麦索的个人博客","name": "麦索的麦田"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -66,42 +66,54 @@
 <a href="mailto:dongm2ez@163.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a>
 </div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/2021/003/">PHP8 新增的字符串方法与 Laravel 提供的性能差异比较</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
+</span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-05-30">2021-05-30</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div><div class="content"><p>在 PHP8 中新增了三个字符串函数操作，这三个函数分别是<code>str_contains</code>、<code>str_starts_with</code> 和 <code>str_ends_with</code>, 在 PHP8 以前这三个函数在主流框架如 Laravel、Yii 中都提供。一般来说 PHP 内置的函数都会比我们用 PHP 写的要快不少，但是相比框架提供的这些函数到底性能提升了多少呢？</p></div><div class="post-footer">
+        <a href="/posts/2021/003/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/php/">PHP</a></div></div>
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/2021/002/">如何用 PHPUnit 测试类的私有方法</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
-</span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-04-27">2021-04-27</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div><div class="content">当要对类中的私有方法进行测试时，很难通过创建对象的实例，然后调用这个方法进行单元测试。但是有其他两种方法对私有方法进行测试。 方法一 使用反射的</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
+</span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-04-27">2021-04-27</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div><div class="content"><p>当要对类中的私有方法进行测试时，很难通过创建对象的实例，然后调用这个方法进行单元测试。但是有其他两种方法对私有方法进行测试。</p>
+<h2 id="方法一">方法一</h2>
+<p>使用反射的方式来读取代码文件，再对要测试的方法的可见性进行改变，以使得可以在外部调用。</p></div><div class="post-footer">
         <a href="/posts/2021/002/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/php/">PHP</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/2021/001/">Socket 连接的建立步骤</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
-</span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-04-18">2021-04-18</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div><div class="content">Socket 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。 网络中的设备进行通信，就需要创建套接字，套接字是形如 IP:Port 这样的IP地址对，</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
+</span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-04-18">2021-04-18</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div><div class="content"><p><code>Socket</code> 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。</p>
+<p>网络中的设备进行通信，就需要创建套接字，套接字是形如 <code>IP:Port</code> 这样的IP地址对，这样对形式是 <code>IPv4</code> 版本，新的套接字可以指定为 <code>IPv6</code>。这部分是在网络层指定。</p></div><div class="post-footer">
         <a href="/posts/2021/001/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/socket/">Socket</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/2020/008/">计算机信息表示编码中的原码、反码、补码</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
-</span>&nbsp;<span class="post-publish">发布于 <time datetime="2020-09-26">2020-09-26</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div><div class="content">机器码 要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称 Bit，是计算机中信息的表示单位，也是最小的信息表示单位（电子货币</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
+</span>&nbsp;<span class="post-publish">发布于 <time datetime="2020-09-26">2020-09-26</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div><div class="content"><h2 id="机器码">机器码</h2>
+<p>要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称 <code>Bit</code>，是计算机中信息的表示单位，也是最小的信息表示单位（电子货币比特币的称谓来源于此）。
+在机器码中最高位被称为符号位，如果为 <code>0</code> 则表示此为正数，如果为 <code>1</code> 则表示此为负数。</p></div><div class="post-footer">
         <a href="/posts/2020/008/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>,&nbsp;<a href="/tags/%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%A4%84%E7%90%86/">信息表示和处理</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/2020/007/">迭代与需求的关系</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
-</span>&nbsp;<span class="post-publish">发布于 <time datetime="2020-06-25">2020-06-25</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>项目管理</a></span></div><div class="content">迭代和需求应该是整体与特殊的关系，而不是整体和部分的关系。 迭代是关于用户，场景，需求的一般性描述，一个迭代中的需求都是带有共性存在的，因此每</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
+</span>&nbsp;<span class="post-publish">发布于 <time datetime="2020-06-25">2020-06-25</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>项目管理</a></span></div><div class="content"><p>迭代和需求应该是整体与特殊的关系，而不是整体和部分的关系。</p>
+<p>迭代是关于用户，场景，需求的一般性描述，一个迭代中的需求都是带有共性存在的，因此每一个迭代都会有迭代目标和迭代数据指标。</p></div><div class="post-footer">
         <a href="/posts/2020/007/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86/">软件开发管理</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/2020/006/">如何卓有成效</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
-</span>&nbsp;<span class="post-publish">发布于 <time datetime="2020-06-25">2020-06-25</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9A%8F%E7%AC%94/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>随笔</a></span></div><div class="content">我们三节课作为一家纯互联网公司，我的同事们都是知识工作者，知识工作者的工作目前很难像体力工作者一样被标准化衡量，而体力工作者的工作也是经过了</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
+</span>&nbsp;<span class="post-publish">发布于 <time datetime="2020-06-25">2020-06-25</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9A%8F%E7%AC%94/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>随笔</a></span></div><div class="content"><p>我们三节课作为一家纯互联网公司，我的同事们都是知识工作者，知识工作者的工作目前很难像体力工作者一样被标准化衡量，而体力工作者的工作也是经过了近一百多年工业生产时代所制定的，是先辈的探索而来的，形成现在每个人所知道的常识。所以衡量我们的工作目前的有较好的论述的是彼得格鲁克提出的卓有成效，知识和脑力工作者的衡量工作是否好就是看其是否有成效。要做到这个并不容易，但是可以学习，OKR 工作法是一个框架，其实质是在强调成效，制定具有挑战性的目标并围绕目标进行工作，既符合卓有成效又符合要事优先。</p></div><div class="post-footer">
         <a href="/posts/2020/006/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/">工作经验</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/2020/005/">量变引起质变</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
-</span>&nbsp;<span class="post-publish">发布于 <time datetime="2020-06-25">2020-06-25</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9A%8F%E7%AC%94/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>随笔</a></span></div><div class="content">在做拉取巨量引擎广告数据时，本地开发时只拉取了近一个月的数据作为样本，将一个月的数据可能出现的问题都做了处理，但是当上线后拉取历史之前的历史</div><div class="post-footer">
-        <a href="/posts/2020/005/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/">工作经验</a></div></div>
-</article><ul class="pagination"><li class="page-item ">
+</article>
+<ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
                     </span>
@@ -129,8 +141,8 @@
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
         </div>
     </footer></div>

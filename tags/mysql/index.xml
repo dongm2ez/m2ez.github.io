@@ -1,42 +1,40 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>MySQL - 标签 - 麦索的麦田</title>
-        <link>https://blog.m2ez.com/tags/mysql/</link>
-        <description>MySQL - 标签 - 麦索的麦田</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>dongm2ez@163.com (麦索)</managingEditor>
-            <webMaster>dongm2ez@163.com (麦索)</webMaster><lastBuildDate>Mon, 12 Jun 2023 22:01:00 &#43;0800</lastBuildDate><atom:link href="https://blog.m2ez.com/tags/mysql/" rel="self" type="application/rss+xml" /><item>
-    <title>MySQL 的索引</title>
-    <link>https://blog.m2ez.com/posts/2023/008/</link>
-    <pubDate>Mon, 12 Jun 2023 22:01:00 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2023/008/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/2023/images/008-00.jpeg" referrerpolicy="no-referrer">
-            </div>MySQL 的默认引擎 InnoDB 使用 B+ 树索引]]></description>
-</item>
-<item>
-    <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
-    <link>https://blog.m2ez.com/posts/2022/001/</link>
-    <pubDate>Mon, 25 Jul 2022 18:01:53 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2022/001/</guid>
-    <description><![CDATA[平时我们对语句调优一般用 EXPLAIN 就可以，但是对于一些复杂语句和疑难杂症这个所能给出信息不够详细，从 MySQL 5.6 开始加入了 Optimizer Trace 功能查看优化器生成执行计划的整]]></description>
-</item>
-<item>
-    <title>使用 Docker 完成 MySQL 数据库主从配置</title>
-    <link>https://blog.m2ez.com/posts/2017/020/</link>
-    <pubDate>Sat, 04 Nov 2017 16:59:37 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2017/020/</guid>
-    <description><![CDATA[使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行]]></description>
-</item>
-<item>
-    <title>MySQL 常用数据存储引擎区别</title>
-    <link>https://blog.m2ez.com/posts/2017/009/</link>
-    <pubDate>Sat, 08 Jul 2017 16:59:37 &#43;0800</pubDate>
-    <author>麦索</author>
-    <guid>https://blog.m2ez.com/posts/2017/009/</guid>
-    <description><![CDATA[mysql有多种存储引擎，目前常用的是 MyISAM 和 InnoDB 这两个引擎，除了这两个引擎以为还有许多其他引擎，有官方的，也有一些公司自己研发的。这篇文章主要简]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on 麦索的麦田</title>
+    <link>https://blog.m2ez.com/tags/mysql/</link>
+    <description>Recent content in MySQL on 麦索的麦田</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 12 Jun 2023 22:01:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.m2ez.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL 的索引</title>
+      <link>https://blog.m2ez.com/posts/2023/008/</link>
+      <pubDate>Mon, 12 Jun 2023 22:01:00 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2023/008/</guid>
+      <description>MySQL 的默认引擎 InnoDB 使用 B+ 树索引</description>
+    </item>
+    <item>
+      <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
+      <link>https://blog.m2ez.com/posts/2022/001/</link>
+      <pubDate>Mon, 25 Jul 2022 18:01:53 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2022/001/</guid>
+      <description>&lt;p&gt;平时我们对语句调优一般用 &lt;code&gt;EXPLAIN&lt;/code&gt; 就可以，但是对于一些复杂语句和疑难杂症这个所能给出信息不够详细，从 MySQL 5.6 开始加入了 Optimizer Trace 功能查看优化器生成执行计划的整个过程，使用示例如下：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用 Docker 完成 MySQL 数据库主从配置</title>
+      <link>https://blog.m2ez.com/posts/2017/020/</link>
+      <pubDate>Sat, 04 Nov 2017 16:59:37 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2017/020/</guid>
+      <description>&lt;p&gt;使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行部署的时候我还踩了许多坑。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MySQL 常用数据存储引擎区别</title>
+      <link>https://blog.m2ez.com/posts/2017/009/</link>
+      <pubDate>Sat, 08 Jul 2017 16:59:37 +0800</pubDate>
+      <guid>https://blog.m2ez.com/posts/2017/009/</guid>
+      <description>&lt;p&gt;mysql有多种存储引擎，目前常用的是 MyISAM 和 InnoDB 这两个引擎，除了这两个引擎以为还有许多其他引擎，有官方的，也有一些公司自己研发的。这篇文章主要简单概述一下常用常见的 MySQL 引擎，一则这是面试中常被问到的问题，二则这也是数据库设计中不可忽略的问题，用合适的引擎可以更好的适应业务场景，提高业务效率。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

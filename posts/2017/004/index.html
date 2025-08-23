@@ -4,15 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>PHP 文件操作的各种姿势 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:title" content="PHP 文件操作的各种姿势" />
-<meta property="og:description" content="使用 SPL 库 SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。 迭代器 FilesystemIterator 官方文档：http://php.net/manual/zh/class." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.m2ez.com/posts/2017/004/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-07-03T20:59:37+08:00" />
-<meta property="article:modified_time" content="2017-07-03T20:59:37+08:00" /><meta property="og:site_name" content="麦索的麦田" />
+        <title>PHP 文件操作的各种姿势 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:url" content="https://blog.m2ez.com/posts/2017/004/">
+  <meta property="og:site_name" content="麦索的麦田">
+  <meta property="og:title" content="PHP 文件操作的各种姿势">
+  <meta property="og:description" content="使用 SPL 库 SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。
+迭代器 FilesystemIterator 官方文档：http://php.net/manual/zh/class.filesystemiterator.php类摘要：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 FilesystemIterator extends DirectoryIterator implements SeekableIterator { /* 常量 */ const integer CURRENT_AS_PATHNAME = 32 ; const integer CURRENT_AS_FILEINFO = 0 ; const integer CURRENT_AS_SELF = 16 ; const integer CURRENT_MODE_MASK = 240 ; const integer KEY_AS_PATHNAME = 0 ; const integer KEY_AS_FILENAME = 256 ; const integer FOLLOW_SYMLINKS = 512 ; const integer KEY_MODE_MASK = 3840 ; const integer NEW_CURRENT_AND_KEY = 256 ; const integer SKIP_DOTS = 4096 ; const integer UNIX_PATHS = 8192 ; /* 方法 */ public __construct ( string $path [, int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS ] ) public mixed current ( void ) public int getFlags ( void ) public string key ( void ) public void next ( void ) public void rewind ( void ) public void setFlags ([ int $flags ] ) /* 继承的方法 */ public DirectoryIterator DirectoryIterator::current ( void ) public int DirectoryIterator::getATime ( void ) public string DirectoryIterator::getBasename ([ string $suffix ] ) public int DirectoryIterator::getCTime ( void ) public string DirectoryIterator::getExtension ( void ) public string DirectoryIterator::getFilename ( void ) public int DirectoryIterator::getGroup ( void ) public int DirectoryIterator::getInode ( void ) public int DirectoryIterator::getMTime ( void ) public int DirectoryIterator::getOwner ( void ) public string DirectoryIterator::getPath ( void ) public string DirectoryIterator::getPathname ( void ) public int DirectoryIterator::getPerms ( void ) public int DirectoryIterator::getSize ( void ) public string DirectoryIterator::getType ( void ) public bool DirectoryIterator::isDir ( void ) public bool DirectoryIterator::isDot ( void ) public bool DirectoryIterator::isExecutable ( void ) public bool DirectoryIterator::isFile ( void ) public bool DirectoryIterator::isLink ( void ) public bool DirectoryIterator::isReadable ( void ) public bool DirectoryIterator::isWritable ( void ) public string DirectoryIterator::key ( void ) public void DirectoryIterator::next ( void ) public void DirectoryIterator::rewind ( void ) public void DirectoryIterator::seek ( int $position ) public string DirectoryIterator::__toString ( void ) public bool DirectoryIterator::valid ( void ) } 使用这个迭代器的方法很简单，实例化的时候传入的是目录路径，这个迭代器继承自 DirectoryIterator 迭代器，而 DirectoryIterator 迭代器又继承自 SplFileInfo 类，这个类我们后面介绍。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-07-03T20:59:37+08:00">
+    <meta property="article:modified_time" content="2017-07-03T20:59:37+08:00">
+    <meta property="article:tag" content="PHP">
+    <meta property="article:tag" content="IO">
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="PHP 文件操作的各种姿势"/>
-<meta name="twitter:description" content="使用 SPL 库 SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。 迭代器 FilesystemIterator 官方文档：http://php.net/manual/zh/class."/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PHP 文件操作的各种姿势">
+  <meta name="twitter:description" content="使用 SPL 库 SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。
+迭代器 FilesystemIterator 官方文档：http://php.net/manual/zh/class.filesystemiterator.php类摘要：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 FilesystemIterator extends DirectoryIterator implements SeekableIterator { /* 常量 */ const integer CURRENT_AS_PATHNAME = 32 ; const integer CURRENT_AS_FILEINFO = 0 ; const integer CURRENT_AS_SELF = 16 ; const integer CURRENT_MODE_MASK = 240 ; const integer KEY_AS_PATHNAME = 0 ; const integer KEY_AS_FILENAME = 256 ; const integer FOLLOW_SYMLINKS = 512 ; const integer KEY_MODE_MASK = 3840 ; const integer NEW_CURRENT_AND_KEY = 256 ; const integer SKIP_DOTS = 4096 ; const integer UNIX_PATHS = 8192 ; /* 方法 */ public __construct ( string $path [, int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS ] ) public mixed current ( void ) public int getFlags ( void ) public string key ( void ) public void next ( void ) public void rewind ( void ) public void setFlags ([ int $flags ] ) /* 继承的方法 */ public DirectoryIterator DirectoryIterator::current ( void ) public int DirectoryIterator::getATime ( void ) public string DirectoryIterator::getBasename ([ string $suffix ] ) public int DirectoryIterator::getCTime ( void ) public string DirectoryIterator::getExtension ( void ) public string DirectoryIterator::getFilename ( void ) public int DirectoryIterator::getGroup ( void ) public int DirectoryIterator::getInode ( void ) public int DirectoryIterator::getMTime ( void ) public int DirectoryIterator::getOwner ( void ) public string DirectoryIterator::getPath ( void ) public string DirectoryIterator::getPathname ( void ) public int DirectoryIterator::getPerms ( void ) public int DirectoryIterator::getSize ( void ) public string DirectoryIterator::getType ( void ) public bool DirectoryIterator::isDir ( void ) public bool DirectoryIterator::isDot ( void ) public bool DirectoryIterator::isExecutable ( void ) public bool DirectoryIterator::isFile ( void ) public bool DirectoryIterator::isLink ( void ) public bool DirectoryIterator::isReadable ( void ) public bool DirectoryIterator::isWritable ( void ) public string DirectoryIterator::key ( void ) public void DirectoryIterator::next ( void ) public void DirectoryIterator::rewind ( void ) public void DirectoryIterator::seek ( int $position ) public string DirectoryIterator::__toString ( void ) public bool DirectoryIterator::valid ( void ) } 使用这个迭代器的方法很简单，实例化的时候传入的是目录路径，这个迭代器继承自 DirectoryIterator 迭代器，而 DirectoryIterator 迭代器又继承自 SplFileInfo 类，这个类我们后面介绍。">
 <meta name="application-name" content="麦索的麦田">
 <meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +40,7 @@
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "麦索"
+                "name": "作者"
             },"description": ""
     }
     </script></head>
@@ -67,7 +77,7 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">PHP 文件操作的各种姿势</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>麦索</a>
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-07-03">2017-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1290 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
@@ -397,8 +407,8 @@
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">麦索</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
         </div>
     </footer></div>
