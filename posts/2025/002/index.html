@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>提示词技术笔记 - 麦索的麦田</title><meta name="Description" content="一些可以让大模型生成更准确的答案的技术"><meta property="og:url" content="https://blog.m2ez.com/posts/2025/002/">
+  <meta property="og:site_name" content="麦索的麦田">
+  <meta property="og:title" content="提示词技术笔记">
+  <meta property="og:description" content="一些可以让大模型生成更准确的答案的技术">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-23T16:02:39+08:00">
+    <meta property="article:modified_time" content="2025-07-23T16:02:39+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="大模型">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="提示词技术笔记">
+  <meta name="twitter:description" content="一些可以让大模型生成更准确的答案的技术">
+<meta name="application-name" content="麦索的麦田">
+<meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.m2ez.com/posts/2025/002/" /><link rel="prev" href="https://blog.m2ez.com/posts/2025/001/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "提示词技术笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.m2ez.com\/posts\/2025\/002\/"
+        },"genre": "posts","keywords": "AI, 大模型","wordcount":  834 ,
+        "url": "https:\/\/blog.m2ez.com\/posts\/2025\/002\/","datePublished": "2025-07-23T16:02:39+08:00","dateModified": "2025-07-23T16:02:39+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": "一些可以让大模型生成更准确的答案的技术"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="麦索的麦田">麦索的麦田</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class="fas fa-fw fa-file-alt"></i> 文章 </a><a class="menu-item" href="/categories/"><i class="fas fa-fw fa-folder"></i> 分类 </a><a class="menu-item" href="/tags/"><i class="fas fa-fw fa-tag"></i> 标签 </a><a class="menu-item" href="/about/" title="Dongm2ez"> Dongm2ez </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="麦索的麦田">麦索的麦田</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class="fas fa-fw fa-file-alt"></i>文章</a><a class="menu-item" href="/categories/" title=""><i class="fas fa-fw fa-folder"></i>分类</a><a class="menu-item" href="/tags/" title=""><i class="fas fa-fw fa-tag"></i>标签</a><a class="menu-item" href="/about/" title="Dongm2ez">Dongm2ez</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">提示词技术笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>作者</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-07-23">2025-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 834 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/002.png"
+        data-srcset="/posts/2025/images/002.png, /posts/2025/images/002.png 1.5x, /posts/2025/images/002.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/002.png"
+        title="一些可以让大模型生成更准确的答案的技术" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#检索增强生成rag">检索增强生成（RAG）</a></li>
+    <li><a href="#自动推理并使用工具art">自动推理并使用工具（ART）</a></li>
+    <li><a href="#自动提示工程师ape">自动提示工程师（APE）</a>
+      <ul>
+        <li><a href="#-ape-是怎么工作的">🤖 APE 是怎么工作的？</a></li>
+      </ul>
+    </li>
+    <li><a href="#活动提示active-prompt">活动提示（Active-Prompt）</a></li>
+    <li><a href="#方向性刺激提示">方向性刺激提示</a>
+      <ul>
+        <li><a href="#程序辅助语言模型pal">程序辅助语言模型（PAL）</a></li>
+        <li><a href="#自我反思reflexion">自我反思（Reflexion）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="检索增强生成rag">检索增强生成（RAG）</h2>
+<p>通过检索器检索专有知识（向量数据库）并入输入给大模型，生成的答案更可靠，还有助于缓解“幻觉”问题。</p>
+<p>LangChain 文档中可以找到一个使用检索器和 LLM 回答问题并给出知识来源的简单例子 <a href="https://python.langchain.com/docs/tutorials/rag/%e3%80%82" target="_blank" rel="noopener noreffer">https://python.langchain.com/docs/tutorials/rag/。</a>
+</p>
+<h2 id="自动推理并使用工具art">自动推理并使用工具（ART）</h2>
+<p>交替运用 CoT 提示和工具已经被证明是一种强大而稳健的方法。使用冻结的 LLM 来自动生成包含中间推理步骤的程序，其工作原理如下：</p>
+<ul>
+<li>接到一个新任务的时候，从任务库中选择多步推理和使用工具的示范。</li>
+<li>在测试中、调用工具时先暂停生成，将工具输出整合后继续接着生成。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/002-1.png"
+        data-srcset="/posts/2025/images/002-1.png, /posts/2025/images/002-1.png 1.5x, /posts/2025/images/002-1.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/002-1.png"
+        title="图片" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/002-2.png"
+        data-srcset="/posts/2025/images/002-2.png, /posts/2025/images/002-2.png 1.5x, /posts/2025/images/002-2.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/002-2.png"
+        title="图片" /></p>
+<h2 id="自动提示工程师ape">自动提示工程师（APE）</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/002-3.png"
+        data-srcset="/posts/2025/images/002-3.png, /posts/2025/images/002-3.png 1.5x, /posts/2025/images/002-3.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/002-3.png"
+        title="图片" /></p>
+<p>自动指令生成和选择：</p>
+<h3 id="-ape-是怎么工作的">🤖 APE 是怎么工作的？</h3>
+<ol>
+<li>目标明确：告诉 AI 你想完成什么任务，比如“总结一段话”或“翻译成英文”。</li>
+<li>AI 自己生成提示语：系统会让 AI 自动生成很多种不同的提问方式（比如：“请总结这段话”，“给我一个简短的摘要”，“这段内容讲了啥？”等等）。</li>
+<li>测试哪种最好：然后系统再让 AI 测试这些提示语，看哪个效果最好（也就是 AI 回答得最准确、最有用）。</li>
+<li>选出最优提示：最后系统挑出那个“最棒的提示语”，以后就可以直接用了！</li>
+</ol>
+<p>🎯 举个例子：</p>
+<p>假设你希望 AI 把中文翻译成英文。</p>
+<ul>
+<li>APE 会自动生成一些提示语：
+<ul>
+<li>“请把下面这句话翻译成英文。”</li>
+<li>“翻译这个句子为英语。”</li>
+<li>“将以下内容转换为英文。”</li>
+</ul>
+</li>
+<li>然后测试哪一句翻译得最准，就把那一句保留下来。</li>
+</ul>
+<h2 id="活动提示active-prompt">活动提示（Active-Prompt）</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/2025/images/002-4.png"
+        data-srcset="/posts/2025/images/002-4.png, /posts/2025/images/002-4.png 1.5x, /posts/2025/images/002-4.png 2x"
+        data-sizes="auto"
+        alt="/posts/2025/images/002-4.png"
+        title="图片" /></p>
+<p>CoT 方法依赖人工样本范例，但这些范例可能不是不同任务的最有效的。Active-Prompt 方法为 LLM 应用到不同的任务提供了新的思路。</p>
+<p>过程：</p>
+<ol>
+<li>使用或不使用少量 CoT 示例查询 LLM，让 LLM 生成 K 个可能的答案</li>
+<li>选择最不确定的问题由人类进行注释</li>
+<li>使用新的注释范例来推断每个问题</li>
+</ol>
+<h2 id="方向性刺激提示">方向性刺激提示</h2>
+<h3 id="程序辅助语言模型pal">程序辅助语言模型（PAL）</h3>
+<p>读取自然语言问题并生成程序作为中间推理步骤。</p>
+<h3 id="自我反思reflexion">自我反思（Reflexion）</h3>
+<p>写一个关于雨天的故事，100字即可
+反思一下这个故事还有哪些提升的点
+按照上面的反思来优化这个故事</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-07-23</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.m2ez.com/posts/2025/002/" data-title="提示词技术笔记" data-hashtags="AI,大模型"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.m2ez.com/posts/2025/002/" data-hashtag="AI"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.m2ez.com/posts/2025/002/" data-title="提示词技术笔记"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.m2ez.com/posts/2025/002/" data-title="提示词技术笔记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.m2ez.com/posts/2025/002/" data-title="提示词技术笔记" data-image="/posts/2025/images/002.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/ai/">AI</a>,&nbsp;<a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2025/001/" class="prev" rel="prev" title="提示词工程是什么？"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>提示词工程是什么？</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["dongm2ez"],"clientID":"fd7e14ae2ba870464ae2","clientSecret":"d093b7803a528d11b2edf66b8063794c368cf975","id":"2025-07-23T16:02:39+08:00","owner":"dongm2ez","repo":"m2ez.github.io","title":"提示词技术笔记"}}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
