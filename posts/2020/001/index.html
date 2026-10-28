@@ -5,21 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Laravel/Lumen 项目接入 Sentry 异常监控 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:url" content="https://blog.m2ez.com/posts/2020/001/">
-  <meta property="og:site_name" content="麦索的麦田">
-  <meta property="og:title" content="Laravel/Lumen 项目接入 Sentry 异常监控">
-  <meta property="og:description" content="首先安装 sentry SDK 包： $ composer require sentry/sentry-laravel:1.5.0
+	<meta property="og:site_name" content="麦索的麦田">
+	<meta property="og:title" content="Laravel/Lumen 项目接入 Sentry 异常监控">
+	<meta property="og:description" content="首先安装 sentry SDK 包： $ composer require sentry/sentry-laravel:1.5.0
 如果使用的 5.5 以上的框架会自动发现包并加载（Lumen 需手动注册），我们目前项目都是 5.5 以上所以无需单独配置。
 Lumen 注册方法是在 bootstrap/app.php 中添加：">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2020-02-25T16:59:37+08:00">
-    <meta property="article:modified_time" content="2020-02-25T16:59:37+08:00">
-    <meta property="article:tag" content="Laravel">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2020-02-25T16:59:37+08:00">
+		<meta property="article:modified_time" content="2020-02-25T16:59:37+08:00">
+		<meta property="article:tag" content="Laravel">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Laravel/Lumen 项目接入 Sentry 异常监控">
-  <meta name="twitter:description" content="首先安装 sentry SDK 包： $ composer require sentry/sentry-laravel:1.5.0
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Laravel/Lumen 项目接入 Sentry 异常监控">
+	<meta name="twitter:description" content="首先安装 sentry SDK 包： $ composer require sentry/sentry-laravel:1.5.0
 如果使用的 5.5 以上的框架会自动发现包并加载（Lumen 需手动注册），我们目前项目都是 5.5 以上所以无需单独配置。
 Lumen 注册方法是在 bootstrap/app.php 中添加：">
 <meta name="application-name" content="麦索的麦田">
@@ -108,9 +108,9 @@ Lumen 注册方法是在 bootstrap/app.php 中添加：">
 </span></span><span class="line"><span class="cl"><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;Sentry\Laravel\ServiceProvider&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Sentry must be registered before routes are included
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 必须在路由加载前注册
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">require</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../app/Http/routes.php&#39;</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -190,8 +190,8 @@ Lumen 注册方法是在 bootstrap/app.php 中添加：">
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.169.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
         </div>
     </footer></div>

@@ -5,20 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>S.O.L.I.D 面向对象设计和编程（OOD&amp;OOP）笔记 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:url" content="https://blog.m2ez.com/posts/2017/006/">
-  <meta property="og:site_name" content="麦索的麦田">
-  <meta property="og:title" content="S.O.L.I.D 面向对象设计和编程（OOD&OOP）笔记">
-  <meta property="og:description" content="SOLID是 面向对象编程 和 面试对象设计 的五个基本原则，应用这五个原则能创建一个易于维护和扩展的软件系统。SOLID可以指导代码重构和在迭代的过程中进行代码清扫，以使得软件源代码清晰可读和具有良好的扩展性。在测试驱动开发中是典型应用场景，并且也是敏捷开发和自适应软件开发基本原则的重要组成部分。">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2017-07-04T20:59:37+08:00">
-    <meta property="article:modified_time" content="2017-07-04T20:59:37+08:00">
-    <meta property="article:tag" content="设计模式">
-    <meta property="article:tag" content="面向对象">
+	<meta property="og:site_name" content="麦索的麦田">
+	<meta property="og:title" content="S.O.L.I.D 面向对象设计和编程（OOD&amp;OOP）笔记">
+	<meta property="og:description" content="SOLID是 面向对象编程 和 面试对象设计 的五个基本原则，应用这五个原则能创建一个易于维护和扩展的软件系统。SOLID可以指导代码重构和在迭代的过程中进行代码清扫，以使得软件源代码清晰可读和具有良好的扩展性。在测试驱动开发中是典型应用场景，并且也是敏捷开发和自适应软件开发基本原则的重要组成部分。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2017-07-04T20:59:37+08:00">
+		<meta property="article:modified_time" content="2017-07-04T20:59:37+08:00">
+		<meta property="article:tag" content="设计模式">
+		<meta property="article:tag" content="面向对象">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="S.O.L.I.D 面向对象设计和编程（OOD&OOP）笔记">
-  <meta name="twitter:description" content="SOLID是 面向对象编程 和 面试对象设计 的五个基本原则，应用这五个原则能创建一个易于维护和扩展的软件系统。SOLID可以指导代码重构和在迭代的过程中进行代码清扫，以使得软件源代码清晰可读和具有良好的扩展性。在测试驱动开发中是典型应用场景，并且也是敏捷开发和自适应软件开发基本原则的重要组成部分。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="S.O.L.I.D 面向对象设计和编程（OOD&amp;OOP）笔记">
+	<meta name="twitter:description" content="SOLID是 面向对象编程 和 面试对象设计 的五个基本原则，应用这五个原则能创建一个易于维护和扩展的软件系统。SOLID可以指导代码重构和在迭代的过程中进行代码清扫，以使得软件源代码清晰可读和具有良好的扩展性。在测试驱动开发中是典型应用场景，并且也是敏捷开发和自适应软件开发基本原则的重要组成部分。">
 <meta name="application-name" content="麦索的麦田">
 <meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -98,40 +98,40 @@
 </nav></div>
             </div><div class="content" id="content"><p>SOLID是 <strong>面向对象编程</strong> 和 <strong>面试对象设计</strong> 的五个基本原则，应用这五个原则能创建一个易于维护和扩展的软件系统。SOLID可以指导代码重构和在迭代的过程中进行代码清扫，以使得软件源代码清晰可读和具有良好的扩展性。在测试驱动开发中是典型应用场景，并且也是敏捷开发和自适应软件开发基本原则的重要组成部分。</p>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: center">首字母-简写（全称）</th>
-          <th style="text-align: center">指代</th>
-          <th style="text-align: center">概念</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: center">S-SRP(Single Responsibility Principle)</td>
-          <td style="text-align: center">单一功能原则</td>
-          <td style="text-align: center">对象应该仅具有一种单一功能</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">O-OCP(Opened Closed Principle)</td>
-          <td style="text-align: center">开闭原则</td>
-          <td style="text-align: center">软件应该是对于扩展开放的，但对于修改封闭的</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">L-LSP(Liscov Substitution Principle)</td>
-          <td style="text-align: center">里氏替换原则</td>
-          <td style="text-align: center">程序中的对象应该是可以在不改变程序正确性的前提下被他的子类所替换</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">I-ISP(Interface Segregation Principle)</td>
-          <td style="text-align: center">接口隔离原则</td>
-          <td style="text-align: center">多个特定客户端接口要好于一个宽泛用途的接口</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">D-DIP(Dependency Inversion Principle)</td>
-          <td style="text-align: center">依赖反转原则</td>
-          <td style="text-align: center">一个方法应该遵从「依赖于抽象而不是一个实例」</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: center">首字母-简写（全称）</th>
+					<th style="text-align: center">指代</th>
+					<th style="text-align: center">概念</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: center">S-SRP(Single Responsibility Principle)</td>
+					<td style="text-align: center">单一功能原则</td>
+					<td style="text-align: center">对象应该仅具有一种单一功能</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">O-OCP(Opened Closed Principle)</td>
+					<td style="text-align: center">开闭原则</td>
+					<td style="text-align: center">软件应该是对于扩展开放的，但对于修改封闭的</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">L-LSP(Liscov Substitution Principle)</td>
+					<td style="text-align: center">里氏替换原则</td>
+					<td style="text-align: center">程序中的对象应该是可以在不改变程序正确性的前提下被他的子类所替换</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">I-ISP(Interface Segregation Principle)</td>
+					<td style="text-align: center">接口隔离原则</td>
+					<td style="text-align: center">多个特定客户端接口要好于一个宽泛用途的接口</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">D-DIP(Dependency Inversion Principle)</td>
+					<td style="text-align: center">依赖反转原则</td>
+					<td style="text-align: center">一个方法应该遵从「依赖于抽象而不是一个实例」</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="单一功能原则s">单一功能原则（S）</h3>
 <p><img
@@ -208,10 +208,10 @@
 </span></span><span class="line"><span class="cl">    <span class="nv">$payment</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="k">true</span> <span class="o">==</span> <span class="nv">$payType</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 微信支付
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nv">$payment</span> <span class="o">=</span> <span class="nx">acceptWechat</span><span class="p">(</span><span class="nv">$total</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nv">$payment</span> <span class="o">=</span> <span class="nx">acceptWechat</span><span class="p">(</span><span class="nv">$total</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 支付宝支付
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nv">$payment</span> <span class="o">=</span> <span class="nx">acceptAlipay</span><span class="p">(</span><span class="nv">$total</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nv">$payment</span> <span class="o">=</span> <span class="nx">acceptAlipay</span><span class="p">(</span><span class="nv">$total</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nv">$payment</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -387,40 +387,40 @@
 <h3 id="总结">总结</h3>
 <p>S.O.L.I.D 原则应该是你工具箱里很有价值的工具，在设计下一个功能或者应用时它们就会出现在你的脑海中，下面引用 Bob 大叔的总结：</p>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: center">-</th>
-          <th style="text-align: center">-</th>
-          <th style="text-align: center">-</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: center">SRP</td>
-          <td style="text-align: center">单一职责原则</td>
-          <td style="text-align: center">一个类有且只有一个更改的原因</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">OCP</td>
-          <td style="text-align: center">开闭原则</td>
-          <td style="text-align: center">能够不更改类而扩展类的行为</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">LSP</td>
-          <td style="text-align: center">里氏替换原则</td>
-          <td style="text-align: center">派生类可以替换基类使用</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">ISP</td>
-          <td style="text-align: center">接口隔离原则</td>
-          <td style="text-align: center">使用客户端特定的细粒度接口</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">DIP</td>
-          <td style="text-align: center">依赖反转原则</td>
-          <td style="text-align: center">依赖抽象而不是具体实现</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: center">-</th>
+					<th style="text-align: center">-</th>
+					<th style="text-align: center">-</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: center">SRP</td>
+					<td style="text-align: center">单一职责原则</td>
+					<td style="text-align: center">一个类有且只有一个更改的原因</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">OCP</td>
+					<td style="text-align: center">开闭原则</td>
+					<td style="text-align: center">能够不更改类而扩展类的行为</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">LSP</td>
+					<td style="text-align: center">里氏替换原则</td>
+					<td style="text-align: center">派生类可以替换基类使用</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">ISP</td>
+					<td style="text-align: center">接口隔离原则</td>
+					<td style="text-align: center">使用客户端特定的细粒度接口</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">DIP</td>
+					<td style="text-align: center">依赖反转原则</td>
+					<td style="text-align: center">依赖抽象而不是具体实现</td>
+			</tr>
+	</tbody>
 </table>
 <p>将这些原则应用在你的项目中，创建一个优秀的应用，不要让你的代码腐败。</p>
 </div><div class="post-footer" id="post-footer">
@@ -451,8 +451,8 @@
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.169.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
         </div>
     </footer></div>

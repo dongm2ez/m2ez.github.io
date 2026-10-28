@@ -1,355 +1,360 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>计算机技术 on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/</link>
-    <description>Recent content in 计算机技术 on 麦索的麦田</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Wed, 23 Jul 2025 16:02:39 +0800</lastBuildDate>
-    <atom:link href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>提示词技术笔记</title>
-      <link>https://blog.m2ez.com/posts/2025/002/</link>
-      <pubDate>Wed, 23 Jul 2025 16:02:39 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2025/002/</guid>
-      <description>大模型提示词技术笔记</description>
-    </item>
-    <item>
-      <title>提示词工程是什么？</title>
-      <link>https://blog.m2ez.com/posts/2025/001/</link>
-      <pubDate>Tue, 03 Jun 2025 11:51:24 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2025/001/</guid>
-      <description>提示词工程概念介绍</description>
-    </item>
-    <item>
-      <title>MySQL 的索引</title>
-      <link>https://blog.m2ez.com/posts/2023/008/</link>
-      <pubDate>Mon, 12 Jun 2023 22:01:00 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2023/008/</guid>
-      <description>MySQL 的默认引擎 InnoDB 使用 B+ 树索引</description>
-    </item>
-    <item>
-      <title>CSRF 和 XSS 攻击是什么</title>
-      <link>https://blog.m2ez.com/posts/2023/007/</link>
-      <pubDate>Fri, 02 Jun 2023 20:23:40 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2023/007/</guid>
-      <description>两种网络攻击方法</description>
-    </item>
-    <item>
-      <title>数据库中数据脱敏的一种方法</title>
-      <link>https://blog.m2ez.com/posts/2023/005/</link>
-      <pubDate>Sun, 28 May 2023 20:15:33 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2023/005/</guid>
-      <description>一种简单的数据脱敏方法</description>
-    </item>
-    <item>
-      <title>面向对象程序语言中的抽象类与接口的区别</title>
-      <link>https://blog.m2ez.com/posts/2023/004/</link>
-      <pubDate>Sat, 27 May 2023 19:54:56 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2023/004/</guid>
-      <description>抽象类与接口的区别</description>
-    </item>
-    <item>
-      <title>Redis 的事务机制</title>
-      <link>https://blog.m2ez.com/posts/2023/003/</link>
-      <pubDate>Sat, 27 May 2023 18:54:58 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2023/003/</guid>
-      <description>Redis 的事务机制，以及事务的原子性</description>
-    </item>
-    <item>
-      <title>配置本地 docker 中运行的 PHP xdebug 环境</title>
-      <link>https://blog.m2ez.com/posts/2023/002/</link>
-      <pubDate>Fri, 26 May 2023 11:39:18 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2023/002/</guid>
-      <description>配置本地 docker 中运行的 PHP xdebug 环境的笔记</description>
-    </item>
-    <item>
-      <title>一种监控报警阈值确定的思路 —— 统计分布算法</title>
-      <link>https://blog.m2ez.com/posts/2023/001/</link>
-      <pubDate>Thu, 23 Feb 2023 09:39:18 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2023/001/</guid>
-      <description>统计分布算法在监控系统中的应用</description>
-    </item>
-    <item>
-      <title>使用 Highcharts 作为前端图表，在数据库中保存图例显示状态的功能设计</title>
-      <link>https://blog.m2ez.com/posts/2022/004/</link>
-      <pubDate>Thu, 08 Sep 2022 14:14:43 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2022/004/</guid>
-      <description>一种保存图例选择状态的需求设计</description>
-    </item>
-    <item>
-      <title>数据结构与算法概览</title>
-      <link>https://blog.m2ez.com/posts/2022/002/</link>
-      <pubDate>Tue, 26 Jul 2022 10:27:53 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2022/002/</guid>
-      <description>数据结构与算法脑图，总结一些数据结构与算法。</description>
-    </item>
-    <item>
-      <title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
-      <link>https://blog.m2ez.com/posts/2022/001/</link>
-      <pubDate>Mon, 25 Jul 2022 18:01:53 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2022/001/</guid>
-      <description>&lt;p&gt;平时我们对语句调优一般用 &lt;code&gt;EXPLAIN&lt;/code&gt; 就可以，但是对于一些复杂语句和疑难杂症这个所能给出信息不够详细，从 MySQL 5.6 开始加入了 Optimizer Trace 功能查看优化器生成执行计划的整个过程，使用示例如下：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>PHP8 新增的字符串方法与 Laravel 提供的性能差异比较</title>
-      <link>https://blog.m2ez.com/posts/2021/003/</link>
-      <pubDate>Sun, 30 May 2021 11:36:57 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2021/003/</guid>
-      <description>&lt;p&gt;在 PHP8 中新增了三个字符串函数操作，这三个函数分别是&lt;code&gt;str_contains&lt;/code&gt;、&lt;code&gt;str_starts_with&lt;/code&gt; 和 &lt;code&gt;str_ends_with&lt;/code&gt;, 在 PHP8 以前这三个函数在主流框架如 Laravel、Yii 中都提供。一般来说 PHP 内置的函数都会比我们用 PHP 写的要快不少，但是相比框架提供的这些函数到底性能提升了多少呢？&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>如何用 PHPUnit 测试类的私有方法</title>
-      <link>https://blog.m2ez.com/posts/2021/002/</link>
-      <pubDate>Tue, 27 Apr 2021 21:00:03 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2021/002/</guid>
-      <description>&lt;p&gt;当要对类中的私有方法进行测试时，很难通过创建对象的实例，然后调用这个方法进行单元测试。但是有其他两种方法对私有方法进行测试。&lt;/p&gt;&#xA;&lt;h2 id=&#34;方法一&#34;&gt;方法一&lt;/h2&gt;&#xA;&lt;p&gt;使用反射的方式来读取代码文件，再对要测试的方法的可见性进行改变，以使得可以在外部调用。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Socket 连接的建立步骤</title>
-      <link>https://blog.m2ez.com/posts/2021/001/</link>
-      <pubDate>Sun, 18 Apr 2021 11:51:03 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2021/001/</guid>
-      <description>&lt;p&gt;&lt;code&gt;Socket&lt;/code&gt; 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。&lt;/p&gt;&#xA;&lt;p&gt;网络中的设备进行通信，就需要创建套接字，套接字是形如 &lt;code&gt;IP:Port&lt;/code&gt; 这样的IP地址对，这样对形式是 &lt;code&gt;IPv4&lt;/code&gt; 版本，新的套接字可以指定为 &lt;code&gt;IPv6&lt;/code&gt;。这部分是在网络层指定。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>计算机信息表示编码中的原码、反码、补码</title>
-      <link>https://blog.m2ez.com/posts/2020/008/</link>
-      <pubDate>Sat, 26 Sep 2020 19:31:25 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2020/008/</guid>
-      <description>&lt;h2 id=&#34;机器码&#34;&gt;机器码&lt;/h2&gt;&#xA;&lt;p&gt;要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称 &lt;code&gt;Bit&lt;/code&gt;，是计算机中信息的表示单位，也是最小的信息表示单位（电子货币比特币的称谓来源于此）。&#xA;在机器码中最高位被称为符号位，如果为 &lt;code&gt;0&lt;/code&gt; 则表示此为正数，如果为 &lt;code&gt;1&lt;/code&gt; 则表示此为负数。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>RPC 学习笔记</title>
-      <link>https://blog.m2ez.com/posts/2020/003/</link>
-      <pubDate>Tue, 10 Mar 2020 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2020/003/</guid>
-      <description>&lt;h2 id=&#34;rpc框架&#34;&gt;RPC框架&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Dubbo&lt;/strong&gt;：国内最早开源的 RPC 框架，由阿里巴巴公司开发并于 2011 年末对外开源，仅支持 Java 语言。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Motan&lt;/strong&gt;：微博内部使用的 RPC 框架，于 2016 年对外开源，仅支持 Java 语言。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tars&lt;/strong&gt;：腾讯内部使用的 RPC 框架，于 2017 年对外开源，仅支持 C++ 语言。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Spring Cloud&lt;/strong&gt;：国外 Pivotal 公司 2014 年对外开源的 RPC 框架，仅支持 Java 语言&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Yar&lt;/strong&gt;：PHP轻量的RPC框架，鸟哥开源，仅支持 PHP 语言&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;跨语言平台-rpc&#34;&gt;跨语言平台 RPC&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;gRPC：Google 于 2015 年对外开源的跨语言 RPC 框架，支持多种语言。&lt;/li&gt;&#xA;&lt;li&gt;Thrift：最初是由 Facebook 开发的内部系统跨语言的 RPC 框架，2007 年贡献给了 Apache 基金，成为 Apache 开源项目之一，支持多种语言。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;grpc&#34;&gt;gRPC&lt;/h2&gt;&#xA;&lt;p&gt;gRPC 是一个高性能开源的通用的 RPC 框架，可以跨语言使用。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Laravel/Lumen 项目接入 Sentry 异常监控</title>
-      <link>https://blog.m2ez.com/posts/2020/001/</link>
-      <pubDate>Tue, 25 Feb 2020 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2020/001/</guid>
-      <description>&lt;ol&gt;&#xA;&lt;li&gt;首先安装 sentry SDK 包：&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;code&gt;$ composer require sentry/sentry-laravel:1.5.0&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;如果使用的 5.5 以上的框架会自动发现包并加载（Lumen 需手动注册），我们目前项目都是 5.5 以上所以无需单独配置。&lt;/p&gt;&#xA;&lt;p&gt;Lumen 注册方法是在 bootstrap/app.php 中添加：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>为什么应该学习自动化测试？</title>
-      <link>https://blog.m2ez.com/posts/2020/002/</link>
-      <pubDate>Thu, 13 Feb 2020 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2020/002/</guid>
-      <description>&lt;p&gt;本次分享的主题是自动化测试，也就是大家常提到的单元测试。&lt;/p&gt;&#xA;&lt;h2 id=&#34;我们为什么需要自动化测试&#34;&gt;我们为什么需要自动化测试&lt;/h2&gt;&#xA;&lt;h3 id=&#34;自动化测试的目标是什么&#34;&gt;自动化测试的目标是什么&lt;/h3&gt;&#xA;&lt;p&gt;自动化测试是为了帮助我们将写好的代码以自动的方式进行功能检查，以确保现有的改动不影响已有的功能，多次的改动对已经完成的功能没有影响，它能够帮助我们有效避免和改善以下情况：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>排序算法 - 冒泡排序</title>
-      <link>https://blog.m2ez.com/posts/2019/009/</link>
-      <pubDate>Wed, 14 Aug 2019 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2019/009/</guid>
-      <description>&lt;h2 id=&#34;算法描述&#34;&gt;算法描述&lt;/h2&gt;&#xA;&lt;p&gt;冒泡排序是一种简单的排序算法。它重复地遍历排序的数列，一次比较两个元素，如果它们的顺序错误就交换彼此。遍历数列的工作是重复地进行直到没有再需要交换，既该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Python计算生态中那些著名的库 - 机器学习</title>
-      <link>https://blog.m2ez.com/posts/2019/008/</link>
-      <pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2019/008/</guid>
-      <description>&lt;h2 id=&#34;scikit-learn&#34;&gt;Scikit-learn&lt;/h2&gt;&#xA;&lt;p&gt;机器学习方法集工具集&lt;/p&gt;&#xA;&lt;p&gt;提供一批统一化的机器学习方法功能接口，提供聚类、分类、回归、强化学习等计算功能，机器学习最基本且最优秀的 Python 第三方库&lt;/p&gt;&#xA;&lt;p&gt;官方网站：&lt;a href=&#34;http://scikit-learn.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;scikit-learn.org&lt;/a&gt;&#xD;&#xA;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Python计算生态中那些著名的库 - 数据分析</title>
-      <link>https://blog.m2ez.com/posts/2019/006/</link>
-      <pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2019/006/</guid>
-      <description>&lt;h2 id=&#34;numpy&#34;&gt;Numpy&lt;/h2&gt;&#xA;&lt;p&gt;C 语言实现，Python 接口实现的，计算速度很快，是诸多数据分析和数据处理的底层库。&lt;/p&gt;&#xA;&lt;p&gt;官方网站：&lt;a href=&#34;http://www.numpy.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;www.numpy.org&lt;/a&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;pandas&#34;&gt;Pandas&lt;/h2&gt;&#xA;&lt;p&gt;Python 数据分析更高层次的应用库，Python 最主要的数据分析工具，基于 Numpy 开发&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Python计算生态中那些著名的库 - 数据可视化</title>
-      <link>https://blog.m2ez.com/posts/2019/007/</link>
-      <pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2019/007/</guid>
-      <description>&lt;h2 id=&#34;matplotlib&#34;&gt;Matplotlib&lt;/h2&gt;&#xA;&lt;p&gt;高质量的二维数据可视化功能库&lt;/p&gt;&#xA;&lt;p&gt;提供超过百种数据可视化展示效果，Python 最主要的数据可视化功能库，基于 Numpy 开发&lt;/p&gt;&#xA;&lt;p&gt;官方网站：&lt;a href=&#34;http://matplotlib.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;matplotlib.org&lt;/a&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;seaborn&#34;&gt;Seaborn&lt;/h2&gt;&#xA;&lt;p&gt;统计类可视化功能库&lt;/p&gt;&#xA;&lt;p&gt;提供了一批高层次的统计数据可视化展示效果，主要展示数据间分布，分类和线性关系等内容，基于 Matplotlib 开发，支持 Numpy 和 Pandas&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Python计算生态中那些著名的库 - 文本处理</title>
-      <link>https://blog.m2ez.com/posts/2019/005/</link>
-      <pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2019/005/</guid>
-      <description>&lt;h2 id=&#34;pypdf2&#34;&gt;PyPDF2&lt;/h2&gt;&#xA;&lt;p&gt;用来处理 PDF 文件的工具集&lt;/p&gt;&#xA;&lt;p&gt;提供了一批处理PDF文件的计算功能，支持获取信息、分隔/整合文件、加密解密等，完全 Python 语言实现，不需要额外依赖，功能稳定&lt;/p&gt;&#xA;&lt;p&gt;官方网站：&lt;a href=&#34;http://mstamy2.github.io/PyPDF2&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;mstamy2.github.io/PyPDF2&lt;/a&gt;&#xD;&#xA;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>编程中的自顶向下设计思想</title>
-      <link>https://blog.m2ez.com/posts/2019/004/</link>
-      <pubDate>Mon, 12 Aug 2019 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2019/004/</guid>
-      <description>&lt;p&gt;自顶向下设计是一种软件设计过程方法，是一种总到分的设计思路。&lt;/p&gt;&#xA;&lt;p&gt;我们设计软件实际上是一种问题求解的过程，复杂的问题如果从问题本身去解决，难度是相当大的，所以我们需要将问题不断拆分，拆分成一个个小问题，当小问题被逐个解决的时候，那么整个问题就会被解决。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>从排序数组中删除重复项</title>
-      <link>https://blog.m2ez.com/posts/2019/003/</link>
-      <pubDate>Fri, 17 May 2019 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2019/003/</guid>
-      <description>&lt;h2 id=&#34;题目链接&#34;&gt;题目链接&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/21/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;从排序数组中删除重复项&lt;/a&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;解题思路&#34;&gt;解题思路&lt;/h2&gt;&#xA;&lt;p&gt;迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。&lt;/p&gt;&#xA;&lt;h2 id=&#34;代码&#34;&gt;代码&lt;/h2&gt;&#xA;&lt;h3 id=&#34;php-版本&#34;&gt;PHP 版本&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;sd&#34;&gt;/**&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     * @param Integer[] $nums&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     * @return Integer&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;removeDuplicates&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nv&#34;&gt;$size&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 防止数组越界&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;foreach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]){&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;nx&#34;&gt;unset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;语言坑点：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Arch Linux 安装笔记</title>
-      <link>https://blog.m2ez.com/posts/2019/001/</link>
-      <pubDate>Sat, 23 Feb 2019 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2019/001/</guid>
-      <description>&lt;p&gt;安装 Arch 的工作是一个对 linux 菜鸟很艰难的工作，但是当你能安装的时候，你就会对 linux 有更好的理解，我把我的安装 Arch 的经验与大家分享一下，希望对大家有帮助。&lt;/p&gt;&#xA;&lt;p&gt;首先你需要一个到 Arch 的官方网站下载一个镜像，然后先用镜像在虚拟机中安装，我是在虚拟机中尝试三次后安装到物理环境中的。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>用 Raspberry Pi 3（树莓派）和 Android Things 搭建物联网开发环境</title>
-      <link>https://blog.m2ez.com/posts/2019/002/</link>
-      <pubDate>Sat, 23 Feb 2019 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2019/002/</guid>
-      <description>&lt;p&gt;简介树莓派是一个极小的单块电路板，但是却有着计算机的所有基本功能，而 Android Things 是 Google 在 Android 的基础上去掉了一些物联网不需要的库，又加入了一些物联网需要的库而开发的物联网专用操作系统。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Laravel 5.6 以下版本中自定义日志行为</title>
-      <link>https://blog.m2ez.com/posts/2018/002/</link>
-      <pubDate>Tue, 31 Jul 2018 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2018/002/</guid>
-      <description>&lt;p&gt;在 Laravel 5.6 版本中日志行为可以很容易的进行自定义，而在 5.5 以下版本中日志行为自定义自由度并不是很高，但是项目有需求不能因为这个就强行将项目升级为 5.6 吧，况且作为一个稳定的项目升级框架大版本有可能会有很多坑，基于这些原因我尝试了对 Laravel 5.5 的日志进行改造以适应我的需求。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>PHP 是什么 - PHP 的架构及原理概述</title>
-      <link>https://blog.m2ez.com/posts/2018/001/</link>
-      <pubDate>Sun, 25 Feb 2018 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2018/001/</guid>
-      <description>&lt;p&gt;记得我刚开始学习 PHP 的时候，许多面试官会经常问我 PHP 是什么，那时的标准回答是 PHP 是一种弱类型动态脚本编程语言，开源，免费，是超文本预处理器的缩写。&lt;/p&gt;&#xA;&lt;p&gt;这只是很浅的解释，PHP 对我来说是一个工具，是我手里的一把锤子，虽然这把锤子时常被调侃为两边都是起钉器的锤子。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>使用 Docker 完成 MySQL 数据库主从配置</title>
-      <link>https://blog.m2ez.com/posts/2017/020/</link>
-      <pubDate>Sat, 04 Nov 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/020/</guid>
-      <description>&lt;p&gt;使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行部署的时候我还踩了许多坑。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>开发者的简单服务器集群管理</title>
-      <link>https://blog.m2ez.com/posts/2017/019/</link>
-      <pubDate>Sun, 10 Sep 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/019/</guid>
-      <description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;本篇是以开发者的视角进行，非专业运维视角，开发管理服务器集群，也许仅仅是自己的项目，或者是在创业公司而没有专业的运维。&lt;/p&gt;&#xA;&lt;p&gt;开发管理服务器集群，用各种工具需要付出一定的学习成本，但开发者的主要工作不在于此，所以我们需要最简单又比较安全的管理方法，以下是一个对开发者比较好的管理服务器方案，希望对大家有帮助&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>用开源组件构建属于你的 PHP 框架</title>
-      <link>https://blog.m2ez.com/posts/2017/018/</link>
-      <pubDate>Sun, 03 Sep 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/018/</guid>
-      <description>&lt;h2 id=&#34;为什么要构建自己的-php-框架&#34;&gt;为什么要构建自己的 PHP 框架？&lt;/h2&gt;&#xA;&lt;p&gt;现在的 PHP 框架很多，当然不止 PHP ，即使是其他编程语言也有很多框架，这篇文章讲 PHP 框架构建是因为我对 PHP 的生态最为熟悉，但这个方法同样也适用于其他编程语言框架的构建。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Web 金字塔式开发框架分层模型概述</title>
-      <link>https://blog.m2ez.com/posts/2017/017/</link>
-      <pubDate>Sat, 26 Aug 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/017/</guid>
-      <description>&lt;p&gt;现在的大部分 Web 框架都是使用金字塔式的分层架构，一般这种应用都是阻塞同步 IO 模型的编程实现，理解这种分层架构模型的实质有助于理解框架。&lt;/p&gt;&#xA;&lt;p&gt;因为万变不离其宗，理解这种架构后你不管这种模型如何变化实际上都是在遵守一些约定和规则，那么理解这个模型，只要这个框架是这种架构那么你都会掌握的很快。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>网络七层模型与四层模型区别</title>
-      <link>https://blog.m2ez.com/posts/2017/016/</link>
-      <pubDate>Fri, 25 Aug 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/016/</guid>
-      <description>&lt;p&gt;作为一个 Web 程序员👨‍💻‍，对于网络模型你应该了解，知道网络到底是怎么进行通信的，进行工作的，为什么服务器能够接收到请求，做出响应。这里面的原理应该是每个 Web 程序员应该了解的。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>求钟表时针和分钟夹角问题</title>
-      <link>https://blog.m2ez.com/posts/2017/015/</link>
-      <pubDate>Mon, 21 Aug 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/015/</guid>
-      <description>&lt;p&gt;这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。&lt;/p&gt;&#xA;&lt;h3 id=&#34;问题&#34;&gt;问题&lt;/h3&gt;&#xA;&lt;p&gt;给定一个时间值，需要计算出表盘上时针与分针的之间的夹角度数。&lt;/p&gt;&#xA;&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;&#xA;&lt;p&gt;虽然题目中只有一个条件，但其实已经有许多隐含条件包括在内。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Laravel 的 Eloquent 中的属性访问控制意义及实践</title>
-      <link>https://blog.m2ez.com/posts/2017/014/</link>
-      <pubDate>Mon, 31 Jul 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/014/</guid>
-      <description>&lt;p&gt;我们在定义一个自己的 Laravel 模型时都需要继承 Illuminate\Database\Eloquent\Model 这个类，在这个类中定义了很多模型相关的操作和行为。今天我们来重点说说 Model 中包含的属性。&lt;/p&gt;&#xA;&lt;p&gt;在框架定义属性中访问权限一般有 &lt;code&gt;protected&lt;/code&gt; 和 &lt;code&gt;public&lt;/code&gt; 两种，这两种属性是在我们继承基础模型后可以重写的，那为什么不统一都是&lt;code&gt;protected&lt;/code&gt;，是因为有一些属性我们需要去动态改变。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>PHP 用 Enum 限定参数类型</title>
-      <link>https://blog.m2ez.com/posts/2017/013/</link>
-      <pubDate>Wed, 26 Jul 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/013/</guid>
-      <description>&lt;h3 id=&#34;痛点&#34;&gt;痛点&lt;/h3&gt;&#xA;&lt;p&gt;PHP 是一门若类型语言，这是大家都知道的，弱类型让我们在编写代码时很舒服，但是维护它却变得不那么舒服，一个小型的 PHP 项目只有有限的几个程序员去维护的话，其实这个问题并不明显，也不会成为困难，但是当项目变大，协作的人数变多的时候这就是一个需要去正式的问题。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>HTTP 协议 Request 和 Response 参数笔记</title>
-      <link>https://blog.m2ez.com/posts/2017/010/</link>
-      <pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/010/</guid>
-      <description>&lt;h3 id=&#34;request&#34;&gt;Request&lt;/h3&gt;&#xA;&lt;h4 id=&#34;请求方法&#34;&gt;请求方法&lt;/h4&gt;&#xA;&lt;p&gt;一般的网页应用中只会用到 GET 和 POST 方法，而 RESTful 接口中会用到其他方法。&lt;/p&gt;&#xA;&lt;p&gt;GET : 请求获取 Request-URI 所标识的资源。&#xA;POST : 在 Request-URI 所标识的资源后附加新的数据。&#xA;HEAD : 请求获取由 Request-URI 所标识的资源的响应消息报头。&#xA;PUT : 请求服务器更新一个资源，并用 Request-URI 作为其标识。&#xA;PATCH : 请求服务器更新资源的一小部分，并返回更新部分。&#xA;DELETE : 请求服务器删除 Request-URI 所标识的资源。&#xA;OPTIONS : 请求查询服务器性能，或者查询与资源相关的选项或需求。（跨域请求中会首先发送此请求，获取服务器的允许信息）&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>互联网的基础协议 HTTP</title>
-      <link>https://blog.m2ez.com/posts/2017/011/</link>
-      <pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/011/</guid>
-      <description>&lt;p&gt;HTTP 协议中文全称 「超文本传输协议」，是互联网的基础协议，目前最新版本为 HTTP 2.0。&lt;/p&gt;&#xA;&lt;p&gt;HTTP 是基于 TCP/IP 协议的 应用层协议，主要规定了客户端与服务器端之间通信的格式，默认使用80端口。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>趣说什么是 依赖注入 和 控制反转</title>
-      <link>https://blog.m2ez.com/posts/2017/012/</link>
-      <pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/012/</guid>
-      <description>&lt;p&gt;关于 &lt;code&gt;依赖注入&lt;/code&gt; 与 &lt;code&gt;控制反转&lt;/code&gt; 的概念有些人觉得很难理解，最近在给别人讲这个概念的时候梳理了一个比较好理解的解释，而且我认为非技术人员也应该能听的懂，因此记录一下。其实 &lt;code&gt;依赖注入&lt;/code&gt; 和 &lt;code&gt;控制反转&lt;/code&gt; 说的是同一件事情，只是站的角度不同而已。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>MySQL 常用数据存储引擎区别</title>
-      <link>https://blog.m2ez.com/posts/2017/009/</link>
-      <pubDate>Sat, 08 Jul 2017 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/009/</guid>
-      <description>&lt;p&gt;mysql有多种存储引擎，目前常用的是 MyISAM 和 InnoDB 这两个引擎，除了这两个引擎以为还有许多其他引擎，有官方的，也有一些公司自己研发的。这篇文章主要简单概述一下常用常见的 MySQL 引擎，一则这是面试中常被问到的问题，二则这也是数据库设计中不可忽略的问题，用合适的引擎可以更好的适应业务场景，提高业务效率。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Laravel 源码分析-路由是如何调用到控制器</title>
-      <link>https://blog.m2ez.com/posts/2017/008/</link>
-      <pubDate>Fri, 07 Jul 2017 20:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/008/</guid>
-      <description>&lt;h3 id=&#34;概述&#34;&gt;概述&lt;/h3&gt;&#xA;&lt;p&gt;laravel 的路由相比其他PHP框架非常灵活和优雅，它也能做的在 url 不变的情况下改变调用的控制器和方法。&lt;/p&gt;&#xA;&lt;p&gt;那么这到底在 laravel 里是怎么完成的呢&lt;/p&gt;&#xA;&lt;h3 id=&#34;路由到底是如何获取的&#34;&gt;路由到底是如何获取的？&lt;/h3&gt;&#xA;&lt;p&gt;这没什么神秘的，回忆一下我们写一个单页过程化 PHP 脚本时我们是如何接收 HTML 页面传输的参数的？&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ubuntu 搭建 GitLab 笔记</title>
-      <link>https://blog.m2ez.com/posts/2017/007/</link>
-      <pubDate>Wed, 05 Jul 2017 20:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/007/</guid>
-      <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;&#xA;&lt;p&gt;GitLab 社区版可以提供许多与 GitHub 相同的功能，且部署在属于自己的机器上，我们会因为网络及其他一些问题而不便使用 GitHub ，这时部署一个 GitLab 是最好的选择。&lt;/p&gt;&#xA;&lt;h3 id=&#34;下载-gitlab-并安装&#34;&gt;下载 GitLab 并安装&lt;/h3&gt;&#xA;&lt;p&gt;我的环境是 Ubuntu 16.04 下进行部署操作。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>PHP 的魔术方法及其应用</title>
-      <link>https://blog.m2ez.com/posts/2017/005/</link>
-      <pubDate>Tue, 04 Jul 2017 20:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/005/</guid>
-      <description>&lt;p&gt;PHP 中将所有__(两个下划线)开头的类方法作为魔术方法，这方法之所以称为魔术方法是因为其实现的功能就如变魔术一样感觉很神奇。在特定的事件下触发，这真的很酷。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>S.O.L.I.D 面向对象设计和编程（OOD&amp;OOP）笔记</title>
-      <link>https://blog.m2ez.com/posts/2017/006/</link>
-      <pubDate>Tue, 04 Jul 2017 20:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/006/</guid>
-      <description>&lt;p&gt;SOLID是 &lt;strong&gt;面向对象编程&lt;/strong&gt; 和 &lt;strong&gt;面试对象设计&lt;/strong&gt; 的五个基本原则，应用这五个原则能创建一个易于维护和扩展的软件系统。SOLID可以指导代码重构和在迭代的过程中进行代码清扫，以使得软件源代码清晰可读和具有良好的扩展性。在测试驱动开发中是典型应用场景，并且也是敏捷开发和自适应软件开发基本原则的重要组成部分。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>PHP 文件操作的各种姿势</title>
-      <link>https://blog.m2ez.com/posts/2017/004/</link>
-      <pubDate>Mon, 03 Jul 2017 20:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/004/</guid>
-      <description>&lt;h2 id=&#34;使用-spl-库&#34;&gt;使用 SPL 库&lt;/h2&gt;&#xA;&lt;p&gt;SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。&lt;/p&gt;&#xA;&lt;h3 id=&#34;迭代器-filesystemiterator&#34;&gt;迭代器 FilesystemIterator&lt;/h3&gt;&#xA;&lt;p&gt;官方文档：&lt;a href=&#34;http://php.net/manual/zh/class.filesystemiterator.php&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;http://php.net/manual/zh/class.filesystemiterator.php&lt;/a&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;类摘要：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;FilesystemIterator&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;implements&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;SeekableIterator&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* 常量 */&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;CURRENT_AS_PATHNAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;CURRENT_AS_FILEINFO&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;CURRENT_AS_SELF&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;CURRENT_MODE_MASK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;240&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;KEY_AS_PATHNAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;KEY_AS_FILENAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;256&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FOLLOW_SYMLINKS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;512&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;KEY_MODE_MASK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3840&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;NEW_CURRENT_AND_KEY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;256&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;SKIP_DOTS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4096&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;UNIX_PATHS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8192&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* 方法 */&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;__construct&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$path&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$flags&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FilesystemIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;KEY_AS_PATHNAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FilesystemIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;CURRENT_AS_FILEINFO&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FilesystemIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;SKIP_DOTS&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mixed&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;getFlags&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;next&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;rewind&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setFlags&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;([&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$flags&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* 继承的方法 */&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getATime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getBasename&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;([&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$suffix&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getCTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getExtension&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getFilename&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getGroup&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getInode&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getMTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getOwner&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getPath&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getPathname&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getPerms&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getSize&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getType&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isDir&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isDot&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isExecutable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isFile&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isLink&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isReadable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isWritable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;next&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;rewind&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;seek&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$position&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;__toString&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valid&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;使用这个迭代器的方法很简单，实例化的时候传入的是目录路径，这个迭代器继承自 DirectoryIterator 迭代器，而 DirectoryIterator 迭代器又继承自 SplFileInfo 类，这个类我们后面介绍。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Jenkins 部署 PHP 应用</title>
-      <link>https://blog.m2ez.com/posts/2017/003/</link>
-      <pubDate>Sun, 02 Jul 2017 20:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/003/</guid>
-      <description>&lt;h2 id=&#34;安装-jenkins&#34;&gt;安装 Jenkins&lt;/h2&gt;&#xA;&lt;p&gt;方式一：docker方式安装&lt;/p&gt;&#xA;&lt;p&gt;拉取jenkins官方镜像，按照镜像文档启动镜像就可以了&lt;/p&gt;&#xA;&lt;p&gt;方式二：手动安装&lt;/p&gt;&#xA;&lt;p&gt;以下所有操作都使用 root 用户进行操作。&lt;/p&gt;&#xA;&lt;p&gt;在各项目官网，下载 Java、Tomcat、Jenkins&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>PHP trait 特性在 Laravel 中的使用个人心得</title>
-      <link>https://blog.m2ez.com/posts/2017/002/</link>
-      <pubDate>Sat, 01 Jul 2017 20:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2017/002/</guid>
-      <description>&lt;p&gt;trait 是在 PHP5.4 中为了方便代码复用的一种实现方式，但目前我在看的的PHP项目中较少看的有程序员去主动使用这个实现方式，在 Laravel 中有很多 trait 的使用，关于 trait 在 Laravel 的使用请参看 Laravel 在哪些地方用了 trait?&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>计算机技术 on 麦索的麦田</title>
+		<link>https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/</link>
+		<description>Recent content in 计算机技术 on 麦索的麦田</description>
+		<generator>Hugo</generator>
+		<language>zh-CN</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 23 Jul 2025 16:02:39 +0800</lastBuildDate>
+		
+			<atom:link href="https://blog.m2ez.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>提示词技术笔记</title>
+				<link>https://blog.m2ez.com/posts/2025/002/</link>
+				<pubDate>Wed, 23 Jul 2025 16:02:39 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2025/002/</guid>
+				<description>大模型提示词技术笔记</description>
+			</item>
+			<item>
+				<title>提示词工程是什么？</title>
+				<link>https://blog.m2ez.com/posts/2025/001/</link>
+				<pubDate>Tue, 03 Jun 2025 11:51:24 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2025/001/</guid>
+				<description>提示词工程概念介绍</description>
+			</item>
+			<item>
+				<title>MySQL 的索引</title>
+				<link>https://blog.m2ez.com/posts/2023/008/</link>
+				<pubDate>Mon, 12 Jun 2023 22:01:00 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2023/008/</guid>
+				<description>MySQL 的默认引擎 InnoDB 使用 B+ 树索引</description>
+			</item>
+			<item>
+				<title>CSRF 和 XSS 攻击是什么</title>
+				<link>https://blog.m2ez.com/posts/2023/007/</link>
+				<pubDate>Fri, 02 Jun 2023 20:23:40 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2023/007/</guid>
+				<description>两种网络攻击方法</description>
+			</item>
+			<item>
+				<title>数据库中数据脱敏的一种方法</title>
+				<link>https://blog.m2ez.com/posts/2023/005/</link>
+				<pubDate>Sun, 28 May 2023 20:15:33 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2023/005/</guid>
+				<description>一种简单的数据脱敏方法</description>
+			</item>
+			<item>
+				<title>面向对象程序语言中的抽象类与接口的区别</title>
+				<link>https://blog.m2ez.com/posts/2023/004/</link>
+				<pubDate>Sat, 27 May 2023 19:54:56 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2023/004/</guid>
+				<description>抽象类与接口的区别</description>
+			</item>
+			<item>
+				<title>Redis 的事务机制</title>
+				<link>https://blog.m2ez.com/posts/2023/003/</link>
+				<pubDate>Sat, 27 May 2023 18:54:58 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2023/003/</guid>
+				<description>Redis 的事务机制，以及事务的原子性</description>
+			</item>
+			<item>
+				<title>配置本地 docker 中运行的 PHP xdebug 环境</title>
+				<link>https://blog.m2ez.com/posts/2023/002/</link>
+				<pubDate>Fri, 26 May 2023 11:39:18 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2023/002/</guid>
+				<description>配置本地 docker 中运行的 PHP xdebug 环境的笔记</description>
+			</item>
+			<item>
+				<title>一种监控报警阈值确定的思路 —— 统计分布算法</title>
+				<link>https://blog.m2ez.com/posts/2023/001/</link>
+				<pubDate>Thu, 23 Feb 2023 09:39:18 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2023/001/</guid>
+				<description>统计分布算法在监控系统中的应用</description>
+			</item>
+			<item>
+				<title>使用 Highcharts 作为前端图表，在数据库中保存图例显示状态的功能设计</title>
+				<link>https://blog.m2ez.com/posts/2022/004/</link>
+				<pubDate>Thu, 08 Sep 2022 14:14:43 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2022/004/</guid>
+				<description>一种保存图例选择状态的需求设计</description>
+			</item>
+			<item>
+				<title>数据结构与算法概览</title>
+				<link>https://blog.m2ez.com/posts/2022/002/</link>
+				<pubDate>Tue, 26 Jul 2022 10:27:53 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2022/002/</guid>
+				<description>数据结构与算法脑图，总结一些数据结构与算法。</description>
+			</item>
+			<item>
+				<title>MySQL 比 EXPLAIN 更详细的信息获取：Optimizer Trace</title>
+				<link>https://blog.m2ez.com/posts/2022/001/</link>
+				<pubDate>Mon, 25 Jul 2022 18:01:53 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2022/001/</guid>
+				<description>&lt;p&gt;平时我们对语句调优一般用 &lt;code&gt;EXPLAIN&lt;/code&gt; 就可以，但是对于一些复杂语句和疑难杂症这个所能给出信息不够详细，从 MySQL 5.6 开始加入了 Optimizer Trace 功能查看优化器生成执行计划的整个过程，使用示例如下：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>PHP8 新增的字符串方法与 Laravel 提供的性能差异比较</title>
+				<link>https://blog.m2ez.com/posts/2021/003/</link>
+				<pubDate>Sun, 30 May 2021 11:36:57 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2021/003/</guid>
+				<description>&lt;p&gt;在 PHP8 中新增了三个字符串函数操作，这三个函数分别是&lt;code&gt;str_contains&lt;/code&gt;、&lt;code&gt;str_starts_with&lt;/code&gt; 和 &lt;code&gt;str_ends_with&lt;/code&gt;, 在 PHP8 以前这三个函数在主流框架如 Laravel、Yii 中都提供。一般来说 PHP 内置的函数都会比我们用 PHP 写的要快不少，但是相比框架提供的这些函数到底性能提升了多少呢？&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>如何用 PHPUnit 测试类的私有方法</title>
+				<link>https://blog.m2ez.com/posts/2021/002/</link>
+				<pubDate>Tue, 27 Apr 2021 21:00:03 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2021/002/</guid>
+				<description>&lt;p&gt;当要对类中的私有方法进行测试时，很难通过创建对象的实例，然后调用这个方法进行单元测试。但是有其他两种方法对私有方法进行测试。&lt;/p&gt;&#xA;&lt;h2 id=&#34;方法一&#34;&gt;方法一&lt;/h2&gt;&#xA;&lt;p&gt;使用反射的方式来读取代码文件，再对要测试的方法的可见性进行改变，以使得可以在外部调用。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Socket 连接的建立步骤</title>
+				<link>https://blog.m2ez.com/posts/2021/001/</link>
+				<pubDate>Sun, 18 Apr 2021 11:51:03 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2021/001/</guid>
+				<description>&lt;p&gt;&lt;code&gt;Socket&lt;/code&gt; 中文可以译作插口或者插座，在计算机学科中有起专有名称，既为套接字。&lt;/p&gt;&#xA;&lt;p&gt;网络中的设备进行通信，就需要创建套接字，套接字是形如 &lt;code&gt;IP:Port&lt;/code&gt; 这样的IP地址对，这样对形式是 &lt;code&gt;IPv4&lt;/code&gt; 版本，新的套接字可以指定为 &lt;code&gt;IPv6&lt;/code&gt;。这部分是在网络层指定。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>计算机信息表示编码中的原码、反码、补码</title>
+				<link>https://blog.m2ez.com/posts/2020/008/</link>
+				<pubDate>Sat, 26 Sep 2020 19:31:25 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2020/008/</guid>
+				<description>&lt;h2 id=&#34;机器码&#34;&gt;机器码&lt;/h2&gt;&#xA;&lt;p&gt;要了解标题中的那些码就先了解机器码，机器码就是由0和1组成的数，亦称 &lt;code&gt;Bit&lt;/code&gt;，是计算机中信息的表示单位，也是最小的信息表示单位（电子货币比特币的称谓来源于此）。&#xA;在机器码中最高位被称为符号位，如果为 &lt;code&gt;0&lt;/code&gt; 则表示此为正数，如果为 &lt;code&gt;1&lt;/code&gt; 则表示此为负数。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>RPC 学习笔记</title>
+				<link>https://blog.m2ez.com/posts/2020/003/</link>
+				<pubDate>Tue, 10 Mar 2020 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2020/003/</guid>
+				<description>&lt;h2 id=&#34;rpc框架&#34;&gt;RPC框架&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Dubbo&lt;/strong&gt;：国内最早开源的 RPC 框架，由阿里巴巴公司开发并于 2011 年末对外开源，仅支持 Java 语言。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Motan&lt;/strong&gt;：微博内部使用的 RPC 框架，于 2016 年对外开源，仅支持 Java 语言。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tars&lt;/strong&gt;：腾讯内部使用的 RPC 框架，于 2017 年对外开源，仅支持 C++ 语言。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Spring Cloud&lt;/strong&gt;：国外 Pivotal 公司 2014 年对外开源的 RPC 框架，仅支持 Java 语言&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Yar&lt;/strong&gt;：PHP轻量的RPC框架，鸟哥开源，仅支持 PHP 语言&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;跨语言平台-rpc&#34;&gt;跨语言平台 RPC&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;gRPC：Google 于 2015 年对外开源的跨语言 RPC 框架，支持多种语言。&lt;/li&gt;&#xA;&lt;li&gt;Thrift：最初是由 Facebook 开发的内部系统跨语言的 RPC 框架，2007 年贡献给了 Apache 基金，成为 Apache 开源项目之一，支持多种语言。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;grpc&#34;&gt;gRPC&lt;/h2&gt;&#xA;&lt;p&gt;gRPC 是一个高性能开源的通用的 RPC 框架，可以跨语言使用。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Laravel/Lumen 项目接入 Sentry 异常监控</title>
+				<link>https://blog.m2ez.com/posts/2020/001/</link>
+				<pubDate>Tue, 25 Feb 2020 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2020/001/</guid>
+				<description>&lt;ol&gt;&#xA;&lt;li&gt;首先安装 sentry SDK 包：&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;code&gt;$ composer require sentry/sentry-laravel:1.5.0&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;如果使用的 5.5 以上的框架会自动发现包并加载（Lumen 需手动注册），我们目前项目都是 5.5 以上所以无需单独配置。&lt;/p&gt;&#xA;&lt;p&gt;Lumen 注册方法是在 bootstrap/app.php 中添加：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>为什么应该学习自动化测试？</title>
+				<link>https://blog.m2ez.com/posts/2020/002/</link>
+				<pubDate>Thu, 13 Feb 2020 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2020/002/</guid>
+				<description>&lt;p&gt;本次分享的主题是自动化测试，也就是大家常提到的单元测试。&lt;/p&gt;&#xA;&lt;h2 id=&#34;我们为什么需要自动化测试&#34;&gt;我们为什么需要自动化测试&lt;/h2&gt;&#xA;&lt;h3 id=&#34;自动化测试的目标是什么&#34;&gt;自动化测试的目标是什么&lt;/h3&gt;&#xA;&lt;p&gt;自动化测试是为了帮助我们将写好的代码以自动的方式进行功能检查，以确保现有的改动不影响已有的功能，多次的改动对已经完成的功能没有影响，它能够帮助我们有效避免和改善以下情况：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>排序算法 - 冒泡排序</title>
+				<link>https://blog.m2ez.com/posts/2019/009/</link>
+				<pubDate>Wed, 14 Aug 2019 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2019/009/</guid>
+				<description>&lt;h2 id=&#34;算法描述&#34;&gt;算法描述&lt;/h2&gt;&#xA;&lt;p&gt;冒泡排序是一种简单的排序算法。它重复地遍历排序的数列，一次比较两个元素，如果它们的顺序错误就交换彼此。遍历数列的工作是重复地进行直到没有再需要交换，既该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Python计算生态中那些著名的库 - 机器学习</title>
+				<link>https://blog.m2ez.com/posts/2019/008/</link>
+				<pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2019/008/</guid>
+				<description>&lt;h2 id=&#34;scikit-learn&#34;&gt;Scikit-learn&lt;/h2&gt;&#xA;&lt;p&gt;机器学习方法集工具集&lt;/p&gt;&#xA;&lt;p&gt;提供一批统一化的机器学习方法功能接口，提供聚类、分类、回归、强化学习等计算功能，机器学习最基本且最优秀的 Python 第三方库&lt;/p&gt;&#xA;&lt;p&gt;官方网站：&lt;a href=&#34;http://scikit-learn.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;scikit-learn.org&lt;/a&gt;&#xA;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Python计算生态中那些著名的库 - 数据分析</title>
+				<link>https://blog.m2ez.com/posts/2019/006/</link>
+				<pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2019/006/</guid>
+				<description>&lt;h2 id=&#34;numpy&#34;&gt;Numpy&lt;/h2&gt;&#xA;&lt;p&gt;C 语言实现，Python 接口实现的，计算速度很快，是诸多数据分析和数据处理的底层库。&lt;/p&gt;&#xA;&lt;p&gt;官方网站：&lt;a href=&#34;http://www.numpy.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;www.numpy.org&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;pandas&#34;&gt;Pandas&lt;/h2&gt;&#xA;&lt;p&gt;Python 数据分析更高层次的应用库，Python 最主要的数据分析工具，基于 Numpy 开发&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Python计算生态中那些著名的库 - 数据可视化</title>
+				<link>https://blog.m2ez.com/posts/2019/007/</link>
+				<pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2019/007/</guid>
+				<description>&lt;h2 id=&#34;matplotlib&#34;&gt;Matplotlib&lt;/h2&gt;&#xA;&lt;p&gt;高质量的二维数据可视化功能库&lt;/p&gt;&#xA;&lt;p&gt;提供超过百种数据可视化展示效果，Python 最主要的数据可视化功能库，基于 Numpy 开发&lt;/p&gt;&#xA;&lt;p&gt;官方网站：&lt;a href=&#34;http://matplotlib.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;matplotlib.org&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;seaborn&#34;&gt;Seaborn&lt;/h2&gt;&#xA;&lt;p&gt;统计类可视化功能库&lt;/p&gt;&#xA;&lt;p&gt;提供了一批高层次的统计数据可视化展示效果，主要展示数据间分布，分类和线性关系等内容，基于 Matplotlib 开发，支持 Numpy 和 Pandas&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Python计算生态中那些著名的库 - 文本处理</title>
+				<link>https://blog.m2ez.com/posts/2019/005/</link>
+				<pubDate>Tue, 13 Aug 2019 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2019/005/</guid>
+				<description>&lt;h2 id=&#34;pypdf2&#34;&gt;PyPDF2&lt;/h2&gt;&#xA;&lt;p&gt;用来处理 PDF 文件的工具集&lt;/p&gt;&#xA;&lt;p&gt;提供了一批处理PDF文件的计算功能，支持获取信息、分隔/整合文件、加密解密等，完全 Python 语言实现，不需要额外依赖，功能稳定&lt;/p&gt;&#xA;&lt;p&gt;官方网站：&lt;a href=&#34;http://mstamy2.github.io/PyPDF2&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;mstamy2.github.io/PyPDF2&lt;/a&gt;&#xA;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>编程中的自顶向下设计思想</title>
+				<link>https://blog.m2ez.com/posts/2019/004/</link>
+				<pubDate>Mon, 12 Aug 2019 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2019/004/</guid>
+				<description>&lt;p&gt;自顶向下设计是一种软件设计过程方法，是一种总到分的设计思路。&lt;/p&gt;&#xA;&lt;p&gt;我们设计软件实际上是一种问题求解的过程，复杂的问题如果从问题本身去解决，难度是相当大的，所以我们需要将问题不断拆分，拆分成一个个小问题，当小问题被逐个解决的时候，那么整个问题就会被解决。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>从排序数组中删除重复项</title>
+				<link>https://blog.m2ez.com/posts/2019/003/</link>
+				<pubDate>Fri, 17 May 2019 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2019/003/</guid>
+				<description>&lt;h2 id=&#34;题目链接&#34;&gt;题目链接&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/21/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;从排序数组中删除重复项&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;解题思路&#34;&gt;解题思路&lt;/h2&gt;&#xA;&lt;p&gt;迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。&lt;/p&gt;&#xA;&lt;h2 id=&#34;代码&#34;&gt;代码&lt;/h2&gt;&#xA;&lt;h3 id=&#34;php-版本&#34;&gt;PHP 版本&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;sd&#34;&gt;/**&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     * @param Integer[] $nums&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     * @return Integer&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;removeDuplicates&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nv&#34;&gt;$size&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 防止数组越界&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;foreach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]){&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;nx&#34;&gt;unset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;语言坑点：&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Arch Linux 安装笔记</title>
+				<link>https://blog.m2ez.com/posts/2019/001/</link>
+				<pubDate>Sat, 23 Feb 2019 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2019/001/</guid>
+				<description>&lt;p&gt;安装 Arch 的工作是一个对 linux 菜鸟很艰难的工作，但是当你能安装的时候，你就会对 linux 有更好的理解，我把我的安装 Arch 的经验与大家分享一下，希望对大家有帮助。&lt;/p&gt;&#xA;&lt;p&gt;首先你需要一个到 Arch 的官方网站下载一个镜像，然后先用镜像在虚拟机中安装，我是在虚拟机中尝试三次后安装到物理环境中的。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>用 Raspberry Pi 3（树莓派）和 Android Things 搭建物联网开发环境</title>
+				<link>https://blog.m2ez.com/posts/2019/002/</link>
+				<pubDate>Sat, 23 Feb 2019 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2019/002/</guid>
+				<description>&lt;p&gt;简介树莓派是一个极小的单块电路板，但是却有着计算机的所有基本功能，而 Android Things 是 Google 在 Android 的基础上去掉了一些物联网不需要的库，又加入了一些物联网需要的库而开发的物联网专用操作系统。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Laravel 5.6 以下版本中自定义日志行为</title>
+				<link>https://blog.m2ez.com/posts/2018/002/</link>
+				<pubDate>Tue, 31 Jul 2018 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2018/002/</guid>
+				<description>&lt;p&gt;在 Laravel 5.6 版本中日志行为可以很容易的进行自定义，而在 5.5 以下版本中日志行为自定义自由度并不是很高，但是项目有需求不能因为这个就强行将项目升级为 5.6 吧，况且作为一个稳定的项目升级框架大版本有可能会有很多坑，基于这些原因我尝试了对 Laravel 5.5 的日志进行改造以适应我的需求。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>PHP 是什么 - PHP 的架构及原理概述</title>
+				<link>https://blog.m2ez.com/posts/2018/001/</link>
+				<pubDate>Sun, 25 Feb 2018 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2018/001/</guid>
+				<description>&lt;p&gt;记得我刚开始学习 PHP 的时候，许多面试官会经常问我 PHP 是什么，那时的标准回答是 PHP 是一种弱类型动态脚本编程语言，开源，免费，是超文本预处理器的缩写。&lt;/p&gt;&#xA;&lt;p&gt;这只是很浅的解释，PHP 对我来说是一个工具，是我手里的一把锤子，虽然这把锤子时常被调侃为两边都是起钉器的锤子。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>使用 Docker 完成 MySQL 数据库主从配置</title>
+				<link>https://blog.m2ez.com/posts/2017/020/</link>
+				<pubDate>Sat, 04 Nov 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/020/</guid>
+				<description>&lt;p&gt;使用 docker 进行数据库主从配置，因为我有这个需求，而在网上搜索后发现没有满足我需求的相关实践文档，有的是一些零零碎碎的文档，而且在参照这些文档进行部署的时候我还踩了许多坑。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>开发者的简单服务器集群管理</title>
+				<link>https://blog.m2ez.com/posts/2017/019/</link>
+				<pubDate>Sun, 10 Sep 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/019/</guid>
+				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;本篇是以开发者的视角进行，非专业运维视角，开发管理服务器集群，也许仅仅是自己的项目，或者是在创业公司而没有专业的运维。&lt;/p&gt;&#xA;&lt;p&gt;开发管理服务器集群，用各种工具需要付出一定的学习成本，但开发者的主要工作不在于此，所以我们需要最简单又比较安全的管理方法，以下是一个对开发者比较好的管理服务器方案，希望对大家有帮助&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>用开源组件构建属于你的 PHP 框架</title>
+				<link>https://blog.m2ez.com/posts/2017/018/</link>
+				<pubDate>Sun, 03 Sep 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/018/</guid>
+				<description>&lt;h2 id=&#34;为什么要构建自己的-php-框架&#34;&gt;为什么要构建自己的 PHP 框架？&lt;/h2&gt;&#xA;&lt;p&gt;现在的 PHP 框架很多，当然不止 PHP ，即使是其他编程语言也有很多框架，这篇文章讲 PHP 框架构建是因为我对 PHP 的生态最为熟悉，但这个方法同样也适用于其他编程语言框架的构建。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Web 金字塔式开发框架分层模型概述</title>
+				<link>https://blog.m2ez.com/posts/2017/017/</link>
+				<pubDate>Sat, 26 Aug 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/017/</guid>
+				<description>&lt;p&gt;现在的大部分 Web 框架都是使用金字塔式的分层架构，一般这种应用都是阻塞同步 IO 模型的编程实现，理解这种分层架构模型的实质有助于理解框架。&lt;/p&gt;&#xA;&lt;p&gt;因为万变不离其宗，理解这种架构后你不管这种模型如何变化实际上都是在遵守一些约定和规则，那么理解这个模型，只要这个框架是这种架构那么你都会掌握的很快。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>网络七层模型与四层模型区别</title>
+				<link>https://blog.m2ez.com/posts/2017/016/</link>
+				<pubDate>Fri, 25 Aug 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/016/</guid>
+				<description>&lt;p&gt;作为一个 Web 程序员👨‍💻‍，对于网络模型你应该了解，知道网络到底是怎么进行通信的，进行工作的，为什么服务器能够接收到请求，做出响应。这里面的原理应该是每个 Web 程序员应该了解的。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>求钟表时针和分钟夹角问题</title>
+				<link>https://blog.m2ez.com/posts/2017/015/</link>
+				<pubDate>Mon, 21 Aug 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/015/</guid>
+				<description>&lt;p&gt;这是一道我面试中遇到的算法题，我觉得蛮有意思的所以写出来与大家分享一下。&lt;/p&gt;&#xA;&lt;h3 id=&#34;问题&#34;&gt;问题&lt;/h3&gt;&#xA;&lt;p&gt;给定一个时间值，需要计算出表盘上时针与分针的之间的夹角度数。&lt;/p&gt;&#xA;&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;&#xA;&lt;p&gt;虽然题目中只有一个条件，但其实已经有许多隐含条件包括在内。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Laravel 的 Eloquent 中的属性访问控制意义及实践</title>
+				<link>https://blog.m2ez.com/posts/2017/014/</link>
+				<pubDate>Mon, 31 Jul 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/014/</guid>
+				<description>&lt;p&gt;我们在定义一个自己的 Laravel 模型时都需要继承 Illuminate\Database\Eloquent\Model 这个类，在这个类中定义了很多模型相关的操作和行为。今天我们来重点说说 Model 中包含的属性。&lt;/p&gt;&#xA;&lt;p&gt;在框架定义属性中访问权限一般有 &lt;code&gt;protected&lt;/code&gt; 和 &lt;code&gt;public&lt;/code&gt; 两种，这两种属性是在我们继承基础模型后可以重写的，那为什么不统一都是&lt;code&gt;protected&lt;/code&gt;，是因为有一些属性我们需要去动态改变。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>PHP 用 Enum 限定参数类型</title>
+				<link>https://blog.m2ez.com/posts/2017/013/</link>
+				<pubDate>Wed, 26 Jul 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/013/</guid>
+				<description>&lt;h3 id=&#34;痛点&#34;&gt;痛点&lt;/h3&gt;&#xA;&lt;p&gt;PHP 是一门若类型语言，这是大家都知道的，弱类型让我们在编写代码时很舒服，但是维护它却变得不那么舒服，一个小型的 PHP 项目只有有限的几个程序员去维护的话，其实这个问题并不明显，也不会成为困难，但是当项目变大，协作的人数变多的时候这就是一个需要去正式的问题。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>HTTP 协议 Request 和 Response 参数笔记</title>
+				<link>https://blog.m2ez.com/posts/2017/010/</link>
+				<pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/010/</guid>
+				<description>&lt;h3 id=&#34;request&#34;&gt;Request&lt;/h3&gt;&#xA;&lt;h4 id=&#34;请求方法&#34;&gt;请求方法&lt;/h4&gt;&#xA;&lt;p&gt;一般的网页应用中只会用到 GET 和 POST 方法，而 RESTful 接口中会用到其他方法。&lt;/p&gt;&#xA;&lt;p&gt;GET : 请求获取 Request-URI 所标识的资源。&#xA;POST : 在 Request-URI 所标识的资源后附加新的数据。&#xA;HEAD : 请求获取由 Request-URI 所标识的资源的响应消息报头。&#xA;PUT : 请求服务器更新一个资源，并用 Request-URI 作为其标识。&#xA;PATCH : 请求服务器更新资源的一小部分，并返回更新部分。&#xA;DELETE : 请求服务器删除 Request-URI 所标识的资源。&#xA;OPTIONS : 请求查询服务器性能，或者查询与资源相关的选项或需求。（跨域请求中会首先发送此请求，获取服务器的允许信息）&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>互联网的基础协议 HTTP</title>
+				<link>https://blog.m2ez.com/posts/2017/011/</link>
+				<pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/011/</guid>
+				<description>&lt;p&gt;HTTP 协议中文全称 「超文本传输协议」，是互联网的基础协议，目前最新版本为 HTTP 2.0。&lt;/p&gt;&#xA;&lt;p&gt;HTTP 是基于 TCP/IP 协议的 应用层协议，主要规定了客户端与服务器端之间通信的格式，默认使用80端口。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>趣说什么是 依赖注入 和 控制反转</title>
+				<link>https://blog.m2ez.com/posts/2017/012/</link>
+				<pubDate>Sun, 09 Jul 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/012/</guid>
+				<description>&lt;p&gt;关于 &lt;code&gt;依赖注入&lt;/code&gt; 与 &lt;code&gt;控制反转&lt;/code&gt; 的概念有些人觉得很难理解，最近在给别人讲这个概念的时候梳理了一个比较好理解的解释，而且我认为非技术人员也应该能听的懂，因此记录一下。其实 &lt;code&gt;依赖注入&lt;/code&gt; 和 &lt;code&gt;控制反转&lt;/code&gt; 说的是同一件事情，只是站的角度不同而已。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>MySQL 常用数据存储引擎区别</title>
+				<link>https://blog.m2ez.com/posts/2017/009/</link>
+				<pubDate>Sat, 08 Jul 2017 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/009/</guid>
+				<description>&lt;p&gt;mysql有多种存储引擎，目前常用的是 MyISAM 和 InnoDB 这两个引擎，除了这两个引擎以为还有许多其他引擎，有官方的，也有一些公司自己研发的。这篇文章主要简单概述一下常用常见的 MySQL 引擎，一则这是面试中常被问到的问题，二则这也是数据库设计中不可忽略的问题，用合适的引擎可以更好的适应业务场景，提高业务效率。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Laravel 源码分析-路由是如何调用到控制器</title>
+				<link>https://blog.m2ez.com/posts/2017/008/</link>
+				<pubDate>Fri, 07 Jul 2017 20:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/008/</guid>
+				<description>&lt;h3 id=&#34;概述&#34;&gt;概述&lt;/h3&gt;&#xA;&lt;p&gt;laravel 的路由相比其他PHP框架非常灵活和优雅，它也能做的在 url 不变的情况下改变调用的控制器和方法。&lt;/p&gt;&#xA;&lt;p&gt;那么这到底在 laravel 里是怎么完成的呢&lt;/p&gt;&#xA;&lt;h3 id=&#34;路由到底是如何获取的&#34;&gt;路由到底是如何获取的？&lt;/h3&gt;&#xA;&lt;p&gt;这没什么神秘的，回忆一下我们写一个单页过程化 PHP 脚本时我们是如何接收 HTML 页面传输的参数的？&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Ubuntu 搭建 GitLab 笔记</title>
+				<link>https://blog.m2ez.com/posts/2017/007/</link>
+				<pubDate>Wed, 05 Jul 2017 20:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/007/</guid>
+				<description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;&#xA;&lt;p&gt;GitLab 社区版可以提供许多与 GitHub 相同的功能，且部署在属于自己的机器上，我们会因为网络及其他一些问题而不便使用 GitHub ，这时部署一个 GitLab 是最好的选择。&lt;/p&gt;&#xA;&lt;h3 id=&#34;下载-gitlab-并安装&#34;&gt;下载 GitLab 并安装&lt;/h3&gt;&#xA;&lt;p&gt;我的环境是 Ubuntu 16.04 下进行部署操作。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>PHP 的魔术方法及其应用</title>
+				<link>https://blog.m2ez.com/posts/2017/005/</link>
+				<pubDate>Tue, 04 Jul 2017 20:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/005/</guid>
+				<description>&lt;p&gt;PHP 中将所有__(两个下划线)开头的类方法作为魔术方法，这方法之所以称为魔术方法是因为其实现的功能就如变魔术一样感觉很神奇。在特定的事件下触发，这真的很酷。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>S.O.L.I.D 面向对象设计和编程（OOD&amp;OOP）笔记</title>
+				<link>https://blog.m2ez.com/posts/2017/006/</link>
+				<pubDate>Tue, 04 Jul 2017 20:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/006/</guid>
+				<description>&lt;p&gt;SOLID是 &lt;strong&gt;面向对象编程&lt;/strong&gt; 和 &lt;strong&gt;面试对象设计&lt;/strong&gt; 的五个基本原则，应用这五个原则能创建一个易于维护和扩展的软件系统。SOLID可以指导代码重构和在迭代的过程中进行代码清扫，以使得软件源代码清晰可读和具有良好的扩展性。在测试驱动开发中是典型应用场景，并且也是敏捷开发和自适应软件开发基本原则的重要组成部分。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>PHP 文件操作的各种姿势</title>
+				<link>https://blog.m2ez.com/posts/2017/004/</link>
+				<pubDate>Mon, 03 Jul 2017 20:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/004/</guid>
+				<description>&lt;h2 id=&#34;使用-spl-库&#34;&gt;使用 SPL 库&lt;/h2&gt;&#xA;&lt;p&gt;SPL 是 PHP 标准库，用于解决典型问题的一组接口与类的集合。&lt;/p&gt;&#xA;&lt;h3 id=&#34;迭代器-filesystemiterator&#34;&gt;迭代器 FilesystemIterator&lt;/h3&gt;&#xA;&lt;p&gt;官方文档：&lt;a href=&#34;http://php.net/manual/zh/class.filesystemiterator.php&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;http://php.net/manual/zh/class.filesystemiterator.php&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;类摘要：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;FilesystemIterator&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;implements&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;SeekableIterator&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* 常量 */&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;CURRENT_AS_PATHNAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;CURRENT_AS_FILEINFO&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;CURRENT_AS_SELF&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;CURRENT_MODE_MASK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;240&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;KEY_AS_PATHNAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;KEY_AS_FILENAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;256&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FOLLOW_SYMLINKS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;512&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;KEY_MODE_MASK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3840&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;NEW_CURRENT_AND_KEY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;256&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;SKIP_DOTS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4096&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;integer&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;UNIX_PATHS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8192&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* 方法 */&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;__construct&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$path&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$flags&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FilesystemIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;KEY_AS_PATHNAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FilesystemIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;CURRENT_AS_FILEINFO&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FilesystemIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;SKIP_DOTS&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mixed&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;getFlags&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;next&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;rewind&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setFlags&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;([&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$flags&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* 继承的方法 */&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getATime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getBasename&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;([&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$suffix&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getCTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getExtension&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getFilename&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getGroup&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getInode&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getMTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getOwner&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getPath&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getPathname&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getPerms&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getSize&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getType&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isDir&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isDot&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isExecutable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isFile&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isLink&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isReadable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isWritable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;next&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;rewind&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;seek&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$position&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;__toString&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DirectoryIterator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valid&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;使用这个迭代器的方法很简单，实例化的时候传入的是目录路径，这个迭代器继承自 DirectoryIterator 迭代器，而 DirectoryIterator 迭代器又继承自 SplFileInfo 类，这个类我们后面介绍。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Jenkins 部署 PHP 应用</title>
+				<link>https://blog.m2ez.com/posts/2017/003/</link>
+				<pubDate>Sun, 02 Jul 2017 20:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/003/</guid>
+				<description>&lt;h2 id=&#34;安装-jenkins&#34;&gt;安装 Jenkins&lt;/h2&gt;&#xA;&lt;p&gt;方式一：docker方式安装&lt;/p&gt;&#xA;&lt;p&gt;拉取jenkins官方镜像，按照镜像文档启动镜像就可以了&lt;/p&gt;&#xA;&lt;p&gt;方式二：手动安装&lt;/p&gt;&#xA;&lt;p&gt;以下所有操作都使用 root 用户进行操作。&lt;/p&gt;&#xA;&lt;p&gt;在各项目官网，下载 Java、Tomcat、Jenkins&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>PHP trait 特性在 Laravel 中的使用个人心得</title>
+				<link>https://blog.m2ez.com/posts/2017/002/</link>
+				<pubDate>Sat, 01 Jul 2017 20:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2017/002/</guid>
+				<description>&lt;p&gt;trait 是在 PHP5.4 中为了方便代码复用的一种实现方式，但目前我在看的的PHP项目中较少看的有程序员去主动使用这个实现方式，在 Laravel 中有很多 trait 的使用，关于 trait 在 Laravel 的使用请参看 Laravel 在哪些地方用了 trait?&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>测试 on 麦索的麦田</title>
-    <link>https://blog.m2ez.com/tags/%E6%B5%8B%E8%AF%95/</link>
-    <description>Recent content in 测试 on 麦索的麦田</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 13 Feb 2020 16:59:37 +0800</lastBuildDate>
-    <atom:link href="https://blog.m2ez.com/tags/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>为什么应该学习自动化测试？</title>
-      <link>https://blog.m2ez.com/posts/2020/002/</link>
-      <pubDate>Thu, 13 Feb 2020 16:59:37 +0800</pubDate>
-      <guid>https://blog.m2ez.com/posts/2020/002/</guid>
-      <description>&lt;p&gt;本次分享的主题是自动化测试，也就是大家常提到的单元测试。&lt;/p&gt;&#xA;&lt;h2 id=&#34;我们为什么需要自动化测试&#34;&gt;我们为什么需要自动化测试&lt;/h2&gt;&#xA;&lt;h3 id=&#34;自动化测试的目标是什么&#34;&gt;自动化测试的目标是什么&lt;/h3&gt;&#xA;&lt;p&gt;自动化测试是为了帮助我们将写好的代码以自动的方式进行功能检查，以确保现有的改动不影响已有的功能，多次的改动对已经完成的功能没有影响，它能够帮助我们有效避免和改善以下情况：&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>测试 on 麦索的麦田</title>
+		<link>https://blog.m2ez.com/tags/%E6%B5%8B%E8%AF%95/</link>
+		<description>Recent content in 测试 on 麦索的麦田</description>
+		<generator>Hugo</generator>
+		<language>zh-CN</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 13 Feb 2020 16:59:37 +0800</lastBuildDate>
+		
+			<atom:link href="https://blog.m2ez.com/tags/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>为什么应该学习自动化测试？</title>
+				<link>https://blog.m2ez.com/posts/2020/002/</link>
+				<pubDate>Thu, 13 Feb 2020 16:59:37 +0800</pubDate>
+				<guid>https://blog.m2ez.com/posts/2020/002/</guid>
+				<description>&lt;p&gt;本次分享的主题是自动化测试，也就是大家常提到的单元测试。&lt;/p&gt;&#xA;&lt;h2 id=&#34;我们为什么需要自动化测试&#34;&gt;我们为什么需要自动化测试&lt;/h2&gt;&#xA;&lt;h3 id=&#34;自动化测试的目标是什么&#34;&gt;自动化测试的目标是什么&lt;/h3&gt;&#xA;&lt;p&gt;自动化测试是为了帮助我们将写好的代码以自动的方式进行功能检查，以确保现有的改动不影响已有的功能，多次的改动对已经完成的功能没有影响，它能够帮助我们有效避免和改善以下情况：&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

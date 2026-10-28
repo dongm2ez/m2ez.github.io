@@ -5,20 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>提示词工程是什么？ - 麦索的麦田</title><meta name="Description" content="提示词工程概念和一些构建提示词的例子"><meta property="og:url" content="https://blog.m2ez.com/posts/2025/001/">
-  <meta property="og:site_name" content="麦索的麦田">
-  <meta property="og:title" content="提示词工程是什么？">
-  <meta property="og:description" content="提示词工程概念和一些构建提示词的例子">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-06-03T11:51:24+08:00">
-    <meta property="article:modified_time" content="2025-06-03T11:51:24+08:00">
-    <meta property="article:tag" content="AI">
-    <meta property="article:tag" content="大模型">
+	<meta property="og:site_name" content="麦索的麦田">
+	<meta property="og:title" content="提示词工程是什么？">
+	<meta property="og:description" content="提示词工程概念和一些构建提示词的例子">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2025-06-03T11:51:24+08:00">
+		<meta property="article:modified_time" content="2025-06-03T11:51:24+08:00">
+		<meta property="article:tag" content="AI">
+		<meta property="article:tag" content="大模型">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="提示词工程是什么？">
-  <meta name="twitter:description" content="提示词工程概念和一些构建提示词的例子">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="提示词工程是什么？">
+	<meta name="twitter:description" content="提示词工程概念和一些构建提示词的例子">
 <meta name="application-name" content="麦索的麦田">
 <meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -216,7 +216,8 @@
 <blockquote>
 <p>假设三位不同的专家来回答这个问题。
 所有专家都写下他们思考这个问题的第一个步骤，然后与大家分享。然后，所有专家都写下他们思考的下一个步骤并分享。以此类推，直到所有专家写完他们思考的所有步骤。只要大家发现有专家的步骤出错了，就让这位专家离开。
-请问&hellip;</p></blockquote>
+请问&hellip;</p>
+</blockquote>
 <p>六顶思维帽方法、狼人杀方法</p>
 <h3 id="react">ReAct</h3>
 <p>来自于 2022 年的论文 ReAct:Synergizing Reasoning and Acting inLanguage Models （《ReAct：在语言模型中协同推理与行动》）。</p>
@@ -240,15 +241,19 @@
 <h3 id="避免不明确">避免不明确</h3>
 <p>向大模型询问了解提示词，以下都能得到结果</p>
 <blockquote>
-<p>解释提示工程的概念。保持解释简短，只有几句话，不要过于描述。</p></blockquote>
+<p>解释提示工程的概念。保持解释简短，只有几句话，不要过于描述。</p>
+</blockquote>
 <blockquote>
-<p>使用 2-3 句话向高中学生解释提示工程的概念。</p></blockquote>
+<p>使用 2-3 句话向高中学生解释提示工程的概念。</p>
+</blockquote>
 <h3 id="做什么还是不做什么">做什么还是不做什么</h3>
 <blockquote>
 <p>以下是向客户推荐电影的代理程序。
-不要询问兴趣。不要询问个人信息。</p></blockquote>
+不要询问兴趣。不要询问个人信息。</p>
+</blockquote>
 <blockquote>
-<p>你是向客户推荐电影的代理程序。代理负责从全球热门电影中推荐电影。你应该避免询问用户的偏好并避免询问个人信息。如果没有电影推荐，应该回答“抱歉，今天找不到电影推荐。</p></blockquote>
+<p>你是向客户推荐电影的代理程序。代理负责从全球热门电影中推荐电影。你应该避免询问用户的偏好并避免询问个人信息。如果没有电影推荐，应该回答“抱歉，今天找不到电影推荐。</p>
+</blockquote>
 <h2 id="具体提示技巧">具体提示技巧</h2>
 <h3 id="零样本提示">零样本提示</h3>
 <p><img
@@ -290,10 +295,12 @@ A：将所有奇数相加（11、13）得到24。
 A：将所有奇数相加（17、9、13）得到39。
 答案为False。
 这组数中的奇数加起来是偶数：15、32、5、13、82、7、1。
-A：</p></blockquote>
+A：</p>
+</blockquote>
 <h3 id="零样本思维链zero-shot-cot">零样本思维链（Zero-Shot-CoT）</h3>
 <blockquote>
-<p>我去市场买了10个苹果。我给了邻居2个苹果和修理工2个苹果。然后我去买了5个苹果并吃了1个。我还剩下多少苹果？让我们逐步思考。</p></blockquote>
+<p>我去市场买了10个苹果。我给了邻居2个苹果和修理工2个苹果。然后我去买了5个苹果并吃了1个。我还剩下多少苹果？让我们逐步思考。</p>
+</blockquote>
 <h3 id="自动思维链auto-cot">自动思维链（Auto-CoT）</h3>
 <ul>
 <li>阶段一：问题聚类</li>
@@ -320,7 +327,8 @@ Q：Michael有58个高尔夫球。星期二，他丢失了23个高尔夫球。�
 A：Michael最初有58个球。星期二他丢失了23个，所以在那之后他有58-23 = 35个球。星期三他又丢失了2个，所以现在他有35-2 = 33个球。答案是33。
 Q：Olivia有23美元。她用每个3美元的价格买了五个百吉饼。她还剩多少钱？A：她用每个3美元的价格买了5个百吉饼。这意味着她花了15美元。她还剩8美元。
 Q：当我6岁时，我的妹妹是我的一半年龄。现在我70岁了，我的妹妹多大？
-A：</p></blockquote>
+A：</p>
+</blockquote>
 <h3 id="生成知识提示">生成知识提示</h3>
 <blockquote>
 <p>输入：希腊比墨西哥大。
@@ -334,11 +342,13 @@ A：</p></blockquote>
 在每天吸烟1到10支香烟之间的人群中，死于肺癌的风险几乎是从不吸烟者的12倍。输入：一块石头和一颗卵石大小相同。
 知识：卵石是一种根据Udden-Wentworth沉积学尺度的颗粒大小为4到64毫米的岩屑。卵石通常被认为比颗粒（直径2到4毫米）大，比卵石（直径64到256毫米）小。
 输入：高尔夫球的一部分是试图获得比其他人更高的得分。
-知识：</p></blockquote>
+知识：</p>
+</blockquote>
 <blockquote>
 <p>问题：高尔夫球的一部分是试图获得比其他人更高的得分。是或否？
 知识：高尔夫球的目标是以最少的杆数打完一组洞。一轮高尔夫球比赛通常包括18个洞。每个洞在标准高尔夫球场上一轮只打一次。每个杆计为一分，总杆数用于确定比赛的获胜者。
-解释和答案：</p></blockquote>
+解释和答案：</p>
+</blockquote>
 <h3 id="链式提示prompt-chaining">链式提示（Prompt Chaining）</h3>
 <p>将大问题分解成子任务，将子任务的提示词提供给模型，得到的结果作为新的提示词的一部分。
 例子：Dify 中的节点和连线。</p>
@@ -353,7 +363,8 @@ A：</p></blockquote>
 #### <br/>
 {{文档}}<br/>
 #### <br/>
-输出：</p></blockquote>
+输出：</p>
+</blockquote>
 <blockquote>
 <p>根据从文档中提取的相关引文（由&lt;quotes&gt;&lt;/quotes&gt;分隔）和原始文档（由####分隔），请构建对问题的回答。请确保答案准确、语气友好且有帮助。<br/><br/>
 ####<br/>
@@ -372,7 +383,8 @@ A：</p></blockquote>
 - Textual inversion and embeddings[59]<br/>
 - Using gradient descent to search for prompts[61][62][63][64]<br/>
 - Prompt injection[65][66][67]<br/>
-&lt;/quotes&gt;</p></blockquote>
+&lt;/quotes&gt;</p>
+</blockquote>
 <h2 id="工具">工具</h2>
 <p>提示词样例 <a href="https://www.aishort.top/" target="_blank" rel="noopener noreffer">https://www.aishort.top/</a>
 </p>
@@ -411,8 +423,8 @@ A：</p></blockquote>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.169.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
         </div>
     </footer></div>

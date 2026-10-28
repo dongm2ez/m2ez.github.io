@@ -5,21 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>从排序数组中删除重复项 - 麦索的麦田</title><meta name="Description" content="麦索的个人博客"><meta property="og:url" content="https://blog.m2ez.com/posts/2019/003/">
-  <meta property="og:site_name" content="麦索的麦田">
-  <meta property="og:title" content="从排序数组中删除重复项">
-  <meta property="og:description" content="题目链接 从排序数组中删除重复项解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。
+	<meta property="og:site_name" content="麦索的麦田">
+	<meta property="og:title" content="从排序数组中删除重复项">
+	<meta property="og:description" content="题目链接 从排序数组中删除重复项 解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。
 代码 PHP 版本 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 class Solution { /** * @param Integer[] $nums * @return Integer */ function removeDuplicates(&amp;$nums) { $size = sizeof($nums);// 防止数组越界 foreach($nums as $key =&gt; $item){ if($key &#43; 1 &lt;= $size) { if($nums[$key] === $nums[$key &#43; 1]){ unset($nums[$key]); } } } return count($nums); } } 语言坑点：">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2019-05-17T16:59:37+08:00">
-    <meta property="article:modified_time" content="2019-05-17T16:59:37+08:00">
-    <meta property="article:tag" content="Leetcode">
-    <meta property="article:tag" content="算法">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2019-05-17T16:59:37+08:00">
+		<meta property="article:modified_time" content="2019-05-17T16:59:37+08:00">
+		<meta property="article:tag" content="Leetcode">
+		<meta property="article:tag" content="算法">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="从排序数组中删除重复项">
-  <meta name="twitter:description" content="题目链接 从排序数组中删除重复项解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="从排序数组中删除重复项">
+	<meta name="twitter:description" content="题目链接 从排序数组中删除重复项 解题思路 迭代数组，判断下一个元素是否与当前元素相同，如果相同则删除当前元素。
 代码 PHP 版本 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 class Solution { /** * @param Integer[] $nums * @return Integer */ function removeDuplicates(&amp;$nums) { $size = sizeof($nums);// 防止数组越界 foreach($nums as $key =&gt; $item){ if($key &#43; 1 &lt;= $size) { if($nums[$key] === $nums[$key &#43; 1]){ unset($nums[$key]); } } } return count($nums); } } 语言坑点：">
 <meta name="application-name" content="麦索的麦田">
 <meta name="apple-mobile-web-app-title" content="麦索的麦田"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -132,7 +132,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
 </span></span><span class="line"><span class="cl">    <span class="k">function</span> <span class="nf">removeDuplicates</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$nums</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$size</span> <span class="o">=</span> <span class="nx">sizeof</span><span class="p">(</span><span class="nv">$nums</span><span class="p">);</span><span class="c1">// 防止数组越界
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">foreach</span><span class="p">(</span><span class="nv">$nums</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$item</span><span class="p">){</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">foreach</span><span class="p">(</span><span class="nv">$nums</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$item</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="nv">$key</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nv">$size</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="nv">$nums</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">===</span> <span class="nv">$nums</span><span class="p">[</span><span class="nv">$key</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]){</span>
 </span></span><span class="line"><span class="cl">                    <span class="nx">unset</span><span class="p">(</span><span class="nv">$nums</span><span class="p">[</span><span class="nv">$key</span><span class="p">]);</span>
@@ -177,8 +177,8 @@
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.169.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2014 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备15012847号-1</a></span></div>
         </div>
     </footer></div>
